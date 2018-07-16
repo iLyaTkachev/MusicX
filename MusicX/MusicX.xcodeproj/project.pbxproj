@@ -15,6 +15,8 @@
 		8C4B43B020FCCA9F0014C692 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C4B43AE20FCCA9F0014C692 /* LaunchScreen.storyboard */; };
 		8C4B43BB20FCCA9F0014C692 /* MusicXTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4B43BA20FCCA9F0014C692 /* MusicXTests.swift */; };
 		8C4B43C620FCCA9F0014C692 /* MusicXUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4B43C520FCCA9F0014C692 /* MusicXUITests.swift */; };
+		8C4B43D520FCCB000014C692 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4B43D420FCCB000014C692 /* Constants.swift */; };
+		8C4B43D720FCCB1C0014C692 /* SecretConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4B43D620FCCB1C0014C692 /* SecretConstants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +51,8 @@
 		8C4B43C120FCCA9F0014C692 /* MusicXUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MusicXUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C4B43C520FCCA9F0014C692 /* MusicXUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicXUITests.swift; sourceTree = "<group>"; };
 		8C4B43C720FCCA9F0014C692 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8C4B43D420FCCB000014C692 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		8C4B43D620FCCB1C0014C692 /* SecretConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecretConstants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +103,7 @@
 		8C4B43A120FCCA9E0014C692 /* MusicX */ = {
 			isa = PBXGroup;
 			children = (
+				8C4B43D320FCCAD80014C692 /* API */,
 				8C4B43A220FCCA9E0014C692 /* AppDelegate.swift */,
 				8C4B43A420FCCA9E0014C692 /* ViewController.swift */,
 				8C4B43A620FCCA9E0014C692 /* Main.storyboard */,
@@ -126,6 +131,15 @@
 				8C4B43C720FCCA9F0014C692 /* Info.plist */,
 			);
 			path = MusicXUITests;
+			sourceTree = "<group>";
+		};
+		8C4B43D320FCCAD80014C692 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				8C4B43D420FCCB000014C692 /* Constants.swift */,
+				8C4B43D620FCCB1C0014C692 /* SecretConstants.swift */,
+			);
+			path = API;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -262,6 +276,8 @@
 				8C4B43A520FCCA9E0014C692 /* ViewController.swift in Sources */,
 				8C4B43A320FCCA9E0014C692 /* AppDelegate.swift in Sources */,
 				8C4B43AB20FCCA9E0014C692 /* MusicX.xcdatamodeld in Sources */,
+				8C4B43D520FCCB000014C692 /* Constants.swift in Sources */,
+				8C4B43D720FCCB1C0014C692 /* SecretConstants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
