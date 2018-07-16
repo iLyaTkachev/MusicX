@@ -13,6 +13,13 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        let url = URL(string: "https://ws.audioscrobbler.com/2.0/?method=chart.gettoptracks&api_key=\(SecretConstants.apiKey)&format=json")
+        
+        let apiService = MusicAPIService()
+        apiService.executeWebRequest(urlToExecute: url!) { (responseDict, error) in
+            print(responseDict)
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -20,6 +27,7 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    
 
 }
 

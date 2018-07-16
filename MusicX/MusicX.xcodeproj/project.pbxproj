@@ -17,6 +17,7 @@
 		8C4B43C620FCCA9F0014C692 /* MusicXUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4B43C520FCCA9F0014C692 /* MusicXUITests.swift */; };
 		8C4B43D520FCCB000014C692 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4B43D420FCCB000014C692 /* Constants.swift */; };
 		8C4B43D720FCCB1C0014C692 /* SecretConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4B43D620FCCB1C0014C692 /* SecretConstants.swift */; };
+		8C4B43DA20FCCC6E0014C692 /* MusicAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4B43D920FCCC6E0014C692 /* MusicAPIService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		8C4B43C720FCCA9F0014C692 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8C4B43D420FCCB000014C692 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		8C4B43D620FCCB1C0014C692 /* SecretConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecretConstants.swift; sourceTree = "<group>"; };
+		8C4B43D920FCCC6E0014C692 /* MusicAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicAPIService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,6 +140,7 @@
 			children = (
 				8C4B43D420FCCB000014C692 /* Constants.swift */,
 				8C4B43D620FCCB1C0014C692 /* SecretConstants.swift */,
+				8C4B43D920FCCC6E0014C692 /* MusicAPIService.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -273,6 +276,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8C4B43DA20FCCC6E0014C692 /* MusicAPIService.swift in Sources */,
 				8C4B43A520FCCA9E0014C692 /* ViewController.swift in Sources */,
 				8C4B43A320FCCA9E0014C692 /* AppDelegate.swift in Sources */,
 				8C4B43AB20FCCA9E0014C692 /* MusicX.xcdatamodeld in Sources */,

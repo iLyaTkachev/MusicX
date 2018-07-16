@@ -1,6 +1,7 @@
 import Foundation
 
 class Constants {
+    
     static let appName = "MusicX"
     
     class ApiComponents {
