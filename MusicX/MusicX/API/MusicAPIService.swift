@@ -1,6 +1,5 @@
 import Foundation
 
-
 class MusicAPIService {
     
     func executeWebRequest(urlToExecute : URL, completionHandler: @escaping ([String : Any]?, Error?)->Void) {
@@ -12,7 +11,7 @@ class MusicAPIService {
             
             guard let unwrappedData = webData else {
                 completionHandler(nil, apiError)
-                print(apiError)
+                print(apiError!)
                 return
             }
             

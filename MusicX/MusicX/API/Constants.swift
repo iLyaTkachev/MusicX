@@ -6,9 +6,10 @@ class Constants {
     
     class ApiComponents {
         static let example = "http://ws.audioscrobbler.com/2.0/?method=chart.gettoptracks&api_key=YOUR_API_KEY&format=json"
-        static let baseUrl = "http://ws.audioscrobbler.com"
+        static let baseUrl = "https://ws.audioscrobbler.com"
         static let version = "2.0"
         static let method = "method"
+        static let apiKey = "api_key"
         static let format = "format"
         static let json = "json"
         

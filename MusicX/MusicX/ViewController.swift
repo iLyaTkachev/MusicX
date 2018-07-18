@@ -1,25 +1,13 @@
-//
-//  ViewController.swift
-//  MusicX
-//
-//  Created by Ilya Tkachou on 7/16/18.
-//  Copyright © 2018 Ilya Tkachou. All rights reserved.
-//
-
 import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var textView: UITextView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        let url = URL(string: "https://ws.audioscrobbler.com/2.0/?method=chart.gettoptracks&api_key=\(SecretConstants.apiKey)&format=json")
-        
-        let apiService = MusicAPIService()
-        apiService.executeWebRequest(urlToExecute: url!) { (responseDict, error) in
-            print(responseDict)
-        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -27,7 +15,24 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    func makeRequest() {
+        let url = ApiRequestBuilder.LastFmBuilder.init().buildJsonRequest(withMethod: Constants.ApiComponents.Chart.chart + "." + Constants.ApiComponents.Chart.getTopTracks)
+        
+        let apiService = MusicAPIService()
+        apiService.executeWebRequest(urlToExecute: url!) { (responseDict, error) in
+            
+            DispatchQueue.main.async {
+                if let unwrappedError = error {
+                    self.textView.text = unwrappedError.localizedDescription
+                } else {
+                    self.textView.text = responseDict?.description
+                }
+            }
+        }
+    }
+
+    @IBAction func buttonClick(_ sender: UIButton) {
+        makeRequest()
+    }
     
-
 }
-
