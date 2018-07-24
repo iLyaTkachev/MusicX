@@ -16,19 +16,37 @@ class ViewController: UIViewController {
     }
 
     func makeRequest() {
-        let url = ApiRequestBuilder.LastFmBuilder.init().buildJsonRequest(withMethod: Constants.ApiComponents.Chart.chart + "." + Constants.ApiComponents.Chart.getTopTracks)
+        let url = ApiRequestBuilder.LastFmBuilder().buildJsonRequest(withMethod: Constants.ApiComponents.Chart.chart + "." + Constants.ApiComponents.Chart.getTopTracks, withPage: nil)
         
-        let apiService = MusicAPIService()
-        apiService.executeWebRequest(urlToExecute: url!) { (responseDict, error) in
+        let apiService: NetworkService
+        apiService = QueryService()
+        
+        apiService.executeRequest(urlToExecute: url!) { (responseDict, error) in
             
             DispatchQueue.main.async {
                 if let unwrappedError = error {
                     self.textView.text = unwrappedError.localizedDescription
                 } else {
-                    self.textView.text = responseDict?.description
+                    guard let dict = responseDict?["tracks"] as? [String : Any] , let array = dict["track"] as? [Any] else {
+                        print("Dictionary does not contain track key\n")
+                        return
+                    }
+                    
+                    for trackDictionary in array {
+                        if let trackDictionary = trackDictionary as? [String : Any],
+                            let track = Track(with: trackDictionary) {
+                            print(track.name + " " + track.listeners)
+                        } else {
+                            print("Problem parsing trackDictionary\n")
+                            break
+                        }
+                    }
+                    
                 }
             }
         }
+        
+       
     }
 
     @IBAction func buttonClick(_ sender: UIButton) {

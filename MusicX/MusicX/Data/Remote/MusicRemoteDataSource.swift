@@ -2,14 +2,14 @@ import Foundation
 
 final class MusicRemoteDataSource: MusicDataSource {
     
-    static let shared = MusicRemoteDataSource()
+    private let queryService: QueryService
     
-    private init() {
-        
+    init() {
+        queryService = QueryService()
     }
     
     func getTopTracks() {
-        
+    
     }
     
 }

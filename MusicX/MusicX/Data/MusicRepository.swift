@@ -12,8 +12,8 @@ final class MusicRepository: MusicDataSource {
     private let localDataSource: MusicLocalDataSource
     
     private init() {
-        remoteDataSource = MusicRemoteDataSource.shared
-        localDataSource = MusicLocalDataSource.shared
+        remoteDataSource = MusicRemoteDataSource()
+        localDataSource = MusicLocalDataSource()
     }
     
     func getTopTracks() {
