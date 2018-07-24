@@ -12,6 +12,7 @@ class Constants {
         static let apiKey = "api_key"
         static let format = "format"
         static let json = "json"
+        static let page = "page"
         
         class Auth {
             static let auth = "auth"
