@@ -1,11 +1,3 @@
-//
-//  AppDelegate.swift
-//  MusicX
-//
-//  Created by Ilya Tkachou on 7/16/18.
-//  Copyright © 2018 Ilya Tkachou. All rights reserved.
-//
-
 import UIKit
 import CoreData
 
