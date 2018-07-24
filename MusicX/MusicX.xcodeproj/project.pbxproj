@@ -9,6 +9,14 @@
 /* Begin PBXBuildFile section */
 		8C18E21A20FF5909005DAEE1 /* ApiRequestBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C18E21920FF5909005DAEE1 /* ApiRequestBuilder.swift */; };
 		8C18E2202100CF17005DAEE1 /* Patterns.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C18E21F2100CF17005DAEE1 /* Patterns.swift */; };
+		8C18E22921070FE1005DAEE1 /* Download.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C18E22821070FE1005DAEE1 /* Download.swift */; };
+		8C18E22B2107100B005DAEE1 /* Track.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C18E22A2107100B005DAEE1 /* Track.swift */; };
+		8C18E22D21071024005DAEE1 /* Artist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C18E22C21071024005DAEE1 /* Artist.swift */; };
+		8C18E22F21071053005DAEE1 /* MusicRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C18E22E21071053005DAEE1 /* MusicRepository.swift */; };
+		8C18E2312107107B005DAEE1 /* MusicRemoteDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C18E2302107107B005DAEE1 /* MusicRemoteDataSource.swift */; };
+		8C18E2332107109E005DAEE1 /* MusicLocalDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C18E2322107109E005DAEE1 /* MusicLocalDataSource.swift */; };
+		8C18E23721071136005DAEE1 /* QueryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C18E23621071136005DAEE1 /* QueryService.swift */; };
+		8C18E23921071149005DAEE1 /* DownloadService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C18E23821071149005DAEE1 /* DownloadService.swift */; };
 		8C4B43A320FCCA9E0014C692 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4B43A220FCCA9E0014C692 /* AppDelegate.swift */; };
 		8C4B43A520FCCA9E0014C692 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4B43A420FCCA9E0014C692 /* ViewController.swift */; };
 		8C4B43A820FCCA9E0014C692 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C4B43A620FCCA9E0014C692 /* Main.storyboard */; };
@@ -42,6 +50,14 @@
 /* Begin PBXFileReference section */
 		8C18E21920FF5909005DAEE1 /* ApiRequestBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiRequestBuilder.swift; sourceTree = "<group>"; };
 		8C18E21F2100CF17005DAEE1 /* Patterns.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Patterns.swift; sourceTree = "<group>"; };
+		8C18E22821070FE1005DAEE1 /* Download.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Download.swift; sourceTree = "<group>"; };
+		8C18E22A2107100B005DAEE1 /* Track.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Track.swift; sourceTree = "<group>"; };
+		8C18E22C21071024005DAEE1 /* Artist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Artist.swift; sourceTree = "<group>"; };
+		8C18E22E21071053005DAEE1 /* MusicRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicRepository.swift; sourceTree = "<group>"; };
+		8C18E2302107107B005DAEE1 /* MusicRemoteDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicRemoteDataSource.swift; sourceTree = "<group>"; };
+		8C18E2322107109E005DAEE1 /* MusicLocalDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicLocalDataSource.swift; sourceTree = "<group>"; };
+		8C18E23621071136005DAEE1 /* QueryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryService.swift; sourceTree = "<group>"; };
+		8C18E23821071149005DAEE1 /* DownloadService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadService.swift; sourceTree = "<group>"; };
 		8C4B439F20FCCA9E0014C692 /* MusicX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MusicX.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C4B43A220FCCA9E0014C692 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8C4B43A420FCCA9E0014C692 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -86,6 +102,59 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8C18E22421070FAD005DAEE1 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				8C18E22821070FE1005DAEE1 /* Download.swift */,
+				8C18E22A2107100B005DAEE1 /* Track.swift */,
+				8C18E22C21071024005DAEE1 /* Artist.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		8C18E22521070FBB005DAEE1 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				8C18E22721070FCB005DAEE1 /* Local */,
+				8C18E22621070FC5005DAEE1 /* Remote */,
+				8C18E22E21071053005DAEE1 /* MusicRepository.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		8C18E22621070FC5005DAEE1 /* Remote */ = {
+			isa = PBXGroup;
+			children = (
+				8C18E2302107107B005DAEE1 /* MusicRemoteDataSource.swift */,
+			);
+			path = Remote;
+			sourceTree = "<group>";
+		};
+		8C18E22721070FCB005DAEE1 /* Local */ = {
+			isa = PBXGroup;
+			children = (
+				8C18E234210710A8005DAEE1 /* DB */,
+				8C18E2322107109E005DAEE1 /* MusicLocalDataSource.swift */,
+			);
+			path = Local;
+			sourceTree = "<group>";
+		};
+		8C18E234210710A8005DAEE1 /* DB */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = DB;
+			sourceTree = "<group>";
+		};
+		8C18E23521071126005DAEE1 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				8C18E23621071136005DAEE1 /* QueryService.swift */,
+				8C18E23821071149005DAEE1 /* DownloadService.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
 		8C4B439620FCCA9E0014C692 = {
 			isa = PBXGroup;
 			children = (
@@ -109,6 +178,9 @@
 		8C4B43A120FCCA9E0014C692 /* MusicX */ = {
 			isa = PBXGroup;
 			children = (
+				8C18E23521071126005DAEE1 /* Network */,
+				8C18E22521070FBB005DAEE1 /* Data */,
+				8C18E22421070FAD005DAEE1 /* Model */,
 				8C4B43D320FCCAD80014C692 /* API */,
 				8C4B43A220FCCA9E0014C692 /* AppDelegate.swift */,
 				8C4B43A420FCCA9E0014C692 /* ViewController.swift */,
@@ -282,14 +354,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8C18E2332107109E005DAEE1 /* MusicLocalDataSource.swift in Sources */,
+				8C18E2312107107B005DAEE1 /* MusicRemoteDataSource.swift in Sources */,
+				8C18E22921070FE1005DAEE1 /* Download.swift in Sources */,
+				8C18E22F21071053005DAEE1 /* MusicRepository.swift in Sources */,
+				8C18E22B2107100B005DAEE1 /* Track.swift in Sources */,
 				8C18E2202100CF17005DAEE1 /* Patterns.swift in Sources */,
 				8C4B43DA20FCCC6E0014C692 /* MusicAPIService.swift in Sources */,
+				8C18E23721071136005DAEE1 /* QueryService.swift in Sources */,
 				8C4B43A520FCCA9E0014C692 /* ViewController.swift in Sources */,
+				8C18E23921071149005DAEE1 /* DownloadService.swift in Sources */,
 				8C4B43A320FCCA9E0014C692 /* AppDelegate.swift in Sources */,
 				8C4B43AB20FCCA9E0014C692 /* MusicX.xcdatamodeld in Sources */,
 				8C4B43D520FCCB000014C692 /* Constants.swift in Sources */,
 				8C4B43D720FCCB1C0014C692 /* SecretConstants.swift in Sources */,
 				8C18E21A20FF5909005DAEE1 /* ApiRequestBuilder.swift in Sources */,
+				8C18E22D21071024005DAEE1 /* Artist.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
