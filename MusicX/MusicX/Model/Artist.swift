@@ -1,11 +1,26 @@
 import Foundation
 
-class Artist: Codable {
-    let name, mbid, url: String
+class Artist: MediaObject {
     
-    init(name: String, mbid: String, url: String) {
+    private enum Keys: String {
+        case name, mbid
+    }
+    
+    let name, mbid: String
+    
+    init(name: String, mbid: String) {
         self.name = name
         self.mbid = mbid
-        self.url = url
+    }
+    
+    required convenience init?(with dictionary: [String : Any]) {
+        if let name = dictionary[Keys.name.rawValue] as? String,
+            let mbid = dictionary[Keys.mbid.rawValue] as? String {
+            
+            self.init(name: name, mbid: mbid)
+        } else {
+            print("Problem with parsing of artist\n")
+            return nil
+        }
     }
 }

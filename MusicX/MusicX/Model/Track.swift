@@ -1,13 +1,10 @@
 import Foundation
 
-protocol ModelFromDictionary {
-    init?(with trackDictionary: [String:Any])
-}
-
-class Track: ModelFromDictionary {
+class Track: MediaObject {
     
     private enum Keys: String {
-        case name, duration, playcount, listeners, artist
+        case name, duration, playcount, listeners, artist, image
+        case imageUrl = "#text"
     }
     
     let name, duration, playcount, listeners, imageUrl: String
@@ -22,17 +19,20 @@ class Track: ModelFromDictionary {
         self.artist = artist
     }
     
-    required convenience init?(with trackDictionary: [String : Any]) {
-        if let name = trackDictionary[Keys.name.rawValue] as? String,
-            let duration = trackDictionary["duration"] as? String,
-            let playcount = trackDictionary["playcount"] as? String,
-            let listeners = trackDictionary["listeners"] as? String
-            //let imageUrl = trackDictionary["imageUrl"] as? String,
-            //let artist = trackDictionary["artist"] as? Artist {
-            {
-            self.init(name: name, duration: duration, playcount: playcount, listeners: listeners, imageUrl: "123", artist: nil)
+    required convenience init?(with dictionary: [String : Any]) {
+        if let name = dictionary[Keys.name.rawValue] as? String,
+            let duration = dictionary[Keys.duration.rawValue] as? String,
+            let playcount = dictionary[Keys.playcount.rawValue] as? String,
+            let listeners = dictionary[Keys.listeners.rawValue] as? String,
+            let imagesArray = dictionary[Keys.image.rawValue] as? [Any],
+            let imageDictionary = imagesArray[3] as? [String : Any],
+            let imageUrl = imageDictionary[Keys.imageUrl.rawValue] as? String,
+            let artistDictionary = dictionary[Keys.artist.rawValue] as? [String : Any],
+            let artist = Artist(with: artistDictionary) {
+            
+            self.init(name: name, duration: duration, playcount: playcount, listeners: listeners, imageUrl: imageUrl, artist: artist)
         } else {
-            print("Problem parsing track\n")
+            print("Problem with parsing of track\n")
             return nil
         }
     }

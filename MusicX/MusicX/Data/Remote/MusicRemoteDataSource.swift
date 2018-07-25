@@ -8,8 +8,8 @@ final class MusicRemoteDataSource: MusicDataSource {
         queryService = QueryService()
     }
     
-    func getTopTracks() {
-    
+    func getTopTracks() -> MediaObject? {
+        return nil
     }
     
 }

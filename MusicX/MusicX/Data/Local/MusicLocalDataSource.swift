@@ -6,8 +6,8 @@ class MusicLocalDataSource: MusicDataSource {
         
     }
     
-    func getTopTracks() {
-        
+    func getTopTracks() -> MediaObject? {
+        return nil
     }
     
 }
