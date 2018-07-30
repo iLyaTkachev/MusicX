@@ -11,6 +11,12 @@ class Artist: MediaObject {
     init(name: String, mbid: String) {
         self.name = name
         self.mbid = mbid
+        
+        print("Initialization \(name)")
+    }
+    
+    deinit {
+        print("Deinitialization \(name)")
     }
     
     required convenience init?(with dictionary: [String : Any]) {

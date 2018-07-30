@@ -49,8 +49,14 @@ class ViewController: UIViewController {
        
     }
 
+    var val1: Artist?
+    var count = 0
+    
     @IBAction func buttonClick(_ sender: UIButton) {
-        makeRequest()
+        //makeRequest()
+        
+        val1 = Artist(name: "Artist \(count)", mbid: "123")
+        count+=1
     }
     
 }
