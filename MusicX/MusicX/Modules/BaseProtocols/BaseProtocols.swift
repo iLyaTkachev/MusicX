@@ -15,6 +15,10 @@ protocol BaseViewInput: class {
     func setupInitialState()
 }
 
+protocol BaseViewOutput {
+    func viewIsReady()
+}
+
 protocol BaseInteractorInput: class {
     associatedtype Output: BaseInteractorOutput
     
@@ -32,20 +36,20 @@ protocol BaseInteractorOutput: class {
 protocol BasePresenter: class {
     associatedtype Interactor: BaseInteractorInput
     associatedtype View: BaseViewInput, Presentable
+    associatedtype Router: BaseRouter
     
     var view: View? { get } //Should be weak
     var interactor: Interactor! { get }
-    var router: BaseRouter! { get }
+    var router: Router! { get }
     
     func viewDidLoad()
 }
 
 protocol BaseRouter: class {
-    
-    var viewController: UIViewController? { get set }//Should be weak
-    
-    
-    static func assembleModule() -> UIViewController
+    associatedtype Item
+
+    func presentSend(for item: Item, from: UIViewController)
+    func presentReceive(for item: Item, from: UIViewController)
 }
 
 // } VIPER protocols

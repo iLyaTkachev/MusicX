@@ -9,12 +9,13 @@
 import Foundation
 import UIKit
 
-class ChartRouter: ChartBaseRouter {
+class ChartRouter <Item: Track> : ChartRouterInput {
+    func presentSend(for item: Item, from: UIViewController) {
+        
+    }
     
-    weak var viewController: UIViewController?
-    
-    static func assembleModule() -> UIViewController {
-        return UIViewController()
+    func presentReceive(for item: Item, from: UIViewController) {
+        
     }
     
     
