@@ -59,4 +59,15 @@ class ViewController: UIViewController {
         count+=1
     }
     
+    func concurrentTypes() {
+        DispatchQueue.main.async {
+            
+        }
+        
+        DispatchQueue.global().async {
+            
+        }
+        
+    }
+    
 }

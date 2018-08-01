@@ -8,12 +8,12 @@
 
 import Foundation
 
-class ChartPresenter<Item: Track, Interactor: ChartInteractorInput> : BasePresenter {
-    var view: IndicatableView?
+class ChartPresenter<Item: Track, Interactor: ChartInteractorInput, View: ChartViewInput> : BasePresenter {
+    private(set) weak var view: View?
+    private(set) var interactor: Interactor!
+    private(set) var router: BaseRouter!
     
-    var interactor: Interactor!
-    
-    var router: BaseRouter!
+    private var tracks: [Item] = []
     
     func viewDidLoad() {
         

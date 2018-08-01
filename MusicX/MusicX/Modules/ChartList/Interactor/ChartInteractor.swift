@@ -10,7 +10,7 @@ import Foundation
 
 class ChartInteractor <Presenter: ChartInteractorOutput> : ChartInteractorInput {
 
-    weak var output: Presenter!//Presenter
+    weak var output: Presenter!
     
     func fetch(withUrl url: String) {
         

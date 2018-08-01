@@ -9,9 +9,10 @@
 import Foundation
 import UIKit
 
-protocol IndicatableView: class {
-    func showActivityIndicator()
-    func hideActivityIndicator()
+// VIPER protocols {
+
+protocol BaseViewInput: class {
+    func setupInitialState()
 }
 
 protocol BaseInteractorInput: class {
@@ -30,10 +31,11 @@ protocol BaseInteractorOutput: class {
 
 protocol BasePresenter: class {
     associatedtype Interactor: BaseInteractorInput
+    associatedtype View: BaseViewInput, Presentable
     
-    var view: IndicatableView? { get set } //Should be weak
-    var interactor: Interactor! { get set }
-    var router: BaseRouter! { get set }
+    var view: View? { get } //Should be weak
+    var interactor: Interactor! { get }
+    var router: BaseRouter! { get }
     
     func viewDidLoad()
 }
@@ -41,5 +43,59 @@ protocol BasePresenter: class {
 protocol BaseRouter: class {
     
     var viewController: UIViewController? { get set }//Should be weak
+    
+    
     static func assembleModule() -> UIViewController
 }
+
+// } VIPER protocols
+
+protocol Presentable {
+    
+    var viewController: UIViewController { get }
+    
+    func present()
+    func present(fromViewController viewController: UIViewController)
+    func presentModal(fromViewController viewController: UIViewController)
+    func show(fromViewController viewController: UIViewController)
+    func dissmiss()
+    func dissmissModal()
+    func popToRoot()
+}
+
+
+extension Presentable where Self: UIViewController {
+    
+    var viewController: UIViewController {
+        return self
+    }
+    
+    func present() {
+        AppDelegate.currentWindow.rootViewController = viewController
+    }
+    
+    func present(fromViewController viewController: UIViewController) {
+        viewController.navigationController?.pushViewController(self, animated: true)
+    }
+    
+    func presentModal(fromViewController viewController: UIViewController) {
+        viewController.present(self, animated: true, completion: nil)
+    }
+    
+    func show(fromViewController viewController: UIViewController) {
+        viewController.show(self, sender: viewController)
+    }
+    
+    func dissmiss() {
+        let _ = navigationController?.popViewController(animated: true)
+    }
+    
+    func dissmissModal() {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func popToRoot() {
+        viewController.navigationController?.popToRootViewController(animated: true)
+    }
+}
+

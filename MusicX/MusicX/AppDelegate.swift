@@ -83,3 +83,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 }
 
+extension AppDelegate {
+    
+    static var currentDelegate: AppDelegate {
+        return UIApplication.shared.delegate as! AppDelegate
+    }
+    
+    static var currentWindow: UIWindow {
+        return currentDelegate.window!
+    }
+    
+}
+

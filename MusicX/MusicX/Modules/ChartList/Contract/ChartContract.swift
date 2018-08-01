@@ -16,3 +16,14 @@ protocol ChartInteractorOutput: BaseInteractorOutput {
     //methods that presenter implements and Interactor calls
 }
 
+protocol ChartBaseRouter: BaseRouter {
+    
+}
+
+protocol ChartViewInput: BaseViewInput, Presentable {
+
+}
+
+protocol ChartViewOutput {
+    
+}

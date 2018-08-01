@@ -31,8 +31,15 @@
 		8C4B43D720FCCB1C0014C692 /* SecretConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4B43D620FCCB1C0014C692 /* SecretConstants.swift */; };
 		8C84EE3A210F0D4D000780B0 /* ChartInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C84EE39210F0D4D000780B0 /* ChartInteractor.swift */; };
 		8C84EE3C210F0E23000780B0 /* ChartPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C84EE3B210F0E23000780B0 /* ChartPresenter.swift */; };
-		8C84EE3F210F1563000780B0 /* ChartListContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C84EE3E210F1563000780B0 /* ChartListContract.swift */; };
+		8C84EE3F210F1563000780B0 /* ChartContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C84EE3E210F1563000780B0 /* ChartContract.swift */; };
 		8C84EE41210F18F3000780B0 /* BaseProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C84EE40210F18F3000780B0 /* BaseProtocols.swift */; };
+		8C84EE4321103DE1000780B0 /* ChartRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C84EE4221103DE1000780B0 /* ChartRouter.swift */; };
+		8C84EE4621104462000780B0 /* HeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8C84EE4521104462000780B0 /* HeaderView.xib */; };
+		8C84EE4821104532000780B0 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C84EE4721104532000780B0 /* HeaderView.swift */; };
+		8CB665ED211053D100CEF996 /* ChartStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8CB665EC211053D100CEF996 /* ChartStoryboard.storyboard */; };
+		8CB665EF2110541E00CEF996 /* ChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB665EE2110541E00CEF996 /* ChartViewController.swift */; };
+		8CB665F22110560500CEF996 /* ChartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB665F02110560500CEF996 /* ChartTableViewCell.swift */; };
+		8CB665F5211056E500CEF996 /* ChartTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8CB665F4211056E500CEF996 /* ChartTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,8 +90,15 @@
 		8C4B43D620FCCB1C0014C692 /* SecretConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecretConstants.swift; sourceTree = "<group>"; };
 		8C84EE39210F0D4D000780B0 /* ChartInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartInteractor.swift; sourceTree = "<group>"; };
 		8C84EE3B210F0E23000780B0 /* ChartPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartPresenter.swift; sourceTree = "<group>"; };
-		8C84EE3E210F1563000780B0 /* ChartListContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartListContract.swift; sourceTree = "<group>"; };
+		8C84EE3E210F1563000780B0 /* ChartContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartContract.swift; sourceTree = "<group>"; };
 		8C84EE40210F18F3000780B0 /* BaseProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseProtocols.swift; sourceTree = "<group>"; };
+		8C84EE4221103DE1000780B0 /* ChartRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartRouter.swift; sourceTree = "<group>"; };
+		8C84EE4521104462000780B0 /* HeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderView.xib; sourceTree = "<group>"; };
+		8C84EE4721104532000780B0 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
+		8CB665EC211053D100CEF996 /* ChartStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ChartStoryboard.storyboard; sourceTree = "<group>"; };
+		8CB665EE2110541E00CEF996 /* ChartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartViewController.swift; sourceTree = "<group>"; };
+		8CB665F02110560500CEF996 /* ChartTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartTableViewCell.swift; sourceTree = "<group>"; };
+		8CB665F4211056E500CEF996 /* ChartTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChartTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -205,6 +219,7 @@
 				8C4B43D320FCCAD80014C692 /* API */,
 				8C4B43A220FCCA9E0014C692 /* AppDelegate.swift */,
 				8C4B43A420FCCA9E0014C692 /* ViewController.swift */,
+				8C84EE4421104422000780B0 /* XibNibTest */,
 				8C4B43A620FCCA9E0014C692 /* Main.storyboard */,
 				8C4B43AC20FCCA9F0014C692 /* Assets.xcassets */,
 				8C4B43AE20FCCA9F0014C692 /* LaunchScreen.storyboard */,
@@ -256,11 +271,10 @@
 			isa = PBXGroup;
 			children = (
 				8C84EE3D210F1550000780B0 /* Contract */,
-				8C84EE2F210F0924000780B0 /* Assembly */,
-				8C84EE2E210F08D8000780B0 /* Router */,
-				8C84EE2D210F08D1000780B0 /* Presenter */,
 				8C84EE2C210F08BE000780B0 /* View */,
 				8C84EE2B210F08B6000780B0 /* Interactor */,
+				8C84EE2D210F08D1000780B0 /* Presenter */,
+				8C84EE2E210F08D8000780B0 /* Router */,
 			);
 			path = ChartList;
 			sourceTree = "<group>";
@@ -276,6 +290,10 @@
 		8C84EE2C210F08BE000780B0 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				8CB665EC211053D100CEF996 /* ChartStoryboard.storyboard */,
+				8CB665EE2110541E00CEF996 /* ChartViewController.swift */,
+				8CB665F02110560500CEF996 /* ChartTableViewCell.swift */,
+				8CB665F4211056E500CEF996 /* ChartTableViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -291,15 +309,9 @@
 		8C84EE2E210F08D8000780B0 /* Router */ = {
 			isa = PBXGroup;
 			children = (
+				8C84EE4221103DE1000780B0 /* ChartRouter.swift */,
 			);
 			path = Router;
-			sourceTree = "<group>";
-		};
-		8C84EE2F210F0924000780B0 /* Assembly */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Assembly;
 			sourceTree = "<group>";
 		};
 		8C84EE34210F0B47000780B0 /* BaseProtocols */ = {
@@ -313,9 +325,18 @@
 		8C84EE3D210F1550000780B0 /* Contract */ = {
 			isa = PBXGroup;
 			children = (
-				8C84EE3E210F1563000780B0 /* ChartListContract.swift */,
+				8C84EE3E210F1563000780B0 /* ChartContract.swift */,
 			);
 			path = Contract;
+			sourceTree = "<group>";
+		};
+		8C84EE4421104422000780B0 /* XibNibTest */ = {
+			isa = PBXGroup;
+			children = (
+				8C84EE4521104462000780B0 /* HeaderView.xib */,
+				8C84EE4721104532000780B0 /* HeaderView.swift */,
+			);
+			path = XibNibTest;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -424,7 +445,10 @@
 			files = (
 				8C4B43B020FCCA9F0014C692 /* LaunchScreen.storyboard in Resources */,
 				8C4B43AD20FCCA9F0014C692 /* Assets.xcassets in Resources */,
+				8CB665F5211056E500CEF996 /* ChartTableViewCell.xib in Resources */,
+				8CB665ED211053D100CEF996 /* ChartStoryboard.storyboard in Resources */,
 				8C4B43A820FCCA9E0014C692 /* Main.storyboard in Resources */,
+				8C84EE4621104462000780B0 /* HeaderView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -453,7 +477,9 @@
 				8C18E2312107107B005DAEE1 /* MusicRemoteDataSource.swift in Sources */,
 				8C84EE3A210F0D4D000780B0 /* ChartInteractor.swift in Sources */,
 				8C18E22921070FE1005DAEE1 /* Download.swift in Sources */,
+				8CB665F22110560500CEF996 /* ChartTableViewCell.swift in Sources */,
 				8C18E22F21071053005DAEE1 /* MusicRepository.swift in Sources */,
+				8CB665EF2110541E00CEF996 /* ChartViewController.swift in Sources */,
 				8C18E22B2107100B005DAEE1 /* Track.swift in Sources */,
 				8C18E2202100CF17005DAEE1 /* Patterns.swift in Sources */,
 				8C18E23E21085F70005DAEE1 /* MediaObjectProtocol.swift in Sources */,
@@ -462,13 +488,15 @@
 				8C84EE41210F18F3000780B0 /* BaseProtocols.swift in Sources */,
 				8C4B43A520FCCA9E0014C692 /* ViewController.swift in Sources */,
 				8C18E23C21074763005DAEE1 /* Utils.swift in Sources */,
-				8C84EE3F210F1563000780B0 /* ChartListContract.swift in Sources */,
+				8C84EE4321103DE1000780B0 /* ChartRouter.swift in Sources */,
+				8C84EE3F210F1563000780B0 /* ChartContract.swift in Sources */,
 				8C18E23921071149005DAEE1 /* DownloadService.swift in Sources */,
 				8C4B43A320FCCA9E0014C692 /* AppDelegate.swift in Sources */,
 				8C4B43AB20FCCA9E0014C692 /* MusicX.xcdatamodeld in Sources */,
 				8C4B43D520FCCB000014C692 /* Constants.swift in Sources */,
 				8C4B43D720FCCB1C0014C692 /* SecretConstants.swift in Sources */,
 				8C18E21A20FF5909005DAEE1 /* ApiRequestBuilder.swift in Sources */,
+				8C84EE4821104532000780B0 /* HeaderView.swift in Sources */,
 				8C18E22D21071024005DAEE1 /* Artist.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
