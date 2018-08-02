@@ -1,4 +1,5 @@
 import Foundation
+import UIKit
 
 final class Utils {
     
@@ -8,5 +9,13 @@ final class Utils {
     
     static func getHashFromImageUrl(url: String) -> String {
         return String(url.suffix(36).prefix(32))
+    }
+    
+    func getViewController<T: UIViewController>(from storyboardName: String, with vcId: String) -> UIViewController? {
+        let storyboard = UIStoryboard(name: storyboardName, bundle: Bundle.main)
+        
+        guard let vc = storyboard.instantiateViewController(withIdentifier: vcId) as? T else {
+            return nil
+        }
     }
 }

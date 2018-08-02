@@ -1,13 +1,20 @@
-//
-//  ChartModule.swift
-//  MusicX
-//
-//  Created by Ilya Tkachou on 8/2/18.
-//  Copyright © 2018 Ilya Tkachou. All rights reserved.
-//
+import UIKit
 
-import Foundation
-
-class ChartModule {
-    
+class ChartModule <ModuleInput: ChartModuleInput> : BaseModule {
+    func create() -> ModuleInput {
+        let router = ChartRouter()
+        let presenter = ChartPresenter()
+        let interactor = ChartInteractor()
+        let viewController = R.storyboard.coinDetails.coinDetailsViewController()!
+        
+        interactor.output = presenter
+        
+        viewController.output = presenter
+        
+        presenter.view = viewController
+        presenter.router = router
+        presenter.interactor = interactor
+        
+        return presenter
+    }
 }

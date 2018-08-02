@@ -1,19 +1,19 @@
 import Foundation
 import UIKit
 
-protocol BaseModule {
+protocol BaseModule: class {
     associatedtype ModuleInput: BaseModuleInput
     
     func create() -> ModuleInput
 }
 
-protocol BaseModuleInput {
+protocol BaseModuleInput: class {
     associatedtype ModuleOutput: BaseModuleOutput
     
     var output: ModuleOutput? { get set }
 }
 
-protocol BaseModuleOutput {
+protocol BaseModuleOutput: class {
     
 }
 
@@ -21,7 +21,7 @@ protocol BaseViewInput: class {
     func setupInitialState()
 }
 
-protocol BaseViewOutput {
+protocol BaseViewOutput: class {
     func viewIsReady()
 }
 

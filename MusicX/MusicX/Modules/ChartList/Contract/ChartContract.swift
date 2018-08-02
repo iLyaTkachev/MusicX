@@ -8,6 +8,14 @@
 
 import Foundation
 
+protocol ChartModuleInput: BaseModuleInput {
+    
+}
+
+protocol ChartModuleOutput: BaseModuleOutput {
+    
+}
+
 protocol ChartViewInput: BaseViewInput, Presentable {
     func updateList(with array: [MediaObject])
 }
