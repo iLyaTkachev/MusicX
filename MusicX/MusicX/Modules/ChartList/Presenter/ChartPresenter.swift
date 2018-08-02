@@ -8,10 +8,10 @@
 
 import Foundation
 
-class ChartPresenter<Item: Track, Interactor: ChartInteractorInput, View: ChartViewInput> : BasePresenter {
+class ChartPresenter<Item: Track, Interactor: ChartInteractorInput, View: ChartViewInput, Router: ChartRouterInput> : BasePresenter {
     private(set) weak var view: View?
     private(set) var interactor: Interactor!
-    private(set) var router: BaseRouter!
+    private(set) var router: Router!
     
     private var tracks: [Item] = []
     
@@ -28,6 +28,17 @@ extension ChartPresenter: ChartInteractorOutput {
     }
     
     func didFetchWithFailure() {
+        
+    }
+    
+}
+
+extension ChartPresenter: ChartViewOutput {
+    func trackClicked(item: MediaObject) {
+        
+    }
+    
+    func viewIsReady() {
         
     }
     

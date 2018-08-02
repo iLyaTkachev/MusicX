@@ -21,9 +21,9 @@ protocol ChartRouterInput: BaseRouter {
 }
 
 protocol ChartViewInput: BaseViewInput, Presentable {
-
+    func updateList(with array: [MediaObject])
 }
 
 protocol ChartViewOutput: BaseViewOutput {
-    
+    func trackClicked(item: MediaObject)
 }
