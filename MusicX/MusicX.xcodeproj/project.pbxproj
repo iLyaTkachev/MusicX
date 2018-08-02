@@ -23,6 +23,9 @@
 		8C18E23E21085F70005DAEE1 /* MediaObjectProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C18E23D21085F70005DAEE1 /* MediaObjectProtocol.swift */; };
 		8C4191F02112FD97005D83FA /* ChartModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4191EF2112FD97005D83FA /* ChartModule.swift */; };
 		8C4191F22112FE12005D83FA /* Loading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4191F12112FE12005D83FA /* Loading.swift */; };
+		8C4191F521132B09005D83FA /* ConfiguratorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4191F421132B09005D83FA /* ConfiguratorProtocol.swift */; };
+		8C4191FA21132CFD005D83FA /* ApplicationConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4191F921132CFD005D83FA /* ApplicationConfigurator.swift */; };
+		8C4191FC21133B0E005D83FA /* PresentableProtocol+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4191FB21133B0E005D83FA /* PresentableProtocol+Extension.swift */; };
 		8C4B43A320FCCA9E0014C692 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4B43A220FCCA9E0014C692 /* AppDelegate.swift */; };
 		8C4B43A520FCCA9E0014C692 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4B43A420FCCA9E0014C692 /* ViewController.swift */; };
 		8C4B43A820FCCA9E0014C692 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C4B43A620FCCA9E0014C692 /* Main.storyboard */; };
@@ -84,6 +87,9 @@
 		8C18E23D21085F70005DAEE1 /* MediaObjectProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaObjectProtocol.swift; sourceTree = "<group>"; };
 		8C4191EF2112FD97005D83FA /* ChartModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartModule.swift; sourceTree = "<group>"; };
 		8C4191F12112FE12005D83FA /* Loading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loading.swift; sourceTree = "<group>"; };
+		8C4191F421132B09005D83FA /* ConfiguratorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfiguratorProtocol.swift; sourceTree = "<group>"; };
+		8C4191F921132CFD005D83FA /* ApplicationConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationConfigurator.swift; sourceTree = "<group>"; };
+		8C4191FB21133B0E005D83FA /* PresentableProtocol+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PresentableProtocol+Extension.swift"; sourceTree = "<group>"; };
 		8C4B439F20FCCA9E0014C692 /* MusicX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MusicX.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C4B43A220FCCA9E0014C692 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8C4B43A420FCCA9E0014C692 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -227,6 +233,7 @@
 			children = (
 				8C18E23B21074763005DAEE1 /* Utils.swift */,
 				8C4191F12112FE12005D83FA /* Loading.swift */,
+				8C4191FB21133B0E005D83FA /* PresentableProtocol+Extension.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -235,6 +242,37 @@
 			isa = PBXGroup;
 			children = (
 				8C4191EF2112FD97005D83FA /* ChartModule.swift */,
+			);
+			path = Module;
+			sourceTree = "<group>";
+		};
+		8C4191F321132A98005D83FA /* Configurators */ = {
+			isa = PBXGroup;
+			children = (
+				8C4191F421132B09005D83FA /* ConfiguratorProtocol.swift */,
+				8C4191F921132CFD005D83FA /* ApplicationConfigurator.swift */,
+			);
+			path = Configurators;
+			sourceTree = "<group>";
+		};
+		8C4191F621132BB8005D83FA /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = TabBar;
+			sourceTree = "<group>";
+		};
+		8C4191F721132BBF005D83FA /* Welcome */ = {
+			isa = PBXGroup;
+			children = (
+				8C4191F821132BFC005D83FA /* Module */,
+			);
+			path = Welcome;
+			sourceTree = "<group>";
+		};
+		8C4191F821132BFC005D83FA /* Module */ = {
+			isa = PBXGroup;
+			children = (
 			);
 			path = Module;
 			sourceTree = "<group>";
@@ -264,6 +302,7 @@
 		8C4B43A120FCCA9E0014C692 /* MusicX */ = {
 			isa = PBXGroup;
 			children = (
+				8C4191F321132A98005D83FA /* Configurators */,
 				8C84EE29210F085A000780B0 /* Modules */,
 				8C18E23A2107473C005DAEE1 /* Utils */,
 				8C18E23521071126005DAEE1 /* Network */,
@@ -315,6 +354,8 @@
 			isa = PBXGroup;
 			children = (
 				8C84EE34210F0B47000780B0 /* BaseProtocols */,
+				8C4191F721132BBF005D83FA /* Welcome */,
+				8C4191F621132BB8005D83FA /* TabBar */,
 				8C84EE2A210F0872000780B0 /* ChartList */,
 			);
 			path = Modules;
@@ -323,8 +364,8 @@
 		8C84EE2A210F0872000780B0 /* ChartList */ = {
 			isa = PBXGroup;
 			children = (
-				8C4191EE2112FD83005D83FA /* Module */,
 				8C84EE3D210F1550000780B0 /* Contract */,
+				8C4191EE2112FD83005D83FA /* Module */,
 				8C84EE2C210F08BE000780B0 /* View */,
 				8C84EE2B210F08B6000780B0 /* Interactor */,
 				8C84EE2D210F08D1000780B0 /* Presenter */,
@@ -628,10 +669,13 @@
 				8C18E23921071149005DAEE1 /* DownloadService.swift in Sources */,
 				8C4B43A320FCCA9E0014C692 /* AppDelegate.swift in Sources */,
 				8C4B43AB20FCCA9E0014C692 /* MusicX.xcdatamodeld in Sources */,
+				8C4191F521132B09005D83FA /* ConfiguratorProtocol.swift in Sources */,
 				8C4B43D520FCCB000014C692 /* Constants.swift in Sources */,
 				8C4B43D720FCCB1C0014C692 /* SecretConstants.swift in Sources */,
+				8C4191FC21133B0E005D83FA /* PresentableProtocol+Extension.swift in Sources */,
 				8C18E21A20FF5909005DAEE1 /* ApiRequestBuilder.swift in Sources */,
 				8C84EE4821104532000780B0 /* HeaderView.swift in Sources */,
+				8C4191FA21132CFD005D83FA /* ApplicationConfigurator.swift in Sources */,
 				8C18E22D21071024005DAEE1 /* Artist.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

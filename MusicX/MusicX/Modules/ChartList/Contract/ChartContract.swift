@@ -8,6 +8,14 @@
 
 import Foundation
 
+protocol ChartViewInput: BaseViewInput, Presentable {
+    func updateList(with array: [MediaObject])
+}
+
+protocol ChartViewOutput: BaseViewOutput {
+    func trackClicked(item: MediaObject)
+}
+
 protocol ChartInteractorInput: BaseInteractorInput {
     //methods in Interactor, which called by Presenter
 }
@@ -18,12 +26,4 @@ protocol ChartInteractorOutput: BaseInteractorOutput {
 
 protocol ChartRouterInput: BaseRouter {
     
-}
-
-protocol ChartViewInput: BaseViewInput, Presentable {
-    func updateList(with array: [MediaObject])
-}
-
-protocol ChartViewOutput: BaseViewOutput {
-    func trackClicked(item: MediaObject)
 }

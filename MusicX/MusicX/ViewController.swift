@@ -54,9 +54,15 @@ class ViewController: UIViewController {
     
     @IBAction func buttonClick(_ sender: UIButton) {
         //makeRequest()
+        let chartStoryboard = UIStoryboard(name: "ChartStoryboard", bundle: Bundle.main)
         
-        val1 = Artist(name: "Artist \(count)", mbid: "123")
-        count+=1
+       
+        
+        guard let vc = chartStoryboard.instantiateViewController(withIdentifier: "ChartViewController") as? ChartViewController else {
+            return
+        }
+        
+        present(vc, animated: true, completion: nil)
     }
     
     func concurrentTypes() {
