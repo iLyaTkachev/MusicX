@@ -10,6 +10,9 @@ import UIKit
 
 class ChartViewController: UIViewController {
 
+    static let id = "ChartViewController"
+    static let storyboardId = "ChartStoryboard"
+    
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {

@@ -410,12 +410,12 @@
 				8C84EE34210F0B47000780B0 /* BaseProtocols */,
 				8C4191F721132BBF005D83FA /* Welcome */,
 				8C4191F621132BB8005D83FA /* TabBar */,
-				8C84EE2A210F0872000780B0 /* ChartList */,
+				8C84EE2A210F0872000780B0 /* Chart */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
 		};
-		8C84EE2A210F0872000780B0 /* ChartList */ = {
+		8C84EE2A210F0872000780B0 /* Chart */ = {
 			isa = PBXGroup;
 			children = (
 				8C84EE3D210F1550000780B0 /* Contract */,
@@ -425,7 +425,7 @@
 				8C84EE2D210F08D1000780B0 /* Presenter */,
 				8C84EE2E210F08D8000780B0 /* Router */,
 			);
-			path = ChartList;
+			path = Chart;
 			sourceTree = "<group>";
 		};
 		8C84EE2B210F08B6000780B0 /* Interactor */ = {

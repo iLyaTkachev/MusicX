@@ -5,7 +5,7 @@ class ChartModule <ModuleInput: ChartModuleInput> : BaseModule {
         let router = ChartRouter()
         let presenter = ChartPresenter()
         let interactor = ChartInteractor()
-        let viewController = R.storyboard.coinDetails.coinDetailsViewController()!
+        let viewController = Utils.getViewController(from: ChartViewController.storyboardId, with: ChartViewController.id)
         
         interactor.output = presenter
         

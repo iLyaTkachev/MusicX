@@ -11,11 +11,9 @@ final class Utils {
         return String(url.suffix(36).prefix(32))
     }
     
-    func getViewController<T: UIViewController>(from storyboardName: String, with vcId: String) -> UIViewController? {
+    static func getViewController(from storyboardName: String, with vcId: String) -> UIViewController {
         let storyboard = UIStoryboard(name: storyboardName, bundle: Bundle.main)
         
-        guard let vc = storyboard.instantiateViewController(withIdentifier: vcId) as? T else {
-            return nil
-        }
+        return storyboard.instantiateViewController(withIdentifier: vcId)
     }
 }
