@@ -29,11 +29,11 @@ extension ChartPresenter : ChartInteractorOutput {
 
 extension ChartPresenter : ChartViewOutput {
     func trackClicked(item: Track) {
-        
+        router.presentTrackDetails(track: item)
     }
     
     func viewIsReady() {
-        
+        view.setupInitialState()
     }
 }
 
