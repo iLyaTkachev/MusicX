@@ -8,37 +8,37 @@
 
 import Foundation
 
-class ChartPresenter<Item: Track, Interactor: ChartInteractorInput, View: ChartViewInput, Router: ChartRouterInput> : BasePresenter {
-    private(set) weak var view: View?
-    private(set) var interactor: Interactor!
-    private(set) var router: Router!
+class ChartPresenter {
+    weak var view: ChartViewInput!
+    var interactor: ChartInteractorInput!
+    var router: ChartRouterInput!
     
-    private var tracks: [Item] = []
-    
-    func viewDidLoad() {
-        
-    }
+    private var tracks: [Track] = []
 
 }
 
-extension ChartPresenter: ChartInteractorOutput {
-    
-    func didFetchWithSuccess(itemsArray: [Item]) {
+extension ChartPresenter : ChartInteractorOutput {
+    func didFetchWithSuccess(trackArray: [Track]) {
         
     }
     
     func didFetchWithFailure() {
         
     }
-    
 }
 
-extension ChartPresenter: ChartViewOutput {
-    func trackClicked(item: MediaObject) {
+extension ChartPresenter : ChartViewOutput {
+    func trackClicked(item: Track) {
         
     }
     
     func viewIsReady() {
+        
+    }
+}
+
+extension ChartPresenter : ChartModuleOutput {
+    func present() {
         
     }
     

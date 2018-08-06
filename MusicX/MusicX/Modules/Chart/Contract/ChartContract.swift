@@ -8,30 +8,31 @@
 
 import Foundation
 
-protocol ChartModuleInput: BaseModuleInput {
+protocol ChartModuleInput : BaseModuleInput {
     
 }
 
-protocol ChartModuleOutput: BaseModuleOutput {
-    
+protocol ChartModuleOutput : BaseModuleOutput {
+    func present()
 }
 
-protocol ChartViewInput: BaseViewInput, Presentable {
-    func updateList(with array: [MediaObject])
+protocol ChartViewInput : BaseViewInput {
+    func updateList(with array: [Track])
 }
 
-protocol ChartViewOutput: BaseViewOutput {
-    func trackClicked(item: MediaObject)
+protocol ChartViewOutput : BaseViewOutput {
+    func trackClicked(item: Track)
 }
 
-protocol ChartInteractorInput: BaseInteractorInput {
-    //methods in Interactor, which called by Presenter
+protocol ChartInteractorInput : BaseInteractorInput {
+
 }
 
-protocol ChartInteractorOutput: BaseInteractorOutput {
-    //methods that presenter implements and Interactor calls
+protocol ChartInteractorOutput : BaseInteractorOutput {
+    func didFetchWithSuccess(trackArray: [Track])
+    func didFetchWithFailure()
 }
 
-protocol ChartRouterInput: BaseRouter {
-    
+protocol ChartRouterInput : BaseRouterInput {
+    func presentTrackDetails(track: Track)
 }

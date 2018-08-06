@@ -1,11 +1,11 @@
 import UIKit
 
-class ChartModule <ModuleInput: ChartModuleInput> : BaseModule {
-    func create() -> ModuleInput {
+class ChartModule : BaseModuleInput {
+    func create() -> BaseModuleOutput {
         let router = ChartRouter()
         let presenter = ChartPresenter()
         let interactor = ChartInteractor()
-        let viewController = Utils.getViewController(from: ChartViewController.storyboardId, with: ChartViewController.id)
+        let viewController = Utils.getViewController(from: ChartViewController.storyboardId, with: ChartViewController.id) as! ChartViewController
         
         interactor.output = presenter
         

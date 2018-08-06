@@ -13,6 +13,8 @@ class ChartViewController: UIViewController {
     static let id = "ChartViewController"
     static let storyboardId = "ChartStoryboard"
     
+    var output: ChartViewOutput!
+    
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
@@ -27,14 +29,12 @@ class ChartViewController: UIViewController {
     }
 }
 
-extension ChartViewController: ChartViewInput {
-    func updateList(with array: [MediaObject]) {
+extension ChartViewController : ChartViewInput {
+    func updateList(with array: [Track]) {
         
     }
     
     func setupInitialState() {
         
     }
-    
-    
 }

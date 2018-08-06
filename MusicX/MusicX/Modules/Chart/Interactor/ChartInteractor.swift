@@ -8,9 +8,8 @@
 
 import Foundation
 
-class ChartInteractor <Presenter: ChartInteractorOutput> : ChartInteractorInput {
-
-    weak var output: Presenter!
+class ChartInteractor : ChartInteractorInput {
+    weak var output: BaseInteractorOutput!
     
     func fetch(withUrl url: String) {
         

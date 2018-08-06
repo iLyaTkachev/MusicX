@@ -9,14 +9,8 @@
 import Foundation
 import UIKit
 
-class ChartRouter <Item: Track> : ChartRouterInput {
-    func presentSend(for item: Item, from: UIViewController) {
+class ChartRouter : ChartRouterInput {
+    func presentTrackDetails(track: Track) {
         
     }
-    
-    func presentReceive(for item: Item, from: UIViewController) {
-        
-    }
-    
-    
 }
