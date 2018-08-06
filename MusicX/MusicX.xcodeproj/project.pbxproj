@@ -28,7 +28,6 @@
 		8C41920421134291005D83FA /* TabBarContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C41920321134291005D83FA /* TabBarContract.swift */; };
 		8C419206211342A8005D83FA /* TabBarModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C419205211342A8005D83FA /* TabBarModule.swift */; };
 		8C41925B211880BD005D83FA /* PresentableProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C419258211880BC005D83FA /* PresentableProtocol.swift */; };
-		8C41925C211880BD005D83FA /* BasePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C419259211880BC005D83FA /* BasePresenter.swift */; };
 		8C41925D211880BD005D83FA /* BaseProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C41925A211880BC005D83FA /* BaseProtocols.swift */; };
 		8C4B43A320FCCA9E0014C692 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4B43A220FCCA9E0014C692 /* AppDelegate.swift */; };
 		8C4B43A520FCCA9E0014C692 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4B43A420FCCA9E0014C692 /* ViewController.swift */; };
@@ -95,7 +94,6 @@
 		8C41920321134291005D83FA /* TabBarContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarContract.swift; sourceTree = "<group>"; };
 		8C419205211342A8005D83FA /* TabBarModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarModule.swift; sourceTree = "<group>"; };
 		8C419258211880BC005D83FA /* PresentableProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresentableProtocol.swift; sourceTree = "<group>"; };
-		8C419259211880BC005D83FA /* BasePresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasePresenter.swift; sourceTree = "<group>"; };
 		8C41925A211880BC005D83FA /* BaseProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseProtocols.swift; sourceTree = "<group>"; };
 		8C4B439F20FCCA9E0014C692 /* MusicX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MusicX.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C4B43A220FCCA9E0014C692 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -320,7 +318,6 @@
 		8C41925721188032005D83FA /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				8C419259211880BC005D83FA /* BasePresenter.swift */,
 				8C41925A211880BC005D83FA /* BaseProtocols.swift */,
 				8C419258211880BC005D83FA /* PresentableProtocol.swift */,
 			);
@@ -699,7 +696,6 @@
 				8CB665EF2110541E00CEF996 /* ChartViewController.swift in Sources */,
 				8C18E22B2107100B005DAEE1 /* Track.swift in Sources */,
 				8C18E2202100CF17005DAEE1 /* Patterns.swift in Sources */,
-				8C41925C211880BD005D83FA /* BasePresenter.swift in Sources */,
 				8C4191F22112FE12005D83FA /* Loading.swift in Sources */,
 				8C18E23E21085F70005DAEE1 /* MediaObjectProtocol.swift in Sources */,
 				8C84EE3C210F0E23000780B0 /* ChartPresenter.swift in Sources */,
