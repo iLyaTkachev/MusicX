@@ -2,6 +2,9 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    static var id = "ViewController"
+    static var storyboardID = "Main"
+    
     @IBOutlet weak var textView: UITextView!
     
     override func viewDidLoad() {

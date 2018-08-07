@@ -6,7 +6,7 @@
 //  Copyright © 2018 Ilya Tkachou. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 class ChartPresenter {
     weak var view: ChartViewInput!
@@ -38,9 +38,11 @@ extension ChartPresenter : ChartViewOutput {
 }
 
 extension ChartPresenter : ChartModuleOutput {
-    func present() {
-        
+    var viewController: UIViewController {
+        return view.viewController
     }
     
-    
+    func present() {
+        view.present()
+    }
 }

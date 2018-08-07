@@ -6,11 +6,16 @@
 //  Copyright © 2018 Ilya Tkachou. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 class ApplicationConfgurator: BaseConfigurator {
     
+    private var isSignedIn = true
+    
     func configure() {
         
+        if isSignedIn {
+            TabBarModule.create().present()
+        }
     }
 }

@@ -8,7 +8,21 @@
 
 import Foundation
 
-class TabBarModule {
-    
-    
+class TabBarModule : TabBarModuleInput {
+    static func create() -> BaseModuleOutput {
+        let router = TabBarRouter()
+        let presenter = TabBarPresenter()
+        let interactor = TabBarInteractor()
+        let viewController = Utils.getViewController(from: TabBarViewController.storyboardId, with: TabBarViewController.id) as! TabBarViewController
+        
+        interactor.output = presenter
+        
+        viewController.output = presenter
+        
+        presenter.view = viewController
+        presenter.router = router
+        presenter.interactor = interactor
+        
+        return presenter
+    }
 }

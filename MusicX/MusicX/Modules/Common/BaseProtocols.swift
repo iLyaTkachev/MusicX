@@ -9,12 +9,12 @@
 import Foundation
 
 protocol BaseModuleInput: class {
-    func create() -> BaseModuleOutput
+    static func create() -> BaseModuleOutput
 }
 
 //presenter implements
 protocol BaseModuleOutput : class {
-    
+    func present()
 }
 
 protocol BaseRouterInput : class{

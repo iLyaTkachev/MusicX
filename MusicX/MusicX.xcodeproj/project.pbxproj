@@ -29,6 +29,13 @@
 		8C419206211342A8005D83FA /* TabBarModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C419205211342A8005D83FA /* TabBarModule.swift */; };
 		8C41925B211880BD005D83FA /* PresentableProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C419258211880BC005D83FA /* PresentableProtocol.swift */; };
 		8C41925D211880BD005D83FA /* BaseProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C41925A211880BC005D83FA /* BaseProtocols.swift */; };
+		8C41926021197FCD005D83FA /* CoreX.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C41925F21197FCD005D83FA /* CoreX.swift */; };
+		8C419262211980DF005D83FA /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C419261211980DF005D83FA /* TabBarViewController.swift */; };
+		8C419264211997D6005D83FA /* TabBarInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C419263211997D6005D83FA /* TabBarInteractor.swift */; };
+		8C419266211997E5005D83FA /* TabBarPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C419265211997E5005D83FA /* TabBarPresenter.swift */; };
+		8C419268211997F6005D83FA /* TabBarRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C419267211997F6005D83FA /* TabBarRouter.swift */; };
+		8C41926A2119981D005D83FA /* TabBarStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C4192692119981D005D83FA /* TabBarStoryboard.storyboard */; };
+		8C41926C2119A4CD005D83FA /* UIViewController+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C41926B2119A4CD005D83FA /* UIViewController+Helpers.swift */; };
 		8C4B43A320FCCA9E0014C692 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4B43A220FCCA9E0014C692 /* AppDelegate.swift */; };
 		8C4B43A520FCCA9E0014C692 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4B43A420FCCA9E0014C692 /* ViewController.swift */; };
 		8C4B43A820FCCA9E0014C692 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C4B43A620FCCA9E0014C692 /* Main.storyboard */; };
@@ -95,6 +102,13 @@
 		8C419205211342A8005D83FA /* TabBarModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarModule.swift; sourceTree = "<group>"; };
 		8C419258211880BC005D83FA /* PresentableProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresentableProtocol.swift; sourceTree = "<group>"; };
 		8C41925A211880BC005D83FA /* BaseProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseProtocols.swift; sourceTree = "<group>"; };
+		8C41925F21197FCD005D83FA /* CoreX.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreX.swift; sourceTree = "<group>"; };
+		8C419261211980DF005D83FA /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+		8C419263211997D6005D83FA /* TabBarInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarInteractor.swift; sourceTree = "<group>"; };
+		8C419265211997E5005D83FA /* TabBarPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarPresenter.swift; sourceTree = "<group>"; };
+		8C419267211997F6005D83FA /* TabBarRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarRouter.swift; sourceTree = "<group>"; };
+		8C4192692119981D005D83FA /* TabBarStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TabBarStoryboard.storyboard; sourceTree = "<group>"; };
+		8C41926B2119A4CD005D83FA /* UIViewController+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Helpers.swift"; sourceTree = "<group>"; };
 		8C4B439F20FCCA9E0014C692 /* MusicX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MusicX.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C4B43A220FCCA9E0014C692 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8C4B43A420FCCA9E0014C692 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -236,7 +250,6 @@
 			isa = PBXGroup;
 			children = (
 				8C18E23B21074763005DAEE1 /* Utils.swift */,
-				8C4191F12112FE12005D83FA /* Loading.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -262,11 +275,11 @@
 			isa = PBXGroup;
 			children = (
 				8C41920221134223005D83FA /* Contract */,
-				8C4192012113421D005D83FA /* Module */,
 				8C41920021134213005D83FA /* View */,
 				8C4191FF21134203005D83FA /* Interactor */,
 				8C4191FE211341F7005D83FA /* Presenter */,
 				8C4191FD211341E0005D83FA /* Router */,
+				8C4192012113421D005D83FA /* Module */,
 			);
 			path = TabBar;
 			sourceTree = "<group>";
@@ -274,6 +287,7 @@
 		8C4191FD211341E0005D83FA /* Router */ = {
 			isa = PBXGroup;
 			children = (
+				8C419267211997F6005D83FA /* TabBarRouter.swift */,
 			);
 			path = Router;
 			sourceTree = "<group>";
@@ -281,6 +295,7 @@
 		8C4191FE211341F7005D83FA /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
+				8C419265211997E5005D83FA /* TabBarPresenter.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -288,6 +303,7 @@
 		8C4191FF21134203005D83FA /* Interactor */ = {
 			isa = PBXGroup;
 			children = (
+				8C419263211997D6005D83FA /* TabBarInteractor.swift */,
 			);
 			path = Interactor;
 			sourceTree = "<group>";
@@ -295,6 +311,8 @@
 		8C41920021134213005D83FA /* View */ = {
 			isa = PBXGroup;
 			children = (
+				8C419261211980DF005D83FA /* TabBarViewController.swift */,
+				8C4192692119981D005D83FA /* TabBarStoryboard.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -318,10 +336,20 @@
 		8C41925721188032005D83FA /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				8C4191F12112FE12005D83FA /* Loading.swift */,
 				8C41925A211880BC005D83FA /* BaseProtocols.swift */,
 				8C419258211880BC005D83FA /* PresentableProtocol.swift */,
+				8C41926B2119A4CD005D83FA /* UIViewController+Helpers.swift */,
 			);
 			path = Common;
+			sourceTree = "<group>";
+		};
+		8C41925E21197FAE005D83FA /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				8C41925F21197FCD005D83FA /* CoreX.swift */,
+			);
+			path = Core;
 			sourceTree = "<group>";
 		};
 		8C4B439620FCCA9E0014C692 = {
@@ -349,6 +377,7 @@
 		8C4B43A120FCCA9E0014C692 /* MusicX */ = {
 			isa = PBXGroup;
 			children = (
+				8C41925E21197FAE005D83FA /* Core */,
 				8C4191F321132A98005D83FA /* Configurators */,
 				8C84EE29210F085A000780B0 /* Modules */,
 				8C18E23A2107473C005DAEE1 /* Utils */,
@@ -411,10 +440,10 @@
 			isa = PBXGroup;
 			children = (
 				8C84EE3D210F1550000780B0 /* Contract */,
-				8C84EE2E210F08D8000780B0 /* Router */,
-				8C84EE2D210F08D1000780B0 /* Presenter */,
-				8C84EE2B210F08B6000780B0 /* Interactor */,
 				8C84EE2C210F08BE000780B0 /* View */,
+				8C84EE2B210F08B6000780B0 /* Interactor */,
+				8C84EE2D210F08D1000780B0 /* Presenter */,
+				8C84EE2E210F08D8000780B0 /* Router */,
 				8C4191EE2112FD83005D83FA /* Module */,
 			);
 			path = Chart;
@@ -583,6 +612,7 @@
 				8C4B43B020FCCA9F0014C692 /* LaunchScreen.storyboard in Resources */,
 				8C4B43AD20FCCA9F0014C692 /* Assets.xcassets in Resources */,
 				8CB665F5211056E500CEF996 /* ChartTableViewCell.xib in Resources */,
+				8C41926A2119981D005D83FA /* TabBarStoryboard.storyboard in Resources */,
 				8CB665ED211053D100CEF996 /* ChartStoryboard.storyboard in Resources */,
 				8C4B43A820FCCA9E0014C692 /* Main.storyboard in Resources */,
 				8C84EE4621104462000780B0 /* HeaderView.xib in Resources */,
@@ -688,14 +718,18 @@
 				8C41925D211880BD005D83FA /* BaseProtocols.swift in Sources */,
 				8C4191F02112FD97005D83FA /* ChartModule.swift in Sources */,
 				8C18E2332107109E005DAEE1 /* MusicLocalDataSource.swift in Sources */,
+				8C41926021197FCD005D83FA /* CoreX.swift in Sources */,
 				8C18E2312107107B005DAEE1 /* MusicRemoteDataSource.swift in Sources */,
 				8C84EE3A210F0D4D000780B0 /* ChartInteractor.swift in Sources */,
 				8C18E22921070FE1005DAEE1 /* Download.swift in Sources */,
+				8C419268211997F6005D83FA /* TabBarRouter.swift in Sources */,
 				8CB665F22110560500CEF996 /* ChartTableViewCell.swift in Sources */,
+				8C419266211997E5005D83FA /* TabBarPresenter.swift in Sources */,
 				8C18E22F21071053005DAEE1 /* MusicRepository.swift in Sources */,
 				8CB665EF2110541E00CEF996 /* ChartViewController.swift in Sources */,
 				8C18E22B2107100B005DAEE1 /* Track.swift in Sources */,
 				8C18E2202100CF17005DAEE1 /* Patterns.swift in Sources */,
+				8C41926C2119A4CD005D83FA /* UIViewController+Helpers.swift in Sources */,
 				8C4191F22112FE12005D83FA /* Loading.swift in Sources */,
 				8C18E23E21085F70005DAEE1 /* MediaObjectProtocol.swift in Sources */,
 				8C84EE3C210F0E23000780B0 /* ChartPresenter.swift in Sources */,
@@ -705,11 +739,13 @@
 				8C84EE4321103DE1000780B0 /* ChartRouter.swift in Sources */,
 				8C84EE3F210F1563000780B0 /* ChartContract.swift in Sources */,
 				8C18E23921071149005DAEE1 /* DownloadService.swift in Sources */,
+				8C419264211997D6005D83FA /* TabBarInteractor.swift in Sources */,
 				8C4B43A320FCCA9E0014C692 /* AppDelegate.swift in Sources */,
 				8C4B43AB20FCCA9E0014C692 /* MusicX.xcdatamodeld in Sources */,
 				8C4191F521132B09005D83FA /* ConfiguratorProtocol.swift in Sources */,
 				8C4B43D520FCCB000014C692 /* Constants.swift in Sources */,
 				8C4B43D720FCCB1C0014C692 /* SecretConstants.swift in Sources */,
+				8C419262211980DF005D83FA /* TabBarViewController.swift in Sources */,
 				8C18E21A20FF5909005DAEE1 /* ApiRequestBuilder.swift in Sources */,
 				8C84EE4821104532000780B0 /* HeaderView.swift in Sources */,
 				8C41925B211880BD005D83FA /* PresentableProtocol.swift in Sources */,

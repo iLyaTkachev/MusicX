@@ -6,4 +6,32 @@
 //  Copyright © 2018 Ilya Tkachou. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+protocol TabBarModuleInput : BaseModuleInput {
+    
+}
+
+protocol TabBarModuleOutput : BaseModuleOutput {
+    
+}
+
+protocol TabBarViewInput : BaseViewInput {
+    var viewControllers: [UIViewController]? { get set }
+}
+
+protocol TabBarViewOutput : BaseViewOutput {
+
+}
+
+protocol TabBarInteractorInput : BaseInteractorInput {
+    
+}
+
+protocol TabBarInteractorOutput : BaseInteractorOutput {
+
+}
+
+protocol TabBarRouterInput : BaseRouterInput {
+
+}

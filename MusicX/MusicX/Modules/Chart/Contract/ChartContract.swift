@@ -6,14 +6,14 @@
 //  Copyright © 2018 Ilya Tkachou. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 protocol ChartModuleInput : BaseModuleInput {
-    
+
 }
 
 protocol ChartModuleOutput : BaseModuleOutput {
-    func present()
+    var viewController: UIViewController { get }
 }
 
 protocol ChartViewInput : BaseViewInput {
