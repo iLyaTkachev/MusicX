@@ -11,7 +11,7 @@ import UIKit
 class ChartViewController: UIViewController {
 
     static let id = "ChartViewController"
-    static let storyboardId = "ChartStoryboard"
+    static let storyboardId = "Chart"
     
     var output: ChartViewOutput!
     
@@ -28,6 +28,8 @@ class ChartViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 }
+
+//Mark: - ChartViewInput
 
 extension ChartViewController : ChartViewInput {
     func updateList(with array: [Track]) {

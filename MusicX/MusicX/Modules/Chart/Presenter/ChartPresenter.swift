@@ -17,6 +17,8 @@ class ChartPresenter {
 
 }
 
+//Mark: - ChartInteractorOutput
+
 extension ChartPresenter : ChartInteractorOutput {
     func didFetchWithSuccess(trackArray: [Track]) {
         
@@ -27,6 +29,8 @@ extension ChartPresenter : ChartInteractorOutput {
     }
 }
 
+//Mark: - ChartViewOutput
+
 extension ChartPresenter : ChartViewOutput {
     func trackClicked(item: Track) {
         router.presentTrackDetails(track: item)
@@ -36,6 +40,8 @@ extension ChartPresenter : ChartViewOutput {
         view.setupInitialState()
     }
 }
+
+//Mark: - ChartModuleOutput
 
 extension ChartPresenter : ChartModuleOutput {
     var viewController: UIViewController {

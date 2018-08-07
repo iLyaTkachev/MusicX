@@ -11,7 +11,7 @@ import UIKit
 class TabBarViewController: UITabBarController {
 
     static let id = "TabBarViewController"
-    static let storyboardId = "TabBarStoryboard"
+    static let storyboardId = "TabBar"
     
     var output: TabBarViewOutput!
     
@@ -26,6 +26,8 @@ class TabBarViewController: UITabBarController {
     }
     
 }
+
+//Mark: - TabBarViewInput
 
 extension TabBarViewController : TabBarViewInput {
     func setupInitialState() {

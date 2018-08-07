@@ -23,6 +23,8 @@ class TabBarPresenter {
     }
 }
 
+//Mark: - TabBarViewOutput
+
 extension TabBarPresenter : TabBarViewOutput {
     func viewIsReady() {
         view.setupInitialState()
@@ -30,9 +32,13 @@ extension TabBarPresenter : TabBarViewOutput {
     }
 }
 
+//Mark: - TabBarInteractorOutput
+
 extension TabBarPresenter : TabBarInteractorOutput {
     
 }
+
+//Mark: - TabBarModuleOutput
 
 extension TabBarPresenter : TabBarModuleOutput {
     func present() {

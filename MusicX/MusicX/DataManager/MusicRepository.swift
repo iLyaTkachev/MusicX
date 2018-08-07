@@ -1,7 +1,7 @@
 import Foundation
 
 protocol MusicDataSource {
-    func getTopTracks() -> MediaObject?
+    func getTopTracks() -> [MediaObject]?
 }
 
 final class MusicRepository: MusicDataSource {
@@ -16,7 +16,7 @@ final class MusicRepository: MusicDataSource {
         localDataSource = MusicLocalDataSource()
     }
     
-    func getTopTracks() -> MediaObject? {
+    func getTopTracks() -> [MediaObject]? {
         return nil
     }
 }

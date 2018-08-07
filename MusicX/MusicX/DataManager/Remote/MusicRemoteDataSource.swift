@@ -2,13 +2,13 @@ import Foundation
 
 final class MusicRemoteDataSource: MusicDataSource {
     
-    private let queryService: QueryService
+    private let queryService: NetworkService
     
     init() {
         queryService = QueryService()
     }
     
-    func getTopTracks() -> MediaObject? {
+    func getTopTracks() -> [MediaObject]? {
         return nil
     }
     
