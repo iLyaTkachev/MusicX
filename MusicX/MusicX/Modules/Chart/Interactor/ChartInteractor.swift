@@ -9,10 +9,10 @@
 import Foundation
 
 class ChartInteractor : ChartInteractorInput {
-    weak var output: BaseInteractorOutput!
+    weak var output: ChartInteractorOutput!
+    var repository: MusicDataSource!
     
-    func fetch(withUrl url: String) {
+    func fetch(contentType: MediaType, page: Int?) {
         
     }
-    
 }

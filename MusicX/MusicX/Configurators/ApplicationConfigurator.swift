@@ -10,11 +10,9 @@ import UIKit
 
 class ApplicationConfgurator: BaseConfigurator {
     
-    private var isSignedIn = true
-    
     func configure() {
         
-        if isSignedIn {
+        if CoreX.shared.isSignedIn() {
             TabBarModule.create().present()
         }
     }

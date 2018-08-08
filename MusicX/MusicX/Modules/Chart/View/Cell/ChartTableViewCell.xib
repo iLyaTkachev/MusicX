@@ -15,7 +15,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="ChartTableViewCell" customModule="MusicX" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="230"/>
+            <rect key="frame" x="0.0" y="0.0" width="375" height="150"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3nn-FY-MAB">
@@ -48,6 +48,8 @@
                 <constraint firstItem="b3B-VI-HgW" firstAttribute="top" secondItem="iCd-Q5-8S9" secondAttribute="bottom" constant="10" id="r5M-By-vxU"/>
                 <constraint firstItem="3nn-FY-MAB" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="10" id="weo-mK-ukB"/>
             </constraints>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <connections>
@@ -55,7 +57,7 @@
                 <outlet property="artistNameLabel" destination="b3B-VI-HgW" id="bUj-ZI-cGH"/>
                 <outlet property="trackNameLabel" destination="iCd-Q5-8S9" id="rEc-Wq-90w"/>
             </connections>
-            <point key="canvasLocation" x="80.5" y="-90"/>
+            <point key="canvasLocation" x="80.5" y="-133.5"/>
         </view>
     </objects>
 </document>

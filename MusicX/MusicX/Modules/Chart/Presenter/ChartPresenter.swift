@@ -37,6 +37,7 @@ extension ChartPresenter : ChartViewOutput {
     }
     
     func viewIsReady() {
+        //interactor.fetch(withUrl: <#T##String#>)
         view.setupInitialState()
     }
 }

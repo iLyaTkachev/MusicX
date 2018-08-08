@@ -9,6 +9,15 @@
 import Foundation
 
 class CoreX {
-    let repository: MusicDataSource = MusicRepository.shared
+    static let shared = CoreX()
     
+    let repository: MusicDataSource
+    
+    private init() {
+        repository = MusicRepository.shared
+    }
+    
+    func isSignedIn() -> Bool {
+        return true
+    }
 }

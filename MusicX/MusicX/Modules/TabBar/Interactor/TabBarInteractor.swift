@@ -9,10 +9,9 @@
 import Foundation
 
 class TabBarInteractor: TabBarInteractorInput {
-    weak var output: BaseInteractorOutput!
+    weak var output: TabBarInteractorOutput!
     
-    func fetch(withUrl url: String) {
+    func fetch(contentType: MediaType, page: Int?) {
         
     }
-    
 }

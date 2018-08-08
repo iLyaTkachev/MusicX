@@ -30,8 +30,7 @@ protocol BaseViewOutput: class {
 }
 
 protocol BaseInteractorInput: class{
-    var output: BaseInteractorOutput! { get set } //weak
-    func fetch(withUrl url: String)
+    func fetch(contentType: MediaType, page: Int?)
 }
 
 protocol BaseInteractorOutput: class {
