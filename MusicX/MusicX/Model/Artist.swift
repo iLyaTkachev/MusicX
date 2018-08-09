@@ -1,6 +1,7 @@
 import Foundation
 
-class Artist: MediaObject {
+class Artist: BaseMediaObject {
+    static let type: MediaType = .artist
     
     private enum Keys: String {
         case name, mbid

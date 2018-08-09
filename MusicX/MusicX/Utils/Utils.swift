@@ -16,4 +16,9 @@ final class Utils {
         
         return storyboard.instantiateViewController(withIdentifier: vcId)
     }
+    
+    static func currentQueueName() -> String? {
+        let name = __dispatch_queue_get_label(nil)
+        return String(cString: name, encoding: .utf8)
+    }
 }

@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 class ChartRouter : ChartRouterInput {
-    func presentTrackDetails(track: Track) {
+    func presentMediaDetails(item: BaseMediaObject) {
         
     }
 }

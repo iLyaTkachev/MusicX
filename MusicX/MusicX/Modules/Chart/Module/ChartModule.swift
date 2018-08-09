@@ -16,6 +16,7 @@ class ChartModule : ChartModuleInput {
         presenter.view = view
         presenter.router = router
         presenter.interactor = interactor
+        presenter.currentMediaType = .track
         
         return presenter
     }

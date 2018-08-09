@@ -17,11 +17,12 @@ protocol ChartModuleOutput : BaseModuleOutput {
 }
 
 protocol ChartViewInput : BaseViewInput {
-    func updateList(with array: [Track])
+    func updateList(with array: [BaseMediaObject])
+    func onError()
 }
 
 protocol ChartViewOutput : BaseViewOutput {
-    func trackClicked(item: Track)
+    func itemClicked(item: BaseMediaObject)
 }
 
 protocol ChartInteractorInput : BaseInteractorInput {
@@ -29,10 +30,10 @@ protocol ChartInteractorInput : BaseInteractorInput {
 }
 
 protocol ChartInteractorOutput : BaseInteractorOutput {
-    func didFetchWithSuccess(trackArray: [Track])
+    func didFetchWithSuccess(itemsArray: [BaseMediaObject])
     func didFetchWithFailure()
 }
 
 protocol ChartRouterInput : BaseRouterInput {
-    func presentTrackDetails(track: Track)
+    func presentMediaDetails(item: BaseMediaObject)
 }

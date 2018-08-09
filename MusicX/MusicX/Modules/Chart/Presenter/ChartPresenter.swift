@@ -13,31 +13,41 @@ class ChartPresenter {
     var interactor: ChartInteractorInput!
     var router: ChartRouterInput!
     
-    private var tracks: [Track] = []
+    var currentMediaType: MediaType?
+    
+    private var items: [BaseMediaObject] = []
 
 }
 
 //Mark: - ChartInteractorOutput
 
 extension ChartPresenter : ChartInteractorOutput {
-    func didFetchWithSuccess(trackArray: [Track]) {
-        
+    func didFetchWithSuccess(itemsArray: [BaseMediaObject]) {
+        if itemsArray == currentMediaType {
+            view.updateList(with: itemsArray)
+        }
+    }
+    
+    func didFetchWithSuccess<T: BaseMediaObject>(itemsArray: [T]) {
+        if T.type == currentMediaType {
+            view.updateList(with: itemsArray)
+        }
     }
     
     func didFetchWithFailure() {
-        
+        view.onError()
     }
 }
 
 //Mark: - ChartViewOutput
 
 extension ChartPresenter : ChartViewOutput {
-    func trackClicked(item: Track) {
-        router.presentTrackDetails(track: item)
+    func itemClicked(item: BaseMediaObject) {
+        router.presentMediaDetails(item: item)
     }
     
     func viewIsReady() {
-        //interactor.fetch(withUrl: <#T##String#>)
+        interactor.fetch(contentType: .track, page: 1)
         view.setupInitialState()
     }
 }

@@ -19,10 +19,9 @@ class ChartViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         output.viewIsReady()
     }
-
+        
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -32,11 +31,15 @@ class ChartViewController: UIViewController {
 //Mark: - ChartViewInput
 
 extension ChartViewController : ChartViewInput {
-    func updateList(with array: [Track]) {
-        
+    func onError() {
+        print("Error")
+    }
+    
+    func updateList(with array: [BaseMediaObject]) {
+        print(array[0])
     }
     
     func setupInitialState() {
-        
+        //start progress
     }
 }

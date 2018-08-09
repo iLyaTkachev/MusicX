@@ -4,6 +4,10 @@ class ApiRequestBuilder{
     
     class LastFmBuilder {
         
+        func getChart(mediaType: MediaType, page: Int?) -> URL? {
+            return buildJsonRequest(withMethod: Constants.ApiComponents.Chart.chart + "." + mediaType.chartMethod(), withPage: page)
+        }
+        
         func buildJsonRequest(withMethod method: String, withPage: Int?) -> URL? {
             
             var url: URL?

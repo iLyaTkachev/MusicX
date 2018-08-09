@@ -6,7 +6,7 @@ protocol NetworkService {
 
 class QueryService: NetworkService {
     
-    let defaultSession = URLSession(configuration: .default)
+    private let defaultSession = URLSession(configuration: .default)
     
     func executeRequest(urlToExecute : URL, completionHandler: @escaping ([String: Any]?, Error?)->Void) {
         

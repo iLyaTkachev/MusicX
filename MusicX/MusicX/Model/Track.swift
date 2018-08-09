@@ -1,6 +1,7 @@
 import Foundation
 
-class Track: MediaObject {
+class Track: BaseMediaObject {
+    static let type: MediaType = .track
     
     private enum Keys: String {
         case name, duration, playcount, listeners, artist, image

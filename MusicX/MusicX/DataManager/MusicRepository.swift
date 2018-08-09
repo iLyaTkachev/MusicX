@@ -1,13 +1,8 @@
 import Foundation
 
-protocol MusicDataSource {
-    func getTopTracks() -> [MediaObject]?
-}
-
 final class MusicRepository: MusicDataSource {
-    
+
     static let shared = MusicRepository()
-    
     
     private let remoteDataSource: MusicDataSource
     private let localDataSource: MusicDataSource
@@ -17,7 +12,7 @@ final class MusicRepository: MusicDataSource {
         localDataSource = MusicLocalDataSource()
     }
     
-    func getTopTracks() -> [MediaObject]? {
-        return nil
+    func getChart<T: BaseMediaObject>(page: Int?) -> [T]? {
+        return remoteDataSource.getChart(page: page)
     }
 }
