@@ -9,5 +9,5 @@
 import Foundation
 
 protocol MusicDataSource {
-    func getChart(type: MediaType, page: Int?) -> Chart?
+    func getChart(type: MediaType, page: Int?, completionHandler: @escaping (Chart?, CustomError?)->Void)
 }

@@ -15,12 +15,13 @@ class ChartInteractor : ChartInteractorInput {
     
     func fetch(contentType: MediaType, page: Int?) {
         
-        let result: Chart? = repository.getChart(type: contentType, page: page)
-        
-        if result != nil {
-            output.didFetchWithSuccess(chart: result!)
-        } else {
-            output.didFetchWithFailure()
+        //let result: Chart? = repository.getChart(type: contentType, page: page, completionHandler: )
+        repository.getChart(type: contentType, page: page) { (chart, error) in
+            if error != nil {
+                self.output.didFetchWithFailure(error: error!)
+            } else if chart != nil{
+                self.output.didFetchWithSuccess(chart: chart!)
+            }
         }
     }
 }

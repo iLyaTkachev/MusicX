@@ -10,25 +10,28 @@ final class MusicRemoteDataSource: MusicDataSource {
         responseParser = ResponseParser()
     }
 
-    func getChart(type: MediaType, page: Int?) -> Chart? {
+    func getChart(type: MediaType, page: Int?, completionHandler: @escaping (Chart?, CustomError?)->Void) {
         var result: Chart?
         
         if let url = ApiRequestBuilder.LastFmBuilder().getChart(mediaType: type, page: page) {
             
             queryService.executeRequest(urlToExecute: url) { (responseDict, error) in
-                print(Utils.currentQueueName())
+
                 if let unwrappedError = error {
                     print(unwrappedError.localizedDescription)
+                    completionHandler(nil, CustomError.requestError)
                 } else {
-                    if responseDict != nil {
-                        if let mediaArray = self.responseParser.parseMedia(type: type, dictionary: responseDict!) {
+                    if let dict = responseDict {
+                        if let mediaArray = self.responseParser.parseMedia(type: type, dictionary: dict) {
                             result = Chart(type: type, items: mediaArray)
+                            completionHandler(result, nil)
+                        } else {
+                            completionHandler(nil, CustomError.mediaParsing)
                         }
                     }
                 }
             }
         }
-        return result
     }
     
 }

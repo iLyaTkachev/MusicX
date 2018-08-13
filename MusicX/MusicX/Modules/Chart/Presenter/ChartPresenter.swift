@@ -22,14 +22,16 @@ class ChartPresenter {
 //Mark: - ChartInteractorOutput
 
 extension ChartPresenter : ChartInteractorOutput {
-    func didFetchWithSuccess(chart: Chart) {
+    func didFetchWithSuccess(chart: BaseChart) {
         if chart.type == currentMediaType && chart.items != nil{
             view.updateList(with: chart.items!)
+            view.hideActivityIndicator()
         }
     }
     
-    func didFetchWithFailure() {
-        view.onError()
+    func didFetchWithFailure(error: CustomError) {
+        view.onError(message: error.errorDesctiption())
+        view.hideActivityIndicator()
     }
 }
 
@@ -41,8 +43,9 @@ extension ChartPresenter : ChartViewOutput {
     }
     
     func viewIsReady() {
-        interactor.fetch(contentType: .track, page: 1)
         view.setupInitialState()
+        view.showActivityIndicator()
+        interactor.fetch(contentType: .track, page: 1)
     }
 }
 

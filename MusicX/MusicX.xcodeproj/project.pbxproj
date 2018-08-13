@@ -40,6 +40,7 @@
 		8C419279211C3990005D83FA /* ResponseParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C419278211C3990005D83FA /* ResponseParser.swift */; };
 		8C41927B211C427E005D83FA /* Chart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C41927A211C427E005D83FA /* Chart.swift */; };
 		8C41927D211C44D9005D83FA /* BaseChartProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C41927C211C44D9005D83FA /* BaseChartProtocol.swift */; };
+		8C41927F21219E52005D83FA /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C41927E21219E52005D83FA /* Error.swift */; };
 		8C4B43A320FCCA9E0014C692 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4B43A220FCCA9E0014C692 /* AppDelegate.swift */; };
 		8C4B43A520FCCA9E0014C692 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4B43A420FCCA9E0014C692 /* ViewController.swift */; };
 		8C4B43A820FCCA9E0014C692 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C4B43A620FCCA9E0014C692 /* Main.storyboard */; };
@@ -115,6 +116,7 @@
 		8C419278211C3990005D83FA /* ResponseParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseParser.swift; sourceTree = "<group>"; };
 		8C41927A211C427E005D83FA /* Chart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chart.swift; sourceTree = "<group>"; };
 		8C41927C211C44D9005D83FA /* BaseChartProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseChartProtocol.swift; sourceTree = "<group>"; };
+		8C41927E21219E52005D83FA /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
 		8C4B439F20FCCA9E0014C692 /* MusicX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MusicX.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C4B43A220FCCA9E0014C692 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8C4B43A420FCCA9E0014C692 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -206,6 +208,7 @@
 				8C18E23D21085F70005DAEE1 /* BaseMediaObjectProtocol.swift */,
 				8C41927A211C427E005D83FA /* Chart.swift */,
 				8C41927C211C44D9005D83FA /* BaseChartProtocol.swift */,
+				8C41927E21219E52005D83FA /* Error.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -550,6 +553,7 @@
 				8C4B439B20FCCA9E0014C692 /* Sources */,
 				8C4B439C20FCCA9E0014C692 /* Frameworks */,
 				8C4B439D20FCCA9E0014C692 /* Resources */,
+				062A0B6EE1695CD64DDAFFA7 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -672,6 +676,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		062A0B6EE1695CD64DDAFFA7 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-MusicX/Pods-MusicX-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/PKHUD/PKHUD.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PKHUD.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MusicX/Pods-MusicX-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		965ED803CDD874D3F732F8BA /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -773,6 +795,7 @@
 				8C41920421134291005D83FA /* TabBarContract.swift in Sources */,
 				8C419277211C376D005D83FA /* MusicDataSourceProtocol.swift in Sources */,
 				8C419206211342A8005D83FA /* TabBarModule.swift in Sources */,
+				8C41927F21219E52005D83FA /* Error.swift in Sources */,
 				8C41927B211C427E005D83FA /* Chart.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

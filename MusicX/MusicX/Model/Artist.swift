@@ -13,11 +13,11 @@ class Artist: BaseMediaObject {
         self.name = name
         self.mbid = mbid
         
-        print("Initialization \(name)")
+        //print("Initialization \(name)")
     }
     
     deinit {
-        print("Deinitialization \(name)")
+        //print("Deinitialization \(name)")
     }
     
     required convenience init?(with dictionary: [String : Any]) {

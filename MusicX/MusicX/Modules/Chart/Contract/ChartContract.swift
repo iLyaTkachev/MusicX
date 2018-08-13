@@ -16,9 +16,9 @@ protocol ChartModuleOutput : BaseModuleOutput {
     var viewController: UIViewController { get }
 }
 
-protocol ChartViewInput : BaseViewInput {
+protocol ChartViewInput : BaseViewInput, ActivityIndicator {
     func updateList(with array: [BaseMediaObject])
-    func onError()
+    func onError(message: String)
 }
 
 protocol ChartViewOutput : BaseViewOutput {
@@ -30,8 +30,8 @@ protocol ChartInteractorInput : BaseInteractorInput {
 }
 
 protocol ChartInteractorOutput : BaseInteractorOutput {
-    func didFetchWithSuccess(chart: Chart)
-    func didFetchWithFailure()
+    func didFetchWithSuccess(chart: BaseChart)
+    func didFetchWithFailure(error: CustomError)
 }
 
 protocol ChartRouterInput : BaseRouterInput {

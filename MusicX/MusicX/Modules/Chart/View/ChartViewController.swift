@@ -14,14 +14,13 @@ class ChartViewController: UIViewController {
     static let storyboardId = "Chart"
     
     var output: ChartViewOutput!
+    var activityIndicator = UIActivityIndicatorView()
     
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         output.viewIsReady()
-        //Chart<Track>(with: ["abc":"abc"])
-        
     }
         
     override func didReceiveMemoryWarning() {
@@ -33,15 +32,17 @@ class ChartViewController: UIViewController {
 //Mark: - ChartViewInput
 
 extension ChartViewController : ChartViewInput {
-    func onError() {
-        print("Error")
+    func onError(message: String) {
+        showAlert(title: "Error", message: message)
+        //print("Error")
     }
     
     func updateList(with array: [BaseMediaObject]) {
-        print(array[0])
+        let tracks = array as! [Track]
+        print(tracks[0].name)
     }
     
     func setupInitialState() {
-        //start progress
+
     }
 }

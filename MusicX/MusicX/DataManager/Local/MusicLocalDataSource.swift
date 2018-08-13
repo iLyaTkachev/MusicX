@@ -6,7 +6,7 @@ class MusicLocalDataSource: MusicDataSource {
         
     }
 
-    func getChart(type: MediaType, page: Int?) -> Chart? {
-        return nil
+    func getChart(type: MediaType, page: Int?, completionHandler: @escaping (Chart?, CustomError?)->Void) {
+        completionHandler(nil, nil)
     }
 }

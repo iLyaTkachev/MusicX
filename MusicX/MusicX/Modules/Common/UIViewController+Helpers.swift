@@ -21,4 +21,33 @@ extension UIViewController {
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         present(alert, animated: true, completion: nil)
     }
+    
 }
+
+protocol ActivityIndicator {
+    var activityIndicator: UIActivityIndicatorView { get }
+    
+    func showActivityIndicator()
+    func hideActivityIndicator()
+}
+
+extension ActivityIndicator where Self: UIViewController {
+    
+    func showActivityIndicator() {
+        activityIndicator.center = view.center
+        activityIndicator.hidesWhenStopped = true
+        activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.gray
+        view.addSubview(activityIndicator)
+        
+        DispatchQueue.main.async {
+            self.activityIndicator.startAnimating()
+        }
+    }
+    
+    func hideActivityIndicator() {
+        DispatchQueue.main.async {
+            self.activityIndicator.stopAnimating()
+        }
+    }
+}
+

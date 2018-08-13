@@ -12,7 +12,7 @@ final class MusicRepository: MusicDataSource {
         localDataSource = MusicLocalDataSource()
     }
     
-    func getChart(type: MediaType, page: Int?) -> Chart? {
-        return remoteDataSource.getChart(type: type, page: page)
+    func getChart(type: MediaType, page: Int?, completionHandler: @escaping (Chart?, CustomError?)->Void) {
+        return remoteDataSource.getChart(type: type, page: page, completionHandler: completionHandler)
     }
 }
