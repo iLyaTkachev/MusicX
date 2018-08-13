@@ -9,8 +9,15 @@ final class MusicRemoteDataSource: MusicDataSource {
         queryService = QueryService()
     }
 
-    func getChart<T: BaseMediaObject>(page: Int?) -> [T]? {
-
+    func getChart(type: MediaType, page: Int?) -> Chart? {
+        switch type {
+        case .track:
+            return nil
+        case .artist:
+            return nil
+        case .tag:
+            return nil
+        }
         /*if let url = ApiRequestBuilder.LastFmBuilder().getChart(mediaType: T.type, page: page){
         
         queryService.executeRequest(urlToExecute: url!) { (responseDict, error) in

@@ -9,5 +9,5 @@
 import Foundation
 
 protocol MusicDataSource {
-    func getChart<T: BaseMediaObject>(page: Int?) -> [T]?
+    func getChart(type: MediaType, page: Int?) -> Chart?
 }

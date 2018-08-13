@@ -6,7 +6,7 @@ class MusicLocalDataSource: MusicDataSource {
         
     }
 
-    func getChart<T: BaseMediaObject>(page: Int?) -> [T]? {
+    func getChart(type: MediaType, page: Int?) -> Chart? {
         return nil
     }
 }

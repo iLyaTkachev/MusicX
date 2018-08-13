@@ -8,13 +8,12 @@
 
 import Foundation
 
-class Chart<Item: BaseMediaObject>: BaseChart {
+class Chart : BaseChart {
     
-    private(set) var mediaArray: [Item]
-    
+    private(set) var type: MediaType
+    private(set) var items: [BaseMediaObject]?
+
     required init?(with dictionary: [String : Any]) {
-        return nil
+        //print(T.type)
     }
-    
-    
 }

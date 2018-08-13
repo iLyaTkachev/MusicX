@@ -20,6 +20,8 @@ class ChartViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         output.viewIsReady()
+        //Chart<Track>(with: ["abc":"abc"])
+        
     }
         
     override func didReceiveMemoryWarning() {

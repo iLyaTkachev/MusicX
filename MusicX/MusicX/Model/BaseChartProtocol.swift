@@ -9,5 +9,7 @@
 import Foundation
 
 protocol BaseChart {
-    
+    var type: MediaType
+    var items: [BaseMediaObject]
+    init?(with dictionary: [String:Any])
 }

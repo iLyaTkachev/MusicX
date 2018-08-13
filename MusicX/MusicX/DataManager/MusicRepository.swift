@@ -12,7 +12,7 @@ final class MusicRepository: MusicDataSource {
         localDataSource = MusicLocalDataSource()
     }
     
-    func getChart<T: BaseMediaObject>(page: Int?) -> [T]? {
-        return remoteDataSource.getChart(page: page)
+    func getChart(type: MediaType, page: Int?) -> Chart? {
+        return remoteDataSource.getChart(type: type, page: page)
     }
 }
