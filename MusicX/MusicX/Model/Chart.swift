@@ -13,7 +13,8 @@ class Chart : BaseChart {
     private(set) var type: MediaType
     private(set) var items: [BaseMediaObject]?
 
-    required init?(with dictionary: [String : Any]) {
-        //print(T.type)
+    required init?(type: MediaType, items: [BaseMediaObject]) {
+        self.type = type
+        self.items = items
     }
 }

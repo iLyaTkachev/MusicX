@@ -22,15 +22,9 @@ class ChartPresenter {
 //Mark: - ChartInteractorOutput
 
 extension ChartPresenter : ChartInteractorOutput {
-    func didFetchWithSuccess(itemsArray: [BaseMediaObject]) {
-        /*if itemsArray == currentMediaType {
-            view.updateList(with: itemsArray)
-        }*/
-    }
-    
-    func didFetchWithSuccess<T: BaseMediaObject>(itemsArray: [T]) {
-        if T.type == currentMediaType {
-            view.updateList(with: itemsArray)
+    func didFetchWithSuccess(chart: Chart) {
+        if chart.type == currentMediaType && chart.items != nil{
+            view.updateList(with: chart.items!)
         }
     }
     

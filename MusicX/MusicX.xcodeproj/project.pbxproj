@@ -37,7 +37,7 @@
 		8C41926C2119A4CD005D83FA /* UIViewController+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C41926B2119A4CD005D83FA /* UIViewController+Helpers.swift */; };
 		8C419273211B1932005D83FA /* MediaType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C419272211B1932005D83FA /* MediaType.swift */; };
 		8C419277211C376D005D83FA /* MusicDataSourceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C419276211C376D005D83FA /* MusicDataSourceProtocol.swift */; };
-		8C419279211C3990005D83FA /* ResponseConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C419278211C3990005D83FA /* ResponseConverter.swift */; };
+		8C419279211C3990005D83FA /* ResponseParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C419278211C3990005D83FA /* ResponseParser.swift */; };
 		8C41927B211C427E005D83FA /* Chart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C41927A211C427E005D83FA /* Chart.swift */; };
 		8C41927D211C44D9005D83FA /* BaseChartProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C41927C211C44D9005D83FA /* BaseChartProtocol.swift */; };
 		8C4B43A320FCCA9E0014C692 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4B43A220FCCA9E0014C692 /* AppDelegate.swift */; };
@@ -112,7 +112,7 @@
 		8C41926B2119A4CD005D83FA /* UIViewController+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Helpers.swift"; sourceTree = "<group>"; };
 		8C419272211B1932005D83FA /* MediaType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaType.swift; sourceTree = "<group>"; };
 		8C419276211C376D005D83FA /* MusicDataSourceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicDataSourceProtocol.swift; sourceTree = "<group>"; };
-		8C419278211C3990005D83FA /* ResponseConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseConverter.swift; sourceTree = "<group>"; };
+		8C419278211C3990005D83FA /* ResponseParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseParser.swift; sourceTree = "<group>"; };
 		8C41927A211C427E005D83FA /* Chart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chart.swift; sourceTree = "<group>"; };
 		8C41927C211C44D9005D83FA /* BaseChartProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseChartProtocol.swift; sourceTree = "<group>"; };
 		8C4B439F20FCCA9E0014C692 /* MusicX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MusicX.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -225,7 +225,7 @@
 			isa = PBXGroup;
 			children = (
 				8C18E2302107107B005DAEE1 /* MusicRemoteDataSource.swift */,
-				8C419278211C3990005D83FA /* ResponseConverter.swift */,
+				8C419278211C3990005D83FA /* ResponseParser.swift */,
 			);
 			path = Remote;
 			sourceTree = "<group>";
@@ -755,7 +755,7 @@
 				8C18E23C21074763005DAEE1 /* Utils.swift in Sources */,
 				8C84EE4321103DE1000780B0 /* ChartRouter.swift in Sources */,
 				8C84EE3F210F1563000780B0 /* ChartContract.swift in Sources */,
-				8C419279211C3990005D83FA /* ResponseConverter.swift in Sources */,
+				8C419279211C3990005D83FA /* ResponseParser.swift in Sources */,
 				8C18E23921071149005DAEE1 /* DownloadService.swift in Sources */,
 				8C419264211997D6005D83FA /* TabBarInteractor.swift in Sources */,
 				8C4B43A320FCCA9E0014C692 /* AppDelegate.swift in Sources */,

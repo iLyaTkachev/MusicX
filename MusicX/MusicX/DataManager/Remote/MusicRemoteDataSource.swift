@@ -3,47 +3,32 @@ import Foundation
 final class MusicRemoteDataSource: MusicDataSource {
 
     private let queryService: NetworkService
-    //private let responseConverter: ResponseConverter
+    private let responseParser: MediaParser
     
     init() {
         queryService = QueryService()
+        responseParser = ResponseParser()
     }
 
     func getChart(type: MediaType, page: Int?) -> Chart? {
-        switch type {
-        case .track:
-            return nil
-        case .artist:
-            return nil
-        case .tag:
-            return nil
-        }
-        /*if let url = ApiRequestBuilder.LastFmBuilder().getChart(mediaType: T.type, page: page){
+        var result: Chart?
         
-        queryService.executeRequest(urlToExecute: url!) { (responseDict, error) in
+        if let url = ApiRequestBuilder.LastFmBuilder().getChart(mediaType: type, page: page) {
             
-            if let unwrappedError = error {
-                print(unwrappedError.localizedDescription)
-            } else {
-                guard let dict = responseDict?["tracks"] as? [String : Any] , let array = dict["track"] as? [Any] else {
-                    print("Dictionary does not contain track key\n")
-                    return
-                }
-                
-                for trackDictionary in array {
-                    if let trackDictionary = trackDictionary as? [String : Any],
-                        let track = Track(with: trackDictionary) {
-                        print(track.name + " " + track.listeners)
-                    } else {
-                        print("Problem parsing trackDictionary\n")
-                        break
+            queryService.executeRequest(urlToExecute: url) { (responseDict, error) in
+                print(Utils.currentQueueName())
+                if let unwrappedError = error {
+                    print(unwrappedError.localizedDescription)
+                } else {
+                    if responseDict != nil {
+                        if let mediaArray = self.responseParser.parseMedia(type: type, dictionary: responseDict!) {
+                            result = Chart(type: type, items: mediaArray)
+                        }
                     }
                 }
-                
             }
         }
-        }*/
-        return nil
+        return result
     }
     
 }

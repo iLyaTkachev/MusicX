@@ -15,26 +15,10 @@ class ChartInteractor : ChartInteractorInput {
     
     func fetch(contentType: MediaType, page: Int?) {
         
-        var result: [BaseMediaObject]?
-        
-        switch contentType {
-        case .track:
-            if let arr:[Track] = repository.getChart(page: page){
-                result = arr
-            }
-        case .artist:
-            if let arr:[Artist] = repository.getChart(page: page){
-                result = arr
-            }
-        case .tag:
-            //TODO: change on Tag
-            if let arr:[Artist] = repository.getChart(page: page){
-                result = arr
-            }
-        }
+        let result: Chart? = repository.getChart(type: contentType, page: page)
         
         if result != nil {
-            output.didFetchWithSuccess(itemsArray: result!)
+            output.didFetchWithSuccess(chart: result!)
         } else {
             output.didFetchWithFailure()
         }
