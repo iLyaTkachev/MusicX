@@ -24,6 +24,7 @@ class ChartPresenter {
 extension ChartPresenter : ChartInteractorOutput {
     func didFetchWithSuccess(chart: BaseChart) {
         if chart.type == currentMediaType && chart.items != nil{
+            items += chart.items!
             view.updateList(with: chart.items!)
             view.hideActivityIndicator()
         }
@@ -38,10 +39,18 @@ extension ChartPresenter : ChartInteractorOutput {
 //Mark: - ChartViewOutput
 
 extension ChartPresenter : ChartViewOutput {
+    var mediaCount: Int {
+        return items.count
+    }
+    
+    func getMedia(forIndex: Int) -> BaseMediaObject {
+        return items[forIndex]
+    }
+    
     func itemClicked(item: BaseMediaObject) {
         router.presentMediaDetails(item: item)
     }
-    
+     
     func viewIsReady() {
         view.setupInitialState()
         view.showActivityIndicator()

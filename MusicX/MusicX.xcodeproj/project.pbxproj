@@ -41,6 +41,7 @@
 		8C41927B211C427E005D83FA /* Chart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C41927A211C427E005D83FA /* Chart.swift */; };
 		8C41927D211C44D9005D83FA /* BaseChartProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C41927C211C44D9005D83FA /* BaseChartProtocol.swift */; };
 		8C41927F21219E52005D83FA /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C41927E21219E52005D83FA /* Error.swift */; };
+		8C4192812122BA17005D83FA /* BaseTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4192802122BA17005D83FA /* BaseTableCell.swift */; };
 		8C4B43A320FCCA9E0014C692 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4B43A220FCCA9E0014C692 /* AppDelegate.swift */; };
 		8C4B43A520FCCA9E0014C692 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4B43A420FCCA9E0014C692 /* ViewController.swift */; };
 		8C4B43A820FCCA9E0014C692 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C4B43A620FCCA9E0014C692 /* Main.storyboard */; };
@@ -117,6 +118,7 @@
 		8C41927A211C427E005D83FA /* Chart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chart.swift; sourceTree = "<group>"; };
 		8C41927C211C44D9005D83FA /* BaseChartProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseChartProtocol.swift; sourceTree = "<group>"; };
 		8C41927E21219E52005D83FA /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
+		8C4192802122BA17005D83FA /* BaseTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableCell.swift; sourceTree = "<group>"; };
 		8C4B439F20FCCA9E0014C692 /* MusicX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MusicX.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C4B43A220FCCA9E0014C692 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8C4B43A420FCCA9E0014C692 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -352,6 +354,7 @@
 				8C41925A211880BC005D83FA /* BaseProtocols.swift */,
 				8C419258211880BC005D83FA /* PresentableProtocol.swift */,
 				8C41926B2119A4CD005D83FA /* UIViewController+Helpers.swift */,
+				8C4192802122BA17005D83FA /* BaseTableCell.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -764,6 +767,7 @@
 				8C18E22921070FE1005DAEE1 /* Download.swift in Sources */,
 				8C419268211997F6005D83FA /* TabBarRouter.swift in Sources */,
 				8CB665F22110560500CEF996 /* ChartTableViewCell.swift in Sources */,
+				8C4192812122BA17005D83FA /* BaseTableCell.swift in Sources */,
 				8C419266211997E5005D83FA /* TabBarPresenter.swift in Sources */,
 				8C18E22F21071053005DAEE1 /* MusicRepository.swift in Sources */,
 				8CB665EF2110541E00CEF996 /* ChartViewController.swift in Sources */,
