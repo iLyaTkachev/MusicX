@@ -51,11 +51,11 @@ class ChartViewController: UIViewController {
     }
     
     @objc func refresh() {
-        print("Refreshing")
-        DispatchQueue.main.async {
+        output.reloadMedia()
+        /*DispatchQueue.main.async {
             self.tableView.reloadData()
         }
-        refreshControl.endRefreshing()
+        refreshControl.endRefreshing()*/
     }
 }
 
@@ -72,6 +72,10 @@ extension ChartViewController : ChartViewInput {
         DispatchQueue.main.async {
             self.tableView.reloadData()
         }
+        if refreshControl.isRefreshing {
+            refreshControl.endRefreshing()
+        }
+        //refreshControl.endRefreshing()
     }
     
     func setupInitialState() {

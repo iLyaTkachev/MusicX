@@ -55,6 +55,16 @@ extension ChartPresenter : ChartViewOutput {
         }
     }
     
+    func reloadMedia() {
+        if isLoading {
+            
+        } else {
+            currentPage = 1
+            items = []
+            loadMedia()
+        }
+    }
+    
     var mediaCount: Int {
         return items.count
     }
