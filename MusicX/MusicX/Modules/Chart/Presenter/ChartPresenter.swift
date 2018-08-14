@@ -15,6 +15,10 @@ class ChartPresenter {
     
     var currentMediaType: MediaType?
     
+    var isLoading = false
+    var currentPage = 1
+    
+    
     private var items: [BaseMediaObject] = []
 
 }
@@ -23,6 +27,8 @@ class ChartPresenter {
 
 extension ChartPresenter : ChartInteractorOutput {
     func didFetchWithSuccess(chart: BaseChart) {
+        isLoading = false
+        
         if chart.type == currentMediaType && chart.items != nil{
             items += chart.items!
             view.updateList(with: chart.items!)
@@ -31,6 +37,7 @@ extension ChartPresenter : ChartInteractorOutput {
     }
     
     func didFetchWithFailure(error: CustomError) {
+        isLoading = false
         view.onError(message: error.errorDesctiption())
         view.hideActivityIndicator()
     }
@@ -39,11 +46,20 @@ extension ChartPresenter : ChartInteractorOutput {
 //Mark: - ChartViewOutput
 
 extension ChartPresenter : ChartViewOutput {
+    func loadMedia() {
+        guard isLoading else {
+            isLoading = true
+            interactor.fetch(contentType: currentMediaType!, page: currentPage)
+            currentPage+=1
+            return
+        }
+    }
+    
     var mediaCount: Int {
         return items.count
     }
     
-    func getMedia(forIndex: Int) -> BaseMediaObject {
+    func getMediaObject(forIndex: Int) -> BaseMediaObject {
         return items[forIndex]
     }
     
@@ -54,7 +70,8 @@ extension ChartPresenter : ChartViewOutput {
     func viewIsReady() {
         view.setupInitialState()
         view.showActivityIndicator()
-        interactor.fetch(contentType: .track, page: 1)
+        currentMediaType = .track
+        loadMedia()
     }
 }
 

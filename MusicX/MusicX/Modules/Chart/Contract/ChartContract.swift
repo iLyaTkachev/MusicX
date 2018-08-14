@@ -23,8 +23,9 @@ protocol ChartViewInput : BaseViewInput, ActivityIndicator {
 
 protocol ChartViewOutput : BaseViewOutput {
     var mediaCount: Int { get }
-    func getMedia(forIndex: Int) -> BaseMediaObject
+    func getMediaObject(forIndex: Int) -> BaseMediaObject
     func itemClicked(item: BaseMediaObject)
+    func loadMedia()
 }
 
 protocol ChartInteractorInput : BaseInteractorInput {
