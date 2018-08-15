@@ -56,6 +56,7 @@ class ViewController: UIViewController {
     var count = 0
     
     @IBAction func buttonClick(_ sender: UIButton) {
+        self.selectButton.isHidden = !self.selectButton.isHidden
         //makeRequest()
         /*let chartStoryboard = UIStoryboard(name: "ChartStoryboard", bundle: Bundle.main)
 
@@ -75,6 +76,48 @@ class ViewController: UIViewController {
             
         }
         
+    }
+    
+    @IBOutlet weak var selectButton: UIButton!
+    @IBOutlet var buttons: [UIButton]!
+    
+    @IBAction func handleSelection(_ sender: UIButton) {
+        buttons.forEach { (button) in
+            UIView.animate(withDuration: 0.3, animations: {
+                //UIView.animateKeyframes
+                button.isHidden = !button.isHidden
+                self.view.layoutIfNeeded()
+            })
+            
+        }
+    }
+    
+    @IBAction func buttonSelected(_ sender: UIButton) {
+        guard let title = sender.currentTitle else {
+            return
+        }
+        
+        selectButton.setTitle(title, for: .normal)
+    }
+    
+    func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+        
+        if(velocity.y>0) {
+            UIView.animate(withDuration: 2.5, delay: 0, options: UIViewAnimationOptions(), animations: {
+                //self.navigationController?.setNavigationBarHidden(true, animated: true)
+                //self.view.layoutIfNeeded()
+                self.selectButton.isHidden = true
+                print("Hide")
+            }, completion: nil)
+            
+        } else {
+            UIView.animate(withDuration: 2.5, delay: 0, options: UIViewAnimationOptions(), animations: {
+                //self.navigationController?.setNavigationBarHidden(false, animated: true)
+                //self.view.layoutIfNeeded()
+                self.selectButton.isHidden = false
+                print("Unhide")
+            }, completion: nil)
+        }
     }
     
 }

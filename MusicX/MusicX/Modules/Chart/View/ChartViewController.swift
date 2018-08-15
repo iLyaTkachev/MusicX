@@ -19,9 +19,16 @@ class ChartViewController: UIViewController {
     private let refreshControl = UIRefreshControl()
     
     @IBOutlet weak var tableView: UITableView!
+    weak var button: UIButton?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        button = UIButton(frame: CGRect(x: 0, y: 0, width: 100, height: 50))
+        button?.backgroundColor = .green
+        button?.setTitle("Test Button", for: .normal)
+        navigationItem.titleView = button
+        
         output.viewIsReady()
     }
         
@@ -52,10 +59,24 @@ class ChartViewController: UIViewController {
     
     @objc func refresh() {
         output.loadMedia(isReloading: true)
-        /*DispatchQueue.main.async {
-            self.tableView.reloadData()
+    }
+    
+    func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+        
+        if(velocity.y>0) {
+            UIView.animate(withDuration: 2.5, delay: 0, options: UIViewAnimationOptions(), animations: {
+                //self.navigationController?.setNavigationBarHidden(true, animated: true)
+                //self.view.layoutIfNeeded()
+                print("Hide")
+            }, completion: nil)
+            
+        } else {
+            UIView.animate(withDuration: 2.5, delay: 0, options: UIViewAnimationOptions(), animations: {
+                //self.navigationController?.setNavigationBarHidden(false, animated: true)
+                //self.view.layoutIfNeeded()
+                print("Unhide")
+            }, completion: nil)
         }
-        refreshControl.endRefreshing()*/
     }
 }
 
