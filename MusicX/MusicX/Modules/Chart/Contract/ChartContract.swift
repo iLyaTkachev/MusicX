@@ -25,8 +25,7 @@ protocol ChartViewOutput : BaseViewOutput {
     var mediaCount: Int { get }
     func getMediaObject(forIndex: Int) -> BaseMediaObject
     func itemClicked(item: BaseMediaObject)
-    func loadMedia()
-    func reloadMedia()
+    func loadMedia(isReloading: Bool)
 }
 
 protocol ChartInteractorInput : BaseInteractorInput {

@@ -18,8 +18,8 @@ class ApiRequestBuilder{
                                          URLQueryItem(name: Constants.ApiComponents.apiKey, value: SecretConstants.apiKey),
                                          URLQueryItem(name: Constants.ApiComponents.format, value: Constants.ApiComponents.json)]
                 
-                if (withPage != nil) {
-                    components.queryItems?.append(URLQueryItem(name: Constants.ApiComponents.page, value: String(withPage!)))
+                if withPage != nil, withPage != 0 {
+                    components.queryItems?.append(URLQueryItem(name: Constants.ApiComponents.page, value: String(withPage!+1)))
                 }
                 
                 url = components.url

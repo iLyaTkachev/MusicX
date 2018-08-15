@@ -51,7 +51,7 @@ class ChartViewController: UIViewController {
     }
     
     @objc func refresh() {
-        output.reloadMedia()
+        output.loadMedia(isReloading: true)
         /*DispatchQueue.main.async {
             self.tableView.reloadData()
         }
@@ -71,11 +71,11 @@ extension ChartViewController : ChartViewInput {
         print(tracks[0].name)
         DispatchQueue.main.async {
             self.tableView.reloadData()
+            
+            if self.refreshControl.isRefreshing {
+                self.refreshControl.endRefreshing()
+            }
         }
-        if refreshControl.isRefreshing {
-            refreshControl.endRefreshing()
-        }
-        //refreshControl.endRefreshing()
     }
     
     func setupInitialState() {
@@ -103,7 +103,7 @@ extension ChartViewController : UITableViewDelegate, UITableViewDataSource {
         let lastItem = output.mediaCount - 10
         
         if indexPath.row >= lastItem {
-            output.loadMedia()
+            output.loadMedia(isReloading: false)
         }
     }
 }

@@ -218,8 +218,8 @@
 		8C18E22521070FBB005DAEE1 /* DataManager */ = {
 			isa = PBXGroup;
 			children = (
-				8C18E22721070FCB005DAEE1 /* Local */,
 				8C18E22621070FC5005DAEE1 /* Remote */,
+				8C18E22721070FCB005DAEE1 /* Local */,
 				8C18E22E21071053005DAEE1 /* MusicRepository.swift */,
 				8C419276211C376D005D83FA /* MusicDataSourceProtocol.swift */,
 			);

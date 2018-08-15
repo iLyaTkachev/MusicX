@@ -11,10 +11,12 @@ import Foundation
 class Chart : BaseChart {
     
     private(set) var type: MediaType
-    private(set) var items: [BaseMediaObject]?
+    private(set) var page: Int
+    private(set) var items: [BaseMediaObject]
 
-    required init?(type: MediaType, items: [BaseMediaObject]) {
+    required init(type: MediaType, page: Int, items: [BaseMediaObject]) {
         self.type = type
+        self.page = page
         self.items = items
     }
 }

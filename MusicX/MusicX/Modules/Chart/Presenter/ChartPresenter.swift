@@ -13,10 +13,10 @@ class ChartPresenter {
     var interactor: ChartInteractorInput!
     var router: ChartRouterInput!
     
-    var currentMediaType: MediaType?
+    var currentMediaType: MediaType = .track
     
     var isLoading = false
-    var currentPage = 1
+    var currentPage = 0
     
     
     private var items: [BaseMediaObject] = []
@@ -28,12 +28,20 @@ class ChartPresenter {
 extension ChartPresenter : ChartInteractorOutput {
     func didFetchWithSuccess(chart: BaseChart) {
         isLoading = false
-        
-        if chart.type == currentMediaType && chart.items != nil{
-            items += chart.items!
-            view.updateList(with: chart.items!)
-            view.hideActivityIndicator()
+        print("chart page fetched: \(chart.page)")
+        if chart.type == currentMediaType, !chart.items.isEmpty {
+            if chart.page == 1, currentPage > 1, !items.isEmpty {
+                items = []
+                currentPage = 1
+            }
+            
+            currentPage = chart.page
+            items += chart.items
+            view.updateList(with: chart.items)
         }
+        
+        view.hideActivityIndicator()
+        print("after fetching current: \(currentPage)")
     }
     
     func didFetchWithFailure(error: CustomError) {
@@ -46,22 +54,19 @@ extension ChartPresenter : ChartInteractorOutput {
 //Mark: - ChartViewOutput
 
 extension ChartPresenter : ChartViewOutput {
-    func loadMedia() {
+    func loadMedia(isReloading: Bool = false) {
         guard isLoading else {
             isLoading = true
-            interactor.fetch(contentType: currentMediaType!, page: currentPage)
-            currentPage+=1
-            return
-        }
-    }
-    
-    func reloadMedia() {
-        if isLoading {
             
-        } else {
-            currentPage = 1
-            items = []
-            loadMedia()
+            if isReloading {
+                interactor.fetch(contentType: currentMediaType, page: 1)
+                print("start reloading")
+            } else {
+                interactor.fetch(contentType: currentMediaType, page: currentPage + 1)
+                print("load media with page: \(currentPage+1)")
+            }
+            
+            return
         }
     }
     
