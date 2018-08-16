@@ -26,6 +26,11 @@ class TestViewController: UIViewController {
     @IBAction func click(_ sender: UIButton) {
         print("Button clicked")
         let cell = TestCellView.init(frame: viewHolder.bounds)
+        
+        /*cell.addConstraints([
+            NSLayoutConstraint(item: cell, attribute: .width, relatedBy: .equal, toItem: viewHolder, attribute: .width, multiplier: 1.0, constant: 0)
+            ])*/
+        
         viewHolder.addSubview(cell)
         print("viewHolder bound: \(viewHolder.bounds)")
         print("viewHolder frame: \(viewHolder.frame)")

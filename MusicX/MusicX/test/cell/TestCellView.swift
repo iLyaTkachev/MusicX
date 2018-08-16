@@ -10,8 +10,10 @@ import UIKit
 
 class TestCellView: UIView {
 
-    @IBOutlet weak var button: UIButton!
     @IBOutlet var contentView: UIView!
+    
+    @IBOutlet weak var selectButton: UIButton!
+    @IBOutlet var typeButtons: [UIButton]!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -22,13 +24,10 @@ class TestCellView: UIView {
         */
         
         Bundle.main.loadNibNamed("testCell", owner: self, options: nil)
-        print("frame: \(self.frame)")
-        print("bounds: \(bounds)")
         contentView.frame = frame
-        //contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
+        //contentView.translatesAutoresizingMaskIntoConstraints = false
+        contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         addSubview(contentView)
-        print("frame: \(self.frame)")
-        print("bounds: \(bounds)")
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -36,4 +35,12 @@ class TestCellView: UIView {
         print("init decoder called")
     }
 
+    @IBAction func selectButtonClicked(_ sender: UIButton) {
+        typeButtons.forEach { (button) in
+            UIView.animate(withDuration: 0.3, animations: {
+                button.isHidden = !button.isHidden
+                self.layoutIfNeeded()
+            })
+        }
+    }
 }
