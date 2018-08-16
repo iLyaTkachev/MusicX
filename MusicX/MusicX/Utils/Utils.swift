@@ -11,7 +11,7 @@ final class Utils {
         return String(url.suffix(36).prefix(32))
     }
     
-    static func getViewController(from storyboardName: String, with vcId: String) -> UIViewController {
+    static func getViewController(storyboardName: String, vcId: String) -> UIViewController {
         let storyboard = UIStoryboard(name: storyboardName, bundle: Bundle.main)
         
         return storyboard.instantiateViewController(withIdentifier: vcId)
@@ -19,6 +19,7 @@ final class Utils {
     
     static func currentQueueName() -> String? {
         let name = __dispatch_queue_get_label(nil)
+        
         return String(cString: name, encoding: .utf8)
     }
 }

@@ -6,7 +6,7 @@ class ChartModule : ChartModuleInput {
         let router = ChartRouter()
         let presenter = ChartPresenter()
         let interactor = ChartInteractor()
-        let view = Utils.getViewController(from: ChartViewController.storyboardId, with: ChartViewController.id) as! ChartViewController
+        let view = Utils.getViewController(storyboardName: ChartViewController.storyboardId, vcId: ChartViewController.id) as! ChartViewController
         
         interactor.output = presenter
         interactor.repository = CoreX.shared.repository

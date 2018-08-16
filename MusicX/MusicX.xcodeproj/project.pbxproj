@@ -52,8 +52,12 @@
 		8C4B43C620FCCA9F0014C692 /* MusicXUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4B43C520FCCA9F0014C692 /* MusicXUITests.swift */; };
 		8C4B43D520FCCB000014C692 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4B43D420FCCB000014C692 /* Constants.swift */; };
 		8C4B43D720FCCB1C0014C692 /* SecretConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4B43D620FCCB1C0014C692 /* SecretConstants.swift */; };
-		8C62D5402124662D00A78FD0 /* SelectButtonView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8C62D53F2124662D00A78FD0 /* SelectButtonView.xib */; };
+		8C62D5402124662D00A78FD0 /* SelectButtonsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8C62D53F2124662D00A78FD0 /* SelectButtonsView.xib */; };
 		8C62D5422124680B00A78FD0 /* SelectButtonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C62D5412124680B00A78FD0 /* SelectButtonsView.swift */; };
+		8C62D54721257D7700A78FD0 /* TestViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C62D54621257D7700A78FD0 /* TestViewController.storyboard */; };
+		8C62D54921257D9D00A78FD0 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C62D54821257D9D00A78FD0 /* TestViewController.swift */; };
+		8C62D54C2125924700A78FD0 /* testCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8C62D54B2125924700A78FD0 /* testCell.xib */; };
+		8C62D54E2125925F00A78FD0 /* TestCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C62D54D2125925F00A78FD0 /* TestCellView.swift */; };
 		8C84EE3A210F0D4D000780B0 /* ChartInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C84EE39210F0D4D000780B0 /* ChartInteractor.swift */; };
 		8C84EE3C210F0E23000780B0 /* ChartPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C84EE3B210F0E23000780B0 /* ChartPresenter.swift */; };
 		8C84EE3F210F1563000780B0 /* ChartContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C84EE3E210F1563000780B0 /* ChartContract.swift */; };
@@ -137,8 +141,12 @@
 		8C4B43C720FCCA9F0014C692 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8C4B43D420FCCB000014C692 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		8C4B43D620FCCB1C0014C692 /* SecretConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecretConstants.swift; sourceTree = "<group>"; };
-		8C62D53F2124662D00A78FD0 /* SelectButtonView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SelectButtonView.xib; sourceTree = "<group>"; };
+		8C62D53F2124662D00A78FD0 /* SelectButtonsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SelectButtonsView.xib; sourceTree = "<group>"; };
 		8C62D5412124680B00A78FD0 /* SelectButtonsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectButtonsView.swift; sourceTree = "<group>"; };
+		8C62D54621257D7700A78FD0 /* TestViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TestViewController.storyboard; sourceTree = "<group>"; };
+		8C62D54821257D9D00A78FD0 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
+		8C62D54B2125924700A78FD0 /* testCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = testCell.xib; sourceTree = "<group>"; };
+		8C62D54D2125925F00A78FD0 /* TestCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCellView.swift; sourceTree = "<group>"; };
 		8C84EE39210F0D4D000780B0 /* ChartInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartInteractor.swift; sourceTree = "<group>"; };
 		8C84EE3B210F0E23000780B0 /* ChartPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartPresenter.swift; sourceTree = "<group>"; };
 		8C84EE3E210F1563000780B0 /* ChartContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartContract.swift; sourceTree = "<group>"; };
@@ -443,6 +451,7 @@
 				8C18E23A2107473C005DAEE1 /* Utils */,
 				8C4B43A220FCCA9E0014C692 /* AppDelegate.swift */,
 				8C4B43A420FCCA9E0014C692 /* ViewController.swift */,
+				8C62D54521257D4800A78FD0 /* test */,
 				8C62D53E2124660D00A78FD0 /* cell */,
 				8C4B43A620FCCA9E0014C692 /* Main.storyboard */,
 				8C4B43AC20FCCA9F0014C692 /* Assets.xcassets */,
@@ -484,8 +493,27 @@
 		8C62D53E2124660D00A78FD0 /* cell */ = {
 			isa = PBXGroup;
 			children = (
-				8C62D53F2124662D00A78FD0 /* SelectButtonView.xib */,
+				8C62D53F2124662D00A78FD0 /* SelectButtonsView.xib */,
 				8C62D5412124680B00A78FD0 /* SelectButtonsView.swift */,
+			);
+			path = cell;
+			sourceTree = "<group>";
+		};
+		8C62D54521257D4800A78FD0 /* test */ = {
+			isa = PBXGroup;
+			children = (
+				8C62D54A2125922D00A78FD0 /* cell */,
+				8C62D54621257D7700A78FD0 /* TestViewController.storyboard */,
+				8C62D54821257D9D00A78FD0 /* TestViewController.swift */,
+			);
+			path = test;
+			sourceTree = "<group>";
+		};
+		8C62D54A2125922D00A78FD0 /* cell */ = {
+			isa = PBXGroup;
+			children = (
+				8C62D54B2125924700A78FD0 /* testCell.xib */,
+				8C62D54D2125925F00A78FD0 /* TestCellView.swift */,
 			);
 			path = cell;
 			sourceTree = "<group>";
@@ -669,10 +697,12 @@
 			files = (
 				8C4B43B020FCCA9F0014C692 /* LaunchScreen.storyboard in Resources */,
 				8C4B43AD20FCCA9F0014C692 /* Assets.xcassets in Resources */,
+				8C62D54C2125924700A78FD0 /* testCell.xib in Resources */,
 				8CB665F5211056E500CEF996 /* ChartTableViewCell.xib in Resources */,
+				8C62D54721257D7700A78FD0 /* TestViewController.storyboard in Resources */,
 				8C41926A2119981D005D83FA /* TabBar.storyboard in Resources */,
 				8CB665ED211053D100CEF996 /* Chart.storyboard in Resources */,
-				8C62D5402124662D00A78FD0 /* SelectButtonView.xib in Resources */,
+				8C62D5402124662D00A78FD0 /* SelectButtonsView.xib in Resources */,
 				8C4B43A820FCCA9E0014C692 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -798,6 +828,8 @@
 				8C84EE4321103DE1000780B0 /* ChartRouter.swift in Sources */,
 				8C84EE3F210F1563000780B0 /* ChartContract.swift in Sources */,
 				8C419279211C3990005D83FA /* ResponseParser.swift in Sources */,
+				8C62D54921257D9D00A78FD0 /* TestViewController.swift in Sources */,
+				8C62D54E2125925F00A78FD0 /* TestCellView.swift in Sources */,
 				8C18E23921071149005DAEE1 /* DownloadService.swift in Sources */,
 				8C419264211997D6005D83FA /* TabBarInteractor.swift in Sources */,
 				8C4B43A320FCCA9E0014C692 /* AppDelegate.swift in Sources */,
