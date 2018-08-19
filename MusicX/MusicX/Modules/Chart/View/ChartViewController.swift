@@ -19,16 +19,9 @@ class ChartViewController: UIViewController {
     private let refreshControl = UIRefreshControl()
     
     @IBOutlet weak var tableView: UITableView!
-    weak var button: UIButton?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        button = UIButton(frame: CGRect(x: 0, y: 0, width: 100, height: 50))
-        button?.backgroundColor = .green
-        button?.setTitle("Test Button", for: .normal)
-        navigationItem.titleView = button
-        
         output.viewIsReady()
     }
         

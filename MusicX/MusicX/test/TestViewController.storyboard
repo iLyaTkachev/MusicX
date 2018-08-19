@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BAo-MZ-F4b">
-                                <rect key="frame" x="166" y="323" width="42" height="21"/>
+                                <rect key="frame" x="166" y="95" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -41,13 +41,13 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="BAo-MZ-F4b" firstAttribute="centerX" secondItem="3gq-fl-T2Q" secondAttribute="centerX" id="HQr-tF-KOX"/>
+                            <constraint firstItem="BAo-MZ-F4b" firstAttribute="top" secondItem="sr2-5W-GY1" secondAttribute="bottom" constant="5" id="CSJ-rM-q7Y"/>
+                            <constraint firstItem="PBX-N0-bcX" firstAttribute="centerX" secondItem="3gq-fl-T2Q" secondAttribute="centerX" id="IwN-In-sFp"/>
                             <constraint firstItem="sr2-5W-GY1" firstAttribute="leading" secondItem="4VU-CU-pZa" secondAttribute="leading" constant="20" id="XKM-AG-NCk"/>
                             <constraint firstAttribute="bottom" secondItem="PBX-N0-bcX" secondAttribute="bottom" constant="20" symbolic="YES" id="aFF-KV-vE1"/>
                             <constraint firstItem="sr2-5W-GY1" firstAttribute="top" secondItem="4VU-CU-pZa" secondAttribute="top" constant="20" id="aKJ-rA-yg0"/>
-                            <constraint firstItem="BAo-MZ-F4b" firstAttribute="centerY" secondItem="3gq-fl-T2Q" secondAttribute="centerY" id="cMT-oS-Za1"/>
                             <constraint firstItem="4VU-CU-pZa" firstAttribute="trailing" secondItem="sr2-5W-GY1" secondAttribute="trailing" constant="20" id="dtJ-En-wjq"/>
-                            <constraint firstItem="PBX-N0-bcX" firstAttribute="centerX" secondItem="BAo-MZ-F4b" secondAttribute="centerX" id="lEW-zC-xtB"/>
+                            <constraint firstItem="BAo-MZ-F4b" firstAttribute="centerX" secondItem="3gq-fl-T2Q" secondAttribute="centerX" id="jYX-gQ-SR4"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="4VU-CU-pZa"/>
                     </view>
