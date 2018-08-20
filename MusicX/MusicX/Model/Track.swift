@@ -26,7 +26,7 @@ class Track: BaseMediaObject {
             let playcount = dictionary[Keys.playcount.rawValue] as? String,
             let listeners = dictionary[Keys.listeners.rawValue] as? String,
             let imagesArray = dictionary[Keys.image.rawValue] as? [Any],
-            let imageDictionary = imagesArray[3] as? [String : Any],
+            let imageDictionary = imagesArray[2] as? [String : Any],
             let imageUrl = imageDictionary[Keys.imageUrl.rawValue] as? String,
             let artistDictionary = dictionary[Keys.artist.rawValue] as? [String : Any],
             let artist = Artist(with: artistDictionary) {

@@ -60,10 +60,8 @@ extension ChartPresenter : ChartViewOutput {
             
             if isReloading {
                 interactor.fetch(contentType: currentMediaType, page: 1)
-                print("start reloading")
             } else {
                 interactor.fetch(contentType: currentMediaType, page: currentPage + 1)
-                print("load media with page: \(currentPage+1)")
             }
             
             return

@@ -11,6 +11,10 @@ final class Utils {
         return String(url.suffix(36).prefix(32))
     }
     
+    static func getFileNameFromImageUrl(url: String) -> String {
+        return String(url.suffix(40)).replacingOccurrences(of: "/", with: "_")
+    }
+    
     static func getViewController(storyboardName: String, vcId: String) -> UIViewController {
         let storyboard = UIStoryboard(name: storyboardName, bundle: Bundle.main)
         
@@ -22,4 +26,5 @@ final class Utils {
         
         return String(cString: name, encoding: .utf8)
     }
+    
 }

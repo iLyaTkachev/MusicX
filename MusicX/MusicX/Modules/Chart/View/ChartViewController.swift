@@ -10,6 +10,8 @@ import UIKit
 
 class ChartViewController: UIViewController {
 
+    let imageService = ImageService(memoryCapacity: 50 * 1024 * 1024, diskCapacity: 200 * 1024 * 1024)
+    
     static let id = "ChartViewController"
     static let storyboardId = "Chart"
     
@@ -109,6 +111,18 @@ extension ChartViewController : UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: ChartTableViewCell.identifier, for: indexPath) as! ChartTableViewCell
         let item = output.getMediaObject(forIndex: indexPath.row) as! Track
         cell.setup(with: item)
+        cell.artistImageView.image = nil
+        cell.spinner.startAnimating()
+        
+        imageService.getImage(withUrl: item.imageUrl) { (image, error) in
+            DispatchQueue.main.async {
+                if image != nil && cell.imageURL == item.imageUrl {
+                    cell.artistImageView.image = image
+                }
+                
+                cell.spinner.stopAnimating()
+            }
+        }
         
         return cell
     }

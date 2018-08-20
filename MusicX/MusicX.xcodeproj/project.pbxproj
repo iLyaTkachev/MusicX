@@ -609,6 +609,7 @@
 				8C4B439B20FCCA9E0014C692 /* Sources */,
 				8C4B439C20FCCA9E0014C692 /* Frameworks */,
 				8C4B439D20FCCA9E0014C692 /* Resources */,
+				13A1E5489AF92B80D9114D90 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -734,6 +735,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		13A1E5489AF92B80D9114D90 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-MusicX/Pods-MusicX-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/PKHUD/PKHUD.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PKHUD.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MusicX/Pods-MusicX-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		965ED803CDD874D3F732F8BA /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
