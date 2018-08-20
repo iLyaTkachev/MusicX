@@ -25,38 +25,27 @@ class ImageService: BaseImageService {
         self.session = URLSession(configuration: .default)
         self.imageCache = NSCache()
         self.imageCache.totalCostLimit = memoryCapacity
-        
         self.fileManager = FileManager.default
-        self.cacheFolderPath = NSSearchPathForDirectoriesInDomains(.cachesDirectory, .userDomainMask, true)[0] + "/imagesCache"
+        self.cacheFolderPath = NSSearchPathForDirectoriesInDomains(.cachesDirectory, .userDomainMask, true)[0] + "/imagesCache/"
         try? fileManager.createDirectory(atPath: cacheFolderPath, withIntermediateDirectories: true, attributes: nil)
         guard (try? fileManager.contentsOfDirectory(atPath: cacheFolderPath)) != nil else {
             print("Problems with creating cache directory")
             return
         }
         
-    
-        /*
-        print("before 1 create: \(try? fileManager.contentsOfDirectory(atPath: cacheFolderPath))")
+        //print("\(try! fileManager.contentsOfDirectory(atPath: cacheFolderPath))")
         
-        try! fileManager.createDirectory(atPath: cacheFolderPath + "/imagesCache", withIntermediateDirectories: true, attributes: nil)
-        try! fileManager.createDirectory(atPath: cacheFolderPath + "/imagesCache/1", withIntermediateDirectories: true, attributes: nil)
-        fileManager.createFile(atPath: cacheFolderPath + "/imagesCache/1/2/file2.txt", contents: nil, attributes: nil)
+        var size = 0
         
-        print("after 1 create: \(try? fileManager.contentsOfDirectory(atPath: cacheFolderPath + "/imagesCache/1"))")
-        print("\(try? fileManager.contentsOfDirectory(atPath: cacheFolderPath))")
+        let files = try! fileManager.contentsOfDirectory(at: URL(string: cacheFolderPath)!, includingPropertiesForKeys: nil, options: .skipsHiddenFiles)
+        print("files: \(files)")
         
-        try! fileManager.createDirectory(atPath: cacheFolderPath + "/imagesCache", withIntermediateDirectories: true, attributes: nil)
-        print("after 2 create: \(try? fileManager.contentsOfDirectory(atPath: cacheFolderPath + "/imagesCache/1"))")
-        */
-        
-        //print("\(try? fileManager.contentsOfDirectory(atPath: cacheFolderPath))")
-        //print("\(fileManager.urls(for: .cachesDirectory, in: .userDomainMask))")
-        
-        /*let fileURL = try! FileManager.default
-            .url(for: .cachesDirectory, in: .userDomainMask, appropriateFor: nil, create: false)
-            .appendingPathComponent("test.jpg")
-
-        let image = UIImage(contentsOfFile: fileURL.path)*/
+        try! files.lazy.forEach { (url) in
+            let attr = try fileManager.attributesOfItem(atPath: url.path)
+            let fileSize = attr[FileAttributeKey.size] as! Int
+            size += fileSize
+        }
+        print("size: \(size/1024)")
     }
     
     func getImage(withUrl: String, completionHandler: @escaping (UIImage?, Error?)->Void) {
@@ -83,7 +72,8 @@ class ImageService: BaseImageService {
                     let image = UIImage(data: data)
                     self.imageCache.setObject(image!, forKey: nsUrlForCache, cost: data.count)
                     completionHandler(image, nil)
-                    self.fileManager.createFile(atPath: self.cacheFolderPath.appending(Utils.getFileNameFromImageUrl(url: withUrl)), contents: data, attributes: nil)
+                    let fileUrl = self.cacheFolderPath.appending(Utils.getFileNameFromImageUrl(url: withUrl))
+                    self.fileManager.createFile(atPath: fileUrl, contents: data, attributes: nil)
                     }.resume()
             }
         }
