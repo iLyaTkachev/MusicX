@@ -20,6 +20,8 @@
 		8C18E23921071149005DAEE1 /* DownloadService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C18E23821071149005DAEE1 /* DownloadService.swift */; };
 		8C18E23C21074763005DAEE1 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C18E23B21074763005DAEE1 /* Utils.swift */; };
 		8C18E23E21085F70005DAEE1 /* BaseMediaObjectProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C18E23D21085F70005DAEE1 /* BaseMediaObjectProtocol.swift */; };
+		8C24697B212C371E00BD83E9 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C24697A212C371E00BD83E9 /* Constants.swift */; };
+		8C24697D212C3EBB00BD83E9 /* ChartCellBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C24697C212C3EBB00BD83E9 /* ChartCellBuilder.swift */; };
 		8C4191F02112FD97005D83FA /* ChartModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4191EF2112FD97005D83FA /* ChartModule.swift */; };
 		8C4191F22112FE12005D83FA /* Loading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4191F12112FE12005D83FA /* Loading.swift */; };
 		8C4191F521132B09005D83FA /* ConfiguratorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4191F421132B09005D83FA /* ConfiguratorProtocol.swift */; };
@@ -37,7 +39,7 @@
 		8C41926C2119A4CD005D83FA /* UIViewController+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C41926B2119A4CD005D83FA /* UIViewController+Helpers.swift */; };
 		8C419273211B1932005D83FA /* MediaType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C419272211B1932005D83FA /* MediaType.swift */; };
 		8C419277211C376D005D83FA /* MusicDataSourceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C419276211C376D005D83FA /* MusicDataSourceProtocol.swift */; };
-		8C419279211C3990005D83FA /* ResponseParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C419278211C3990005D83FA /* ResponseParser.swift */; };
+		8C419279211C3990005D83FA /* MediaResponseParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C419278211C3990005D83FA /* MediaResponseParser.swift */; };
 		8C41927B211C427E005D83FA /* Chart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C41927A211C427E005D83FA /* Chart.swift */; };
 		8C41927D211C44D9005D83FA /* BaseChartProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C41927C211C44D9005D83FA /* BaseChartProtocol.swift */; };
 		8C41927F21219E52005D83FA /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C41927E21219E52005D83FA /* Error.swift */; };
@@ -50,7 +52,7 @@
 		8C4B43B020FCCA9F0014C692 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C4B43AE20FCCA9F0014C692 /* LaunchScreen.storyboard */; };
 		8C4B43BB20FCCA9F0014C692 /* MusicXTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4B43BA20FCCA9F0014C692 /* MusicXTests.swift */; };
 		8C4B43C620FCCA9F0014C692 /* MusicXUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4B43C520FCCA9F0014C692 /* MusicXUITests.swift */; };
-		8C4B43D520FCCB000014C692 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4B43D420FCCB000014C692 /* Constants.swift */; };
+		8C4B43D520FCCB000014C692 /* ApiConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4B43D420FCCB000014C692 /* ApiConstants.swift */; };
 		8C4B43D720FCCB1C0014C692 /* SecretConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4B43D620FCCB1C0014C692 /* SecretConstants.swift */; };
 		8C62D5402124662D00A78FD0 /* SelectButtonsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8C62D53F2124662D00A78FD0 /* SelectButtonsView.xib */; };
 		8C62D5422124680B00A78FD0 /* SelectButtonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C62D5412124680B00A78FD0 /* SelectButtonsView.swift */; };
@@ -64,8 +66,8 @@
 		8C84EE4321103DE1000780B0 /* ChartRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C84EE4221103DE1000780B0 /* ChartRouter.swift */; };
 		8CB665ED211053D100CEF996 /* Chart.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8CB665EC211053D100CEF996 /* Chart.storyboard */; };
 		8CB665EF2110541E00CEF996 /* ChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB665EE2110541E00CEF996 /* ChartViewController.swift */; };
-		8CB665F22110560500CEF996 /* ChartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB665F02110560500CEF996 /* ChartTableViewCell.swift */; };
-		8CB665F5211056E500CEF996 /* ChartTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8CB665F4211056E500CEF996 /* ChartTableViewCell.xib */; };
+		8CB665F22110560500CEF996 /* ChartTrackCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB665F02110560500CEF996 /* ChartTrackCell.swift */; };
+		8CB665F5211056E500CEF996 /* ChartTrackCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8CB665F4211056E500CEF996 /* ChartTrackCell.xib */; };
 		C2F8D389512A9844468AD97B /* Pods_MusicXUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1EF6CA0D2B417F4A820EA83E /* Pods_MusicXUITests.framework */; };
 		EF459F522129E265004E4D6E /* ImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF459F512129E265004E4D6E /* ImageService.swift */; };
 /* End PBXBuildFile section */
@@ -104,6 +106,8 @@
 		8C18E23821071149005DAEE1 /* DownloadService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadService.swift; sourceTree = "<group>"; };
 		8C18E23B21074763005DAEE1 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		8C18E23D21085F70005DAEE1 /* BaseMediaObjectProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseMediaObjectProtocol.swift; sourceTree = "<group>"; };
+		8C24697A212C371E00BD83E9 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		8C24697C212C3EBB00BD83E9 /* ChartCellBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartCellBuilder.swift; sourceTree = "<group>"; };
 		8C4191EF2112FD97005D83FA /* ChartModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartModule.swift; sourceTree = "<group>"; };
 		8C4191F12112FE12005D83FA /* Loading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loading.swift; sourceTree = "<group>"; };
 		8C4191F421132B09005D83FA /* ConfiguratorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfiguratorProtocol.swift; sourceTree = "<group>"; };
@@ -121,7 +125,7 @@
 		8C41926B2119A4CD005D83FA /* UIViewController+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Helpers.swift"; sourceTree = "<group>"; };
 		8C419272211B1932005D83FA /* MediaType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaType.swift; sourceTree = "<group>"; };
 		8C419276211C376D005D83FA /* MusicDataSourceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicDataSourceProtocol.swift; sourceTree = "<group>"; };
-		8C419278211C3990005D83FA /* ResponseParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseParser.swift; sourceTree = "<group>"; };
+		8C419278211C3990005D83FA /* MediaResponseParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaResponseParser.swift; sourceTree = "<group>"; };
 		8C41927A211C427E005D83FA /* Chart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chart.swift; sourceTree = "<group>"; };
 		8C41927C211C44D9005D83FA /* BaseChartProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseChartProtocol.swift; sourceTree = "<group>"; };
 		8C41927E21219E52005D83FA /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
@@ -140,7 +144,7 @@
 		8C4B43C120FCCA9F0014C692 /* MusicXUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MusicXUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C4B43C520FCCA9F0014C692 /* MusicXUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicXUITests.swift; sourceTree = "<group>"; };
 		8C4B43C720FCCA9F0014C692 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8C4B43D420FCCB000014C692 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		8C4B43D420FCCB000014C692 /* ApiConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiConstants.swift; sourceTree = "<group>"; };
 		8C4B43D620FCCB1C0014C692 /* SecretConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecretConstants.swift; sourceTree = "<group>"; };
 		8C62D53F2124662D00A78FD0 /* SelectButtonsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SelectButtonsView.xib; sourceTree = "<group>"; };
 		8C62D5412124680B00A78FD0 /* SelectButtonsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectButtonsView.swift; sourceTree = "<group>"; };
@@ -154,8 +158,8 @@
 		8C84EE4221103DE1000780B0 /* ChartRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartRouter.swift; sourceTree = "<group>"; };
 		8CB665EC211053D100CEF996 /* Chart.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Chart.storyboard; sourceTree = "<group>"; };
 		8CB665EE2110541E00CEF996 /* ChartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartViewController.swift; sourceTree = "<group>"; };
-		8CB665F02110560500CEF996 /* ChartTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartTableViewCell.swift; sourceTree = "<group>"; };
-		8CB665F4211056E500CEF996 /* ChartTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChartTableViewCell.xib; sourceTree = "<group>"; };
+		8CB665F02110560500CEF996 /* ChartTrackCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartTrackCell.swift; sourceTree = "<group>"; };
+		8CB665F4211056E500CEF996 /* ChartTrackCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChartTrackCell.xib; sourceTree = "<group>"; };
 		9419A80FE994518A400A9898 /* Pods-MusicXTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MusicXTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MusicXTests/Pods-MusicXTests.debug.xcconfig"; sourceTree = "<group>"; };
 		CFA15EFEEA5882884EDAA296 /* Pods-MusicX.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MusicX.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MusicX/Pods-MusicX.debug.xcconfig"; sourceTree = "<group>"; };
 		EF459F512129E265004E4D6E /* ImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageService.swift; sourceTree = "<group>"; };
@@ -244,7 +248,7 @@
 			isa = PBXGroup;
 			children = (
 				8C18E2302107107B005DAEE1 /* MusicRemoteDataSource.swift */,
-				8C419278211C3990005D83FA /* ResponseParser.swift */,
+				8C419278211C3990005D83FA /* MediaResponseParser.swift */,
 			);
 			path = Remote;
 			sourceTree = "<group>";
@@ -278,6 +282,7 @@
 			isa = PBXGroup;
 			children = (
 				8C18E23B21074763005DAEE1 /* Utils.swift */,
+				8C24697A212C371E00BD83E9 /* Constants.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -384,8 +389,9 @@
 		8C41926D2119D079005D83FA /* Cell */ = {
 			isa = PBXGroup;
 			children = (
-				8CB665F4211056E500CEF996 /* ChartTableViewCell.xib */,
-				8CB665F02110560500CEF996 /* ChartTableViewCell.swift */,
+				8CB665F4211056E500CEF996 /* ChartTrackCell.xib */,
+				8CB665F02110560500CEF996 /* ChartTrackCell.swift */,
+				8C24697C212C3EBB00BD83E9 /* ChartCellBuilder.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -486,7 +492,7 @@
 		8C4B43D320FCCAD80014C692 /* API */ = {
 			isa = PBXGroup;
 			children = (
-				8C4B43D420FCCB000014C692 /* Constants.swift */,
+				8C4B43D420FCCB000014C692 /* ApiConstants.swift */,
 				8C4B43D620FCCB1C0014C692 /* SecretConstants.swift */,
 				8C18E21920FF5909005DAEE1 /* ApiRequestBuilder.swift */,
 			);
@@ -709,7 +715,7 @@
 				8C4B43B020FCCA9F0014C692 /* LaunchScreen.storyboard in Resources */,
 				8C4B43AD20FCCA9F0014C692 /* Assets.xcassets in Resources */,
 				8C62D54C2125924700A78FD0 /* testCell.xib in Resources */,
-				8CB665F5211056E500CEF996 /* ChartTableViewCell.xib in Resources */,
+				8CB665F5211056E500CEF996 /* ChartTrackCell.xib in Resources */,
 				8C62D54721257D7700A78FD0 /* TestViewController.storyboard in Resources */,
 				8C41926A2119981D005D83FA /* TabBar.storyboard in Resources */,
 				8CB665ED211053D100CEF996 /* Chart.storyboard in Resources */,
@@ -822,7 +828,7 @@
 				8C84EE3A210F0D4D000780B0 /* ChartInteractor.swift in Sources */,
 				8C18E22921070FE1005DAEE1 /* Download.swift in Sources */,
 				8C419268211997F6005D83FA /* TabBarRouter.swift in Sources */,
-				8CB665F22110560500CEF996 /* ChartTableViewCell.swift in Sources */,
+				8CB665F22110560500CEF996 /* ChartTrackCell.swift in Sources */,
 				8C4192812122BA17005D83FA /* BaseTableCell.swift in Sources */,
 				8C419266211997E5005D83FA /* TabBarPresenter.swift in Sources */,
 				8C18E22F21071053005DAEE1 /* MusicRepository.swift in Sources */,
@@ -835,11 +841,13 @@
 				8C18E23E21085F70005DAEE1 /* BaseMediaObjectProtocol.swift in Sources */,
 				8C84EE3C210F0E23000780B0 /* ChartPresenter.swift in Sources */,
 				8C18E23721071136005DAEE1 /* QueryService.swift in Sources */,
+				8C24697D212C3EBB00BD83E9 /* ChartCellBuilder.swift in Sources */,
 				8C4B43A520FCCA9E0014C692 /* ViewController.swift in Sources */,
 				8C18E23C21074763005DAEE1 /* Utils.swift in Sources */,
+				8C24697B212C371E00BD83E9 /* Constants.swift in Sources */,
 				8C84EE4321103DE1000780B0 /* ChartRouter.swift in Sources */,
 				8C84EE3F210F1563000780B0 /* ChartContract.swift in Sources */,
-				8C419279211C3990005D83FA /* ResponseParser.swift in Sources */,
+				8C419279211C3990005D83FA /* MediaResponseParser.swift in Sources */,
 				8C62D54921257D9D00A78FD0 /* TestViewController.swift in Sources */,
 				8C62D54E2125925F00A78FD0 /* TestCellView.swift in Sources */,
 				8C18E23921071149005DAEE1 /* DownloadService.swift in Sources */,
@@ -847,7 +855,7 @@
 				8C4B43A320FCCA9E0014C692 /* AppDelegate.swift in Sources */,
 				8C4B43AB20FCCA9E0014C692 /* MusicX.xcdatamodeld in Sources */,
 				8C4191F521132B09005D83FA /* ConfiguratorProtocol.swift in Sources */,
-				8C4B43D520FCCB000014C692 /* Constants.swift in Sources */,
+				8C4B43D520FCCB000014C692 /* ApiConstants.swift in Sources */,
 				8C4B43D720FCCB1C0014C692 /* SecretConstants.swift in Sources */,
 				8C41927D211C44D9005D83FA /* BaseChartProtocol.swift in Sources */,
 				8C419262211980DF005D83FA /* TabBarViewController.swift in Sources */,

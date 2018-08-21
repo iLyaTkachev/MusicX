@@ -6,8 +6,9 @@
 //  Copyright © 2018 Ilya Tkachou. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 protocol MusicDataSource {
     func getChart(type: MediaType, page: Int, completionHandler: @escaping (Chart?, CustomError?)->Void)
+    func getImage(withUrl: String, completionHandler: @escaping (UIImage?, Error?)->Void)
 }

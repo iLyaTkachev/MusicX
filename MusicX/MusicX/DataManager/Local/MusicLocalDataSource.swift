@@ -1,4 +1,4 @@
-import Foundation
+import UIKit
 
 class MusicLocalDataSource: MusicDataSource {
 
@@ -8,5 +8,9 @@ class MusicLocalDataSource: MusicDataSource {
 
     func getChart(type: MediaType, page: Int, completionHandler: @escaping (Chart?, CustomError?)->Void) {
         completionHandler(nil, nil)
+    }
+    
+    func getImage(withUrl: String, completionHandler: @escaping (UIImage?, Error?) -> Void) {
+        
     }
 }

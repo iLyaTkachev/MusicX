@@ -6,9 +6,9 @@
 //  Copyright © 2018 Ilya Tkachou. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 protocol BaseTableCell {
     static var identifier: String { get }
-    func setup<T: BaseMediaObject>(with media: T)
+    //func setup<T: BaseMediaObject>(with media: T)
 }

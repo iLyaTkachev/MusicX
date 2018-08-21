@@ -1,6 +1,6 @@
 import Foundation
 
-class Constants {
+class ApiConstants {
     
     static let appName = "MusicX"
     

@@ -9,11 +9,12 @@
 import UIKit
 
 class ChartViewController: UIViewController {
-
-    let imageService = ImageService(memoryCapacity: 50 * 1024 * 1024, diskCapacity: 100 * 1024 * 1024)
     
     static let id = "ChartViewController"
     static let storyboardId = "Chart"
+    
+    var cellBuider = ChartCellBuilder()
+    
     
     var output: ChartViewOutput!
     var activityIndicator = UIActivityIndicatorView()
@@ -38,8 +39,8 @@ class ChartViewController: UIViewController {
         tableView.estimatedRowHeight = 100
         tableView.delegate = self
         tableView.dataSource = self
-        let nib = UINib.init(nibName: ChartTableViewCell.identifier, bundle: nil)
-        tableView.register(nib, forCellReuseIdentifier: ChartTableViewCell.identifier)
+        let nib = UINib.init(nibName: ChartTrackCell.identifier, bundle: nil)
+        tableView.register(nib, forCellReuseIdentifier: ChartTrackCell.identifier)
     }
     
     func setupRefreshControl() {
@@ -108,22 +109,7 @@ extension ChartViewController : UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: ChartTableViewCell.identifier, for: indexPath) as! ChartTableViewCell
-        let item = output.getMediaObject(forIndex: indexPath.row) as! Track
-        cell.setup(with: item)
-        cell.artistImageView.image = nil
-        cell.spinner.startAnimating()
-        
-        imageService.getImage(withUrl: item.imageUrl) { (image, error) in
-            DispatchQueue.main.async {
-                if image != nil && cell.imageURL == item.imageUrl {
-                    cell.artistImageView.image = image
-                }
-                
-                cell.spinner.stopAnimating()
-            }
-        }
-        
+        let cell = cellBuider.build(table: tableView, indexPath: indexPath, media: output.getMediaObject(forIndex: indexPath.row), type: .track)
         return cell
     }
     

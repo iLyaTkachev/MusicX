@@ -1,13 +1,15 @@
-import Foundation
+import UIKit
 
 final class MusicRemoteDataSource: MusicDataSource {
 
-    private let queryService: NetworkService
-    private let responseParser: MediaParser
+    private let queryService: BaseNetworkService
+    private let responseParser: BaseMediaResponseParser
+    private let imageService: BaseImageService
     
     init() {
         queryService = QueryService()
-        responseParser = ResponseParser()
+        responseParser = MediaResponseParser()
+        imageService = ImageService(memoryCapacity: Constants.memoryCapacityForImageCache, diskCapacity: Constants.diskCapacityForImageCache, percentOfClearing: Constants.percentOfImageCacheClearing)
     }
 
     func getChart(type: MediaType, page: Int, completionHandler: @escaping (Chart?, CustomError?)->Void) {
@@ -33,6 +35,10 @@ final class MusicRemoteDataSource: MusicDataSource {
                 }
             }
         }
+    }
+    
+    func getImage(withUrl: String, completionHandler: @escaping (UIImage?, Error?) -> Void) {
+        imageService.getImage(withUrl: withUrl, completionHandler: completionHandler)
     }
     
 }

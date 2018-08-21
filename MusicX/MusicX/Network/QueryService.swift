@@ -1,10 +1,10 @@
 import Foundation
 
-protocol NetworkService {
+protocol BaseNetworkService {
     func executeRequest(urlToExecute : URL, completionHandler: @escaping ([String: Any]?, Error?)->Void)
 }
 
-class QueryService: NetworkService {
+class QueryService: BaseNetworkService {
     
     private let defaultSession = URLSession(configuration: .default)
     

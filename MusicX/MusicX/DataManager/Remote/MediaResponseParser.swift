@@ -8,11 +8,11 @@
 
 import Foundation
 
-protocol MediaParser {
+protocol BaseMediaResponseParser {
     func parseMedia(type: MediaType, dictionary: [String : Any]) -> [BaseMediaObject]?
 }
 
-class ResponseParser: MediaParser {
+class MediaResponseParser: BaseMediaResponseParser {
     func parseMedia(type: MediaType, dictionary: [String : Any]) -> [BaseMediaObject]? {
         switch type {
         case .track:

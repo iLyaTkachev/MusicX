@@ -19,9 +19,9 @@ class ViewController: UIViewController {
     }
 
     func makeRequest() {
-        let url = ApiRequestBuilder.LastFmBuilder().buildJsonRequest(withMethod: Constants.ApiComponents.Chart.chart + "." + Constants.ApiComponents.Chart.getTopTracks, withPage: nil)
+        let url = ApiRequestBuilder.LastFmBuilder().buildJsonRequest(withMethod: ApiConstants.ApiComponents.Chart.chart + "." + ApiConstants.ApiComponents.Chart.getTopTracks, withPage: nil)
         
-        let apiService: NetworkService
+        let apiService: BaseNetworkService
         apiService = QueryService()
         
         apiService.executeRequest(urlToExecute: url!) { (responseDict, error) in

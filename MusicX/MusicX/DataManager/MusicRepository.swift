@@ -1,4 +1,4 @@
-import Foundation
+import UIKit
 
 final class MusicRepository: MusicDataSource {
 
@@ -14,5 +14,9 @@ final class MusicRepository: MusicDataSource {
     
     func getChart(type: MediaType, page: Int, completionHandler: @escaping (Chart?, CustomError?)->Void) {
         return remoteDataSource.getChart(type: type, page: page, completionHandler: completionHandler)
+    }
+    
+    func getImage(withUrl: String, completionHandler: @escaping (UIImage?, Error?) -> Void) {
+        remoteDataSource.getImage(withUrl: withUrl, completionHandler: completionHandler)
     }
 }
