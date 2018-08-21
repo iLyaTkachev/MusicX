@@ -10,7 +10,7 @@ import UIKit
 
 class ChartViewController: UIViewController {
 
-    let imageService = ImageService(memoryCapacity: 50 * 1024 * 1024, diskCapacity: 200 * 1024 * 1024)
+    let imageService = ImageService(memoryCapacity: 50 * 1024 * 1024, diskCapacity: 100 * 1024 * 1024)
     
     static let id = "ChartViewController"
     static let storyboardId = "Chart"

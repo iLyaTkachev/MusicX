@@ -21,31 +21,25 @@ class ImageService: BaseImageService {
     
     let imageCache: NSCache<NSString, UIImage>
     
-    init(memoryCapacity: Int, diskCapacity: Int){
+    init(memoryCapacity: Int, diskCapacity: Int, percentOfClearing: Int = 50){
         self.session = URLSession(configuration: .default)
         self.imageCache = NSCache()
         self.imageCache.totalCostLimit = memoryCapacity
         self.fileManager = FileManager.default
         self.cacheFolderPath = NSSearchPathForDirectoriesInDomains(.cachesDirectory, .userDomainMask, true)[0] + "/imagesCache/"
+        
+        clearDiskCacheIfNeeded(fileManager: fileManager, directoryPath: URL(string: cacheFolderPath)!, maxSize: diskCapacity, percent: percentOfClearing)
+        
         try? fileManager.createDirectory(atPath: cacheFolderPath, withIntermediateDirectories: true, attributes: nil)
         guard (try? fileManager.contentsOfDirectory(atPath: cacheFolderPath)) != nil else {
             print("Problems with creating cache directory")
             return
         }
         
-        //print("\(try! fileManager.contentsOfDirectory(atPath: cacheFolderPath))")
+        //print("\(try! fileManager.contentsOfDirectory(atPath: cacheFolderPath).count)")
+        //print("\(countDirectorySize(fileManager: fileManager, path: URL(string: cacheFolderPath)!))")
         
-        var size = 0
-        
-        let files = try! fileManager.contentsOfDirectory(at: URL(string: cacheFolderPath)!, includingPropertiesForKeys: nil, options: .skipsHiddenFiles)
-        print("files: \(files)")
-        
-        try! files.lazy.forEach { (url) in
-            let attr = try fileManager.attributesOfItem(atPath: url.path)
-            let fileSize = attr[FileAttributeKey.size] as! Int
-            size += fileSize
-        }
-        print("size: \(size/1024)")
+        print("\(getDeviceFreeSpace()!/1024/1024)")
     }
     
     func getImage(withUrl: String, completionHandler: @escaping (UIImage?, Error?)->Void) {
@@ -75,6 +69,48 @@ class ImageService: BaseImageService {
                     let fileUrl = self.cacheFolderPath.appending(Utils.getFileNameFromImageUrl(url: withUrl))
                     self.fileManager.createFile(atPath: fileUrl, contents: data, attributes: nil)
                     }.resume()
+            }
+        }
+    }
+    
+    private func countDirectorySize(fileManager: FileManager, path: URL) -> Int {
+        var folderSize = 0
+        (try? fileManager.contentsOfDirectory(at: path, includingPropertiesForKeys: nil))?.lazy.forEach {
+            folderSize += (try? $0.resourceValues(forKeys: [.totalFileAllocatedSizeKey]))?.totalFileAllocatedSize ?? 0
+        }
+        
+        return folderSize
+    }
+    
+    private func getDeviceFreeSpace() -> Int? {
+        let documentDirectory = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).last!
+        guard
+            let systemAttributes = try? FileManager.default.attributesOfFileSystem(forPath: documentDirectory),
+            let freeSize = systemAttributes[.systemFreeSize] as? Int
+            else {
+                return nil
+        }
+        return freeSize
+    }
+    
+    private func clearDiskCacheIfNeeded(fileManager: FileManager, directoryPath: URL, maxSize: Int, percent: Int) {
+        let currentSize = countDirectorySize(fileManager: fileManager, path: directoryPath)
+        
+        if currentSize > maxSize {
+            do {
+                
+                if let imageUrls = try? fileManager.contentsOfDirectory(at: directoryPath, includingPropertiesForKeys: nil) {
+                    
+                    let sortedImageUrls = try imageUrls.sorted(by: { (try $0.resourceValues(forKeys: [.contentAccessDateKey])).contentAccessDate! > (try $1.resourceValues(forKeys: [.contentAccessDateKey])).contentAccessDate! })
+                    
+                    let startIndex: Int = sortedImageUrls.count * percent / 100
+                    let oldImageUrls = sortedImageUrls[startIndex..<sortedImageUrls.count]
+                    
+                    try oldImageUrls.forEach{ try fileManager.removeItem(at: $0) }
+                }
+            }
+            catch let error as NSError {
+                print("Problems with clearing of image cache directory : \(error)")
             }
         }
     }
