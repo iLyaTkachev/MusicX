@@ -6,7 +6,7 @@
 //  Copyright © 2018 Ilya Tkachou. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 protocol BaseCellBuilder {
     func build<T>(withData: T) -> UITableViewCell?

@@ -9,6 +9,7 @@
 import UIKit
 
 class ChartCellBuilder: BaseCellBuilder {
+    
     class ChartCellData {
         let table: UITableView
         let indexPath: IndexPath

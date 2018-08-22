@@ -12,6 +12,8 @@ protocol UniversalTableViewOutput : class {
     func getCell(tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     func getNumberOfRows(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     func willDisplay(tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath)
+    func scrollDown()
+    func scrollUp()
 }
 
 protocol UniversalTableViewInput {
@@ -34,6 +36,15 @@ class UniversalTableViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+        
+        if(velocity.y>0) {
+            output.scrollDown()
+        } else {
+            output.scrollUp()
+        }
     }
 
 }

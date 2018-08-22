@@ -23,7 +23,7 @@ final class MusicRemoteDataSource: MusicDataSource {
                     print(unwrappedError.localizedDescription)
                     completionHandler(nil, CustomError.requestError)
                 } else {
-                    if let dict = responseDict {
+                    if let dict = responseDict {//guard
                         //print(dict)
                         if let mediaArray = self.responseParser.parseMedia(type: type, dictionary: dict) {
                             result = Chart(type: type, page: page, items: mediaArray)

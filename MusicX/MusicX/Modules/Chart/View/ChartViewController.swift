@@ -15,6 +15,7 @@ class ChartViewController: UIViewController {
     
     var cellBuider = ChartCellBuilder()
     
+    var tableVC: UniversalTableViewController!
     
     var output: ChartViewOutput!
     var activityIndicator = UIActivityIndicatorView()
@@ -30,24 +31,36 @@ class ChartViewController: UIViewController {
         
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     func setupTableView() {
-        self.automaticallyAdjustsScrollViewInsets = false
-        tableView.rowHeight = UITableViewAutomaticDimension
-        tableView.estimatedRowHeight = 100
-        tableView.delegate = self
-        tableView.dataSource = self
+        tableVC = UniversalTableViewController()
+        tableVC.output = self
+        tableVC.automaticallyAdjustsScrollViewInsets = false
+        
+        view.addSubview(tableVC.view)
+        
         let nib = UINib.init(nibName: ChartTrackCell.identifier, bundle: nil)
-        tableView.register(nib, forCellReuseIdentifier: ChartTrackCell.identifier)
+        tableVC.tableView.register(nib, forCellReuseIdentifier: ChartTrackCell.identifier)
+        
+        tableVC.tableView.rowHeight = UITableViewAutomaticDimension
+        tableVC.tableView.estimatedRowHeight = 100
+        setConstraints(from: tableView, to: tableVC.view)
+    }
+    
+    func setConstraints(from parent: UIView, to child: UIView ) {
+        child.translatesAutoresizingMaskIntoConstraints = false
+        child.topAnchor.constraint(equalTo: parent.topAnchor).isActive = true
+        child.bottomAnchor.constraint(equalTo: parent.bottomAnchor).isActive = true
+        child.leadingAnchor.constraint(equalTo: parent.leadingAnchor).isActive = true
+        child.trailingAnchor.constraint(equalTo: parent.trailingAnchor).isActive = true
     }
     
     func setupRefreshControl() {
         if #available(iOS 10.0, *) {
-            tableView.refreshControl = refreshControl
+            tableVC.tableView.refreshControl = refreshControl
         } else {
-            tableView.addSubview(refreshControl)
+            tableVC.tableView.addSubview(refreshControl)
         }
         refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
         refreshControl.tintColor = UIColor(red:0.25, green:0.72, blue:0.85, alpha:1.0)
@@ -55,24 +68,6 @@ class ChartViewController: UIViewController {
     
     @objc func refresh() {
         output.loadMedia(isReloading: true)
-    }
-    
-    func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
-        
-        if(velocity.y>0) {
-            UIView.animate(withDuration: 2.5, delay: 0, options: UIViewAnimationOptions(), animations: {
-                //self.navigationController?.setNavigationBarHidden(true, animated: true)
-                //self.view.layoutIfNeeded()
-                print("Hide")
-            }, completion: nil)
-            
-        } else {
-            UIView.animate(withDuration: 2.5, delay: 0, options: UIViewAnimationOptions(), animations: {
-                //self.navigationController?.setNavigationBarHidden(false, animated: true)
-                //self.view.layoutIfNeeded()
-                print("Unhide")
-            }, completion: nil)
-        }
     }
 }
 
@@ -84,10 +79,10 @@ extension ChartViewController : ChartViewInput {
     }
     
     func updateList(with array: [BaseMediaObject]) {
-        let tracks = array as! [Track]
-        print(tracks[0].name)
+        //let tracks = array as! [Track]
+        //print(tracks[0].name)
         DispatchQueue.main.async {
-            self.tableView.reloadData()
+            self.tableVC.tableView.reloadData()
             
             if self.refreshControl.isRefreshing {
                 self.refreshControl.endRefreshing()
@@ -101,23 +96,37 @@ extension ChartViewController : ChartViewInput {
     }
 }
 
-//Mark: - UITableViewDelegate & UITableViewDataSource
+//Mark: - UniversalTableViewOutput
 
-extension ChartViewController : UITableViewDelegate, UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+extension ChartViewController : UniversalTableViewOutput {
+
+    func getCell(tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        return cellBuider.build(withData: ChartCellBuilder.ChartCellData(table: tableView, indexPath: indexPath, media: output.getMediaObject(forIndex: indexPath.row), type: .track))!
+    }
+    
+    func getNumberOfRows(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return output.mediaCount
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = cellBuider.build(table: tableView, indexPath: indexPath, media: output.getMediaObject(forIndex: indexPath.row), type: .track)
-        return cell
-    }
-    
-    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+    func willDisplay(tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         let lastItem = output.mediaCount - 10
         
         if indexPath.row >= lastItem {
             output.loadMedia(isReloading: false)
         }
+    }
+    
+    func scrollDown() {
+        UIView.animate(withDuration: 0.3, delay: 0, options: UIViewAnimationOptions(), animations: {
+            self.navigationController?.setNavigationBarHidden(true, animated: true)
+            self.view.layoutIfNeeded()
+        }, completion: nil)
+    }
+    
+    func scrollUp() {
+        UIView.animate(withDuration: 0.3, delay: 0, options: UIViewAnimationOptions(), animations: {
+            self.navigationController?.setNavigationBarHidden(false, animated: true)
+            self.view.layoutIfNeeded()
+        }, completion: nil)
     }
 }
