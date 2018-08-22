@@ -44,6 +44,11 @@
 		8C41927D211C44D9005D83FA /* BaseChartProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C41927C211C44D9005D83FA /* BaseChartProtocol.swift */; };
 		8C41927F21219E52005D83FA /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C41927E21219E52005D83FA /* Error.swift */; };
 		8C4192812122BA17005D83FA /* BaseTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4192802122BA17005D83FA /* BaseTableCell.swift */; };
+		8C478D3C212D49F200A9CB4D /* TestTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C478D3A212D49F200A9CB4D /* TestTableViewController.swift */; };
+		8C478D3D212D49F200A9CB4D /* TestTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8C478D3B212D49F200A9CB4D /* TestTableViewController.xib */; };
+		8C478D41212D727500A9CB4D /* UniversalTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C478D3F212D727500A9CB4D /* UniversalTableViewController.swift */; };
+		8C478D42212D727500A9CB4D /* UniversalTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8C478D40212D727500A9CB4D /* UniversalTableViewController.xib */; };
+		8C478D44212D7EFA00A9CB4D /* BaseCellBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C478D43212D7EFA00A9CB4D /* BaseCellBuilder.swift */; };
 		8C4B43A320FCCA9E0014C692 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4B43A220FCCA9E0014C692 /* AppDelegate.swift */; };
 		8C4B43A520FCCA9E0014C692 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4B43A420FCCA9E0014C692 /* ViewController.swift */; };
 		8C4B43A820FCCA9E0014C692 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C4B43A620FCCA9E0014C692 /* Main.storyboard */; };
@@ -130,6 +135,11 @@
 		8C41927C211C44D9005D83FA /* BaseChartProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseChartProtocol.swift; sourceTree = "<group>"; };
 		8C41927E21219E52005D83FA /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
 		8C4192802122BA17005D83FA /* BaseTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableCell.swift; sourceTree = "<group>"; };
+		8C478D3A212D49F200A9CB4D /* TestTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestTableViewController.swift; sourceTree = "<group>"; };
+		8C478D3B212D49F200A9CB4D /* TestTableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TestTableViewController.xib; sourceTree = "<group>"; };
+		8C478D3F212D727500A9CB4D /* UniversalTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UniversalTableViewController.swift; sourceTree = "<group>"; };
+		8C478D40212D727500A9CB4D /* UniversalTableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UniversalTableViewController.xib; sourceTree = "<group>"; };
+		8C478D43212D7EFA00A9CB4D /* BaseCellBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCellBuilder.swift; sourceTree = "<group>"; };
 		8C4B439F20FCCA9E0014C692 /* MusicX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MusicX.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C4B43A220FCCA9E0014C692 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8C4B43A420FCCA9E0014C692 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -369,6 +379,7 @@
 		8C41925721188032005D83FA /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				8C478D3E212D722200A9CB4D /* UniversalTable */,
 				8C4191F12112FE12005D83FA /* Loading.swift */,
 				8C41925A211880BC005D83FA /* BaseProtocols.swift */,
 				8C419258211880BC005D83FA /* PresentableProtocol.swift */,
@@ -422,6 +433,25 @@
 			children = (
 			);
 			path = Player;
+			sourceTree = "<group>";
+		};
+		8C478D39212D49A600A9CB4D /* table */ = {
+			isa = PBXGroup;
+			children = (
+				8C478D3A212D49F200A9CB4D /* TestTableViewController.swift */,
+				8C478D3B212D49F200A9CB4D /* TestTableViewController.xib */,
+			);
+			path = table;
+			sourceTree = "<group>";
+		};
+		8C478D3E212D722200A9CB4D /* UniversalTable */ = {
+			isa = PBXGroup;
+			children = (
+				8C478D3F212D727500A9CB4D /* UniversalTableViewController.swift */,
+				8C478D40212D727500A9CB4D /* UniversalTableViewController.xib */,
+				8C478D43212D7EFA00A9CB4D /* BaseCellBuilder.swift */,
+			);
+			path = UniversalTable;
 			sourceTree = "<group>";
 		};
 		8C4B439620FCCA9E0014C692 = {
@@ -511,6 +541,7 @@
 		8C62D54521257D4800A78FD0 /* test */ = {
 			isa = PBXGroup;
 			children = (
+				8C478D39212D49A600A9CB4D /* table */,
 				8C62D54A2125922D00A78FD0 /* cell */,
 				8C62D54621257D7700A78FD0 /* TestViewController.storyboard */,
 				8C62D54821257D9D00A78FD0 /* TestViewController.swift */,
@@ -713,6 +744,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8C4B43B020FCCA9F0014C692 /* LaunchScreen.storyboard in Resources */,
+				8C478D3D212D49F200A9CB4D /* TestTableViewController.xib in Resources */,
 				8C4B43AD20FCCA9F0014C692 /* Assets.xcassets in Resources */,
 				8C62D54C2125924700A78FD0 /* testCell.xib in Resources */,
 				8CB665F5211056E500CEF996 /* ChartTrackCell.xib in Resources */,
@@ -720,6 +752,7 @@
 				8C41926A2119981D005D83FA /* TabBar.storyboard in Resources */,
 				8CB665ED211053D100CEF996 /* Chart.storyboard in Resources */,
 				8C62D5402124662D00A78FD0 /* SelectButtonsView.xib in Resources */,
+				8C478D42212D727500A9CB4D /* UniversalTableViewController.xib in Resources */,
 				8C4B43A820FCCA9E0014C692 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -821,6 +854,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8C41925D211880BD005D83FA /* BaseProtocols.swift in Sources */,
+				8C478D3C212D49F200A9CB4D /* TestTableViewController.swift in Sources */,
 				8C4191F02112FD97005D83FA /* ChartModule.swift in Sources */,
 				8C18E2332107109E005DAEE1 /* MusicLocalDataSource.swift in Sources */,
 				8C41926021197FCD005D83FA /* CoreX.swift in Sources */,
@@ -841,6 +875,7 @@
 				8C18E23E21085F70005DAEE1 /* BaseMediaObjectProtocol.swift in Sources */,
 				8C84EE3C210F0E23000780B0 /* ChartPresenter.swift in Sources */,
 				8C18E23721071136005DAEE1 /* QueryService.swift in Sources */,
+				8C478D41212D727500A9CB4D /* UniversalTableViewController.swift in Sources */,
 				8C24697D212C3EBB00BD83E9 /* ChartCellBuilder.swift in Sources */,
 				8C4B43A520FCCA9E0014C692 /* ViewController.swift in Sources */,
 				8C18E23C21074763005DAEE1 /* Utils.swift in Sources */,
@@ -852,6 +887,7 @@
 				8C62D54E2125925F00A78FD0 /* TestCellView.swift in Sources */,
 				8C18E23921071149005DAEE1 /* DownloadService.swift in Sources */,
 				8C419264211997D6005D83FA /* TabBarInteractor.swift in Sources */,
+				8C478D44212D7EFA00A9CB4D /* BaseCellBuilder.swift in Sources */,
 				8C4B43A320FCCA9E0014C692 /* AppDelegate.swift in Sources */,
 				8C4B43AB20FCCA9E0014C692 /* MusicX.xcdatamodeld in Sources */,
 				8C4191F521132B09005D83FA /* ConfiguratorProtocol.swift in Sources */,

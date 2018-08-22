@@ -11,10 +11,19 @@ import UIKit
 class TestViewController: UIViewController {
 
     @IBOutlet weak var viewHolder: UIView!
+    @IBOutlet weak var tableHolder: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        let vc = TestTableViewController()
+        view.addSubview(vc.view)
+        vc.view.translatesAutoresizingMaskIntoConstraints = false
+        //vc.view.heightAnchor.constraint(equalTo: tableHolder.heightAnchor)
+        //vc.view.widthAnchor.constraint(equalTo: tableHolder.widthAnchor)
+        vc.view.leadingAnchor.constraint(equalTo: tableHolder.leadingAnchor).isActive = true
+        vc.view.trailingAnchor.constraint(equalTo: tableHolder.trailingAnchor).isActive = true
+        vc.view.topAnchor.constraint(equalTo: tableHolder.topAnchor).isActive = true
+        vc.view.bottomAnchor.constraint(equalTo: tableHolder.bottomAnchor).isActive = true
         // Do any additional setup after loading the view.
     }
 

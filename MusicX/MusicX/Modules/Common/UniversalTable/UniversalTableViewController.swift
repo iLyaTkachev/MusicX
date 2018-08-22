@@ -1,0 +1,62 @@
+//
+//  UniversalTableViewController.swift
+//  MusicX
+//
+//  Created by Ilya Tkachou on 8/22/18.
+//  Copyright © 2018 Ilya Tkachou. All rights reserved.
+//
+
+import UIKit
+
+protocol UniversalTableViewOutput : class {
+    func getCell(tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
+    func getNumberOfRows(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
+    func willDisplay(tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath)
+}
+
+protocol UniversalTableViewInput {
+    func reloadData()
+}
+
+class UniversalTableViewController: UIViewController {
+
+    @IBOutlet weak var tableView: UITableView!
+    
+    weak var output: UniversalTableViewOutput!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        tableView.delegate = self
+        tableView.dataSource = self
+        // Do any additional setup after loading the view.
+    }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+
+}
+
+extension UniversalTableViewController: UniversalTableViewInput {
+    func reloadData() {
+        self.tableView.reloadData()
+    }
+}
+
+extension UniversalTableViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        return output.getCell(tableView: tableView, cellForRowAt: indexPath)
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        output.willDisplay(tableView: tableView, willDisplay: cell, forRowAt: indexPath)
+    }
+    
+}
+
+extension UniversalTableViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return output.getNumberOfRows(tableView: tableView, numberOfRowsInSection: section)
+    }
+}

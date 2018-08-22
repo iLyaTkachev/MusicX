@@ -38,20 +38,29 @@
                                     <action selector="click:" destination="4dG-dX-tPl" eventType="touchUpInside" id="Nec-4T-YsA"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SSo-yR-7ra">
+                                <rect key="frame" x="10" y="126" width="355" height="481"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="PBX-N0-bcX" firstAttribute="top" secondItem="SSo-yR-7ra" secondAttribute="bottom" constant="10" id="2rS-wz-rEj"/>
                             <constraint firstItem="BAo-MZ-F4b" firstAttribute="top" secondItem="sr2-5W-GY1" secondAttribute="bottom" constant="5" id="CSJ-rM-q7Y"/>
+                            <constraint firstItem="4VU-CU-pZa" firstAttribute="trailing" secondItem="SSo-yR-7ra" secondAttribute="trailing" constant="10" id="H2t-SO-34m"/>
                             <constraint firstItem="PBX-N0-bcX" firstAttribute="centerX" secondItem="3gq-fl-T2Q" secondAttribute="centerX" id="IwN-In-sFp"/>
                             <constraint firstItem="sr2-5W-GY1" firstAttribute="leading" secondItem="4VU-CU-pZa" secondAttribute="leading" constant="20" id="XKM-AG-NCk"/>
                             <constraint firstAttribute="bottom" secondItem="PBX-N0-bcX" secondAttribute="bottom" constant="20" symbolic="YES" id="aFF-KV-vE1"/>
                             <constraint firstItem="sr2-5W-GY1" firstAttribute="top" secondItem="4VU-CU-pZa" secondAttribute="top" constant="20" id="aKJ-rA-yg0"/>
                             <constraint firstItem="4VU-CU-pZa" firstAttribute="trailing" secondItem="sr2-5W-GY1" secondAttribute="trailing" constant="20" id="dtJ-En-wjq"/>
+                            <constraint firstItem="SSo-yR-7ra" firstAttribute="top" secondItem="BAo-MZ-F4b" secondAttribute="bottom" constant="10" id="iQZ-pd-CQO"/>
                             <constraint firstItem="BAo-MZ-F4b" firstAttribute="centerX" secondItem="3gq-fl-T2Q" secondAttribute="centerX" id="jYX-gQ-SR4"/>
+                            <constraint firstItem="SSo-yR-7ra" firstAttribute="leading" secondItem="4VU-CU-pZa" secondAttribute="leading" constant="10" id="kVc-Fy-Xtn"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="4VU-CU-pZa"/>
                     </view>
                     <connections>
+                        <outlet property="tableHolder" destination="SSo-yR-7ra" id="IjG-i1-KbI"/>
                         <outlet property="viewHolder" destination="sr2-5W-GY1" id="7ou-s7-ifY"/>
                     </connections>
                 </viewController>
