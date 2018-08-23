@@ -11,7 +11,7 @@ import UIKit
 class ChartCellBuilder: BaseCellBuilder {
     
     class ChartCellData {
-        let table: UITableView
+        weak var table: UITableView?
         let indexPath: IndexPath
         let media: BaseMediaObject
         let type: MediaType
@@ -31,7 +31,7 @@ class ChartCellBuilder: BaseCellBuilder {
             
             switch data.type {
             case .track:
-                cell = data.table.dequeueReusableCell(withIdentifier: ChartTrackCell.identifier, for: data.indexPath)
+                cell = data.table?.dequeueReusableCell(withIdentifier: ChartTrackCell.identifier, for: data.indexPath)
                 setupTrackCell(cell: cell as! ChartTrackCell, track: data.media as! Track)
             case .artist:  //TODO: change
                 break

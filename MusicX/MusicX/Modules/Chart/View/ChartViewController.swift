@@ -16,13 +16,15 @@ class ChartViewController: UIViewController {
     var cellBuider = ChartCellBuilder()
     
     var tableVC: UniversalTableViewController!
+    var typeListView: TypeButtonsView!
     
     var output: ChartViewOutput!
     var activityIndicator = UIActivityIndicatorView()
     
     private let refreshControl = UIRefreshControl()
     
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var typeListHolder: UIView!
+    @IBOutlet weak var tableViewHolder: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,10 +47,16 @@ class ChartViewController: UIViewController {
         
         tableVC.tableView.rowHeight = UITableViewAutomaticDimension
         tableVC.tableView.estimatedRowHeight = 100
-        setConstraints(from: tableView, to: tableVC.view)
+        setConstraints(from: tableViewHolder, to: tableVC.view)
     }
     
-    func setConstraints(from parent: UIView, to child: UIView ) {
+    func setupTypeList() {
+        typeListView = TypeButtonsView(frame: typeListHolder.frame)
+        view.addSubview(typeListView.contentView)
+        setConstraints(from: typeListHolder, to: typeListView.contentView)
+    }
+    
+    func setConstraints(from parent: UIView, to child: UIView) {
         child.translatesAutoresizingMaskIntoConstraints = false
         child.topAnchor.constraint(equalTo: parent.topAnchor).isActive = true
         child.bottomAnchor.constraint(equalTo: parent.bottomAnchor).isActive = true
@@ -93,6 +101,7 @@ extension ChartViewController : ChartViewInput {
     func setupInitialState() {
         setupTableView()
         setupRefreshControl()
+        setupTypeList()
     }
 }
 
@@ -119,6 +128,7 @@ extension ChartViewController : UniversalTableViewOutput {
     func scrollDown() {
         UIView.animate(withDuration: 0.3, delay: 0, options: UIViewAnimationOptions(), animations: {
             self.navigationController?.setNavigationBarHidden(true, animated: true)
+            self.typeListView.moduleVisibility(isVisible: false)
             self.view.layoutIfNeeded()
         }, completion: nil)
     }
@@ -126,6 +136,7 @@ extension ChartViewController : UniversalTableViewOutput {
     func scrollUp() {
         UIView.animate(withDuration: 0.3, delay: 0, options: UIViewAnimationOptions(), animations: {
             self.navigationController?.setNavigationBarHidden(false, animated: true)
+            self.typeListView.moduleVisibility(isVisible: true)
             self.view.layoutIfNeeded()
         }, completion: nil)
     }
