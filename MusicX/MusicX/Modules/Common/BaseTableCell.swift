@@ -10,5 +10,4 @@ import UIKit
 
 protocol BaseTableCell {
     static var identifier: String { get }
-    //func setup<T: BaseMediaObject>(with media: T)
 }

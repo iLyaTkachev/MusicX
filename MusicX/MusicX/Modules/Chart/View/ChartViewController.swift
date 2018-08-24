@@ -13,7 +13,7 @@ class ChartViewController: UIViewController {
     static let id = "ChartViewController"
     static let storyboardId = "Chart"
     
-    var cellBuider = ChartCellBuilder()
+    var cellBuider: BaseCellBuilder!
     
     var tableVC: UniversalTableViewController!
     var typeListView: TypeButtonsView!
@@ -28,15 +28,11 @@ class ChartViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.isNavigationBarHidden = true
         output.viewIsReady()
-    }
-        
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
     }
     
     func setupTableView() {
-        tableVC = UniversalTableViewController()
         tableVC.output = self
         tableVC.automaticallyAdjustsScrollViewInsets = false
         
@@ -47,21 +43,13 @@ class ChartViewController: UIViewController {
         
         tableVC.tableView.rowHeight = UITableViewAutomaticDimension
         tableVC.tableView.estimatedRowHeight = 100
-        setConstraints(from: tableViewHolder, to: tableVC.view)
+        Utils.setConstraints(from: tableViewHolder, to: tableVC.view)
     }
     
     func setupTypeList() {
         typeListView = TypeButtonsView(frame: typeListHolder.frame)
         view.addSubview(typeListView.contentView)
-        setConstraints(from: typeListHolder, to: typeListView.contentView)
-    }
-    
-    func setConstraints(from parent: UIView, to child: UIView) {
-        child.translatesAutoresizingMaskIntoConstraints = false
-        child.topAnchor.constraint(equalTo: parent.topAnchor).isActive = true
-        child.bottomAnchor.constraint(equalTo: parent.bottomAnchor).isActive = true
-        child.leadingAnchor.constraint(equalTo: parent.leadingAnchor).isActive = true
-        child.trailingAnchor.constraint(equalTo: parent.trailingAnchor).isActive = true
+        Utils.setConstraints(from: typeListHolder, to: typeListView.contentView)
     }
     
     func setupRefreshControl() {
@@ -86,9 +74,7 @@ extension ChartViewController : ChartViewInput {
         showAlert(title: "Error", message: message)
     }
     
-    func updateList(with array: [BaseMediaObject]) {
-        //let tracks = array as! [Track]
-        //print(tracks[0].name)
+    func updateList() {
         DispatchQueue.main.async {
             self.tableVC.tableView.reloadData()
             
@@ -108,9 +94,15 @@ extension ChartViewController : ChartViewInput {
 //Mark: - UniversalTableViewOutput
 
 extension ChartViewController : UniversalTableViewOutput {
-
+    func cellClicked(index: Int) {
+        output.cellClicked(index: index)
+    }
+    
     func getCell(tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return cellBuider.build(withData: ChartCellBuilder.ChartCellData(table: tableView, indexPath: indexPath, media: output.getMediaObject(forIndex: indexPath.row), type: .track))!
+        let cell = tableView.dequeueReusableCell(withIdentifier: output.cellIdentifier, for: indexPath)
+        cellBuider.build(cell: cell, data: ChartCellBuilder.ChartCellData(type: output.mediaType, media: output.getMediaObject(forIndex: indexPath.row)))
+        
+        return cell
     }
     
     func getNumberOfRows(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -127,7 +119,6 @@ extension ChartViewController : UniversalTableViewOutput {
     
     func scrollDown() {
         UIView.animate(withDuration: 0.3, delay: 0, options: UIViewAnimationOptions(), animations: {
-            self.navigationController?.setNavigationBarHidden(true, animated: true)
             self.typeListView.moduleVisibility(isVisible: false)
             self.view.layoutIfNeeded()
         }, completion: nil)
@@ -135,7 +126,6 @@ extension ChartViewController : UniversalTableViewOutput {
     
     func scrollUp() {
         UIView.animate(withDuration: 0.3, delay: 0, options: UIViewAnimationOptions(), animations: {
-            self.navigationController?.setNavigationBarHidden(false, animated: true)
             self.typeListView.moduleVisibility(isVisible: true)
             self.view.layoutIfNeeded()
         }, completion: nil)

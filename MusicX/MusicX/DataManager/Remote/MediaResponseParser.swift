@@ -33,7 +33,7 @@ class MediaResponseParser: BaseMediaResponseParser {
         
         guard let dict = dictionary[T.type.chartArray()] as? [String : Any] ,
             let array = dict[T.type.rawValue] as? [Any] else {
-            print("Dictionary does not contain track key\n")
+            print("Dictionary does not contain \(T.type.rawValue) key\n")
             return nil
         }
         
@@ -43,10 +43,8 @@ class MediaResponseParser: BaseMediaResponseParser {
             if let mediaDictionary = mediaDictionary as? [String : Any],
                 let media = T(with: mediaDictionary) {
                 result.append(media)
-                //print(media.name + " " + track.listeners)
             } else {
-                print("Problem parsing trackDictionary\n")
-                
+                print("Problem parsing \(T.type.rawValue) dictionary\n")
                 return nil
             }
         }

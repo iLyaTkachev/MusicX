@@ -27,4 +27,12 @@ final class Utils {
         return String(cString: name, encoding: .utf8)
     }
     
+    static func setConstraints(from parent: UIView, to child: UIView) {
+        child.translatesAutoresizingMaskIntoConstraints = false
+        child.topAnchor.constraint(equalTo: parent.topAnchor).isActive = true
+        child.bottomAnchor.constraint(equalTo: parent.bottomAnchor).isActive = true
+        child.leadingAnchor.constraint(equalTo: parent.leadingAnchor).isActive = true
+        child.trailingAnchor.constraint(equalTo: parent.trailingAnchor).isActive = true
+    }
+    
 }

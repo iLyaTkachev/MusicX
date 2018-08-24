@@ -8,39 +8,36 @@
 
 import UIKit
 
-class ChartCellBuilder: BaseCellBuilder {
+class ChartCellBuilder : BaseCellBuilder {
+    
+    func build<T>(cell: UITableViewCell, data: T) {
+        guard let cellData = data as? ChartCellData else {
+            return
+        }
+        
+        switch cellData.type {
+        case .track:
+            guard let trackCell = cell as? ChartTrackCell, let trackData = cellData.media as? Track else {
+                return
+            }
+            setupTrackCell(cell: trackCell , track: trackData)
+        case .artist:  //TODO: change
+            break
+        case .tag:
+            break
+        }
+    }
     
     class ChartCellData {
-        weak var table: UITableView?
-        let indexPath: IndexPath
-        let media: BaseMediaObject
         let type: MediaType
+        let media: BaseMediaObject
         
-        init(table: UITableView, indexPath: IndexPath, media: BaseMediaObject, type: MediaType) {
-            self.table = table
-            self.indexPath = indexPath
-            self.media = media
+        init(type: MediaType, media: BaseMediaObject) {
             self.type = type
+            self.media = media
         }
     }
-    
-    func build<T>(withData: T) -> UITableViewCell? {
-        var cell: UITableViewCell?
-        
-        if let data = withData as? ChartCellData {
-            
-            switch data.type {
-            case .track:
-                cell = data.table?.dequeueReusableCell(withIdentifier: ChartTrackCell.identifier, for: data.indexPath)
-                setupTrackCell(cell: cell as! ChartTrackCell, track: data.media as! Track)
-            case .artist:  //TODO: change
-                break
-            case .tag:
-                break
-            }
-        }
-        return cell
-    }
+
     
     private func setupTrackCell(cell: ChartTrackCell, track: Track) {
         cell.trackNameLabel.text = track.name

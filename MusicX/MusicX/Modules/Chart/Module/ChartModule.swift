@@ -12,6 +12,8 @@ class ChartModule : ChartModuleInput {
         interactor.repository = CoreX.shared.repository
         
         view.output = presenter
+        view.cellBuider = ChartCellBuilder()
+        view.tableVC = UniversalTableViewController()
         
         presenter.view = view
         presenter.router = router

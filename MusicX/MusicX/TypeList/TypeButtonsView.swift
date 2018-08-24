@@ -13,7 +13,7 @@ protocol TypeButtonsViewInput {
     func listVisibility(isVisible: Bool)
 }
 
-protocol TypeButtonsViewOutput {
+protocol TypeButtonsViewOutput : class {
     
 }
 
@@ -42,6 +42,7 @@ class TypeButtonsView: UIView {
         Bundle.main.loadNibNamed("TypeButtonsView", owner: self, options: nil)
         contentView.translatesAutoresizingMaskIntoConstraints = false
         contentView.clipsToBounds = true
+        setButtonsHeight()
         addSubview(contentView)
     }
     
@@ -51,6 +52,13 @@ class TypeButtonsView: UIView {
             self.heightConstraint.isActive = true
             self.contentView.superview?.layoutIfNeeded()
         }, completion: nil)
+    }
+    
+    private func setButtonsHeight() {
+        selectButton.heightAnchor.constraint(equalToConstant: CGFloat(buttonHeight))
+        buttonsList.forEach {
+            $0.heightAnchor.constraint(equalToConstant: CGFloat(buttonHeight))
+        }
     }
     
     @IBAction func selectButtonClick(_ sender: UIButton) {

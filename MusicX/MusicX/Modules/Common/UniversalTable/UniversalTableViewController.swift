@@ -14,6 +14,7 @@ protocol UniversalTableViewOutput : class {
     func willDisplay(tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath)
     func scrollDown()
     func scrollUp()
+    func cellClicked(index: Int)
 }
 
 protocol UniversalTableViewInput {

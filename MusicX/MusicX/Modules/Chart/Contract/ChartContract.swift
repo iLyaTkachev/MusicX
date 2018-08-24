@@ -17,14 +17,16 @@ protocol ChartModuleOutput : BaseModuleOutput {
 }
 
 protocol ChartViewInput : BaseViewInput, ActivityIndicator {
-    func updateList(with array: [BaseMediaObject])
+    func updateList()
     func onError(message: String)
 }
 
 protocol ChartViewOutput : BaseViewOutput {
     var mediaCount: Int { get }
+    var mediaType: MediaType { get }
+    var cellIdentifier: String { get }
     func getMediaObject(forIndex: Int) -> BaseMediaObject
-    func itemClicked(item: BaseMediaObject)
+    func cellClicked(index: Int)
     func loadMedia(isReloading: Bool)
 }
 

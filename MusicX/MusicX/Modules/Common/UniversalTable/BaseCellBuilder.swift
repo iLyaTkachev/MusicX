@@ -9,5 +9,5 @@
 import UIKit
 
 protocol BaseCellBuilder {
-    func build<T>(withData: T) -> UITableViewCell?
+    func build<T>(cell: UITableViewCell, data: T)
 }

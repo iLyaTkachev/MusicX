@@ -9,11 +9,11 @@
 import UIKit
 
 class ChartPresenter {
-    weak var view: ChartViewInput!
+    weak var view: ChartViewInput!//?
     var interactor: ChartInteractorInput!
     var router: ChartRouterInput!
     
-    var currentMediaType: MediaType = .track
+    var currentMediaType: MediaType!
     
     var isLoading = false
     var currentPage = 0
@@ -37,7 +37,7 @@ extension ChartPresenter : ChartInteractorOutput {
             
             currentPage = chart.page
             items += chart.items
-            view.updateList(with: chart.items)
+            view.updateList()
         }
         
         view.hideActivityIndicator()
@@ -54,6 +54,21 @@ extension ChartPresenter : ChartInteractorOutput {
 //Mark: - ChartViewOutput
 
 extension ChartPresenter : ChartViewOutput {
+    var mediaType: MediaType {
+        return currentMediaType
+    }
+    
+    var cellIdentifier: String {
+        switch mediaType {
+        case .track :
+            return ChartTrackCell.identifier
+        case .artist ://TODO change
+            return ""
+        case .tag :
+            return ""
+        }
+    }
+    
     func loadMedia(isReloading: Bool = false) {
         guard isLoading else {
             isLoading = true
@@ -76,8 +91,8 @@ extension ChartPresenter : ChartViewOutput {
         return items[forIndex]
     }
     
-    func itemClicked(item: BaseMediaObject) {
-        router.presentMediaDetails(item: item)
+    func cellClicked(index: Int) {
+        router.presentMediaDetails(item: items[index])
     }
      
     func viewIsReady() {
