@@ -14,7 +14,6 @@ protocol TypeButtonsViewInput {
 }
 
 protocol TypeButtonsViewOutput : class {
-    
 }
 
 class TypeButtonsView: UIView {

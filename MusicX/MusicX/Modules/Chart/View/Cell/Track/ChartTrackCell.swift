@@ -9,7 +9,7 @@
 import UIKit
 
 class ChartTrackCell: UITableViewCell, BaseTableCell {
-    static var identifier: String = "ChartTrackCell"
+    static var identifier = "ChartTrackCell"
     var imageURL: String?
     
     @IBOutlet weak var artistImageView: UIImageView!

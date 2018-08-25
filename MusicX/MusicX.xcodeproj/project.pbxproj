@@ -44,6 +44,8 @@
 		8C41927D211C44D9005D83FA /* BaseChartProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C41927C211C44D9005D83FA /* BaseChartProtocol.swift */; };
 		8C41927F21219E52005D83FA /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C41927E21219E52005D83FA /* Error.swift */; };
 		8C4192812122BA17005D83FA /* BaseTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4192802122BA17005D83FA /* BaseTableCell.swift */; };
+		8C45EB77213181160009C7AE /* ChartArtistCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C45EB75213181160009C7AE /* ChartArtistCell.swift */; };
+		8C45EB78213181160009C7AE /* ChartArtistCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8C45EB76213181160009C7AE /* ChartArtistCell.xib */; };
 		8C478D3C212D49F200A9CB4D /* TestTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C478D3A212D49F200A9CB4D /* TestTableViewController.swift */; };
 		8C478D3D212D49F200A9CB4D /* TestTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8C478D3B212D49F200A9CB4D /* TestTableViewController.xib */; };
 		8C478D41212D727500A9CB4D /* UniversalTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C478D3F212D727500A9CB4D /* UniversalTableViewController.swift */; };
@@ -135,6 +137,8 @@
 		8C41927C211C44D9005D83FA /* BaseChartProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseChartProtocol.swift; sourceTree = "<group>"; };
 		8C41927E21219E52005D83FA /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
 		8C4192802122BA17005D83FA /* BaseTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableCell.swift; sourceTree = "<group>"; };
+		8C45EB75213181160009C7AE /* ChartArtistCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartArtistCell.swift; sourceTree = "<group>"; };
+		8C45EB76213181160009C7AE /* ChartArtistCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChartArtistCell.xib; sourceTree = "<group>"; };
 		8C478D3A212D49F200A9CB4D /* TestTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestTableViewController.swift; sourceTree = "<group>"; };
 		8C478D3B212D49F200A9CB4D /* TestTableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TestTableViewController.xib; sourceTree = "<group>"; };
 		8C478D3F212D727500A9CB4D /* UniversalTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UniversalTableViewController.swift; sourceTree = "<group>"; };
@@ -400,8 +404,9 @@
 		8C41926D2119D079005D83FA /* Cell */ = {
 			isa = PBXGroup;
 			children = (
-				8CB665F4211056E500CEF996 /* ChartTrackCell.xib */,
-				8CB665F02110560500CEF996 /* ChartTrackCell.swift */,
+				8C45EB74213180B30009C7AE /* Tag */,
+				8C45EB73213180AC0009C7AE /* Artist */,
+				8C45EB72213180950009C7AE /* Track */,
 				8C24697C212C3EBB00BD83E9 /* ChartCellBuilder.swift */,
 			);
 			path = Cell;
@@ -433,6 +438,31 @@
 			children = (
 			);
 			path = Player;
+			sourceTree = "<group>";
+		};
+		8C45EB72213180950009C7AE /* Track */ = {
+			isa = PBXGroup;
+			children = (
+				8CB665F02110560500CEF996 /* ChartTrackCell.swift */,
+				8CB665F4211056E500CEF996 /* ChartTrackCell.xib */,
+			);
+			path = Track;
+			sourceTree = "<group>";
+		};
+		8C45EB73213180AC0009C7AE /* Artist */ = {
+			isa = PBXGroup;
+			children = (
+				8C45EB75213181160009C7AE /* ChartArtistCell.swift */,
+				8C45EB76213181160009C7AE /* ChartArtistCell.xib */,
+			);
+			path = Artist;
+			sourceTree = "<group>";
+		};
+		8C45EB74213180B30009C7AE /* Tag */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Tag;
 			sourceTree = "<group>";
 		};
 		8C478D39212D49A600A9CB4D /* table */ = {
@@ -749,6 +779,7 @@
 				8C4B43AD20FCCA9F0014C692 /* Assets.xcassets in Resources */,
 				8C62D54C2125924700A78FD0 /* testCell.xib in Resources */,
 				8CB665F5211056E500CEF996 /* ChartTrackCell.xib in Resources */,
+				8C45EB78213181160009C7AE /* ChartArtistCell.xib in Resources */,
 				8C62D54721257D7700A78FD0 /* TestViewController.storyboard in Resources */,
 				8C41926A2119981D005D83FA /* TabBar.storyboard in Resources */,
 				8CB665ED211053D100CEF996 /* Chart.storyboard in Resources */,
@@ -883,6 +914,7 @@
 				8C24697B212C371E00BD83E9 /* Constants.swift in Sources */,
 				8C84EE4321103DE1000780B0 /* ChartRouter.swift in Sources */,
 				8C84EE3F210F1563000780B0 /* ChartContract.swift in Sources */,
+				8C45EB77213181160009C7AE /* ChartArtistCell.swift in Sources */,
 				8C419279211C3990005D83FA /* MediaResponseParser.swift in Sources */,
 				8C62D54921257D9D00A78FD0 /* TestViewController.swift in Sources */,
 				8C62D54E2125925F00A78FD0 /* TestCellView.swift in Sources */,

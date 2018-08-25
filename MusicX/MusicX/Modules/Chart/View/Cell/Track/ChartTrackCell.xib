@@ -64,7 +64,7 @@
                 <outlet property="spinner" destination="ctQ-BG-Ki2" id="SMe-hh-AD8"/>
                 <outlet property="trackNameLabel" destination="iCd-Q5-8S9" id="rEc-Wq-90w"/>
             </connections>
-            <point key="canvasLocation" x="138" y="-347"/>
+            <point key="canvasLocation" x="137.5" y="-347"/>
         </view>
     </objects>
 </document>
