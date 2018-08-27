@@ -13,7 +13,7 @@ class ApplicationConfgurator: BaseConfigurator {
     func configure() {
         
         if CoreX.shared.isSignedIn() {
-            TabBarModule.create().present()
+            TabBarAssembly.create().present()
             //let vc = Utils.getViewController(storyboardName: "TestViewController", vcId: "TestViewController") as! TestViewController
             //AppDelegate.currentWindow.rootViewController = vc
         }

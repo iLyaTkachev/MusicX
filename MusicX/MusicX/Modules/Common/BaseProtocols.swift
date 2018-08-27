@@ -8,15 +8,6 @@
 
 import Foundation
 
-protocol BaseModuleInput: class {
-    static func create() -> BaseModuleOutput
-}
-
-//presenter implements
-protocol BaseModuleOutput : class {
-    func present()
-}
-
 protocol BaseRouterInput : class{
     
 }

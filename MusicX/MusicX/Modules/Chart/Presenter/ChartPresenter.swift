@@ -9,7 +9,7 @@
 import UIKit
 
 class ChartPresenter {
-    weak var view: ChartViewInput!//?
+    weak var view: ChartViewInput!
     var interactor: ChartInteractorInput!
     var router: ChartRouterInput!
     
@@ -100,17 +100,5 @@ extension ChartPresenter : ChartViewOutput {
         view.showActivityIndicator()
         currentMediaType = .track
         loadMedia()
-    }
-}
-
-//Mark: - ChartModuleOutput
-
-extension ChartPresenter : ChartModuleOutput {
-    var viewController: UIViewController {
-        return view.viewController
-    }
-    
-    func present() {
-        view.present()
     }
 }

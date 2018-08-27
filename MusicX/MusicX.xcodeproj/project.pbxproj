@@ -22,12 +22,12 @@
 		8C18E23E21085F70005DAEE1 /* BaseMediaObjectProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C18E23D21085F70005DAEE1 /* BaseMediaObjectProtocol.swift */; };
 		8C24697B212C371E00BD83E9 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C24697A212C371E00BD83E9 /* Constants.swift */; };
 		8C24697D212C3EBB00BD83E9 /* ChartCellBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C24697C212C3EBB00BD83E9 /* ChartCellBuilder.swift */; };
-		8C4191F02112FD97005D83FA /* ChartModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4191EF2112FD97005D83FA /* ChartModule.swift */; };
+		8C4191F02112FD97005D83FA /* ChartAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4191EF2112FD97005D83FA /* ChartAssembly.swift */; };
 		8C4191F22112FE12005D83FA /* Loading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4191F12112FE12005D83FA /* Loading.swift */; };
 		8C4191F521132B09005D83FA /* ConfiguratorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4191F421132B09005D83FA /* ConfiguratorProtocol.swift */; };
 		8C4191FA21132CFD005D83FA /* ApplicationConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4191F921132CFD005D83FA /* ApplicationConfigurator.swift */; };
 		8C41920421134291005D83FA /* TabBarContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C41920321134291005D83FA /* TabBarContract.swift */; };
-		8C419206211342A8005D83FA /* TabBarModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C419205211342A8005D83FA /* TabBarModule.swift */; };
+		8C419206211342A8005D83FA /* TabBarAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C419205211342A8005D83FA /* TabBarAssembly.swift */; };
 		8C41925B211880BD005D83FA /* PresentableProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C419258211880BC005D83FA /* PresentableProtocol.swift */; };
 		8C41925D211880BD005D83FA /* BaseProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C41925A211880BC005D83FA /* BaseProtocols.swift */; };
 		8C41926021197FCD005D83FA /* CoreX.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C41925F21197FCD005D83FA /* CoreX.swift */; };
@@ -53,8 +53,6 @@
 		8C478D42212D727500A9CB4D /* UniversalTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8C478D40212D727500A9CB4D /* UniversalTableViewController.xib */; };
 		8C478D44212D7EFA00A9CB4D /* BaseCellBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C478D43212D7EFA00A9CB4D /* BaseCellBuilder.swift */; };
 		8C4B43A320FCCA9E0014C692 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4B43A220FCCA9E0014C692 /* AppDelegate.swift */; };
-		8C4B43A520FCCA9E0014C692 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4B43A420FCCA9E0014C692 /* ViewController.swift */; };
-		8C4B43A820FCCA9E0014C692 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C4B43A620FCCA9E0014C692 /* Main.storyboard */; };
 		8C4B43AB20FCCA9E0014C692 /* MusicX.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8C4B43A920FCCA9E0014C692 /* MusicX.xcdatamodeld */; };
 		8C4B43AD20FCCA9F0014C692 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8C4B43AC20FCCA9F0014C692 /* Assets.xcassets */; };
 		8C4B43B020FCCA9F0014C692 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C4B43AE20FCCA9F0014C692 /* LaunchScreen.storyboard */; };
@@ -68,6 +66,8 @@
 		8C62D54921257D9D00A78FD0 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C62D54821257D9D00A78FD0 /* TestViewController.swift */; };
 		8C62D54C2125924700A78FD0 /* testCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8C62D54B2125924700A78FD0 /* testCell.xib */; };
 		8C62D54E2125925F00A78FD0 /* TestCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C62D54D2125925F00A78FD0 /* TestCellView.swift */; };
+		8C7A9A57213437B300DE5DE3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C7A9A56213437B200DE5DE3 /* Main.storyboard */; };
+		8C7A9A59213437D400DE5DE3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C7A9A58213437D400DE5DE3 /* ViewController.swift */; };
 		8C84EE3A210F0D4D000780B0 /* ChartInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C84EE39210F0D4D000780B0 /* ChartInteractor.swift */; };
 		8C84EE3C210F0E23000780B0 /* ChartPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C84EE3B210F0E23000780B0 /* ChartPresenter.swift */; };
 		8C84EE3F210F1563000780B0 /* ChartContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C84EE3E210F1563000780B0 /* ChartContract.swift */; };
@@ -116,12 +116,12 @@
 		8C18E23D21085F70005DAEE1 /* BaseMediaObjectProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseMediaObjectProtocol.swift; sourceTree = "<group>"; };
 		8C24697A212C371E00BD83E9 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		8C24697C212C3EBB00BD83E9 /* ChartCellBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartCellBuilder.swift; sourceTree = "<group>"; };
-		8C4191EF2112FD97005D83FA /* ChartModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartModule.swift; sourceTree = "<group>"; };
+		8C4191EF2112FD97005D83FA /* ChartAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartAssembly.swift; sourceTree = "<group>"; };
 		8C4191F12112FE12005D83FA /* Loading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loading.swift; sourceTree = "<group>"; };
 		8C4191F421132B09005D83FA /* ConfiguratorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfiguratorProtocol.swift; sourceTree = "<group>"; };
 		8C4191F921132CFD005D83FA /* ApplicationConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationConfigurator.swift; sourceTree = "<group>"; };
 		8C41920321134291005D83FA /* TabBarContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarContract.swift; sourceTree = "<group>"; };
-		8C419205211342A8005D83FA /* TabBarModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarModule.swift; sourceTree = "<group>"; };
+		8C419205211342A8005D83FA /* TabBarAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarAssembly.swift; sourceTree = "<group>"; };
 		8C419258211880BC005D83FA /* PresentableProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresentableProtocol.swift; sourceTree = "<group>"; };
 		8C41925A211880BC005D83FA /* BaseProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseProtocols.swift; sourceTree = "<group>"; };
 		8C41925F21197FCD005D83FA /* CoreX.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreX.swift; sourceTree = "<group>"; };
@@ -148,8 +148,6 @@
 		8C478D43212D7EFA00A9CB4D /* BaseCellBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCellBuilder.swift; sourceTree = "<group>"; };
 		8C4B439F20FCCA9E0014C692 /* MusicX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MusicX.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C4B43A220FCCA9E0014C692 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		8C4B43A420FCCA9E0014C692 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		8C4B43A720FCCA9E0014C692 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8C4B43AA20FCCA9E0014C692 /* MusicX.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MusicX.xcdatamodel; sourceTree = "<group>"; };
 		8C4B43AC20FCCA9F0014C692 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8C4B43AF20FCCA9F0014C692 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -168,6 +166,8 @@
 		8C62D54821257D9D00A78FD0 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		8C62D54B2125924700A78FD0 /* testCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = testCell.xib; sourceTree = "<group>"; };
 		8C62D54D2125925F00A78FD0 /* TestCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCellView.swift; sourceTree = "<group>"; };
+		8C7A9A56213437B200DE5DE3 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		8C7A9A58213437D400DE5DE3 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		8C84EE39210F0D4D000780B0 /* ChartInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartInteractor.swift; sourceTree = "<group>"; };
 		8C84EE3B210F0E23000780B0 /* ChartPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartPresenter.swift; sourceTree = "<group>"; };
 		8C84EE3E210F1563000780B0 /* ChartContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartContract.swift; sourceTree = "<group>"; };
@@ -307,7 +307,7 @@
 		8C4191EE2112FD83005D83FA /* Module */ = {
 			isa = PBXGroup;
 			children = (
-				8C4191EF2112FD97005D83FA /* ChartModule.swift */,
+				8C4191EF2112FD97005D83FA /* ChartAssembly.swift */,
 			);
 			path = Module;
 			sourceTree = "<group>";
@@ -370,7 +370,7 @@
 		8C4192012113421D005D83FA /* Module */ = {
 			isa = PBXGroup;
 			children = (
-				8C419205211342A8005D83FA /* TabBarModule.swift */,
+				8C419205211342A8005D83FA /* TabBarAssembly.swift */,
 			);
 			path = Module;
 			sourceTree = "<group>";
@@ -530,10 +530,10 @@
 				8C84EE29210F085A000780B0 /* Modules */,
 				8C18E23A2107473C005DAEE1 /* Utils */,
 				8C4B43A220FCCA9E0014C692 /* AppDelegate.swift */,
-				8C4B43A420FCCA9E0014C692 /* ViewController.swift */,
 				8C62D54521257D4800A78FD0 /* test */,
-				8C4B43A620FCCA9E0014C692 /* Main.storyboard */,
 				8C4B43AC20FCCA9F0014C692 /* Assets.xcassets */,
+				8C7A9A56213437B200DE5DE3 /* Main.storyboard */,
+				8C7A9A58213437D400DE5DE3 /* ViewController.swift */,
 				8C4B43AE20FCCA9F0014C692 /* LaunchScreen.storyboard */,
 				8C4B43B120FCCA9F0014C692 /* Info.plist */,
 				8C4B43A920FCCA9E0014C692 /* MusicX.xcdatamodeld */,
@@ -788,6 +788,7 @@
 				8C4B43B020FCCA9F0014C692 /* LaunchScreen.storyboard in Resources */,
 				8C478D3D212D49F200A9CB4D /* TestTableViewController.xib in Resources */,
 				8C4B43AD20FCCA9F0014C692 /* Assets.xcassets in Resources */,
+				8C7A9A57213437B300DE5DE3 /* Main.storyboard in Resources */,
 				8C62D54C2125924700A78FD0 /* testCell.xib in Resources */,
 				8CB665F5211056E500CEF996 /* ChartTrackCell.xib in Resources */,
 				8C45EB78213181160009C7AE /* ChartArtistCell.xib in Resources */,
@@ -796,7 +797,6 @@
 				8CB665ED211053D100CEF996 /* Chart.storyboard in Resources */,
 				8C62D5402124662D00A78FD0 /* TypeButtonsView.xib in Resources */,
 				8C478D42212D727500A9CB4D /* UniversalTableViewController.xib in Resources */,
-				8C4B43A820FCCA9E0014C692 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -898,7 +898,7 @@
 			files = (
 				8C41925D211880BD005D83FA /* BaseProtocols.swift in Sources */,
 				8C478D3C212D49F200A9CB4D /* TestTableViewController.swift in Sources */,
-				8C4191F02112FD97005D83FA /* ChartModule.swift in Sources */,
+				8C4191F02112FD97005D83FA /* ChartAssembly.swift in Sources */,
 				8C18E2332107109E005DAEE1 /* MusicLocalDataSource.swift in Sources */,
 				8C41926021197FCD005D83FA /* CoreX.swift in Sources */,
 				8C18E2312107107B005DAEE1 /* MusicRemoteDataSource.swift in Sources */,
@@ -920,7 +920,6 @@
 				8C18E23721071136005DAEE1 /* QueryService.swift in Sources */,
 				8C478D41212D727500A9CB4D /* UniversalTableViewController.swift in Sources */,
 				8C24697D212C3EBB00BD83E9 /* ChartCellBuilder.swift in Sources */,
-				8C4B43A520FCCA9E0014C692 /* ViewController.swift in Sources */,
 				8C18E23C21074763005DAEE1 /* Utils.swift in Sources */,
 				8C24697B212C371E00BD83E9 /* Constants.swift in Sources */,
 				8C84EE4321103DE1000780B0 /* ChartRouter.swift in Sources */,
@@ -945,9 +944,10 @@
 				8C4191FA21132CFD005D83FA /* ApplicationConfigurator.swift in Sources */,
 				8C18E22D21071024005DAEE1 /* Artist.swift in Sources */,
 				8C41920421134291005D83FA /* TabBarContract.swift in Sources */,
+				8C7A9A59213437D400DE5DE3 /* ViewController.swift in Sources */,
 				8C419277211C376D005D83FA /* MusicDataSourceProtocol.swift in Sources */,
 				8C41E7CD2134009900795667 /* MediaBuilder.swift in Sources */,
-				8C419206211342A8005D83FA /* TabBarModule.swift in Sources */,
+				8C419206211342A8005D83FA /* TabBarAssembly.swift in Sources */,
 				8C41927F21219E52005D83FA /* Error.swift in Sources */,
 				8C41927B211C427E005D83FA /* Chart.swift in Sources */,
 			);
@@ -985,14 +985,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		8C4B43A620FCCA9E0014C692 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				8C4B43A720FCCA9E0014C692 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		8C4B43AE20FCCA9F0014C692 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

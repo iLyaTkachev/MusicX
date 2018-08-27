@@ -13,12 +13,12 @@ class TabBarPresenter {
     var interactor: TabBarInteractorInput!
     var router: TabBarRouterInput!
     
-    private lazy var chartModule: ChartModuleOutput = ChartModule.create() as! ChartModuleOutput
+    private lazy var chartView: ChartViewInput = ChartAssembly.create()
     
     private func insertViewControllers() {
         
         view.viewControllers = [
-            chartModule.viewController.wrapToNavigationController()
+            chartView.viewController.wrapToNavigationController()
         ]
     }
 }
@@ -36,12 +36,4 @@ extension TabBarPresenter : TabBarViewOutput {
 
 extension TabBarPresenter : TabBarInteractorOutput {
     
-}
-
-//Mark: - TabBarModuleOutput
-
-extension TabBarPresenter : TabBarModuleOutput {
-    func present() {
-        view.present()
-    }
 }

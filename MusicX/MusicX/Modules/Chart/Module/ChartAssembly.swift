@@ -1,8 +1,8 @@
 import UIKit
 
-class ChartModule : ChartModuleInput {
+class ChartAssembly {
     
-    static func create() -> BaseModuleOutput {
+    static func create() -> ChartViewInput {
         let router = ChartRouter()
         let presenter = ChartPresenter()
         let interactor = ChartInteractor()
@@ -20,6 +20,6 @@ class ChartModule : ChartModuleInput {
         presenter.interactor = interactor
         presenter.currentMediaType = .track
         
-        return presenter
+        return view
     }
 }

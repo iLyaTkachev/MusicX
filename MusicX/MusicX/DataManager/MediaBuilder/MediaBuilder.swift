@@ -32,30 +32,29 @@ class MediaBuilder: BaseMediaBuilder {
 private class TrackBuilder: BaseMediaBuilder {
     
     private enum Keys: String {
-        case name, duration, playcount, listeners, artist, image
+        case name, playcount, listeners, artist, image
         case imageUrl = "#text"
     }
     
     func build(type: MediaType, from dictionary: [String : Any]) -> BaseMediaObject? {
         
         guard let name = dictionary[Keys.name.rawValue] as? String,
-            let duration = dictionary[Keys.duration.rawValue] as? String,
             let playcount = dictionary[Keys.playcount.rawValue] as? String,
             let listeners = dictionary[Keys.listeners.rawValue] as? String,
             let imagesArray = dictionary[Keys.image.rawValue] as? [Any],
             let imageDictionary = imagesArray[2] as? [String : Any],
             let imageUrl = imageDictionary[Keys.imageUrl.rawValue] as? String,
             let artistDictionary = dictionary[Keys.artist.rawValue] as? [String : Any],
-            let artist = Artist(with: artistDictionary) else {
+            let artist = ArtistBuilder().build(type: .artist, from: artistDictionary) as? Artist else {
                 print("Problem with parsing of track\n")
                 return nil
         }
         
-        return Track(name: name, duration: duration, playcount: playcount, listeners: listeners, imageUrl: imageUrl, artist: artist)
+        return Track(name: name, playcount: playcount, listeners: listeners, imageUrl: imageUrl, artist: artist)
     }
 }
 
-private class ArtistBuilder: BaseMediaBuilder {
+fileprivate class ArtistBuilder: BaseMediaBuilder {
     
     private enum Keys: String {
         case name, mbid

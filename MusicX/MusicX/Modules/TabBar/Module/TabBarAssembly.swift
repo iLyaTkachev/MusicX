@@ -1,5 +1,5 @@
 //
-//  TabBarModule.swift
+//  TabBarAssembly.swift
 //  MusicX
 //
 //  Created by Ilya Tkachou on 8/2/18.
@@ -8,21 +8,21 @@
 
 import Foundation
 
-class TabBarModule : TabBarModuleInput {
-    static func create() -> BaseModuleOutput {
+class TabBarAssembly {
+    static func create() -> TabBarViewInput {
         let router = TabBarRouter()
         let presenter = TabBarPresenter()
         let interactor = TabBarInteractor()
-        let viewController = Utils.getViewController(storyboardName: TabBarViewController.storyboardId, vcId: TabBarViewController.id) as! TabBarViewController
+        let view = Utils.getViewController(storyboardName: TabBarViewController.storyboardId, vcId: TabBarViewController.id) as! TabBarViewController
         
         interactor.output = presenter
         
-        viewController.output = presenter
+        view.output = presenter
         
-        presenter.view = viewController
+        presenter.view = view
         presenter.router = router
         presenter.interactor = interactor
         
-        return presenter
+        return view
     }
 }

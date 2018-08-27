@@ -8,13 +8,13 @@
 
 import Foundation
 
-class Chart : BaseChart {
+struct Chart : BaseChart {
     
     private(set) var type: MediaType
     private(set) var page: Int
     private(set) var items: [BaseMediaObject]
 
-    required init(type: MediaType, page: Int, items: [BaseMediaObject]) {
+    init(type: MediaType, page: Int, items: [BaseMediaObject]) {
         self.type = type
         self.page = page
         self.items = items

@@ -8,14 +8,6 @@
 
 import UIKit
 
-protocol ChartModuleInput : BaseModuleInput {
-
-}
-
-protocol ChartModuleOutput : BaseModuleOutput {
-    var viewController: UIViewController { get }
-}
-
 protocol ChartViewInput : BaseViewInput, ActivityIndicator {
     func updateList()
     func onError(message: String)

@@ -8,14 +8,6 @@
 
 import UIKit
 
-protocol TabBarModuleInput : BaseModuleInput {
-    
-}
-
-protocol TabBarModuleOutput : BaseModuleOutput {
-    
-}
-
 protocol TabBarViewInput : BaseViewInput {
     var viewControllers: [UIViewController]? { get set }
 }
