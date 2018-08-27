@@ -35,7 +35,7 @@ class ViewController: UIViewController {
                         return
                     }
                     
-                    for trackDictionary in array {
+                    /*for trackDictionary in array {
                         if let trackDictionary = trackDictionary as? [String : Any],
                             let track = Track(with: trackDictionary) {
                             print(track.name + " " + track.listeners)
@@ -43,7 +43,7 @@ class ViewController: UIViewController {
                             print("Problem parsing trackDictionary\n")
                             break
                         }
-                    }
+                    }*/
                     
                 }
             }

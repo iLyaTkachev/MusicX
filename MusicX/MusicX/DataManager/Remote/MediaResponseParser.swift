@@ -13,38 +13,30 @@ protocol BaseMediaResponseParser {
 }
 
 class MediaResponseParser: BaseMediaResponseParser {
+    
+    private let mediaBuilder: BaseMediaBuilder = MediaBuilder()
+    
     func parseMedia(type: MediaType, dictionary: [String : Any]) -> [BaseMediaObject]? {
-        switch type {
-        case .track:
-            if let array: [Track] = parse(dictionary: dictionary) {
-                return array }
-        case .artist:
-            if let array: [Artist] = parse(dictionary: dictionary) {
-                return array }
-        case .tag:
-            return nil
-        }
-        
-        return nil
+        return parse(type: type, dictionary: dictionary)
     }
     
     
-    private func parse<T: BaseMediaObject>(dictionary: [String : Any]) -> [T]? {
+    private func parse(type: MediaType, dictionary: [String : Any]) -> [BaseMediaObject]? {
         
-        guard let dict = dictionary[T.type.chartArray()] as? [String : Any] ,
-            let array = dict[T.type.rawValue] as? [Any] else {
-            print("Dictionary does not contain \(T.type.rawValue) key\n")
+        guard let dict = dictionary[type.chartArray()] as? [String : Any] ,
+            let array = dict[type.rawValue] as? [Any] else {
+            print("Dictionary does not contain \(type.rawValue) key\n")
             return nil
         }
         
-        var result: [T] = []
+        var result: [BaseMediaObject] = []
         
         for mediaDictionary in array {
             if let mediaDictionary = mediaDictionary as? [String : Any],
-                let media = T(with: mediaDictionary) {
+                let media = mediaBuilder.build(type: type, from: mediaDictionary) {
                 result.append(media)
             } else {
-                print("Problem parsing \(T.type.rawValue) dictionary\n")
+                print("Problem parsing \(type.rawValue) dictionary\n")
                 return nil
             }
         }
