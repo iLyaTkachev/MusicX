@@ -19,6 +19,7 @@ protocol UniversalTableViewOutput : class {
 
 protocol UniversalTableViewInput {
     func reloadData()
+    func registerCell(identifier: String)
 }
 
 class UniversalTableViewController: UIViewController {
@@ -51,6 +52,12 @@ class UniversalTableViewController: UIViewController {
 }
 
 extension UniversalTableViewController: UniversalTableViewInput {
+    
+    func registerCell(identifier: String) {
+        let nib = UINib.init(nibName: identifier, bundle: nil)
+        self.tableView.register(nib, forCellReuseIdentifier: identifier)
+    }
+    
     func reloadData() {
         self.tableView.reloadData()
     }

@@ -11,9 +11,13 @@ import UIKit
 protocol TypeButtonsViewInput {
     func moduleVisibility(isVisible: Bool)
     func listVisibility(isVisible: Bool)
+    func getView() -> UIView
+    func setType(type: MediaType)
+    func setOutput(output: TypeButtonsViewOutput)
 }
 
 protocol TypeButtonsViewOutput : class {
+    func typeSelected(type: MediaType)
 }
 
 class TypeButtonsView: UIView {
@@ -66,15 +70,33 @@ class TypeButtonsView: UIView {
     }
     
     @IBAction func buttonFromListClick(_ sender: UIButton) {
-        if let title = sender.currentTitle {
+        if let title = sender.currentTitle,
+            selectButton.currentTitle != sender.currentTitle,
+            let accessibilityLabel = sender.accessibilityLabel,
+            let type = MediaType(rawValue: accessibilityLabel) {
             selectButton.setTitle(title, for: .normal)
+            output.typeSelected(type: type)
         }
-        
         setViewHeight(value: buttonHeight)
     }
 }
 
 extension TypeButtonsView : TypeButtonsViewInput {
+    func setOutput(output: TypeButtonsViewOutput) {
+        self.output = output
+    }
+    
+    func setType(type: MediaType) {
+        for button in buttonsList where button.accessibilityLabel == type.rawValue {
+            selectButton.setTitle(button.currentTitle, for: .normal)
+            break
+        }
+    }
+    
+    func getView() -> UIView {
+        return self.contentView
+    }
+    
     func moduleVisibility(isVisible: Bool) {
         setViewHeight(value: isVisible ? buttonHeight : 0)
     }

@@ -16,7 +16,7 @@ class ChartViewController: UIViewController {
     var cellBuider: BaseCellBuilder!
     
     var tableVC: UniversalTableViewController!
-    var typeListView: TypeButtonsView!
+    var typeListView: TypeButtonsViewInput!
     
     var output: ChartViewOutput!
     var activityIndicator = UIActivityIndicatorView()
@@ -38,8 +38,8 @@ class ChartViewController: UIViewController {
         
         view.addSubview(tableVC.view)
         
-        let nib = UINib.init(nibName: ChartTrackCell.identifier, bundle: nil)
-        tableVC.tableView.register(nib, forCellReuseIdentifier: ChartTrackCell.identifier)
+        tableVC.registerCell(identifier: ChartTrackCell.identifier)
+        tableVC.registerCell(identifier: ChartArtistCell.identifier)
         
         tableVC.tableView.rowHeight = UITableViewAutomaticDimension
         tableVC.tableView.estimatedRowHeight = 100
@@ -48,8 +48,10 @@ class ChartViewController: UIViewController {
     
     func setupTypeList() {
         typeListView = TypeButtonsView(frame: typeListHolder.frame)
-        view.addSubview(typeListView.contentView)
-        Utils.setConstraints(from: typeListHolder, to: typeListView.contentView)
+        typeListView.setOutput(output: self)
+        typeListView.setType(type: output.mediaType)
+        view.addSubview(typeListView.getView())
+        Utils.setConstraints(from: typeListHolder, to: typeListView.getView())
     }
     
     func setupRefreshControl() {
@@ -129,5 +131,15 @@ extension ChartViewController : UniversalTableViewOutput {
             self.typeListView.moduleVisibility(isVisible: true)
             self.view.layoutIfNeeded()
         }, completion: nil)
+    }
+}
+
+//Mark: - TypeButtonsViewOutput
+
+extension ChartViewController : TypeButtonsViewOutput {
+    func typeSelected(type: MediaType) {
+        tableVC.tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
+        self.showActivityIndicator()
+        self.output.changeType(type: type)
     }
 }

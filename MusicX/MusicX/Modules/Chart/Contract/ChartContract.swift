@@ -20,6 +20,7 @@ protocol ChartViewOutput : BaseViewOutput {
     func getMediaObject(forIndex: Int) -> BaseMediaObject
     func cellClicked(index: Int)
     func loadMedia(isReloading: Bool)
+    func changeType(type: MediaType)
 }
 
 protocol ChartInteractorInput : BaseInteractorInput {

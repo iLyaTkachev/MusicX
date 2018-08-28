@@ -44,6 +44,7 @@
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="esE-6A-2CN">
                             <rect key="frame" x="0.0" y="51" width="375" height="50"/>
                             <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <accessibility key="accessibilityConfiguration" label="track"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="50" id="Icd-Pj-riY"/>
                             </constraints>
@@ -58,6 +59,7 @@
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qHD-nH-uws">
                             <rect key="frame" x="0.0" y="102" width="375" height="50"/>
                             <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <accessibility key="accessibilityConfiguration" label="artist"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="50" id="tXc-N9-uj5"/>
                             </constraints>
@@ -72,6 +74,7 @@
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lIV-yX-WGG">
                             <rect key="frame" x="0.0" y="153" width="375" height="50"/>
                             <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <accessibility key="accessibilityConfiguration" label="tag"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="50" id="0Kw-cd-UAj"/>
                             </constraints>

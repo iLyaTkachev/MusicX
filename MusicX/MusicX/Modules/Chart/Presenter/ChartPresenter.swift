@@ -14,6 +14,7 @@ class ChartPresenter {
     var router: ChartRouterInput!
     
     var currentMediaType: MediaType!
+    var requestedMediaType: MediaType!
     
     var isLoading = false
     var currentPage = 0
@@ -29,19 +30,22 @@ extension ChartPresenter : ChartInteractorOutput {
     func didFetchWithSuccess(chart: BaseChart) {
         isLoading = false
         print("chart page fetched: \(chart.page)")
-        if chart.type == currentMediaType, !chart.items.isEmpty {
+        if chart.type == requestedMediaType, !chart.items.isEmpty {
             if chart.page == 1, currentPage > 1, !items.isEmpty {
-                items = []
-                currentPage = 1
+                items.removeAll()
+                //currentPage = 1
             }
             
+            currentMediaType = requestedMediaType
             currentPage = chart.page
             items += chart.items
             view.updateList()
+            
+            //print("Artists \(chart.page) ------------------------------------")
+            //chart.items.forEach{ print("\($0.name)") }
         }
         
         view.hideActivityIndicator()
-        print("after fetching current: \(currentPage)")
     }
     
     func didFetchWithFailure(error: CustomError) {
@@ -54,6 +58,12 @@ extension ChartPresenter : ChartInteractorOutput {
 //Mark: - ChartViewOutput
 
 extension ChartPresenter : ChartViewOutput {
+    func changeType(type: MediaType) {
+        requestedMediaType = type
+        print("\(requestedMediaType.rawValue)")
+        loadMedia(isReloading: true)
+    }
+    
     var mediaType: MediaType {
         return currentMediaType
     }
@@ -62,9 +72,9 @@ extension ChartPresenter : ChartViewOutput {
         switch mediaType {
         case .track :
             return ChartTrackCell.identifier
-        case .artist ://TODO change
-            return ""
-        case .tag :
+        case .artist :
+            return ChartArtistCell.identifier
+        case .tag ://TODO change
             return ""
         }
     }
@@ -74,9 +84,9 @@ extension ChartPresenter : ChartViewOutput {
             isLoading = true
             
             if isReloading {
-                interactor.fetch(contentType: currentMediaType, page: 1)
+                interactor.fetch(contentType: requestedMediaType, page: 1)
             } else {
-                interactor.fetch(contentType: currentMediaType, page: currentPage + 1)
+                interactor.fetch(contentType: requestedMediaType, page: currentPage + 1)
             }
             
             return
@@ -98,7 +108,6 @@ extension ChartPresenter : ChartViewOutput {
     func viewIsReady() {
         view.setupInitialState()
         view.showActivityIndicator()
-        currentMediaType = .track
         loadMedia()
     }
 }

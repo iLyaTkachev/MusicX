@@ -21,9 +21,12 @@ class ChartCellBuilder : BaseCellBuilder {
                 return
             }
             setupTrackCell(cell: trackCell , track: trackData)
-        case .artist:  //TODO: change
-            break
-        case .tag:
+        case .artist:
+            guard let artistCell = cell as? ChartArtistCell, let artistData = cellData.media as? Artist else {
+                return
+            }
+            setupArtistCell(cell: artistCell , artist: artistData)
+        case .tag://TODO: change
             break
         }
     }
@@ -50,6 +53,25 @@ class ChartCellBuilder : BaseCellBuilder {
             DispatchQueue.main.async {
                 if image != nil && cell.imageURL == track.imageUrl {
                     cell.artistImageView.image = image
+                }
+                
+                cell.spinner.stopAnimating()
+            }
+        }
+    }
+    
+    private func setupArtistCell(cell: ChartArtistCell, artist: Artist) {
+        cell.name.text = artist.name
+        cell.listeners.text = artist.listeners
+        cell.playCount.text = artist.playcount
+        cell.imageURL =  artist.imageUrl
+        cell.artistImage.image = nil
+        cell.spinner.startAnimating()
+        
+        CoreX.shared.repository.getImage(withUrl: artist.imageUrl != nil ? artist.imageUrl! : "default") { (image, error) in
+            DispatchQueue.main.async {
+                if image != nil && cell.imageURL == artist.imageUrl {
+                    cell.artistImage.image = image
                 }
                 
                 cell.spinner.stopAnimating()

@@ -14,8 +14,13 @@ protocol BaseMediaBuilder {
 
 class MediaBuilder: BaseMediaBuilder {
     
-    private let trackBuilder = TrackBuilder()
-    private let artistBuilder = ArtistBuilder()
+    private let trackBuilder: BaseMediaBuilder
+    private let artistBuilder: BaseMediaBuilder
+    
+    init() {
+        self.artistBuilder = ArtistBuilder()
+        self.trackBuilder = TrackBuilder(artistBuilder: artistBuilder)
+    }
     
     func build(type: MediaType, from dictionary: [String : Any]) -> BaseMediaObject? {
         switch type {
@@ -36,6 +41,12 @@ private class TrackBuilder: BaseMediaBuilder {
         case imageUrl = "#text"
     }
     
+    let artistBuilder: BaseMediaBuilder
+    
+    init(artistBuilder: BaseMediaBuilder) {
+        self.artistBuilder = artistBuilder
+    }
+    
     func build(type: MediaType, from dictionary: [String : Any]) -> BaseMediaObject? {
         
         guard let name = dictionary[Keys.name.rawValue] as? String,
@@ -45,7 +56,7 @@ private class TrackBuilder: BaseMediaBuilder {
             let imageDictionary = imagesArray[2] as? [String : Any],
             let imageUrl = imageDictionary[Keys.imageUrl.rawValue] as? String,
             let artistDictionary = dictionary[Keys.artist.rawValue] as? [String : Any],
-            let artist = ArtistBuilder().build(type: .artist, from: artistDictionary) as? Artist else {
+            let artist = artistBuilder.build(type: .artist, from: artistDictionary) as? Artist else {
                 print("Problem with parsing of track\n")
                 return nil
         }
@@ -54,10 +65,11 @@ private class TrackBuilder: BaseMediaBuilder {
     }
 }
 
-fileprivate class ArtistBuilder: BaseMediaBuilder {
+private class ArtistBuilder: BaseMediaBuilder {
     
     private enum Keys: String {
-        case name, mbid
+        case name, mbid, playcount, listeners, image
+        case imageUrl = "#text"
     }
     
     func build(type: MediaType, from dictionary: [String : Any]) -> BaseMediaObject? {
@@ -68,6 +80,14 @@ fileprivate class ArtistBuilder: BaseMediaBuilder {
                 return nil
         }
         
-        return Artist(name: name, mbid: mbid)
+        guard let playcount = dictionary[Keys.playcount.rawValue] as? String,
+        let listeners = dictionary[Keys.listeners.rawValue] as? String,
+        let imagesArray = dictionary[Keys.image.rawValue] as? [Any],
+        let imageDictionary = imagesArray[2] as? [String : Any],
+        let imageUrl = imageDictionary[Keys.imageUrl.rawValue] as? String else {
+            return Artist(name: name, mbid: mbid)
+        }
+        
+        return Artist(name: name, mbid: mbid, playcount: playcount, listeners: listeners, imageUrl: imageUrl)
     }
 }

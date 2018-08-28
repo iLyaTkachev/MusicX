@@ -4,8 +4,8 @@ class ChartAssembly {
     
     static func create() -> ChartViewInput {
         let router = ChartRouter()
-        let presenter = ChartPresenter()
         let interactor = ChartInteractor()
+        let presenter = ChartPresenter()
         let view = Utils.getViewController(storyboardName: ChartViewController.storyboardId, vcId: ChartViewController.id) as! ChartViewController
         
         interactor.output = presenter
@@ -19,6 +19,7 @@ class ChartAssembly {
         presenter.router = router
         presenter.interactor = interactor
         presenter.currentMediaType = .track
+        presenter.requestedMediaType = .track
         
         return view
     }

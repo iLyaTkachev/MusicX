@@ -19,33 +19,33 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="abB-Ml-vRa">
-                    <rect key="frame" x="8" y="8" width="142" height="142"/>
+                    <rect key="frame" x="8" y="8" width="112.5" height="112.5"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="abB-Ml-vRa" secondAttribute="height" multiplier="1:1" id="X3b-mP-AyJ"/>
                     </constraints>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8wj-at-wuc">
-                    <rect key="frame" x="158" y="16" width="209" height="20.5"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <rect key="frame" x="128.5" y="8" width="238.5" height="21.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Listeners" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aet-AA-wq0">
-                    <rect key="frame" x="186" y="44" width="181" height="20.5"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <rect key="frame" x="156.5" y="37" width="210.5" height="19.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
                     <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="yL2-1x-268">
-                    <rect key="frame" x="69" y="69" width="20" height="20"/>
+                    <rect key="frame" x="54.5" y="54.5" width="20" height="20"/>
                 </activityIndicatorView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PlayCount" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QAw-yq-btk">
-                    <rect key="frame" x="186" y="72" width="181" height="21"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <rect key="frame" x="156.5" y="64" width="210.5" height="19.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="people" translatesAutoresizingMaskIntoConstraints="NO" id="3uu-qW-FYk">
-                    <rect key="frame" x="158" y="44.5" width="20" height="20"/>
+                    <rect key="frame" x="128.5" y="37" width="20" height="20"/>
                     <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="20" id="Lfy-hD-WFt"/>
@@ -53,7 +53,7 @@
                     </constraints>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="memories" translatesAutoresizingMaskIntoConstraints="NO" id="UYP-z3-lQJ">
-                    <rect key="frame" x="158" y="72.5" width="20" height="20"/>
+                    <rect key="frame" x="128.5" y="64" width="20" height="20"/>
                     <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="20" id="4Nj-Uf-V8f"/>
@@ -71,9 +71,10 @@
                 <constraint firstItem="3uu-qW-FYk" firstAttribute="leading" secondItem="abB-Ml-vRa" secondAttribute="trailing" constant="8" id="Day-pW-lSf"/>
                 <constraint firstItem="3uu-qW-FYk" firstAttribute="centerY" secondItem="aet-AA-wq0" secondAttribute="centerY" id="IVd-Z5-rGU"/>
                 <constraint firstItem="QAw-yq-btk" firstAttribute="top" secondItem="aet-AA-wq0" secondAttribute="bottom" constant="8" id="LPY-Km-box"/>
+                <constraint firstItem="KFp-S9-NHF" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="QAw-yq-btk" secondAttribute="bottom" constant="8" id="Muf-0D-KHt"/>
                 <constraint firstItem="UYP-z3-lQJ" firstAttribute="leading" secondItem="abB-Ml-vRa" secondAttribute="trailing" constant="8" id="WbP-1b-GhI"/>
                 <constraint firstItem="abB-Ml-vRa" firstAttribute="leading" secondItem="KFp-S9-NHF" secondAttribute="leading" constant="8" id="XPE-R0-NKy"/>
-                <constraint firstItem="8wj-at-wuc" firstAttribute="top" secondItem="KFp-S9-NHF" secondAttribute="top" constant="16" id="bAO-IU-Brt"/>
+                <constraint firstItem="8wj-at-wuc" firstAttribute="top" secondItem="KFp-S9-NHF" secondAttribute="top" constant="8" id="bAO-IU-Brt"/>
                 <constraint firstItem="yL2-1x-268" firstAttribute="centerY" secondItem="abB-Ml-vRa" secondAttribute="centerY" id="egE-Ze-fmy"/>
                 <constraint firstItem="8wj-at-wuc" firstAttribute="leading" secondItem="abB-Ml-vRa" secondAttribute="trailing" constant="8" id="fHy-PG-Lre"/>
                 <constraint firstItem="aet-AA-wq0" firstAttribute="leading" secondItem="3uu-qW-FYk" secondAttribute="trailing" constant="8" id="fSx-va-lKx"/>
@@ -81,7 +82,7 @@
                 <constraint firstItem="KFp-S9-NHF" firstAttribute="trailing" secondItem="8wj-at-wuc" secondAttribute="trailing" constant="8" id="kdB-TL-5n5"/>
                 <constraint firstItem="abB-Ml-vRa" firstAttribute="width" secondItem="zEd-zG-i0b" secondAttribute="width" multiplier="0.3" priority="950" id="kwZ-zf-bAd"/>
                 <constraint firstItem="UYP-z3-lQJ" firstAttribute="centerY" secondItem="QAw-yq-btk" secondAttribute="centerY" id="vz4-bW-fk2"/>
-                <constraint firstItem="KFp-S9-NHF" firstAttribute="bottom" secondItem="abB-Ml-vRa" secondAttribute="bottom" id="wyE-g2-H5Z"/>
+                <constraint firstItem="KFp-S9-NHF" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="abB-Ml-vRa" secondAttribute="bottom" id="wyE-g2-H5Z"/>
             </constraints>
             <nil key="simulatedTopBarMetrics"/>
             <nil key="simulatedBottomBarMetrics"/>
@@ -92,7 +93,7 @@
                 <outlet property="listeners" destination="aet-AA-wq0" id="mlL-nW-Ouk"/>
                 <outlet property="name" destination="8wj-at-wuc" id="kFe-PY-JKY"/>
                 <outlet property="playCount" destination="QAw-yq-btk" id="N7E-GJ-gHi"/>
-                <outlet property="spinner" destination="yL2-1x-268" id="LKd-Zw-g3k"/>
+                <outlet property="spinner" destination="yL2-1x-268" id="asZ-aD-j24"/>
             </connections>
             <point key="canvasLocation" x="27.5" y="-341"/>
         </view>
