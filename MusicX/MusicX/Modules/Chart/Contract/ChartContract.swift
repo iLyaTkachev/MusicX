@@ -11,13 +11,14 @@ import UIKit
 protocol ChartViewInput : BaseViewInput, ActivityIndicator {
     func updateList()
     func onError(message: String)
+    func setType(type: MediaType)
 }
 
 protocol ChartViewOutput : BaseViewOutput {
     var mediaCount: Int { get }
     var mediaType: MediaType { get }
     var cellIdentifier: String { get }
-    func getMediaObject(forIndex: Int) -> BaseMediaObject
+    func getMediaObject(forIndex: Int) -> BaseMediaObject?
     func cellClicked(index: Int)
     func loadMedia(isReloading: Bool)
     func changeType(type: MediaType)

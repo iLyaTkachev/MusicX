@@ -52,6 +52,7 @@ extension ChartPresenter : ChartInteractorOutput {
         isLoading = false
         view.onError(message: error.errorDesctiption())
         view.hideActivityIndicator()
+        view.setType(type: currentMediaType)
     }
 }
 
@@ -59,6 +60,13 @@ extension ChartPresenter : ChartInteractorOutput {
 
 extension ChartPresenter : ChartViewOutput {
     func changeType(type: MediaType) {
+        view.showActivityIndicator()
+        
+        DispatchQueue.main.async {
+            self.items.removeAll()
+            self.view.updateList()
+        }
+        
         requestedMediaType = type
         print("\(requestedMediaType.rawValue)")
         loadMedia(isReloading: true)
@@ -97,7 +105,11 @@ extension ChartPresenter : ChartViewOutput {
         return items.count
     }
     
-    func getMediaObject(forIndex: Int) -> BaseMediaObject {
+    func getMediaObject(forIndex: Int) -> BaseMediaObject? {
+        guard forIndex < items.count else {
+            return nil
+        }
+        
         return items[forIndex]
     }
     

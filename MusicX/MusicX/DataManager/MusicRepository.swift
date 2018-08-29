@@ -6,10 +6,12 @@ final class MusicRepository: MusicDataSource {
     
     private let remoteDataSource: MusicDataSource
     private let localDataSource: MusicDataSource
+    private let imageService: BaseImageService
     
     private init() {
         remoteDataSource = MusicRemoteDataSource()
         localDataSource = MusicLocalDataSource()
+        imageService = ImageService(memoryCapacity: Constants.memoryCapacityForImageCache, diskCapacity: Constants.diskCapacityForImageCache, percentOfClearing: Constants.percentOfImageCacheClearing)
     }
     
     func getChart(type: MediaType, page: Int, completionHandler: @escaping (Chart?, CustomError?)->Void) {
@@ -17,6 +19,6 @@ final class MusicRepository: MusicDataSource {
     }
     
     func getImage(withUrl: String, completionHandler: @escaping (UIImage?, Error?) -> Void) {
-        remoteDataSource.getImage(withUrl: withUrl, completionHandler: completionHandler)
+        imageService.getImage(withUrl: withUrl, completionHandler: completionHandler)
     }
 }

@@ -72,6 +72,10 @@ class ChartViewController: UIViewController {
 //Mark: - ChartViewInput
 
 extension ChartViewController : ChartViewInput {
+    func setType(type: MediaType) {
+        typeListView.setType(type: type)
+    }
+    
     func onError(message: String) {
         showAlert(title: "Error", message: message)
     }
@@ -102,7 +106,11 @@ extension ChartViewController : UniversalTableViewOutput {
     
     func getCell(tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: output.cellIdentifier, for: indexPath)
-        cellBuider.build(cell: cell, data: ChartCellBuilder.ChartCellData(type: output.mediaType, media: output.getMediaObject(forIndex: indexPath.row)))
+        
+        let media = output.getMediaObject(forIndex: indexPath.row)
+        
+        let cellData = ChartCellBuilder.ChartCellData(type: output.mediaType, media: media!)
+        cellBuider.build(cell: cell, data: cellData)
         
         return cell
     }
@@ -138,8 +146,11 @@ extension ChartViewController : UniversalTableViewOutput {
 
 extension ChartViewController : TypeButtonsViewOutput {
     func typeSelected(type: MediaType) {
-        tableVC.tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
-        self.showActivityIndicator()
+        
+        //tableVC.tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
+        //self.showActivityIndicator()
         self.output.changeType(type: type)
+        
+        
     }
 }
