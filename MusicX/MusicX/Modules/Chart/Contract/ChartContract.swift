@@ -25,7 +25,7 @@ protocol ChartViewOutput : BaseViewOutput {
 }
 
 protocol ChartInteractorInput : BaseInteractorInput {
-
+    func fetch(contentType: MediaType, page: Int?)
 }
 
 protocol ChartInteractorOutput : BaseInteractorOutput {

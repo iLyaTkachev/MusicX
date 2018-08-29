@@ -23,6 +23,13 @@
 		8C1B81F62136A2440036ED88 /* ChartTagCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1B81F42136A2440036ED88 /* ChartTagCell.swift */; };
 		8C1B81F72136A2440036ED88 /* ChartTagCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8C1B81F52136A2440036ED88 /* ChartTagCell.xib */; };
 		8C1B81F92136A3F30036ED88 /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1B81F82136A3F30036ED88 /* Tag.swift */; };
+		8C1B82012136D0FC0036ED88 /* SettingsContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1B82002136D0FC0036ED88 /* SettingsContract.swift */; };
+		8C1B82032136D6750036ED88 /* SettingsAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1B82022136D6750036ED88 /* SettingsAssembly.swift */; };
+		8C1B82052136D73E0036ED88 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C1B82042136D73E0036ED88 /* Settings.storyboard */; };
+		8C1B82072136D7630036ED88 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1B82062136D7630036ED88 /* SettingsViewController.swift */; };
+		8C1B82092136D7B40036ED88 /* SettingsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1B82082136D7B40036ED88 /* SettingsInteractor.swift */; };
+		8C1B820B2136D8140036ED88 /* SettingsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1B820A2136D8140036ED88 /* SettingsPresenter.swift */; };
+		8C1B820D2136D9310036ED88 /* SettingsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1B820C2136D9310036ED88 /* SettingsRouter.swift */; };
 		8C24697B212C371E00BD83E9 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C24697A212C371E00BD83E9 /* Constants.swift */; };
 		8C24697D212C3EBB00BD83E9 /* ChartCellBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C24697C212C3EBB00BD83E9 /* ChartCellBuilder.swift */; };
 		8C4191F02112FD97005D83FA /* ChartAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4191EF2112FD97005D83FA /* ChartAssembly.swift */; };
@@ -120,6 +127,13 @@
 		8C1B81F42136A2440036ED88 /* ChartTagCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartTagCell.swift; sourceTree = "<group>"; };
 		8C1B81F52136A2440036ED88 /* ChartTagCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChartTagCell.xib; sourceTree = "<group>"; };
 		8C1B81F82136A3F30036ED88 /* Tag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
+		8C1B82002136D0FC0036ED88 /* SettingsContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsContract.swift; sourceTree = "<group>"; };
+		8C1B82022136D6750036ED88 /* SettingsAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsAssembly.swift; sourceTree = "<group>"; };
+		8C1B82042136D73E0036ED88 /* Settings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
+		8C1B82062136D7630036ED88 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		8C1B82082136D7B40036ED88 /* SettingsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsInteractor.swift; sourceTree = "<group>"; };
+		8C1B820A2136D8140036ED88 /* SettingsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPresenter.swift; sourceTree = "<group>"; };
+		8C1B820C2136D9310036ED88 /* SettingsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsRouter.swift; sourceTree = "<group>"; };
 		8C24697A212C371E00BD83E9 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		8C24697C212C3EBB00BD83E9 /* ChartCellBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartCellBuilder.swift; sourceTree = "<group>"; };
 		8C4191EF2112FD97005D83FA /* ChartAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartAssembly.swift; sourceTree = "<group>"; };
@@ -311,12 +325,61 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
-		8C4191EE2112FD83005D83FA /* Module */ = {
+		8C1B81FA2136D0810036ED88 /* Contract */ = {
+			isa = PBXGroup;
+			children = (
+				8C1B82002136D0FC0036ED88 /* SettingsContract.swift */,
+			);
+			path = Contract;
+			sourceTree = "<group>";
+		};
+		8C1B81FB2136D0970036ED88 /* Assembly */ = {
+			isa = PBXGroup;
+			children = (
+				8C1B82022136D6750036ED88 /* SettingsAssembly.swift */,
+			);
+			path = Assembly;
+			sourceTree = "<group>";
+		};
+		8C1B81FC2136D0B20036ED88 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				8C1B820C2136D9310036ED88 /* SettingsRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		8C1B81FD2136D0B80036ED88 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				8C1B820A2136D8140036ED88 /* SettingsPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		8C1B81FE2136D0BF0036ED88 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				8C1B82082136D7B40036ED88 /* SettingsInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		8C1B81FF2136D0CE0036ED88 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				8C1B82042136D73E0036ED88 /* Settings.storyboard */,
+				8C1B82062136D7630036ED88 /* SettingsViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		8C4191EE2112FD83005D83FA /* Assembly */ = {
 			isa = PBXGroup;
 			children = (
 				8C4191EF2112FD97005D83FA /* ChartAssembly.swift */,
 			);
-			path = Module;
+			path = Assembly;
 			sourceTree = "<group>";
 		};
 		8C4191F321132A98005D83FA /* Configurators */ = {
@@ -432,6 +495,12 @@
 		8C41926F2119D12A005D83FA /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				8C1B81FA2136D0810036ED88 /* Contract */,
+				8C1B81FF2136D0CE0036ED88 /* View */,
+				8C1B81FE2136D0BF0036ED88 /* Interactor */,
+				8C1B81FD2136D0B80036ED88 /* Presenter */,
+				8C1B81FC2136D0B20036ED88 /* Router */,
+				8C1B81FB2136D0970036ED88 /* Assembly */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -630,7 +699,7 @@
 				8C84EE2B210F08B6000780B0 /* Interactor */,
 				8C84EE2D210F08D1000780B0 /* Presenter */,
 				8C84EE2E210F08D8000780B0 /* Router */,
-				8C4191EE2112FD83005D83FA /* Module */,
+				8C4191EE2112FD83005D83FA /* Assembly */,
 			);
 			path = Chart;
 			sourceTree = "<group>";
@@ -807,6 +876,7 @@
 				8CB665ED211053D100CEF996 /* Chart.storyboard in Resources */,
 				8C62D5402124662D00A78FD0 /* TypeButtonsView.xib in Resources */,
 				8C478D42212D727500A9CB4D /* UniversalTableViewController.xib in Resources */,
+				8C1B82052136D73E0036ED88 /* Settings.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -910,13 +980,16 @@
 				8C478D3C212D49F200A9CB4D /* TestTableViewController.swift in Sources */,
 				8C4191F02112FD97005D83FA /* ChartAssembly.swift in Sources */,
 				8C18E2332107109E005DAEE1 /* MusicLocalDataSource.swift in Sources */,
+				8C1B82032136D6750036ED88 /* SettingsAssembly.swift in Sources */,
 				8C41926021197FCD005D83FA /* CoreX.swift in Sources */,
 				8C18E2312107107B005DAEE1 /* MusicRemoteDataSource.swift in Sources */,
 				8C84EE3A210F0D4D000780B0 /* ChartInteractor.swift in Sources */,
 				8C18E22921070FE1005DAEE1 /* Download.swift in Sources */,
 				8C419268211997F6005D83FA /* TabBarRouter.swift in Sources */,
 				8CB665F22110560500CEF996 /* ChartTrackCell.swift in Sources */,
+				8C1B820D2136D9310036ED88 /* SettingsRouter.swift in Sources */,
 				8C4192812122BA17005D83FA /* BaseTableCell.swift in Sources */,
+				8C1B82072136D7630036ED88 /* SettingsViewController.swift in Sources */,
 				8C419266211997E5005D83FA /* TabBarPresenter.swift in Sources */,
 				8C18E22F21071053005DAEE1 /* MusicRepository.swift in Sources */,
 				8CB665EF2110541E00CEF996 /* ChartViewController.swift in Sources */,
@@ -927,6 +1000,7 @@
 				EF459F522129E265004E4D6E /* ImageService.swift in Sources */,
 				8C18E23E21085F70005DAEE1 /* BaseMediaObjectProtocol.swift in Sources */,
 				8C84EE3C210F0E23000780B0 /* ChartPresenter.swift in Sources */,
+				8C1B82092136D7B40036ED88 /* SettingsInteractor.swift in Sources */,
 				8C18E23721071136005DAEE1 /* QueryService.swift in Sources */,
 				8C478D41212D727500A9CB4D /* UniversalTableViewController.swift in Sources */,
 				8C24697D212C3EBB00BD83E9 /* ChartCellBuilder.swift in Sources */,
@@ -945,6 +1019,7 @@
 				8C4B43A320FCCA9E0014C692 /* AppDelegate.swift in Sources */,
 				8C4B43AB20FCCA9E0014C692 /* MusicX.xcdatamodeld in Sources */,
 				8C4191F521132B09005D83FA /* ConfiguratorProtocol.swift in Sources */,
+				8C1B820B2136D8140036ED88 /* SettingsPresenter.swift in Sources */,
 				8C4B43D520FCCB000014C692 /* ApiConstants.swift in Sources */,
 				8C4B43D720FCCB1C0014C692 /* SecretConstants.swift in Sources */,
 				8C41927D211C44D9005D83FA /* BaseChartProtocol.swift in Sources */,
@@ -960,6 +1035,7 @@
 				8C419277211C376D005D83FA /* MusicDataSourceProtocol.swift in Sources */,
 				8C41E7CD2134009900795667 /* MediaBuilder.swift in Sources */,
 				8C419206211342A8005D83FA /* TabBarAssembly.swift in Sources */,
+				8C1B82012136D0FC0036ED88 /* SettingsContract.swift in Sources */,
 				8C41927F21219E52005D83FA /* Error.swift in Sources */,
 				8C41927B211C427E005D83FA /* Chart.swift in Sources */,
 			);

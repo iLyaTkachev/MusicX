@@ -38,9 +38,7 @@ class ChartViewController: UIViewController {
         
         view.addSubview(tableVC.view)
         
-        tableVC.registerCell(identifier: ChartTrackCell.identifier)
-        tableVC.registerCell(identifier: ChartArtistCell.identifier)
-        tableVC.registerCell(identifier: ChartTagCell.identifier)
+        tableVC.registerCells(identifiers: [ChartTrackCell.identifier, ChartArtistCell.identifier, ChartTagCell.identifier])
         
         tableVC.tableView.rowHeight = UITableViewAutomaticDimension
         tableVC.tableView.estimatedRowHeight = 100

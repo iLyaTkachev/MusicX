@@ -19,7 +19,7 @@ protocol UniversalTableViewOutput : class {
 
 protocol UniversalTableViewInput {
     func reloadData()
-    func registerCell(identifier: String)
+    func registerCells(identifiers: [String])
 }
 
 class UniversalTableViewController: UIViewController {
@@ -32,12 +32,10 @@ class UniversalTableViewController: UIViewController {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
@@ -52,10 +50,11 @@ class UniversalTableViewController: UIViewController {
 }
 
 extension UniversalTableViewController: UniversalTableViewInput {
-    
-    func registerCell(identifier: String) {
-        let nib = UINib.init(nibName: identifier, bundle: nil)
-        self.tableView.register(nib, forCellReuseIdentifier: identifier)
+    func registerCells(identifiers: [String]) {
+        identifiers.forEach { (identifier) in
+            let nib = UINib.init(nibName: identifier, bundle: nil)
+            self.tableView.register(nib, forCellReuseIdentifier: identifier)
+        }
     }
     
     func reloadData() {

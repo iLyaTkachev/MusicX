@@ -21,7 +21,7 @@ protocol BaseViewOutput: class {
 }
 
 protocol BaseInteractorInput: class{
-    func fetch(contentType: MediaType, page: Int?)
+    
 }
 
 protocol BaseInteractorOutput: class {
