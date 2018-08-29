@@ -16,10 +16,12 @@ class MediaBuilder: BaseMediaBuilder {
     
     private let trackBuilder: BaseMediaBuilder
     private let artistBuilder: BaseMediaBuilder
+    private let tagBuilder: BaseMediaBuilder
     
     init() {
         self.artistBuilder = ArtistBuilder()
         self.trackBuilder = TrackBuilder(artistBuilder: artistBuilder)
+        self.tagBuilder = TagBuilder()
     }
     
     func build(type: MediaType, from dictionary: [String : Any]) -> BaseMediaObject? {
@@ -29,7 +31,7 @@ class MediaBuilder: BaseMediaBuilder {
         case .artist:
             return artistBuilder.build(type: type, from: dictionary)
         case .tag:
-            return nil
+            return tagBuilder.build(type: type, from: dictionary)
         }
     }
 }
@@ -91,3 +93,23 @@ private class ArtistBuilder: BaseMediaBuilder {
         return Artist(name: name, mbid: mbid, playcount: playcount, listeners: listeners, imageUrl: imageUrl)
     }
 }
+
+private class TagBuilder: BaseMediaBuilder {
+    
+    private enum Keys: String {
+        case name, reach, taggings
+    }
+    
+    func build(type: MediaType, from dictionary: [String : Any]) -> BaseMediaObject? {
+        
+        guard let name = dictionary[Keys.name.rawValue] as? String,
+            let reach = dictionary[Keys.reach.rawValue] as? String,
+            let taggings = dictionary[Keys.taggings.rawValue] as? String else {
+                print("Problem with parsing of tag\n")
+                return nil
+        }
+        
+        return Tag(name: name, reach: reach, taggings: taggings)
+    }
+}
+

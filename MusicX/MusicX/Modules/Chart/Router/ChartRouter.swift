@@ -10,7 +10,11 @@ import Foundation
 import UIKit
 
 class ChartRouter : ChartRouterInput {
-    func presentMediaDetails(item: BaseMediaObject) {
-        
+    func playTrack(track: Track) {
+        print("\(track.name)")
+    }
+    
+    func presentArtistDetails(artist: Artist) {
+        print("\(artist.name)")
     }
 }

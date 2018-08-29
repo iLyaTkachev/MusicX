@@ -72,6 +72,9 @@ extension UniversalTableViewController: UITableViewDelegate {
         output.willDisplay(tableView: tableView, willDisplay: cell, forRowAt: indexPath)
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        output.cellClicked(index: indexPath.row)
+    }
 }
 
 extension UniversalTableViewController: UITableViewDataSource {

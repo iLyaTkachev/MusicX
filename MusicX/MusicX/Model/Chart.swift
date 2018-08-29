@@ -9,14 +9,7 @@
 import Foundation
 
 struct Chart : BaseChart {
-    
-    private(set) var type: MediaType
-    private(set) var page: Int
-    private(set) var items: [BaseMediaObject]
-
-    init(type: MediaType, page: Int, items: [BaseMediaObject]) {
-        self.type = type
-        self.page = page
-        self.items = items
-    }
+    let type: MediaType
+    let page: Int
+    let items: [BaseMediaObject]
 }

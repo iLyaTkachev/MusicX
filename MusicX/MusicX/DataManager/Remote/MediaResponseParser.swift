@@ -37,7 +37,6 @@ class MediaResponseParser: BaseMediaResponseParser {
                 result.append(media)
             } else {
                 print("Problem parsing \(type.rawValue) dictionary\n")
-                return nil
             }
         }
         

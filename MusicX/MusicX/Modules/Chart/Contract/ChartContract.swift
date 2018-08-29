@@ -34,5 +34,6 @@ protocol ChartInteractorOutput : BaseInteractorOutput {
 }
 
 protocol ChartRouterInput : BaseRouterInput {
-    func presentMediaDetails(item: BaseMediaObject)
+    func presentArtistDetails(artist: Artist)
+    func playTrack(track: Track)
 }

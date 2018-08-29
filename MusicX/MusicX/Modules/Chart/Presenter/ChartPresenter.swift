@@ -33,16 +33,12 @@ extension ChartPresenter : ChartInteractorOutput {
         if chart.type == requestedMediaType, !chart.items.isEmpty {
             if chart.page == 1, currentPage > 1, !items.isEmpty {
                 items.removeAll()
-                //currentPage = 1
             }
             
             currentMediaType = requestedMediaType
             currentPage = chart.page
             items += chart.items
             view.updateList()
-            
-            //print("Artists \(chart.page) ------------------------------------")
-            //chart.items.forEach{ print("\($0.name)") }
         }
         
         view.hideActivityIndicator()
@@ -67,6 +63,7 @@ extension ChartPresenter : ChartViewOutput {
             self.view.updateList()
         }
         
+        currentMediaType = type
         requestedMediaType = type
         print("\(requestedMediaType.rawValue)")
         loadMedia(isReloading: true)
@@ -82,8 +79,8 @@ extension ChartPresenter : ChartViewOutput {
             return ChartTrackCell.identifier
         case .artist :
             return ChartArtistCell.identifier
-        case .tag ://TODO change
-            return ""
+        case .tag :
+            return ChartTagCell.identifier
         }
     }
     
@@ -94,7 +91,12 @@ extension ChartPresenter : ChartViewOutput {
             if isReloading {
                 interactor.fetch(contentType: requestedMediaType, page: 1)
             } else {
-                interactor.fetch(contentType: requestedMediaType, page: currentPage + 1)
+                guard requestedMediaType == .tag else {
+                    interactor.fetch(contentType: requestedMediaType, page: currentPage + 1)
+                    return
+                }
+                
+                isLoading = false
             }
             
             return
@@ -114,7 +116,20 @@ extension ChartPresenter : ChartViewOutput {
     }
     
     func cellClicked(index: Int) {
-        router.presentMediaDetails(item: items[index])
+        switch currentMediaType as MediaType {
+        case .track:
+            guard let track = items[index] as? Track else {
+                break
+            }
+            router.playTrack(track: track)
+        case .artist:
+            guard let artist = items[index] as? Artist else {
+                break
+            }
+            router.presentArtistDetails(artist: artist)
+        case .tag:
+            break
+        }
     }
      
     func viewIsReady() {

@@ -40,6 +40,7 @@ class ChartViewController: UIViewController {
         
         tableVC.registerCell(identifier: ChartTrackCell.identifier)
         tableVC.registerCell(identifier: ChartArtistCell.identifier)
+        tableVC.registerCell(identifier: ChartTagCell.identifier)
         
         tableVC.tableView.rowHeight = UITableViewAutomaticDimension
         tableVC.tableView.estimatedRowHeight = 100
@@ -106,9 +107,7 @@ extension ChartViewController : UniversalTableViewOutput {
     
     func getCell(tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: output.cellIdentifier, for: indexPath)
-        
-        let media = output.getMediaObject(forIndex: indexPath.row)
-        
+        let media = output.getMediaObject(forIndex: indexPath.row)        
         let cellData = ChartCellBuilder.ChartCellData(type: output.mediaType, media: media!)
         cellBuider.build(cell: cell, data: cellData)
         
@@ -146,11 +145,6 @@ extension ChartViewController : UniversalTableViewOutput {
 
 extension ChartViewController : TypeButtonsViewOutput {
     func typeSelected(type: MediaType) {
-        
-        //tableVC.tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
-        //self.showActivityIndicator()
         self.output.changeType(type: type)
-        
-        
     }
 }

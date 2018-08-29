@@ -26,8 +26,11 @@ class ChartCellBuilder : BaseCellBuilder {
                 return
             }
             setupArtistCell(cell: artistCell , artist: artistData)
-        case .tag://TODO: change
-            break
+        case .tag:
+            guard let tagCell = cell as? ChartTagCell, let tagData = cellData.media as? Tag else {
+                return
+            }
+            setupTagCell(cell: tagCell, tag: tagData)
         }
     }
     
@@ -44,7 +47,7 @@ class ChartCellBuilder : BaseCellBuilder {
     
     private func setupTrackCell(cell: ChartTrackCell, track: Track) {
         cell.trackNameLabel.text = track.name
-        cell.artistNameLabel.text = track.artist?.name
+        cell.artistNameLabel.text = track.artist.name
         cell.imageURL =  track.imageUrl
         cell.artistImageView.image = nil
         cell.spinner.startAnimating()
@@ -77,6 +80,12 @@ class ChartCellBuilder : BaseCellBuilder {
                 cell.spinner.stopAnimating()
             }
         }
+    }
+    
+    private func setupTagCell(cell: ChartTagCell, tag: Tag) {
+        cell.name.text = tag.name
+        cell.reach.text = tag.reach
+        cell.taggings.text = tag.taggings
     }
 }
 
