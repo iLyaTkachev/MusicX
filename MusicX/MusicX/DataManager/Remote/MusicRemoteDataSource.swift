@@ -5,8 +5,8 @@ final class MusicRemoteDataSource: MusicDataSource {
     private let queryService: BaseNetworkService
     private let responseParser: BaseMediaResponseParser
     
-    init() {
-        queryService = QueryService()
+    init(queryService: BaseNetworkService) {
+        self.queryService = queryService
         responseParser = MediaResponseParser()
     }
 
@@ -37,4 +37,11 @@ final class MusicRemoteDataSource: MusicDataSource {
         
     }
     
+    func getImageDirectorySize() -> Int {
+        return 0
+    }
+    
+    func clearImageDirectory() {
+        
+    }
 }

@@ -20,10 +20,14 @@ extension SettingsPresenter : SettingsInteractorOutput {
 
 extension SettingsPresenter : SettingsViewOutput {
     func clearImageCache() {
-        
+        interactor.clearImageCache()
     }
     
     func viewIsReady() {
         view.setupInitialState()
+    }
+    
+    func viewWillAppear() {
+        view.setImageCacheSize(value: interactor.getImageCacheSize())
     }
 }

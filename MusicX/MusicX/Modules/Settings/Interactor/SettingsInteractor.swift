@@ -13,4 +13,11 @@ class SettingsInteractor: SettingsInteractorInput {
     weak var output: SettingsInteractorOutput!
     var repository: MusicDataSource!
     
+    func clearImageCache() {
+        repository.clearImageDirectory()
+    }
+    
+    func getImageCacheSize() -> Int {
+        return repository.getImageDirectorySize()
+    }
 }

@@ -9,7 +9,7 @@ final class MusicRepository: MusicDataSource {
     private let imageService: BaseImageService
     
     private init() {
-        remoteDataSource = MusicRemoteDataSource()
+        remoteDataSource = MusicRemoteDataSource(queryService: QueryService())
         localDataSource = MusicLocalDataSource()
         imageService = ImageService(memoryCapacity: Constants.memoryCapacityForImageCache, diskCapacity: Constants.diskCapacityForImageCache, percentOfClearing: Constants.percentOfImageCacheClearing)
     }
@@ -20,5 +20,13 @@ final class MusicRepository: MusicDataSource {
     
     func getImage(withUrl: String, completionHandler: @escaping (UIImage?, Error?) -> Void) {
         imageService.getImage(withUrl: withUrl, completionHandler: completionHandler)
+    }
+    
+    func getImageDirectorySize() -> Int {
+        return imageService.getImageDirectorySize()
+    }
+    
+    func clearImageDirectory() {
+        imageService.clearImageCache()
     }
 }

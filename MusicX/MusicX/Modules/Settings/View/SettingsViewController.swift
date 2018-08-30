@@ -36,6 +36,11 @@ class SettingsViewController: UIViewController {
         setValuesFromDict()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        output.viewWillAppear()
+    }
+    
     @IBAction func buttonClick(_ sender: UIButton) {
         var dict = UserDefaults.standard.object(forKey: "dict") as! [String : Any]
         dict["Name"]=dict["Name"] as! String + "1"
@@ -43,7 +48,7 @@ class SettingsViewController: UIViewController {
     }
     
     @IBAction func clearButtonClick(_ sender: UIButton) {
-        imageMemoryProgress.setProgress(1, animated: true)
+        output.clearImageCache()
     }
     
     func registerSettingsBundle(){
@@ -61,7 +66,12 @@ class SettingsViewController: UIViewController {
 }
 
 extension SettingsViewController : SettingsViewInput {
+    
     func setupInitialState() {
         
+    }
+    
+    func setImageCacheSize(value: Int) {
+        print("\(value)")
     }
 }

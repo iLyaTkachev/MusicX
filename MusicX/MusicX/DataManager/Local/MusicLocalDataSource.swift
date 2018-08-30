@@ -13,4 +13,12 @@ class MusicLocalDataSource: MusicDataSource {
     func getImage(withUrl: String, completionHandler: @escaping (UIImage?, Error?) -> Void) {
         
     }
+    
+    func getImageDirectorySize() -> Int {
+        return 0
+    }
+    
+    func clearImageDirectory() {
+        
+    }
 }

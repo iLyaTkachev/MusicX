@@ -9,7 +9,7 @@
 import Foundation
 
 class Constants {
-    static let diskCapacityForImageCache = 100
-    static let memoryCapacityForImageCache = 50
+    static let diskCapacityForImageCache = 100 * 1024 * 1024
+    static let memoryCapacityForImageCache = 50 * 1024 * 1024
     static let percentOfImageCacheClearing = 50
 }
