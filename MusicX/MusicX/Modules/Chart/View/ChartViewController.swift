@@ -10,8 +10,8 @@ import UIKit
 
 class ChartViewController: UIViewController {
     
-    static let id = "ChartViewController"
-    static let storyboardId = "Chart"
+    static let vcId = "ChartViewController"
+    static let storyboardName = "Chart"
     
     var cellBuider: BaseCellBuilder!
     

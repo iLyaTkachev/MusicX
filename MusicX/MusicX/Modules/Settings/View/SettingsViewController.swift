@@ -10,8 +10,8 @@ import UIKit
 
 class SettingsViewController: UIViewController {
 
-    static let id = "SettingsViewController"
-    static let storyboardId = "Settings"
+    static let vcId = "SettingsViewController"
+    static let storyboardName = "Settings"
     
     var output: SettingsViewOutput!
     
@@ -23,11 +23,9 @@ class SettingsViewController: UIViewController {
         self.navigationController?.isNavigationBarHidden = true
         output.viewIsReady()
         
-        guard let dict = UserDefaults.standard.object(forKey: "dict") as? [String] else {
+        guard let dict = UserDefaults.standard.object(forKey: "dict") as? [String], !dict.isEmpty else {
             registerSettingsBundle()
-            
             NotificationCenter.default.addObserver(self, selector: #selector(SettingsViewController.setValuesFromDict), name: UserDefaults.didChangeNotification, object: nil)
-            
             setValuesFromDict()
             
             return

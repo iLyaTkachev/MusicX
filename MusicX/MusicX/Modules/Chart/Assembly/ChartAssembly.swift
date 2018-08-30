@@ -6,7 +6,7 @@ class ChartAssembly {
         let router = ChartRouter()
         let interactor = ChartInteractor()
         let presenter = ChartPresenter()
-        let view = Utils.getViewController(storyboardName: ChartViewController.storyboardId, vcId: ChartViewController.id) as! ChartViewController
+        let view = Utils.getViewController(storyboardName: ChartViewController.storyboardName, vcId: ChartViewController.vcId) as! ChartViewController
         
         interactor.output = presenter
         interactor.repository = CoreX.shared.repository

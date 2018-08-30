@@ -13,7 +13,7 @@ class TabBarAssembly {
         let router = TabBarRouter()
         let presenter = TabBarPresenter()
         let interactor = TabBarInteractor()
-        let view = Utils.getViewController(storyboardName: TabBarViewController.storyboardId, vcId: TabBarViewController.id) as! TabBarViewController
+        let view = Utils.getViewController(storyboardName: TabBarViewController.storyboardName, vcId: TabBarViewController.vcId) as! TabBarViewController
         
         interactor.output = presenter
         

@@ -10,8 +10,8 @@ import UIKit
 
 class TabBarViewController: UITabBarController {
 
-    static let id = "TabBarViewController"
-    static let storyboardId = "TabBar"
+    static let vcId = "TabBarViewController"
+    static let storyboardName = "TabBar"
     
     var output: TabBarViewOutput!
     

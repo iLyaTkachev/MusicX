@@ -30,6 +30,27 @@
 		8C1B82092136D7B40036ED88 /* SettingsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1B82082136D7B40036ED88 /* SettingsInteractor.swift */; };
 		8C1B820B2136D8140036ED88 /* SettingsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1B820A2136D8140036ED88 /* SettingsPresenter.swift */; };
 		8C1B820D2136D9310036ED88 /* SettingsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1B820C2136D9310036ED88 /* SettingsRouter.swift */; };
+		8C1B82152137E7FF0036ED88 /* SearchContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1B82142137E7FF0036ED88 /* SearchContract.swift */; };
+		8C1B82172137E8540036ED88 /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C1B82162137E8540036ED88 /* Search.storyboard */; };
+		8C1B82192137E8670036ED88 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1B82182137E8670036ED88 /* SearchViewController.swift */; };
+		8C1B821B2137F5A50036ED88 /* SearchInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1B821A2137F5A50036ED88 /* SearchInteractor.swift */; };
+		8C1B821D2137F5D70036ED88 /* SearchPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1B821C2137F5D70036ED88 /* SearchPresenter.swift */; };
+		8C1B821F2137F61E0036ED88 /* SearchRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1B821E2137F61E0036ED88 /* SearchRouter.swift */; };
+		8C1B82212137F66A0036ED88 /* SearchAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1B82202137F66A0036ED88 /* SearchAssembly.swift */; };
+		8C1B82292137FAB50036ED88 /* PlayerContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1B82282137FAB50036ED88 /* PlayerContract.swift */; };
+		8C1B822B2137FADA0036ED88 /* Player.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C1B822A2137FADA0036ED88 /* Player.storyboard */; };
+		8C1B822D2137FAF10036ED88 /* PlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1B822C2137FAF10036ED88 /* PlayerViewController.swift */; };
+		8C1B822F2138016B0036ED88 /* PlayerInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1B822E2138016B0036ED88 /* PlayerInteractor.swift */; };
+		8C1B82312138022B0036ED88 /* PlayerPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1B82302138022B0036ED88 /* PlayerPresenter.swift */; };
+		8C1B8233213802DD0036ED88 /* PlayerRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1B8232213802DD0036ED88 /* PlayerRouter.swift */; };
+		8C1B8235213802FC0036ED88 /* PlayerAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1B8234213802FC0036ED88 /* PlayerAssembly.swift */; };
+		8C1B823D213808400036ED88 /* DownloadsContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1B823C213808400036ED88 /* DownloadsContract.swift */; };
+		8C1B823F213808890036ED88 /* Downloads.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C1B823E213808890036ED88 /* Downloads.storyboard */; };
+		8C1B82412138092F0036ED88 /* DownloadsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1B82402138092F0036ED88 /* DownloadsViewController.swift */; };
+		8C1B8243213809CB0036ED88 /* DownloadsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1B8242213809CB0036ED88 /* DownloadsInteractor.swift */; };
+		8C1B824521380A020036ED88 /* DownloadsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1B824421380A020036ED88 /* DownloadsPresenter.swift */; };
+		8C1B82472138172A0036ED88 /* DownloadsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1B82462138172A0036ED88 /* DownloadsRouter.swift */; };
+		8C1B8249213817470036ED88 /* DownloadsAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1B8248213817470036ED88 /* DownloadsAssembly.swift */; };
 		8C24697B212C371E00BD83E9 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C24697A212C371E00BD83E9 /* Constants.swift */; };
 		8C24697D212C3EBB00BD83E9 /* ChartCellBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C24697C212C3EBB00BD83E9 /* ChartCellBuilder.swift */; };
 		8C4191F02112FD97005D83FA /* ChartAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4191EF2112FD97005D83FA /* ChartAssembly.swift */; };
@@ -134,6 +155,27 @@
 		8C1B82082136D7B40036ED88 /* SettingsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsInteractor.swift; sourceTree = "<group>"; };
 		8C1B820A2136D8140036ED88 /* SettingsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPresenter.swift; sourceTree = "<group>"; };
 		8C1B820C2136D9310036ED88 /* SettingsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsRouter.swift; sourceTree = "<group>"; };
+		8C1B82142137E7FF0036ED88 /* SearchContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchContract.swift; sourceTree = "<group>"; };
+		8C1B82162137E8540036ED88 /* Search.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
+		8C1B82182137E8670036ED88 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		8C1B821A2137F5A50036ED88 /* SearchInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchInteractor.swift; sourceTree = "<group>"; };
+		8C1B821C2137F5D70036ED88 /* SearchPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPresenter.swift; sourceTree = "<group>"; };
+		8C1B821E2137F61E0036ED88 /* SearchRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRouter.swift; sourceTree = "<group>"; };
+		8C1B82202137F66A0036ED88 /* SearchAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchAssembly.swift; sourceTree = "<group>"; };
+		8C1B82282137FAB50036ED88 /* PlayerContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerContract.swift; sourceTree = "<group>"; };
+		8C1B822A2137FADA0036ED88 /* Player.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Player.storyboard; sourceTree = "<group>"; };
+		8C1B822C2137FAF10036ED88 /* PlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerViewController.swift; sourceTree = "<group>"; };
+		8C1B822E2138016B0036ED88 /* PlayerInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerInteractor.swift; sourceTree = "<group>"; };
+		8C1B82302138022B0036ED88 /* PlayerPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerPresenter.swift; sourceTree = "<group>"; };
+		8C1B8232213802DD0036ED88 /* PlayerRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerRouter.swift; sourceTree = "<group>"; };
+		8C1B8234213802FC0036ED88 /* PlayerAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerAssembly.swift; sourceTree = "<group>"; };
+		8C1B823C213808400036ED88 /* DownloadsContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadsContract.swift; sourceTree = "<group>"; };
+		8C1B823E213808890036ED88 /* Downloads.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Downloads.storyboard; sourceTree = "<group>"; };
+		8C1B82402138092F0036ED88 /* DownloadsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadsViewController.swift; sourceTree = "<group>"; };
+		8C1B8242213809CB0036ED88 /* DownloadsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadsInteractor.swift; sourceTree = "<group>"; };
+		8C1B824421380A020036ED88 /* DownloadsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadsPresenter.swift; sourceTree = "<group>"; };
+		8C1B82462138172A0036ED88 /* DownloadsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadsRouter.swift; sourceTree = "<group>"; };
+		8C1B8248213817470036ED88 /* DownloadsAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadsAssembly.swift; sourceTree = "<group>"; };
 		8C24697A212C371E00BD83E9 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		8C24697C212C3EBB00BD83E9 /* ChartCellBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartCellBuilder.swift; sourceTree = "<group>"; };
 		8C4191EF2112FD97005D83FA /* ChartAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartAssembly.swift; sourceTree = "<group>"; };
@@ -374,6 +416,153 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		8C1B820E2137E7870036ED88 /* Assembly */ = {
+			isa = PBXGroup;
+			children = (
+				8C1B82202137F66A0036ED88 /* SearchAssembly.swift */,
+			);
+			path = Assembly;
+			sourceTree = "<group>";
+		};
+		8C1B820F2137E7950036ED88 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				8C1B821E2137F61E0036ED88 /* SearchRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		8C1B82102137E79B0036ED88 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				8C1B821C2137F5D70036ED88 /* SearchPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		8C1B82112137E7A30036ED88 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				8C1B821A2137F5A50036ED88 /* SearchInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		8C1B82122137E7AF0036ED88 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				8C1B82162137E8540036ED88 /* Search.storyboard */,
+				8C1B82182137E8670036ED88 /* SearchViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		8C1B82132137E7B30036ED88 /* Contract */ = {
+			isa = PBXGroup;
+			children = (
+				8C1B82142137E7FF0036ED88 /* SearchContract.swift */,
+			);
+			path = Contract;
+			sourceTree = "<group>";
+		};
+		8C1B82222137F8C50036ED88 /* Assembly */ = {
+			isa = PBXGroup;
+			children = (
+				8C1B8234213802FC0036ED88 /* PlayerAssembly.swift */,
+			);
+			path = Assembly;
+			sourceTree = "<group>";
+		};
+		8C1B82232137FA790036ED88 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				8C1B8232213802DD0036ED88 /* PlayerRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		8C1B82242137FA7E0036ED88 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				8C1B82302138022B0036ED88 /* PlayerPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		8C1B82252137FA850036ED88 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				8C1B822E2138016B0036ED88 /* PlayerInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		8C1B82262137FA8D0036ED88 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				8C1B822A2137FADA0036ED88 /* Player.storyboard */,
+				8C1B822C2137FAF10036ED88 /* PlayerViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		8C1B82272137FA910036ED88 /* Contract */ = {
+			isa = PBXGroup;
+			children = (
+				8C1B82282137FAB50036ED88 /* PlayerContract.swift */,
+			);
+			path = Contract;
+			sourceTree = "<group>";
+		};
+		8C1B8236213808070036ED88 /* Assembly */ = {
+			isa = PBXGroup;
+			children = (
+				8C1B8248213817470036ED88 /* DownloadsAssembly.swift */,
+			);
+			path = Assembly;
+			sourceTree = "<group>";
+		};
+		8C1B8237213808120036ED88 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				8C1B82462138172A0036ED88 /* DownloadsRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		8C1B8238213808180036ED88 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				8C1B824421380A020036ED88 /* DownloadsPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		8C1B82392138081F0036ED88 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				8C1B8242213809CB0036ED88 /* DownloadsInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		8C1B823A213808260036ED88 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				8C1B823E213808890036ED88 /* Downloads.storyboard */,
+				8C1B82402138092F0036ED88 /* DownloadsViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		8C1B823B2138082C0036ED88 /* Contract */ = {
+			isa = PBXGroup;
+			children = (
+				8C1B823C213808400036ED88 /* DownloadsContract.swift */,
+			);
+			path = Contract;
+			sourceTree = "<group>";
+		};
 		8C4191EE2112FD83005D83FA /* Assembly */ = {
 			isa = PBXGroup;
 			children = (
@@ -399,7 +588,7 @@
 				8C4191FF21134203005D83FA /* Interactor */,
 				8C4191FE211341F7005D83FA /* Presenter */,
 				8C4191FD211341E0005D83FA /* Router */,
-				8C4192012113421D005D83FA /* Module */,
+				8C4192012113421D005D83FA /* Assembly */,
 			);
 			path = TabBar;
 			sourceTree = "<group>";
@@ -437,12 +626,12 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		8C4192012113421D005D83FA /* Module */ = {
+		8C4192012113421D005D83FA /* Assembly */ = {
 			isa = PBXGroup;
 			children = (
 				8C419205211342A8005D83FA /* TabBarAssembly.swift */,
 			);
-			path = Module;
+			path = Assembly;
 			sourceTree = "<group>";
 		};
 		8C41920221134223005D83FA /* Contract */ = {
@@ -488,6 +677,12 @@
 		8C41926E2119D11B005D83FA /* Downloads */ = {
 			isa = PBXGroup;
 			children = (
+				8C1B823B2138082C0036ED88 /* Contract */,
+				8C1B823A213808260036ED88 /* View */,
+				8C1B82392138081F0036ED88 /* Interactor */,
+				8C1B8238213808180036ED88 /* Presenter */,
+				8C1B8237213808120036ED88 /* Router */,
+				8C1B8236213808070036ED88 /* Assembly */,
 			);
 			path = Downloads;
 			sourceTree = "<group>";
@@ -508,6 +703,12 @@
 		8C4192702119D138005D83FA /* Search */ = {
 			isa = PBXGroup;
 			children = (
+				8C1B82132137E7B30036ED88 /* Contract */,
+				8C1B82122137E7AF0036ED88 /* View */,
+				8C1B82112137E7A30036ED88 /* Interactor */,
+				8C1B82102137E79B0036ED88 /* Presenter */,
+				8C1B820F2137E7950036ED88 /* Router */,
+				8C1B820E2137E7870036ED88 /* Assembly */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -515,6 +716,12 @@
 		8C4192712119D18C005D83FA /* Player */ = {
 			isa = PBXGroup;
 			children = (
+				8C1B82272137FA910036ED88 /* Contract */,
+				8C1B82262137FA8D0036ED88 /* View */,
+				8C1B82252137FA850036ED88 /* Interactor */,
+				8C1B82242137FA7E0036ED88 /* Presenter */,
+				8C1B82232137FA790036ED88 /* Router */,
+				8C1B82222137F8C50036ED88 /* Assembly */,
 			);
 			path = Player;
 			sourceTree = "<group>";
@@ -867,7 +1074,10 @@
 				8C478D3D212D49F200A9CB4D /* TestTableViewController.xib in Resources */,
 				8C1B81F72136A2440036ED88 /* ChartTagCell.xib in Resources */,
 				8C4B43AD20FCCA9F0014C692 /* Assets.xcassets in Resources */,
+				8C1B82172137E8540036ED88 /* Search.storyboard in Resources */,
+				8C1B822B2137FADA0036ED88 /* Player.storyboard in Resources */,
 				8C7A9A57213437B300DE5DE3 /* Main.storyboard in Resources */,
+				8C1B823F213808890036ED88 /* Downloads.storyboard in Resources */,
 				8C62D54C2125924700A78FD0 /* testCell.xib in Resources */,
 				8CB665F5211056E500CEF996 /* ChartTrackCell.xib in Resources */,
 				8C45EB78213181160009C7AE /* ChartArtistCell.xib in Resources */,
@@ -983,26 +1193,34 @@
 				8C1B82032136D6750036ED88 /* SettingsAssembly.swift in Sources */,
 				8C41926021197FCD005D83FA /* CoreX.swift in Sources */,
 				8C18E2312107107B005DAEE1 /* MusicRemoteDataSource.swift in Sources */,
+				8C1B82152137E7FF0036ED88 /* SearchContract.swift in Sources */,
 				8C84EE3A210F0D4D000780B0 /* ChartInteractor.swift in Sources */,
 				8C18E22921070FE1005DAEE1 /* Download.swift in Sources */,
+				8C1B82192137E8670036ED88 /* SearchViewController.swift in Sources */,
 				8C419268211997F6005D83FA /* TabBarRouter.swift in Sources */,
 				8CB665F22110560500CEF996 /* ChartTrackCell.swift in Sources */,
 				8C1B820D2136D9310036ED88 /* SettingsRouter.swift in Sources */,
+				8C1B8235213802FC0036ED88 /* PlayerAssembly.swift in Sources */,
 				8C4192812122BA17005D83FA /* BaseTableCell.swift in Sources */,
 				8C1B82072136D7630036ED88 /* SettingsViewController.swift in Sources */,
 				8C419266211997E5005D83FA /* TabBarPresenter.swift in Sources */,
 				8C18E22F21071053005DAEE1 /* MusicRepository.swift in Sources */,
 				8CB665EF2110541E00CEF996 /* ChartViewController.swift in Sources */,
+				8C1B82472138172A0036ED88 /* DownloadsRouter.swift in Sources */,
 				8C18E22B2107100B005DAEE1 /* Track.swift in Sources */,
+				8C1B8233213802DD0036ED88 /* PlayerRouter.swift in Sources */,
 				8C41926C2119A4CD005D83FA /* UIViewController+Helpers.swift in Sources */,
+				8C1B8243213809CB0036ED88 /* DownloadsInteractor.swift in Sources */,
 				8C4191F22112FE12005D83FA /* Loading.swift in Sources */,
 				8C62D5422124680B00A78FD0 /* TypeButtonsView.swift in Sources */,
 				EF459F522129E265004E4D6E /* ImageService.swift in Sources */,
 				8C18E23E21085F70005DAEE1 /* BaseMediaObjectProtocol.swift in Sources */,
+				8C1B8249213817470036ED88 /* DownloadsAssembly.swift in Sources */,
 				8C84EE3C210F0E23000780B0 /* ChartPresenter.swift in Sources */,
 				8C1B82092136D7B40036ED88 /* SettingsInteractor.swift in Sources */,
 				8C18E23721071136005DAEE1 /* QueryService.swift in Sources */,
 				8C478D41212D727500A9CB4D /* UniversalTableViewController.swift in Sources */,
+				8C1B821B2137F5A50036ED88 /* SearchInteractor.swift in Sources */,
 				8C24697D212C3EBB00BD83E9 /* ChartCellBuilder.swift in Sources */,
 				8C1B81F92136A3F30036ED88 /* Tag.swift in Sources */,
 				8C18E23C21074763005DAEE1 /* Utils.swift in Sources */,
@@ -1017,25 +1235,35 @@
 				8C419264211997D6005D83FA /* TabBarInteractor.swift in Sources */,
 				8C478D44212D7EFA00A9CB4D /* BaseCellBuilder.swift in Sources */,
 				8C4B43A320FCCA9E0014C692 /* AppDelegate.swift in Sources */,
+				8C1B821D2137F5D70036ED88 /* SearchPresenter.swift in Sources */,
 				8C4B43AB20FCCA9E0014C692 /* MusicX.xcdatamodeld in Sources */,
 				8C4191F521132B09005D83FA /* ConfiguratorProtocol.swift in Sources */,
 				8C1B820B2136D8140036ED88 /* SettingsPresenter.swift in Sources */,
+				8C1B822F2138016B0036ED88 /* PlayerInteractor.swift in Sources */,
+				8C1B821F2137F61E0036ED88 /* SearchRouter.swift in Sources */,
+				8C1B82212137F66A0036ED88 /* SearchAssembly.swift in Sources */,
 				8C4B43D520FCCB000014C692 /* ApiConstants.swift in Sources */,
 				8C4B43D720FCCB1C0014C692 /* SecretConstants.swift in Sources */,
 				8C41927D211C44D9005D83FA /* BaseChartProtocol.swift in Sources */,
 				8C419262211980DF005D83FA /* TabBarViewController.swift in Sources */,
 				8C419273211B1932005D83FA /* MediaType.swift in Sources */,
 				8C18E21A20FF5909005DAEE1 /* ApiRequestBuilder.swift in Sources */,
+				8C1B82292137FAB50036ED88 /* PlayerContract.swift in Sources */,
 				8C41925B211880BD005D83FA /* PresentableProtocol.swift in Sources */,
 				8C4191FA21132CFD005D83FA /* ApplicationConfigurator.swift in Sources */,
+				8C1B822D2137FAF10036ED88 /* PlayerViewController.swift in Sources */,
+				8C1B82312138022B0036ED88 /* PlayerPresenter.swift in Sources */,
 				8C18E22D21071024005DAEE1 /* Artist.swift in Sources */,
 				8C41920421134291005D83FA /* TabBarContract.swift in Sources */,
 				8C7A9A59213437D400DE5DE3 /* ViewController.swift in Sources */,
 				8C1B81F62136A2440036ED88 /* ChartTagCell.swift in Sources */,
 				8C419277211C376D005D83FA /* MusicDataSourceProtocol.swift in Sources */,
+				8C1B824521380A020036ED88 /* DownloadsPresenter.swift in Sources */,
 				8C41E7CD2134009900795667 /* MediaBuilder.swift in Sources */,
+				8C1B82412138092F0036ED88 /* DownloadsViewController.swift in Sources */,
 				8C419206211342A8005D83FA /* TabBarAssembly.swift in Sources */,
 				8C1B82012136D0FC0036ED88 /* SettingsContract.swift in Sources */,
+				8C1B823D213808400036ED88 /* DownloadsContract.swift in Sources */,
 				8C41927F21219E52005D83FA /* Error.swift in Sources */,
 				8C41927B211C427E005D83FA /* Chart.swift in Sources */,
 			);
