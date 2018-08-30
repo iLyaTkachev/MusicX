@@ -10,8 +10,4 @@ import Foundation
 
 class TabBarInteractor: TabBarInteractorInput {
     weak var output: TabBarInteractorOutput!
-    
-    func fetch(contentType: MediaType, page: Int?) {
-        
-    }
 }

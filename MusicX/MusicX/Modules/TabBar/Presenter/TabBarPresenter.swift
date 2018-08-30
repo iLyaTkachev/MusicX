@@ -14,11 +14,13 @@ class TabBarPresenter {
     var router: TabBarRouterInput!
     
     private lazy var chartView: ChartViewInput = ChartAssembly.create()
+    private lazy var settingsView: SettingsViewInput = SettingsAssembly.create()
     
     private func insertViewControllers() {
         
         view.viewControllers = [
-            chartView.viewController.wrapToNavigationController()
+            chartView.viewController.wrapToNavigationController(),
+            settingsView.viewController.wrapToNavigationController()
         ]
     }
 }

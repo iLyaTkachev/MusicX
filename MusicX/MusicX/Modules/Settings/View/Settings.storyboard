@@ -6,24 +6,70 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Settings View Controller-->
+        <!--Settings-->
         <scene sceneID="zyT-0S-RCc">
             <objects>
                 <viewController storyboardIdentifier="SettingsViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="3fJ-wx-MuS" customClass="SettingsViewController" customModule="MusicX" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="keS-Y9-XcA">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ox1-MO-C8r">
+                                <rect key="frame" x="164" y="28" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="buttonClick:" destination="3fJ-wx-MuS" eventType="touchUpInside" id="5rj-gY-yAu"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pzc-Qp-Elg">
+                                <rect key="frame" x="166" y="90" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Ajk-Kl-Ye1">
+                                <rect key="frame" x="24" y="143" width="327" height="2"/>
+                            </progressView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wNO-yA-gWu">
+                                <rect key="frame" x="169" y="181" width="36" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Clear"/>
+                                <connections>
+                                    <action selector="clearButtonClick:" destination="3fJ-wx-MuS" eventType="touchUpInside" id="DSs-wb-zuB"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="pzc-Qp-Elg" firstAttribute="centerX" secondItem="Ox1-MO-C8r" secondAttribute="centerX" id="5fS-oP-YpS"/>
+                            <constraint firstItem="pzc-Qp-Elg" firstAttribute="top" secondItem="Ox1-MO-C8r" secondAttribute="bottom" constant="32" id="Ef0-oY-mIT"/>
+                            <constraint firstItem="Ox1-MO-C8r" firstAttribute="top" secondItem="Yvk-pc-qr1" secondAttribute="top" constant="8" id="Fia-IH-w2c"/>
+                            <constraint firstItem="Ajk-Kl-Ye1" firstAttribute="leading" secondItem="keS-Y9-XcA" secondAttribute="leadingMargin" constant="8" id="MDc-IB-QGd"/>
+                            <constraint firstItem="Ox1-MO-C8r" firstAttribute="centerX" secondItem="Yvk-pc-qr1" secondAttribute="centerX" id="XL0-HW-2jJ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Ajk-Kl-Ye1" secondAttribute="trailing" constant="8" id="c6A-lO-pQH"/>
+                            <constraint firstItem="Ajk-Kl-Ye1" firstAttribute="top" secondItem="pzc-Qp-Elg" secondAttribute="bottom" constant="32" id="nX8-ae-oQY"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="Yvk-pc-qr1"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Settings" image="settings" id="q13-SW-0IQ"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="imageMemoryProgress" destination="Ajk-Kl-Ye1" id="Lfc-fy-3pr"/>
+                        <outlet property="label" destination="pzc-Qp-Elg" id="Dr3-zN-qIp"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JBn-uv-dCh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="79" y="155"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="settings" width="30" height="30"/>
+    </resources>
 </document>

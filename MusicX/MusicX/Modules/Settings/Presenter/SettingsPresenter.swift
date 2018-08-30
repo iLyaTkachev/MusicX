@@ -24,6 +24,6 @@ extension SettingsPresenter : SettingsViewOutput {
     }
     
     func viewIsReady() {
-        
+        view.setupInitialState()
     }
 }

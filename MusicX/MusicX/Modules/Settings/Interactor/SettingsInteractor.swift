@@ -10,4 +10,7 @@ import Foundation
 
 class SettingsInteractor: SettingsInteractorInput {
     
+    weak var output: SettingsInteractorOutput!
+    var repository: MusicDataSource!
+    
 }
