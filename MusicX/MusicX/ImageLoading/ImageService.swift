@@ -81,9 +81,7 @@ class ImageService: BaseImageService {
     func clearImageCache() {
         DispatchQueue.global(qos: .userInitiated).async {
             self.clearDirectory(fileManager: self.fileManager, directoryPath: URL(string: self.cacheDirectoryPath)!, percent: 1)
-            //TODO: incorrect counting of percents
         }
-        //clearDirectory(fileManager: fileManager, directoryPath: URL(string: cacheDirectoryPath)!, percent: 100)
     }
     
     private func countDirectorySize(fileManager: FileManager, path: URL) -> Int {
@@ -116,13 +114,15 @@ class ImageService: BaseImageService {
     
     private func clearDirectory(fileManager: FileManager, directoryPath: URL, percent: Int) {
         do {
-            if let imageUrls = try? fileManager.contentsOfDirectory(at: directoryPath, includingPropertiesForKeys: nil) {
+            if let sortedImageUrls = try? fileManager.contentsOfDirectory(at: directoryPath, includingPropertiesForKeys: nil).sorted(by: { (try $0.resourceValues(forKeys: [.contentAccessDateKey])).contentAccessDate! > (try $1.resourceValues(forKeys: [.contentAccessDateKey])).contentAccessDate! }) {
                 
-                let sortedImageUrls = try imageUrls.sorted(by: { (try $0.resourceValues(forKeys: [.contentAccessDateKey])).contentAccessDate! > (try $1.resourceValues(forKeys: [.contentAccessDateKey])).contentAccessDate! })
+                var startIndex: Int = sortedImageUrls.count * percent / 100
                 
-                let startIndex: Int = sortedImageUrls.count * percent / 100
-                let oldImageUrls = sortedImageUrls[startIndex..<sortedImageUrls.count]
+                if startIndex > sortedImageUrls.count {
+                    startIndex = sortedImageUrls.count
+                }
                 
+                let oldImageUrls = sortedImageUrls[sortedImageUrls.count - startIndex..<sortedImageUrls.count]
                 try oldImageUrls.forEach{ try fileManager.removeItem(at: $0) }
             }
         }

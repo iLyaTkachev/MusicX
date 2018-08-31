@@ -1,14 +1,14 @@
 import Foundation
 
 protocol BaseNetworkService {
-    func executeRequest(urlToExecute : URL, completionHandler: @escaping ([String: Any]?, Error?)->Void)
+    func executeRequest(urlToExecute : URL, completionHandler: @escaping (Data?, Error?)->Void)
 }
 
 class QueryService: BaseNetworkService {
     
     private let defaultSession = URLSession(configuration: .default)
     
-    func executeRequest(urlToExecute : URL, completionHandler: @escaping ([String: Any]?, Error?)->Void) {
+    func executeRequest(urlToExecute : URL, completionHandler: @escaping (Data?, Error?)->Void) {
         
         let webRequest = URLRequest(url: urlToExecute)
         
@@ -20,13 +20,7 @@ class QueryService: BaseNetworkService {
                 return
             }
             
-            do {
-                let jsonResponse = try Utils.dataToJson(data: unwrappedData) as? [String: Any]
-                completionHandler(jsonResponse, nil)
-            } catch {
-                print(error.localizedDescription)
-                completionHandler(nil, error)
-            }
+            completionHandler(unwrappedData, nil)
         }
         
         dataTask.resume()

@@ -51,6 +51,7 @@
 		8C1B824521380A020036ED88 /* DownloadsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1B824421380A020036ED88 /* DownloadsPresenter.swift */; };
 		8C1B82472138172A0036ED88 /* DownloadsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1B82462138172A0036ED88 /* DownloadsRouter.swift */; };
 		8C1B8249213817470036ED88 /* DownloadsAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1B8248213817470036ED88 /* DownloadsAssembly.swift */; };
+		8C1B824B21397B260036ED88 /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1B824A21397B260036ED88 /* Image.swift */; };
 		8C24697B212C371E00BD83E9 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C24697A212C371E00BD83E9 /* Constants.swift */; };
 		8C24697D212C3EBB00BD83E9 /* ChartCellBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C24697C212C3EBB00BD83E9 /* ChartCellBuilder.swift */; };
 		8C4191F02112FD97005D83FA /* ChartAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4191EF2112FD97005D83FA /* ChartAssembly.swift */; };
@@ -176,6 +177,7 @@
 		8C1B824421380A020036ED88 /* DownloadsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadsPresenter.swift; sourceTree = "<group>"; };
 		8C1B82462138172A0036ED88 /* DownloadsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadsRouter.swift; sourceTree = "<group>"; };
 		8C1B8248213817470036ED88 /* DownloadsAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadsAssembly.swift; sourceTree = "<group>"; };
+		8C1B824A21397B260036ED88 /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
 		8C24697A212C371E00BD83E9 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		8C24697C212C3EBB00BD83E9 /* ChartCellBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartCellBuilder.swift; sourceTree = "<group>"; };
 		8C4191EF2112FD97005D83FA /* ChartAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartAssembly.swift; sourceTree = "<group>"; };
@@ -308,6 +310,7 @@
 				8C41927C211C44D9005D83FA /* BaseChartProtocol.swift */,
 				8C41927E21219E52005D83FA /* Error.swift */,
 				8C1B81F82136A3F30036ED88 /* Tag.swift */,
+				8C1B824A21397B260036ED88 /* Image.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1214,6 +1217,7 @@
 				8C4191F22112FE12005D83FA /* Loading.swift in Sources */,
 				8C62D5422124680B00A78FD0 /* TypeButtonsView.swift in Sources */,
 				EF459F522129E265004E4D6E /* ImageService.swift in Sources */,
+				8C1B824B21397B260036ED88 /* Image.swift in Sources */,
 				8C18E23E21085F70005DAEE1 /* BaseMediaObjectProtocol.swift in Sources */,
 				8C1B8249213817470036ED88 /* DownloadsAssembly.swift in Sources */,
 				8C84EE3C210F0E23000780B0 /* ChartPresenter.swift in Sources */,

@@ -9,19 +9,19 @@
 import Foundation
 
 protocol BaseMediaResponseParser {
-    func parseMedia(type: MediaType, dictionary: [String : Any]) -> [BaseMediaObject]?
+    func parseMedia(type: MediaType, data: Data) -> [BaseMediaObject]?
 }
 
 class MediaResponseParser: BaseMediaResponseParser {
     
     private let mediaBuilder: BaseMediaBuilder = MediaBuilder()
     
-    func parseMedia(type: MediaType, dictionary: [String : Any]) -> [BaseMediaObject]? {
-        return parse(type: type, dictionary: dictionary)
+    func parseMedia(type: MediaType, data: Data) -> [BaseMediaObject]? {
+        return parse(type: type, data: data)
     }
     
     
-    private func parse(type: MediaType, dictionary: [String : Any]) -> [BaseMediaObject]? {
+    private func parse(type: MediaType, data: Data) -> [BaseMediaObject]? {
         
         guard let dict = dictionary[type.chartArray()] as? [String : Any] ,
             let array = dict[type.rawValue] as? [Any] else {

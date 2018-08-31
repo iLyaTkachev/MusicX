@@ -17,14 +17,18 @@ class MediaBuilder: BaseMediaBuilder {
     private let trackBuilder: BaseMediaBuilder
     private let artistBuilder: BaseMediaBuilder
     private let tagBuilder: BaseMediaBuilder
+    private let decoder: JSONDecoder
     
     init() {
         self.artistBuilder = ArtistBuilder()
         self.trackBuilder = TrackBuilder(artistBuilder: artistBuilder)
         self.tagBuilder = TagBuilder()
+        decoder = JSONDecoder()
     }
     
     func build(type: MediaType, from dictionary: [String : Any]) -> BaseMediaObject? {
+        //let jsonData = jsonString.data(encoding: .utf8)!
+        
         switch type {
         case .track:
             return trackBuilder.build(type: type, from: dictionary)
@@ -33,6 +37,10 @@ class MediaBuilder: BaseMediaBuilder {
         case .tag:
             return tagBuilder.build(type: type, from: dictionary)
         }
+        
+        let jsonData = jsonString.data(encoding: .utf8)!
+        let decoder = JSONDecoder()
+        let beer = try! decoder.decode(Beer.self, for: jsonData)
     }
 }
 

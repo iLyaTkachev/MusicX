@@ -1,6 +1,5 @@
 import Foundation
 
-protocol BaseMediaObject {
-    //static var type: MediaType { get }
+protocol BaseMediaObject : Codable {
     var name: String { get }
 }

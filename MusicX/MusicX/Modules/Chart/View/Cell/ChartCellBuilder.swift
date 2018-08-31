@@ -48,11 +48,11 @@ class ChartCellBuilder : BaseCellBuilder {
     private func setupTrackCell(cell: ChartTrackCell, track: Track) {
         cell.trackNameLabel.text = track.name
         cell.artistNameLabel.text = track.artist.name
-        cell.imageURL =  track.imageUrl
+        cell.imageURL =  track.images[2].url
         cell.artistImageView.image = nil
         cell.spinner.startAnimating()
         
-        CoreX.shared.repository.getImage(withUrl: track.imageUrl) { (image, error) in
+        CoreX.shared.repository.getImage(withUrl: track.images[2].url) { (image, error) in
             DispatchQueue.main.async {
                 if image != nil && cell.imageURL == track.imageUrl {
                     cell.artistImageView.image = image
@@ -67,13 +67,13 @@ class ChartCellBuilder : BaseCellBuilder {
         cell.name.text = artist.name
         cell.listeners.text = artist.listeners
         cell.playCount.text = artist.playcount
-        cell.imageURL =  artist.imageUrl
+        cell.imageURL =  artist.images?[2].url
         cell.artistImage.image = nil
         cell.spinner.startAnimating()
         
-        CoreX.shared.repository.getImage(withUrl: artist.imageUrl != nil ? artist.imageUrl! : "default") { (image, error) in
+        CoreX.shared.repository.getImage(withUrl: artist.images?[2].url != nil ? artist.images![2].url : "default") { (image, error) in
             DispatchQueue.main.async {
-                if image != nil && cell.imageURL == artist.imageUrl {
+                if image != nil && cell.imageURL == artist.images?[2].url {
                     cell.artistImage.image = image
                 }
                 
