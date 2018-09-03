@@ -9,5 +9,12 @@
 import Foundation
 
 struct Tag: BaseMediaObject {
+    
+    enum CodingKeys : String, CodingKey {
+        case name
+        case reach
+        case taggings
+    }
+    
     var name, reach, taggings: String
 }

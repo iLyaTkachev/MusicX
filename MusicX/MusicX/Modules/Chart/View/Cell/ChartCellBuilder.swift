@@ -54,7 +54,7 @@ class ChartCellBuilder : BaseCellBuilder {
         
         CoreX.shared.repository.getImage(withUrl: track.images[2].url) { (image, error) in
             DispatchQueue.main.async {
-                if image != nil && cell.imageURL == track.imageUrl {
+                if image != nil && cell.imageURL == track.images[2].url {
                     cell.artistImageView.image = image
                 }
                 

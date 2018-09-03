@@ -18,13 +18,13 @@ final class MusicRemoteDataSource: MusicDataSource {
             return
         }
             
-        queryService.executeRequest(urlToExecute: url) { (responseDict, error) in
+        queryService.executeRequest(urlToExecute: url) { (data, error) in
             if let unwrappedError = error {
                 print(unwrappedError.localizedDescription)
                 completionHandler(nil, CustomError.requestError)
                 return
             }
-            guard let dict = responseDict, let mediaArray = self.responseParser.parseMedia(type: type, dictionary: dict) else {
+            guard let dict = data, let mediaArray = self.responseParser.parseMedia(type: type, data: dict) else {
                 completionHandler(nil, CustomError.mediaParsing)
                 return
             }

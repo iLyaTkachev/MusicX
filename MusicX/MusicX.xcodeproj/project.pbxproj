@@ -76,7 +76,6 @@
 		8C41927D211C44D9005D83FA /* BaseChartProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C41927C211C44D9005D83FA /* BaseChartProtocol.swift */; };
 		8C41927F21219E52005D83FA /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C41927E21219E52005D83FA /* Error.swift */; };
 		8C4192812122BA17005D83FA /* BaseTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4192802122BA17005D83FA /* BaseTableCell.swift */; };
-		8C41E7CD2134009900795667 /* MediaBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C41E7CC2134009900795667 /* MediaBuilder.swift */; };
 		8C45EB77213181160009C7AE /* ChartArtistCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C45EB75213181160009C7AE /* ChartArtistCell.swift */; };
 		8C45EB78213181160009C7AE /* ChartArtistCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8C45EB76213181160009C7AE /* ChartArtistCell.xib */; };
 		8C478D3C212D49F200A9CB4D /* TestTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C478D3A212D49F200A9CB4D /* TestTableViewController.swift */; };
@@ -202,7 +201,6 @@
 		8C41927C211C44D9005D83FA /* BaseChartProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseChartProtocol.swift; sourceTree = "<group>"; };
 		8C41927E21219E52005D83FA /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
 		8C4192802122BA17005D83FA /* BaseTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableCell.swift; sourceTree = "<group>"; };
-		8C41E7CC2134009900795667 /* MediaBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaBuilder.swift; sourceTree = "<group>"; };
 		8C45EB75213181160009C7AE /* ChartArtistCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartArtistCell.swift; sourceTree = "<group>"; };
 		8C45EB76213181160009C7AE /* ChartArtistCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChartArtistCell.xib; sourceTree = "<group>"; };
 		8C478D3A212D49F200A9CB4D /* TestTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestTableViewController.swift; sourceTree = "<group>"; };
@@ -318,7 +316,6 @@
 		8C18E22521070FBB005DAEE1 /* DataManager */ = {
 			isa = PBXGroup;
 			children = (
-				8C41E7CB2134006600795667 /* MediaBuilder */,
 				8C18E22621070FC5005DAEE1 /* Remote */,
 				8C18E22721070FCB005DAEE1 /* Local */,
 				8C18E22E21071053005DAEE1 /* MusicRepository.swift */,
@@ -727,14 +724,6 @@
 				8C1B82222137F8C50036ED88 /* Assembly */,
 			);
 			path = Player;
-			sourceTree = "<group>";
-		};
-		8C41E7CB2134006600795667 /* MediaBuilder */ = {
-			isa = PBXGroup;
-			children = (
-				8C41E7CC2134009900795667 /* MediaBuilder.swift */,
-			);
-			path = MediaBuilder;
 			sourceTree = "<group>";
 		};
 		8C45EB72213180950009C7AE /* Track */ = {
@@ -1263,7 +1252,6 @@
 				8C1B81F62136A2440036ED88 /* ChartTagCell.swift in Sources */,
 				8C419277211C376D005D83FA /* MusicDataSourceProtocol.swift in Sources */,
 				8C1B824521380A020036ED88 /* DownloadsPresenter.swift in Sources */,
-				8C41E7CD2134009900795667 /* MediaBuilder.swift in Sources */,
 				8C1B82412138092F0036ED88 /* DownloadsViewController.swift in Sources */,
 				8C419206211342A8005D83FA /* TabBarAssembly.swift in Sources */,
 				8C1B82012136D0FC0036ED88 /* SettingsContract.swift in Sources */,
