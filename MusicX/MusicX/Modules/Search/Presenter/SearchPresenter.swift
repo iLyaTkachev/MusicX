@@ -15,6 +15,14 @@ class SearchPresenter {
 }
 
 extension SearchPresenter : SearchInteractorOutput {
+    func didFetchWithSuccess(media: [BaseMediaObject]) {
+        
+    }
+    
+    func didFetchWithFailure(error: CustomError) {
+        
+    }
+    
     
 }
 
@@ -22,5 +30,6 @@ extension SearchPresenter : SearchViewOutput {
     
     func viewIsReady() {
         view.setupInitialState()
+        interactor.searchMedia(type: .track, name: "name")
     }
 }

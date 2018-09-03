@@ -17,11 +17,12 @@ protocol SearchViewOutput : BaseViewOutput {
 }
 
 protocol SearchInteractorInput : BaseInteractorInput {
-    
+    func searchMedia(type: MediaType, name: String)
 }
 
 protocol SearchInteractorOutput : BaseInteractorOutput {
-    
+    func didFetchWithSuccess(media: [BaseMediaObject])
+    func didFetchWithFailure(error: CustomError)
 }
 
 protocol SearchRouterInput : BaseRouterInput {

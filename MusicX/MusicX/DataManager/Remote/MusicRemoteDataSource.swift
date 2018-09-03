@@ -33,6 +33,26 @@ final class MusicRemoteDataSource: MusicDataSource {
         }
     }
     
+    func searchMedia(type: MediaType, name: String, completionHandler: @escaping ([BaseMediaObject]?, CustomError?) -> Void) {
+        queryService.executeRequest(urlToExecute: URL(string: "https://cool.dj")!) { (data, error) in
+            guard error == nil else {
+                print(error?.localizedDescription)
+                return
+            }
+            
+            guard data != nil else {
+                return
+            }
+            
+            /*if let doc: Document = try? SwiftSoup.parse{
+                print("\(try? doc.text())")
+            }*/
+            
+            let doc = String(data: data!, encoding: .utf8)
+            print(doc)
+        }
+    }
+    
     func getImage(withUrl: String, completionHandler: @escaping (UIImage?, Error?) -> Void) {
         
     }

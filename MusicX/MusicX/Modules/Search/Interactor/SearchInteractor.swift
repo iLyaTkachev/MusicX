@@ -9,8 +9,13 @@
 import Foundation
 
 class SearchInteractor: SearchInteractorInput {
-    
+
     weak var output: SearchInteractorOutput!
     var repository: MusicDataSource!
-    
+
+    func searchMedia(type: MediaType, name: String) {
+        repository.searchMedia(type: type, name: name) { (mediaArray, error) in
+            
+        }
+    }
 }

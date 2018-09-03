@@ -18,6 +18,10 @@ final class MusicRepository: MusicDataSource {
         return remoteDataSource.getChart(type: type, page: page, completionHandler: completionHandler)
     }
     
+    func searchMedia(type: MediaType, name: String, completionHandler: @escaping ([BaseMediaObject]?, CustomError?) -> Void) {
+        remoteDataSource.searchMedia(type: type, name: name, completionHandler: completionHandler)
+    }
+    
     func getImage(withUrl: String, completionHandler: @escaping (UIImage?, Error?) -> Void) {
         imageService.getImage(withUrl: withUrl, completionHandler: completionHandler)
     }
