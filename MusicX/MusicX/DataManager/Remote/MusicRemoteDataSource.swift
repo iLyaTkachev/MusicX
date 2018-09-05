@@ -1,4 +1,5 @@
 import UIKit
+import SwiftSoup
 
 final class MusicRemoteDataSource: MusicDataSource {
 
@@ -34,7 +35,7 @@ final class MusicRemoteDataSource: MusicDataSource {
     }
     
     func searchMedia(type: MediaType, name: String, completionHandler: @escaping ([BaseMediaObject]?, CustomError?) -> Void) {
-        queryService.executeRequest(urlToExecute: URL(string: "https://cool.dj")!) { (data, error) in
+        queryService.executeRequest(urlToExecute: URL(string: "http://playmus.cc/")!) { (data, error) in
             guard error == nil else {
                 print(error?.localizedDescription)
                 return
@@ -44,12 +45,26 @@ final class MusicRemoteDataSource: MusicDataSource {
                 return
             }
             
-            /*if let doc: Document = try? SwiftSoup.parse{
-                print("\(try? doc.text())")
-            }*/
+            let html = String(data: data!, encoding: .utf8)
             
-            let doc = String(data: data!, encoding: .utf8)
-            print(doc)
+            if let doc: Document = try? SwiftSoup.parse(html!){
+                
+                try? doc.getElementsByClass("ListTrack__item").forEach({ (link) in
+                    print("\(try? link.attr("data-artist"))")
+                    print("\(try? link.attr("data-name"))")
+                    //print("\(try? link.child(1).attr("href"))")//link on mp3
+                    //print("\(link.children().size())")
+                    //print("\(link)")
+                })
+                
+                
+                
+            }
+            
+            
+            
+            //let doc = String(data: data!, encoding: .utf8)
+            //print(doc)
         }
     }
     

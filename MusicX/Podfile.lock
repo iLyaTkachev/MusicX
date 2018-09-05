@@ -1,16 +1,20 @@
 PODS:
   - PKHUD (5.1.0)
+  - SwiftSoup (1.7.2)
 
 DEPENDENCIES:
   - PKHUD (~> 5.0)
+  - SwiftSoup
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - PKHUD
+    - SwiftSoup
 
 SPEC CHECKSUMS:
   PKHUD: 62ea46a1e88c4def1da784878d199bb54c841e3c
+  SwiftSoup: e5f61d37e3d802a4b5db81b4945de3da9bfdf115
 
-PODFILE CHECKSUM: 71210915aa1f3cc8051efff2b8b6770e67d14029
+PODFILE CHECKSUM: f73d8986fd2120e008b89e03bc7f5196dd6ba89c
 
 COCOAPODS: 1.5.3
