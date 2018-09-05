@@ -10,7 +10,12 @@ struct Track: BaseMediaObject {
         case images = "image"
     }
     
-    var name, playcount, listeners: String
-    var artist: Artist
-    var images: [Image]
+    init(name: String) {
+        self.name = name
+    }
+    
+    var name: String
+    var playcount, listeners: String?
+    var artist: Artist?
+    var images: [Image]?
 }

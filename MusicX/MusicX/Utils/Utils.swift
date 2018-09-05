@@ -15,6 +15,10 @@ final class Utils {
         return String(url.suffix(40)).replacingOccurrences(of: "/", with: "_")
     }
     
+    static func getFileNameFromTrackUrl(url: String) -> String {
+        return String(url.suffix(57))
+    }
+    
     static func getViewController(storyboardName: String, vcId: String) -> UIViewController {
         let storyboard = UIStoryboard(name: storyboardName, bundle: Bundle.main)
         

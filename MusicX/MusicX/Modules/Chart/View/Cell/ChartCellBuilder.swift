@@ -47,14 +47,16 @@ class ChartCellBuilder : BaseCellBuilder {
     
     private func setupTrackCell(cell: ChartTrackCell, track: Track) {
         cell.trackNameLabel.text = track.name
-        cell.artistNameLabel.text = track.artist.name
-        cell.imageURL =  track.images[2].url
+        cell.artistNameLabel.text = track.artist?.name
+        cell.imageURL =  track.images?[2].url
         cell.artistImageView.image = nil
         cell.spinner.startAnimating()
         
-        CoreX.shared.repository.getImage(withUrl: track.images[2].url) { (image, error) in
+        CoreX.shared.repository.getImage(withUrl: track.images != nil ? track.images![2].url : "") { (image, error) in
             DispatchQueue.main.async {
-                if image != nil && cell.imageURL == track.images[2].url {
+                if error != nil {
+                    cell.artistImageView.image = UIImage(named: "user_male")
+                } else if image != nil && cell.imageURL == track.images![2].url {
                     cell.artistImageView.image = image
                 }
                 

@@ -5,10 +5,12 @@ final class MusicRemoteDataSource: MusicDataSource {
 
     private let queryService: BaseNetworkService
     private let responseParser: BaseMediaResponseParser
+    private let searchParser: BaseMediaResponseParser
     
     init(queryService: BaseNetworkService) {
         self.queryService = queryService
         responseParser = MediaResponseParser()
+        searchParser = PlaymusSearchParser()
     }
 
     func getChart(type: MediaType, page: Int, completionHandler: @escaping (Chart?, CustomError?)->Void) {
@@ -34,8 +36,26 @@ final class MusicRemoteDataSource: MusicDataSource {
         }
     }
     
-    func searchMedia(type: MediaType, name: String, completionHandler: @escaping ([BaseMediaObject]?, CustomError?) -> Void) {
-        queryService.executeRequest(urlToExecute: URL(string: "http://playmus.cc/")!) { (data, error) in
+    func searchMedia(type: MediaType, name: String, page: Int?, completionHandler: @escaping ([BaseMediaObject]?, CustomError?) -> Void) {
+        
+        switch type {
+        case .track:
+            guard let url = ApiRequestBuilder.PlaymusBuilder().search(name: name, page: page) else {
+                completionHandler(nil, CustomError.requestError)
+                return
+            }
+        case .artist:
+            completionHandler(nil, CustomError.requestError)
+        case .tag:
+            completionHandler(nil, CustomError.requestError)
+        }
+        
+        guard let url = ApiRequestBuilder.PlaymusBuilder().search(name: name, page: page) else {
+            completionHandler(nil, CustomError.requestError)
+            return
+        }
+        
+        queryService.executeRequest(urlToExecute: url) { (data, error) in
             guard error == nil else {
                 print(error?.localizedDescription)
                 return

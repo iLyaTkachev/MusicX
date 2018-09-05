@@ -16,11 +16,11 @@ enum MediaType: String {
     func chartMethod() -> String {
         switch self {
         case .track:
-            return ApiConstants.ApiComponents.Chart.getTopTracks
+            return ApiConstants.LastFmApi.Chart.getTopTracks
         case .artist:
-            return ApiConstants.ApiComponents.Chart.getTopArtists
+            return ApiConstants.LastFmApi.Chart.getTopArtists
         case .tag:
-            return ApiConstants.ApiComponents.Chart.getTopTags
+            return ApiConstants.LastFmApi.Chart.getTopTags
         }
     }
     

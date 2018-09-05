@@ -17,7 +17,7 @@ protocol SearchViewOutput : BaseViewOutput {
 }
 
 protocol SearchInteractorInput : BaseInteractorInput {
-    func searchMedia(type: MediaType, name: String)
+    func searchMedia(type: MediaType, name: String, page: Int)
 }
 
 protocol SearchInteractorOutput : BaseInteractorOutput {

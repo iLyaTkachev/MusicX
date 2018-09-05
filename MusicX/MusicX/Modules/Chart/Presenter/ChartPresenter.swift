@@ -19,7 +19,6 @@ class ChartPresenter {
     var isLoading = false
     var currentPage = 0
     
-    
     private var items: [BaseMediaObject] = []
 
 }

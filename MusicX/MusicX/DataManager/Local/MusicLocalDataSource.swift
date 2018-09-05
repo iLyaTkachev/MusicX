@@ -10,7 +10,7 @@ class MusicLocalDataSource: MusicDataSource {
         completionHandler(nil, nil)
     }
     
-    func searchMedia(type: MediaType, name: String, completionHandler: @escaping ([BaseMediaObject]?, CustomError?) -> Void) {
+    func searchMedia(type: MediaType, name: String, page: Int?, completionHandler: @escaping ([BaseMediaObject]?, CustomError?) -> Void) {
         
     }
     

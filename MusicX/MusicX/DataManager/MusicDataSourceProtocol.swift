@@ -10,7 +10,7 @@ import UIKit
 
 protocol MusicDataSource {
     func getChart(type: MediaType, page: Int, completionHandler: @escaping (Chart?, CustomError?)->Void)
-    func searchMedia(type: MediaType, name: String, completionHandler: @escaping ([BaseMediaObject]?, CustomError?)->Void)
+    func searchMedia(type: MediaType, name: String, page: Int?, completionHandler: @escaping ([BaseMediaObject]?, CustomError?)->Void)
     func getImage(withUrl: String, completionHandler: @escaping (UIImage?, Error?)->Void)
     func getImageDirectorySize() -> Int
     func clearImageDirectory()

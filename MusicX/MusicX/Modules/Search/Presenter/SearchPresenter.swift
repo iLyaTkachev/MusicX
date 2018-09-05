@@ -12,6 +12,9 @@ class SearchPresenter {
     weak var view: SearchViewInput!
     var interactor: SearchInteractorInput!
     var router: SearchRouterInput!
+    
+    var isLoading = false
+    var currentPage = 0
 }
 
 extension SearchPresenter : SearchInteractorOutput {
@@ -30,6 +33,6 @@ extension SearchPresenter : SearchViewOutput {
     
     func viewIsReady() {
         view.setupInitialState()
-        interactor.searchMedia(type: .track, name: "name")
+        interactor.searchMedia(type: .track, name: "name", page: currentPage + 1)
     }
 }

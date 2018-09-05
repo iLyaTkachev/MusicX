@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		69F06D887E44D96AD4786B08 /* Pods_MusicX.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BDBD65FF2BCF07575001346 /* Pods_MusicX.framework */; };
 		6F69841E54881654F6CECB27 /* Pods_MusicXTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48B02112A3B034B2551169D9 /* Pods_MusicXTests.framework */; };
+		8C10515921400A3D009A5555 /* PlaymusSearchParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C10515821400A3D009A5555 /* PlaymusSearchParser.swift */; };
 		8C18E21A20FF5909005DAEE1 /* ApiRequestBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C18E21920FF5909005DAEE1 /* ApiRequestBuilder.swift */; };
 		8C18E22921070FE1005DAEE1 /* Download.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C18E22821070FE1005DAEE1 /* Download.swift */; };
 		8C18E22B2107100B005DAEE1 /* Track.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C18E22A2107100B005DAEE1 /* Track.swift */; };
@@ -97,8 +98,6 @@
 		8C62D54921257D9D00A78FD0 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C62D54821257D9D00A78FD0 /* TestViewController.swift */; };
 		8C62D54C2125924700A78FD0 /* testCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8C62D54B2125924700A78FD0 /* testCell.xib */; };
 		8C62D54E2125925F00A78FD0 /* TestCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C62D54D2125925F00A78FD0 /* TestCellView.swift */; };
-		8C7A9A57213437B300DE5DE3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C7A9A56213437B200DE5DE3 /* Main.storyboard */; };
-		8C7A9A59213437D400DE5DE3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C7A9A58213437D400DE5DE3 /* ViewController.swift */; };
 		8C84EE3A210F0D4D000780B0 /* ChartInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C84EE39210F0D4D000780B0 /* ChartInteractor.swift */; };
 		8C84EE3C210F0E23000780B0 /* ChartPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C84EE3B210F0E23000780B0 /* ChartPresenter.swift */; };
 		8C84EE3F210F1563000780B0 /* ChartContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C84EE3E210F1563000780B0 /* ChartContract.swift */; };
@@ -134,6 +133,7 @@
 		48B02112A3B034B2551169D9 /* Pods_MusicXTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MusicXTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		67236E484393A528AF40E184 /* Pods-MusicXUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MusicXUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MusicXUITests/Pods-MusicXUITests.release.xcconfig"; sourceTree = "<group>"; };
 		6827F8BD76F15478BA86F5F4 /* Pods-MusicXTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MusicXTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MusicXTests/Pods-MusicXTests.release.xcconfig"; sourceTree = "<group>"; };
+		8C10515821400A3D009A5555 /* PlaymusSearchParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaymusSearchParser.swift; sourceTree = "<group>"; };
 		8C18E21920FF5909005DAEE1 /* ApiRequestBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiRequestBuilder.swift; sourceTree = "<group>"; };
 		8C18E22821070FE1005DAEE1 /* Download.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Download.swift; sourceTree = "<group>"; };
 		8C18E22A2107100B005DAEE1 /* Track.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Track.swift; sourceTree = "<group>"; };
@@ -228,8 +228,6 @@
 		8C62D54821257D9D00A78FD0 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		8C62D54B2125924700A78FD0 /* testCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = testCell.xib; sourceTree = "<group>"; };
 		8C62D54D2125925F00A78FD0 /* TestCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCellView.swift; sourceTree = "<group>"; };
-		8C7A9A56213437B200DE5DE3 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
-		8C7A9A58213437D400DE5DE3 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		8C84EE39210F0D4D000780B0 /* ChartInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartInteractor.swift; sourceTree = "<group>"; };
 		8C84EE3B210F0E23000780B0 /* ChartPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartPresenter.swift; sourceTree = "<group>"; };
 		8C84EE3E210F1563000780B0 /* ChartContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartContract.swift; sourceTree = "<group>"; };
@@ -329,6 +327,7 @@
 			children = (
 				8C18E2302107107B005DAEE1 /* MusicRemoteDataSource.swift */,
 				8C419278211C3990005D83FA /* MediaResponseParser.swift */,
+				8C10515821400A3D009A5555 /* PlaymusSearchParser.swift */,
 			);
 			path = Remote;
 			sourceTree = "<group>";
@@ -809,8 +808,6 @@
 				8C4B43A220FCCA9E0014C692 /* AppDelegate.swift */,
 				8C62D54521257D4800A78FD0 /* test */,
 				8C4B43AC20FCCA9F0014C692 /* Assets.xcassets */,
-				8C7A9A56213437B200DE5DE3 /* Main.storyboard */,
-				8C7A9A58213437D400DE5DE3 /* ViewController.swift */,
 				8C4B43AE20FCCA9F0014C692 /* LaunchScreen.storyboard */,
 				8C4B43B120FCCA9F0014C692 /* Info.plist */,
 				8C4B43A920FCCA9E0014C692 /* MusicX.xcdatamodeld */,
@@ -1068,7 +1065,6 @@
 				8C4B43AD20FCCA9F0014C692 /* Assets.xcassets in Resources */,
 				8C1B82172137E8540036ED88 /* Search.storyboard in Resources */,
 				8C1B822B2137FADA0036ED88 /* Player.storyboard in Resources */,
-				8C7A9A57213437B300DE5DE3 /* Main.storyboard in Resources */,
 				8C1B823F213808890036ED88 /* Downloads.storyboard in Resources */,
 				8C62D54C2125924700A78FD0 /* testCell.xib in Resources */,
 				8CB665F5211056E500CEF996 /* ChartTrackCell.xib in Resources */,
@@ -1214,6 +1210,7 @@
 				8C84EE3C210F0E23000780B0 /* ChartPresenter.swift in Sources */,
 				8C1B82092136D7B40036ED88 /* SettingsInteractor.swift in Sources */,
 				8C18E23721071136005DAEE1 /* QueryService.swift in Sources */,
+				8C10515921400A3D009A5555 /* PlaymusSearchParser.swift in Sources */,
 				8C478D41212D727500A9CB4D /* UniversalTableViewController.swift in Sources */,
 				8C1B821B2137F5A50036ED88 /* SearchInteractor.swift in Sources */,
 				8C24697D212C3EBB00BD83E9 /* ChartCellBuilder.swift in Sources */,
@@ -1250,7 +1247,6 @@
 				8C1B82312138022B0036ED88 /* PlayerPresenter.swift in Sources */,
 				8C18E22D21071024005DAEE1 /* Artist.swift in Sources */,
 				8C41920421134291005D83FA /* TabBarContract.swift in Sources */,
-				8C7A9A59213437D400DE5DE3 /* ViewController.swift in Sources */,
 				8C1B81F62136A2440036ED88 /* ChartTagCell.swift in Sources */,
 				8C419277211C376D005D83FA /* MusicDataSourceProtocol.swift in Sources */,
 				8C1B824521380A020036ED88 /* DownloadsPresenter.swift in Sources */,

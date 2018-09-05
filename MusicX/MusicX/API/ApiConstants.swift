@@ -4,7 +4,13 @@ class ApiConstants {
     
     static let appName = "MusicX"
     
-    class ApiComponents {
+    class PlaymusApi {
+        static let baseUrl = "http://playmus.cc/"
+        static let search = "search"
+        static let devider = "%20"
+    }
+    
+    class LastFmApi {
         static let example = "http://ws.audioscrobbler.com/2.0/?method=chart.gettoptracks&api_key=YOUR_API_KEY&format=json"
         static let baseUrl = "https://ws.audioscrobbler.com"
         static let version = "2.0"
