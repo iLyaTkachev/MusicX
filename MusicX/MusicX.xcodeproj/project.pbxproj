@@ -10,6 +10,7 @@
 		69F06D887E44D96AD4786B08 /* Pods_MusicX.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BDBD65FF2BCF07575001346 /* Pods_MusicX.framework */; };
 		6F69841E54881654F6CECB27 /* Pods_MusicXTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48B02112A3B034B2551169D9 /* Pods_MusicXTests.framework */; };
 		8C10515921400A3D009A5555 /* PlaymusSearchParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C10515821400A3D009A5555 /* PlaymusSearchParser.swift */; };
+		8C10515C2142B741009A5555 /* SearchCellBulder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C10515B2142B741009A5555 /* SearchCellBulder.swift */; };
 		8C18E21A20FF5909005DAEE1 /* ApiRequestBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C18E21920FF5909005DAEE1 /* ApiRequestBuilder.swift */; };
 		8C18E22921070FE1005DAEE1 /* Download.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C18E22821070FE1005DAEE1 /* Download.swift */; };
 		8C18E22B2107100B005DAEE1 /* Track.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C18E22A2107100B005DAEE1 /* Track.swift */; };
@@ -134,6 +135,7 @@
 		67236E484393A528AF40E184 /* Pods-MusicXUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MusicXUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MusicXUITests/Pods-MusicXUITests.release.xcconfig"; sourceTree = "<group>"; };
 		6827F8BD76F15478BA86F5F4 /* Pods-MusicXTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MusicXTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MusicXTests/Pods-MusicXTests.release.xcconfig"; sourceTree = "<group>"; };
 		8C10515821400A3D009A5555 /* PlaymusSearchParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaymusSearchParser.swift; sourceTree = "<group>"; };
+		8C10515B2142B741009A5555 /* SearchCellBulder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCellBulder.swift; sourceTree = "<group>"; };
 		8C18E21920FF5909005DAEE1 /* ApiRequestBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiRequestBuilder.swift; sourceTree = "<group>"; };
 		8C18E22821070FE1005DAEE1 /* Download.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Download.swift; sourceTree = "<group>"; };
 		8C18E22A2107100B005DAEE1 /* Track.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Track.swift; sourceTree = "<group>"; };
@@ -294,6 +296,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		8C10515A2142B727009A5555 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				8C10515B2142B741009A5555 /* SearchCellBulder.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		8C18E22421070FAD005DAEE1 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -450,6 +460,7 @@
 		8C1B82122137E7AF0036ED88 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				8C10515A2142B727009A5555 /* Cell */,
 				8C1B82162137E8540036ED88 /* Search.storyboard */,
 				8C1B82182137E8670036ED88 /* SearchViewController.swift */,
 			);
@@ -1214,6 +1225,7 @@
 				8C478D41212D727500A9CB4D /* UniversalTableViewController.swift in Sources */,
 				8C1B821B2137F5A50036ED88 /* SearchInteractor.swift in Sources */,
 				8C24697D212C3EBB00BD83E9 /* ChartCellBuilder.swift in Sources */,
+				8C10515C2142B741009A5555 /* SearchCellBulder.swift in Sources */,
 				8C1B81F92136A3F30036ED88 /* Tag.swift in Sources */,
 				8C18E23C21074763005DAEE1 /* Utils.swift in Sources */,
 				8C24697B212C371E00BD83E9 /* Constants.swift in Sources */,

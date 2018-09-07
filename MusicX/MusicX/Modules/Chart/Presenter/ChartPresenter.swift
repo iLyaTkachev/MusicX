@@ -28,7 +28,7 @@ class ChartPresenter {
 extension ChartPresenter : ChartInteractorOutput {
     func didFetchWithSuccess(chart: BaseChart) {
         isLoading = false
-        print("chart page fetched: \(chart.page)")
+        //print("chart page fetched: \(chart.page)")
         if chart.type == requestedMediaType, !chart.items.isEmpty {
             if chart.page == 1, currentPage > 1, !items.isEmpty {
                 items.removeAll()
@@ -48,6 +48,7 @@ extension ChartPresenter : ChartInteractorOutput {
         view.onError(message: error.errorDesctiption())
         view.hideActivityIndicator()
         view.setType(type: currentMediaType)
+        view.updateList()
     }
 }
 

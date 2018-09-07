@@ -15,21 +15,27 @@ class SearchPresenter {
     
     var isLoading = false
     var currentPage = 0
+    var currentMediaType: MediaType!
+    
 }
 
 extension SearchPresenter : SearchInteractorOutput {
     func didFetchWithSuccess(media: [BaseMediaObject]) {
         print(media)
+        view.hideActivityIndicator()
     }
     
     func didFetchWithFailure(error: CustomError) {
-        
+        view.hideActivityIndicator()
     }
-    
     
 }
 
 extension SearchPresenter : SearchViewOutput {
+    func search(with name: String) {
+        view.showActivityIndicator()
+        interactor.searchMedia(type: currentMediaType, name: name, page: 1)
+    }
     
     func viewIsReady() {
         view.setupInitialState()

@@ -17,12 +17,35 @@
                     <view key="view" contentMode="scaleToFill" id="g9y-aB-4W4">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" searchBarStyle="prominent" placeholder="Song name or artist" translatesAutoresizingMaskIntoConstraints="NO" id="u3V-wt-c2N">
+                                <rect key="frame" x="0.0" y="20" width="375" height="56"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="F17-u3-fDR">
+                                <rect key="frame" x="0.0" y="76" width="375" height="542"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Utx-g3-oBU" firstAttribute="trailing" secondItem="F17-u3-fDR" secondAttribute="trailing" id="Cli-a0-P1V"/>
+                            <constraint firstItem="u3V-wt-c2N" firstAttribute="top" secondItem="Utx-g3-oBU" secondAttribute="top" id="DhV-bu-2LF"/>
+                            <constraint firstItem="u3V-wt-c2N" firstAttribute="leading" secondItem="Utx-g3-oBU" secondAttribute="leading" id="NSa-BF-k90"/>
+                            <constraint firstItem="Utx-g3-oBU" firstAttribute="bottom" secondItem="F17-u3-fDR" secondAttribute="bottom" id="SMh-St-YRN"/>
+                            <constraint firstItem="F17-u3-fDR" firstAttribute="leading" secondItem="Utx-g3-oBU" secondAttribute="leading" id="WLV-ho-yhy"/>
+                            <constraint firstItem="u3V-wt-c2N" firstAttribute="trailing" secondItem="Utx-g3-oBU" secondAttribute="trailing" id="eDC-1V-SQx"/>
+                            <constraint firstItem="F17-u3-fDR" firstAttribute="top" secondItem="u3V-wt-c2N" secondAttribute="bottom" id="pLp-CZ-kML"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="Utx-g3-oBU"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Search" image="search" id="crU-t8-aWp"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="searchBar" destination="u3V-wt-c2N" id="9Tk-iJ-K2i"/>
+                        <outlet property="tableViewHolder" destination="F17-u3-fDR" id="UUg-R9-nR1"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ssl-9M-FEN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

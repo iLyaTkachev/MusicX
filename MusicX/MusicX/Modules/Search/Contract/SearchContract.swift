@@ -8,12 +8,13 @@
 
 import Foundation
 
-protocol SearchViewInput : BaseViewInput {
-    
+protocol SearchViewInput : BaseViewInput, ActivityIndicator {
+    func updateList()
+    func onError(message: String)
 }
 
 protocol SearchViewOutput : BaseViewOutput {
-
+    func search(with name: String)
 }
 
 protocol SearchInteractorInput : BaseInteractorInput {
