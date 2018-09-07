@@ -47,7 +47,7 @@ class ChartCellBuilder : BaseCellBuilder {
     
     private func setupTrackCell(cell: ChartTrackCell, track: Track) {
         cell.trackNameLabel.text = track.name
-        cell.artistNameLabel.text = track.artist?.name
+        cell.artistNameLabel.text = track.artist.name
         cell.imageURL =  track.images?[2].url
         cell.artistImageView.image = nil
         cell.spinner.startAnimating()

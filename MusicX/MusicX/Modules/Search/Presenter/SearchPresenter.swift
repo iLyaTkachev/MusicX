@@ -19,7 +19,7 @@ class SearchPresenter {
 
 extension SearchPresenter : SearchInteractorOutput {
     func didFetchWithSuccess(media: [BaseMediaObject]) {
-        
+        print(media)
     }
     
     func didFetchWithFailure(error: CustomError) {

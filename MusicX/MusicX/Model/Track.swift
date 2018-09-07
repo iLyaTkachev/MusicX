@@ -1,6 +1,6 @@
 import Foundation
 
-struct Track: BaseMediaObject {
+struct Track: BaseMediaObject, Codable {
     
     enum CodingKeys : String, CodingKey {
         case name
@@ -10,12 +10,13 @@ struct Track: BaseMediaObject {
         case images = "image"
     }
     
-    init(name: String) {
+    init(name: String, id: String, artist: Artist) {
         self.name = name
+        self.artist = artist
     }
     
     var name: String
-    var playcount, listeners: String?
-    var artist: Artist?
+    var id, playcount, listeners: String?
+    var artist: Artist
     var images: [Image]?
 }

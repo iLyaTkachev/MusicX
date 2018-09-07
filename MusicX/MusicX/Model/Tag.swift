@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Tag: BaseMediaObject {
+struct Tag: BaseMediaObject, Codable {
     
     enum CodingKeys : String, CodingKey {
         case name

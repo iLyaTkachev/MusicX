@@ -57,34 +57,16 @@ final class MusicRemoteDataSource: MusicDataSource {
         
         queryService.executeRequest(urlToExecute: url) { (data, error) in
             guard error == nil else {
-                print(error?.localizedDescription)
+                completionHandler(nil, CustomError.requestError)
                 return
             }
             
-            guard data != nil else {
+            guard data != nil, let result = self.searchParser.parseMedia(type: .track, data: data!) else {
+                completionHandler(nil, CustomError.mediaParsing)
                 return
             }
             
-            let html = String(data: data!, encoding: .utf8)
-            
-            if let doc: Document = try? SwiftSoup.parse(html!){
-                
-                try? doc.getElementsByClass("ListTrack__item").forEach({ (link) in
-                    print("\(try? link.attr("data-artist"))")
-                    print("\(try? link.attr("data-name"))")
-                    //print("\(try? link.child(1).attr("href"))")//link on mp3
-                    //print("\(link.children().size())")
-                    //print("\(link)")
-                })
-                
-                
-                
-            }
-            
-            
-            
-            //let doc = String(data: data!, encoding: .utf8)
-            //print(doc)
+            completionHandler(result, nil)
         }
     }
     

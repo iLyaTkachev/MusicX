@@ -1,16 +1,21 @@
 import Foundation
 
-struct Artist: BaseMediaObject {
+struct Artist: BaseMediaObject, Codable {
 
     enum CodingKeys : String, CodingKey {
         case name
-        case mbid
+        case id = "mbid"
         case playcount
         case listeners
         case images = "image"
     }
     
-    var name, mbid: String
+    init(name: String, id: String) {
+        self.name = name
+        self.id = id
+    }
+    
+    var name, id: String
     var playcount, listeners: String?
     var images: [Image]?
 }
