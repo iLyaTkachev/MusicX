@@ -11,6 +11,8 @@
 		6F69841E54881654F6CECB27 /* Pods_MusicXTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48B02112A3B034B2551169D9 /* Pods_MusicXTests.framework */; };
 		8C10515921400A3D009A5555 /* PlaymusSearchParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C10515821400A3D009A5555 /* PlaymusSearchParser.swift */; };
 		8C10515C2142B741009A5555 /* SearchCellBulder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C10515B2142B741009A5555 /* SearchCellBulder.swift */; };
+		8C1051622142B985009A5555 /* SearchTrackCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1051602142B985009A5555 /* SearchTrackCell.swift */; };
+		8C1051632142B985009A5555 /* SearchTrackCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8C1051612142B985009A5555 /* SearchTrackCell.xib */; };
 		8C18E21A20FF5909005DAEE1 /* ApiRequestBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C18E21920FF5909005DAEE1 /* ApiRequestBuilder.swift */; };
 		8C18E22921070FE1005DAEE1 /* Download.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C18E22821070FE1005DAEE1 /* Download.swift */; };
 		8C18E22B2107100B005DAEE1 /* Track.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C18E22A2107100B005DAEE1 /* Track.swift */; };
@@ -136,6 +138,8 @@
 		6827F8BD76F15478BA86F5F4 /* Pods-MusicXTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MusicXTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MusicXTests/Pods-MusicXTests.release.xcconfig"; sourceTree = "<group>"; };
 		8C10515821400A3D009A5555 /* PlaymusSearchParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaymusSearchParser.swift; sourceTree = "<group>"; };
 		8C10515B2142B741009A5555 /* SearchCellBulder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCellBulder.swift; sourceTree = "<group>"; };
+		8C1051602142B985009A5555 /* SearchTrackCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTrackCell.swift; sourceTree = "<group>"; };
+		8C1051612142B985009A5555 /* SearchTrackCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchTrackCell.xib; sourceTree = "<group>"; };
 		8C18E21920FF5909005DAEE1 /* ApiRequestBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiRequestBuilder.swift; sourceTree = "<group>"; };
 		8C18E22821070FE1005DAEE1 /* Download.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Download.swift; sourceTree = "<group>"; };
 		8C18E22A2107100B005DAEE1 /* Track.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Track.swift; sourceTree = "<group>"; };
@@ -299,9 +303,19 @@
 		8C10515A2142B727009A5555 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				8C10515D2142B91F009A5555 /* Track */,
 				8C10515B2142B741009A5555 /* SearchCellBulder.swift */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		8C10515D2142B91F009A5555 /* Track */ = {
+			isa = PBXGroup;
+			children = (
+				8C1051602142B985009A5555 /* SearchTrackCell.swift */,
+				8C1051612142B985009A5555 /* SearchTrackCell.xib */,
+			);
+			path = Track;
 			sourceTree = "<group>";
 		};
 		8C18E22421070FAD005DAEE1 /* Model */ = {
@@ -1076,6 +1090,7 @@
 				8C4B43AD20FCCA9F0014C692 /* Assets.xcassets in Resources */,
 				8C1B82172137E8540036ED88 /* Search.storyboard in Resources */,
 				8C1B822B2137FADA0036ED88 /* Player.storyboard in Resources */,
+				8C1051632142B985009A5555 /* SearchTrackCell.xib in Resources */,
 				8C1B823F213808890036ED88 /* Downloads.storyboard in Resources */,
 				8C62D54C2125924700A78FD0 /* testCell.xib in Resources */,
 				8CB665F5211056E500CEF996 /* ChartTrackCell.xib in Resources */,
@@ -1268,6 +1283,7 @@
 				8C1B823D213808400036ED88 /* DownloadsContract.swift in Sources */,
 				8C41927F21219E52005D83FA /* Error.swift in Sources */,
 				8C41927B211C427E005D83FA /* Chart.swift in Sources */,
+				8C1051622142B985009A5555 /* SearchTrackCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

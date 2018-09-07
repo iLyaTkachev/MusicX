@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="2Nj-qt-mdO" customClass="SearchTrackCell" customModule="MusicX" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="109"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="V7b-Xi-2TV">
+                    <rect key="frame" x="8" y="8" width="247" height="49"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BMO-l1-V24">
+                            <rect key="frame" x="0.0" y="0.0" width="247" height="21.5"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Artist" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9GL-bz-eie">
+                            <rect key="frame" x="0.0" y="29.5" width="247" height="19.5"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                            <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                </stackView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xQg-UB-Irl">
+                    <rect key="frame" x="290" y="17.5" width="69" height="30"/>
+                    <state key="normal" title="Download">
+                        <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                </button>
+                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="isH-Sk-ZmL">
+                    <rect key="frame" x="319" y="17.5" width="48" height="30"/>
+                    <state key="normal" title="Cancel">
+                        <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                </button>
+                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9aQ-bR-Eye">
+                    <rect key="frame" x="269" y="17.5" width="42" height="30"/>
+                    <state key="normal" title="Pause">
+                        <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                </button>
+                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100% of 1.35MB" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iyv-oP-uAP">
+                    <rect key="frame" x="282.5" y="59.5" width="84.5" height="13.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                    <color key="textColor" red="0.66666666669999997" green="0.66666666669999997" blue="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <progressView hidden="YES" opaque="NO" tag="40" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="qPf-eQ-MvU">
+                    <rect key="frame" x="8" y="65" width="247" height="2"/>
+                </progressView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="isH-Sk-ZmL" firstAttribute="leading" secondItem="9aQ-bR-Eye" secondAttribute="trailing" constant="8" id="0yt-tm-LgM"/>
+                <constraint firstItem="Q8q-zV-bd1" firstAttribute="trailing" secondItem="isH-Sk-ZmL" secondAttribute="trailing" constant="8" id="HTw-bv-2Ek"/>
+                <constraint firstItem="isH-Sk-ZmL" firstAttribute="centerY" secondItem="V7b-Xi-2TV" secondAttribute="centerY" id="IEx-cX-PK7"/>
+                <constraint firstItem="V7b-Xi-2TV" firstAttribute="top" secondItem="Q8q-zV-bd1" secondAttribute="top" constant="8" id="JZE-aa-QaK"/>
+                <constraint firstItem="isH-Sk-ZmL" firstAttribute="centerY" secondItem="9aQ-bR-Eye" secondAttribute="centerY" id="Kin-mp-0wC"/>
+                <constraint firstItem="qPf-eQ-MvU" firstAttribute="top" secondItem="V7b-Xi-2TV" secondAttribute="bottom" constant="8" id="Lid-OH-RnE"/>
+                <constraint firstItem="Q8q-zV-bd1" firstAttribute="trailing" secondItem="V7b-Xi-2TV" secondAttribute="trailing" constant="120" id="NXo-gQ-BaX"/>
+                <constraint firstItem="V7b-Xi-2TV" firstAttribute="leading" secondItem="Q8q-zV-bd1" secondAttribute="leading" constant="8" id="P12-bV-iR1"/>
+                <constraint firstItem="qPf-eQ-MvU" firstAttribute="width" secondItem="V7b-Xi-2TV" secondAttribute="width" id="QXT-q4-hD3"/>
+                <constraint firstItem="Iyv-oP-uAP" firstAttribute="centerY" secondItem="qPf-eQ-MvU" secondAttribute="centerY" id="Xmj-TS-lkD"/>
+                <constraint firstItem="Q8q-zV-bd1" firstAttribute="trailing" secondItem="Iyv-oP-uAP" secondAttribute="trailing" constant="8" id="aCL-Bf-DoH"/>
+                <constraint firstItem="qPf-eQ-MvU" firstAttribute="leading" secondItem="2Nj-qt-mdO" secondAttribute="leading" constant="8" id="cat-bs-hD4"/>
+                <constraint firstItem="Q8q-zV-bd1" firstAttribute="trailing" secondItem="xQg-UB-Irl" secondAttribute="trailing" constant="16" id="e19-ub-NOo"/>
+                <constraint firstItem="Q8q-zV-bd1" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="qPf-eQ-MvU" secondAttribute="bottom" constant="8" id="kxF-x2-trA"/>
+                <constraint firstItem="xQg-UB-Irl" firstAttribute="centerY" secondItem="V7b-Xi-2TV" secondAttribute="centerY" id="pkf-ix-PMO"/>
+            </constraints>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="Q8q-zV-bd1"/>
+            <point key="canvasLocation" x="94" y="-276"/>
+        </view>
+    </objects>
+</document>
