@@ -8,13 +8,19 @@
 
 import UIKit
 
-protocol UniversalTableViewOutput : class {
+protocol TableViewDataSourceAndRowsCount : class {
     func getCell(tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     func getNumberOfRows(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
+    func cellClicked(index: Int)
+}
+
+protocol TableViewPagination : class {
     func willDisplay(tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath)
+}
+
+protocol TableViewScrolling : class {
     func scrollDown()
     func scrollUp()
-    func cellClicked(index: Int)
 }
 
 protocol UniversalTableViewInput {
@@ -26,7 +32,9 @@ class UniversalTableViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
-    weak var output: UniversalTableViewOutput!
+    weak var delegateAndDataSource: TableViewDataSourceAndRowsCount?
+    weak var paginationDelegate: TableViewPagination?
+    weak var scrollingDelegate: TableViewScrolling?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,9 +49,9 @@ class UniversalTableViewController: UIViewController {
     func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
         
         if(velocity.y>0) {
-            output.scrollDown()
+            scrollingDelegate?.scrollDown()
         } else {
-            output.scrollUp()
+            scrollingDelegate?.scrollUp()
         }
     }
 
@@ -64,20 +72,21 @@ extension UniversalTableViewController: UniversalTableViewInput {
 
 extension UniversalTableViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return output.getCell(tableView: tableView, cellForRowAt: indexPath)
+        return delegateAndDataSource?.getCell(tableView: tableView, cellForRowAt: indexPath) ?? UITableViewCell()
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        output.willDisplay(tableView: tableView, willDisplay: cell, forRowAt: indexPath)
+        paginationDelegate?.willDisplay(tableView: tableView, willDisplay: cell, forRowAt: indexPath)
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        output.cellClicked(index: indexPath.row)
+        delegateAndDataSource?.cellClicked(index: indexPath.row)
     }
 }
 
 extension UniversalTableViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return output.getNumberOfRows(tableView: tableView, numberOfRowsInSection: section)
+        //let count = try? delegateAndDataSource.getNumberOfRows(tableView: tableView, numberOfRowsInSection: section)
+        return delegateAndDataSource?.getNumberOfRows(tableView: tableView, numberOfRowsInSection: section) ?? 0
     }
 }

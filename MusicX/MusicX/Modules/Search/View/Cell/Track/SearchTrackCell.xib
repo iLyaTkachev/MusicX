@@ -35,18 +35,21 @@
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xQg-UB-Irl">
                     <rect key="frame" x="290" y="17.5" width="69" height="30"/>
                     <state key="normal" title="Download">
+                        <color key="titleColor" red="0.98624604940000005" green="0.0071207880970000003" blue="0.027434188870000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
                 </button>
                 <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="isH-Sk-ZmL">
                     <rect key="frame" x="319" y="17.5" width="48" height="30"/>
                     <state key="normal" title="Cancel">
+                        <color key="titleColor" red="0.98624604940000005" green="0.0071207880970000003" blue="0.027434188870000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
                 </button>
                 <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9aQ-bR-Eye">
                     <rect key="frame" x="269" y="17.5" width="42" height="30"/>
                     <state key="normal" title="Pause">
+                        <color key="titleColor" red="0.98624604940000005" green="0.0071207880970000003" blue="0.027434188870000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
                 </button>
@@ -82,6 +85,15 @@
             <nil key="simulatedBottomBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="Q8q-zV-bd1"/>
+            <connections>
+                <outlet property="artistNameLabel" destination="9GL-bz-eie" id="tsm-2c-8ON"/>
+                <outlet property="cancelButton" destination="isH-Sk-ZmL" id="x0U-zy-F1K"/>
+                <outlet property="downloadButton" destination="xQg-UB-Irl" id="5Au-lI-OrZ"/>
+                <outlet property="pauseButton" destination="9aQ-bR-Eye" id="QOW-8F-PgB"/>
+                <outlet property="progressLabel" destination="Iyv-oP-uAP" id="T9d-dI-gzL"/>
+                <outlet property="progressView" destination="qPf-eQ-MvU" id="UV3-Am-1B9"/>
+                <outlet property="trackNameLabel" destination="BMO-l1-V24" id="q8D-zo-TPl"/>
+            </connections>
             <point key="canvasLocation" x="94" y="-276"/>
         </view>
     </objects>

@@ -23,7 +23,6 @@ class SearchViewController: UIViewController {
         return recognizer
     }()
 
-    
     var cellBuider: BaseCellBuilder!
     var tableVC: UniversalTableViewController!
     
@@ -38,11 +37,25 @@ class SearchViewController: UIViewController {
     func setupSearchBar() {
         searchBar.delegate = self
     }
+    
+    func setupTableView() {
+        tableVC.delegateAndDataSource = self
+        
+        view.addSubview(tableVC.view)
+        
+        tableVC.registerCells(identifiers: [SearchTrackCell.identifier])
+        
+        tableVC.tableView.rowHeight = UITableViewAutomaticDimension
+        tableVC.tableView.estimatedRowHeight = 100
+        Utils.setConstraints(from: tableViewHolder, to: tableVC.view)
+    }
 }
 
 extension SearchViewController : SearchViewInput {
     func updateList() {
-        
+        DispatchQueue.main.async {
+            self.tableVC.reloadData()
+        }
     }
     
     func onError(message: String) {
@@ -52,6 +65,7 @@ extension SearchViewController : SearchViewInput {
     
     func setupInitialState() {
         setupSearchBar()
+        setupTableView()
     }
 }
 
@@ -72,5 +86,24 @@ extension SearchViewController : UISearchBarDelegate {
     
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
         view.removeGestureRecognizer(tapRecognizer)
+    }
+}
+
+extension SearchViewController : TableViewDataSourceAndRowsCount {
+    func getCell(tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: output.cellIdentifier, for: indexPath)
+        let media = output.getMediaObject(forIndex: indexPath.row)
+        let cellData = SearchCellBuilder.SearchCellData(type: output.mediaType, media: media!)
+        cellBuider.build(cell: cell, data: cellData)
+        
+        return cell
+    }
+    
+    func getNumberOfRows(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return output.mediaCount
+    }
+    
+    func cellClicked(index: Int) {
+        print("Cell clicked")
     }
 }

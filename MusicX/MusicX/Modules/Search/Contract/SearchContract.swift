@@ -15,6 +15,11 @@ protocol SearchViewInput : BaseViewInput, ActivityIndicator {
 
 protocol SearchViewOutput : BaseViewOutput {
     func search(with name: String)
+    var mediaCount: Int { get }
+    var mediaType: MediaType { get }
+    var cellIdentifier: String { get }
+    func getMediaObject(forIndex: Int) -> BaseMediaObject?
+    func cellClicked(index: Int)
 }
 
 protocol SearchInteractorInput : BaseInteractorInput {

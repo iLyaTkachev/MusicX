@@ -19,7 +19,7 @@ class SearchCellBuilder : BaseCellBuilder {
             guard let trackCell = cell as? SearchTrackCell, let trackData = cellData.media as? Download else {
                 return
             }
-            setupDownloadCell(cell: trackCell , track: trackData)
+            setupTrackLoadCell(cell: trackCell , download: trackData)
         case .artist:
             return
         case .tag:
@@ -37,7 +37,9 @@ class SearchCellBuilder : BaseCellBuilder {
         }
     }
     
-    private func setupDownloadCell(cell: SearchTrackCell, download: Download) {
-        
+    private func setupTrackLoadCell(cell: SearchTrackCell, download: Download) {
+        let track = download.track
+        cell.trackNameLabel.text = track.name
+        cell.artistNameLabel.text = track.artist.name
     }
 }

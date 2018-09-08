@@ -33,7 +33,9 @@ class ChartViewController: UIViewController {
     }
     
     func setupTableView() {
-        tableVC.output = self
+        tableVC.delegateAndDataSource = self
+        tableVC.paginationDelegate = self
+        tableVC.scrollingDelegate = self
         tableVC.automaticallyAdjustsScrollViewInsets = false
         
         view.addSubview(tableVC.view)
@@ -81,7 +83,7 @@ extension ChartViewController : ChartViewInput {
     
     func updateList() {
         DispatchQueue.main.async {
-            self.tableVC.tableView.reloadData()
+            self.tableVC.reloadData()
             
             if self.refreshControl.isRefreshing {
                 self.refreshControl.endRefreshing()
@@ -98,7 +100,7 @@ extension ChartViewController : ChartViewInput {
 
 //Mark: - UniversalTableViewOutput
 
-extension ChartViewController : UniversalTableViewOutput {
+extension ChartViewController : TableViewDataSourceAndRowsCount, TableViewPagination, TableViewScrolling {
     func cellClicked(index: Int) {
         output.cellClicked(index: index)
     }
