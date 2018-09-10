@@ -14,11 +14,11 @@ class SearchInteractor: SearchInteractorInput {
     var repository: MusicDataSource!
 
     func searchMedia(type: MediaType, name: String, page: Int) {
-        repository.searchMedia(type: type, name: name, page: page) { (mediaArray, error) in
+        repository.searchMedia(type: type, name: name, page: page) { (response, error) in
             if error != nil {
                 self.output.didFetchWithFailure(error: error!)
-            } else if mediaArray != nil{
-                self.output.didFetchWithSuccess(media: mediaArray!)
+            } else if response != nil{
+                self.output.didFetchWithSuccess(response: response!)
             }
         }
     }

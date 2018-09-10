@@ -27,7 +27,7 @@ protocol SearchInteractorInput : BaseInteractorInput {
 }
 
 protocol SearchInteractorOutput : BaseInteractorOutput {
-    func didFetchWithSuccess(media: [BaseMediaObject])
+    func didFetchWithSuccess(response: SearchResponse)
     func didFetchWithFailure(error: CustomError)
 }
 

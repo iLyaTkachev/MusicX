@@ -11,6 +11,7 @@ import Foundation
 enum CustomError: Error {
     case mediaParsing
     case requestError
+    case ApiError
     
     func errorDesctiption() -> String {
         switch self {
@@ -18,6 +19,8 @@ enum CustomError: Error {
             return "Problems with Media response content"
         case .requestError:
             return "Problems during network request"
+        case .ApiError:
+            return "Problems with server"
         }
     }
 }

@@ -18,17 +18,22 @@ class SearchPresenter {
     var currentMediaType: MediaType!
     
     private var items: [BaseMediaObject] = []
-    private var requestedName = ""
+    private var searchName = ""
 }
 
 extension SearchPresenter : SearchInteractorOutput {
-    func didFetchWithSuccess(media: [BaseMediaObject]) {
-        if <#condition#> {
-            <#code#>
+    func didFetchWithSuccess(response: SearchResponse) {
+        guard response.type == currentMediaType, response.searchName == self.searchName else {
+            return
         }
-        items = media
+        
+        items = response.items
         view.updateList()
         view.hideActivityIndicator()
+        
+        if items.isEmpty {
+            view.onError(message: "No results")
+        }
     }
     
     func didFetchWithFailure(error: CustomError) {
@@ -65,7 +70,7 @@ extension SearchPresenter : SearchViewOutput {
     
     func search(with name: String) {
         view.showActivityIndicator()
-        requestedName = name
+        searchName = name
         
         DispatchQueue.main.async {
             self.items.removeAll()

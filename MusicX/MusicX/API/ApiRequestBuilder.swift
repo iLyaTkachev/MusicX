@@ -1,6 +1,34 @@
 import Foundation
 
-class ApiRequestBuilder{
+protocol BaseApiRequestBuilder {
+    func getChart(mediaType: MediaType, page: Int?) -> URL?
+    func search(type: MediaType, name: String, page: Int?) -> URL?
+}
+
+class ApiRequestBuilder : BaseApiRequestBuilder {
+    
+    private let lastFmBuilder: LastFmBuilder
+    private let playmusBuilder: PlaymusBuilder
+    
+    init() {
+        self.lastFmBuilder = LastFmBuilder()
+        self.playmusBuilder = PlaymusBuilder()
+    }
+    
+    func getChart(mediaType: MediaType, page: Int?) -> URL? {
+        return lastFmBuilder.getChart(mediaType: mediaType, page: page)
+    }
+    
+    func search(type: MediaType, name: String, page: Int?) -> URL? {
+        switch type {
+        case .track:
+            return playmusBuilder.search(name: name, page: page)
+        case .artist:
+            return nil
+        case .tag:
+            return nil
+        }
+    }
     
     class LastFmBuilder {
         

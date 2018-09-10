@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol BaseChart {
+protocol BaseMediaResponse {
     var type: MediaType { get }
     var page: Int { get }
     var items: [BaseMediaObject] { get }

@@ -26,9 +26,9 @@ class ChartPresenter {
 //Mark: - ChartInteractorOutput
 
 extension ChartPresenter : ChartInteractorOutput {
-    func didFetchWithSuccess(chart: BaseChart) {
+    func didFetchWithSuccess(chart: BaseMediaResponse) {
         isLoading = false
-        //print("chart page fetched: \(chart.page)")
+
         if chart.type == requestedMediaType, !chart.items.isEmpty {
             if chart.page == 1, currentPage > 1, !items.isEmpty {
                 items.removeAll()

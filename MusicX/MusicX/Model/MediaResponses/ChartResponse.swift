@@ -8,8 +8,14 @@
 
 import Foundation
 
-struct Chart : BaseChart {
+class ChartResponse : BaseMediaResponse {
     let type: MediaType
     let page: Int
     let items: [BaseMediaObject]
+    
+    init(type: MediaType, page: Int, items: [BaseMediaObject]) {
+        self.type = type
+        self.page = page
+        self.items = items
+    }
 }

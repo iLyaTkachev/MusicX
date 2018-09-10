@@ -29,7 +29,7 @@ protocol ChartInteractorInput : BaseInteractorInput {
 }
 
 protocol ChartInteractorOutput : BaseInteractorOutput {
-    func didFetchWithSuccess(chart: BaseChart)
+    func didFetchWithSuccess(chart: BaseMediaResponse)
     func didFetchWithFailure(error: CustomError)
 }
 

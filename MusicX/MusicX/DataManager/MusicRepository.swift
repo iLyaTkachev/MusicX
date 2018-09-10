@@ -14,11 +14,11 @@ final class MusicRepository: MusicDataSource {
         imageService = ImageService(memoryCapacity: Constants.memoryCapacityForImageCache, diskCapacity: Constants.diskCapacityForImageCache, percentOfClearing: Constants.percentOfImageCacheClearing)
     }
     
-    func getChart(type: MediaType, page: Int, completionHandler: @escaping (Chart?, CustomError?)->Void) {
+    func getChart(type: MediaType, page: Int, completionHandler: @escaping (ChartResponse?, CustomError?)->Void) {
         return remoteDataSource.getChart(type: type, page: page, completionHandler: completionHandler)
     }
     
-    func searchMedia(type: MediaType, name: String, page: Int?, completionHandler: @escaping ([BaseMediaObject]?, CustomError?) -> Void) {
+    func searchMedia(type: MediaType, name: String, page: Int, completionHandler: @escaping (SearchResponse?, CustomError?) -> Void) {
         remoteDataSource.searchMedia(type: type, name: name, page: page, completionHandler: completionHandler)
     }
     
