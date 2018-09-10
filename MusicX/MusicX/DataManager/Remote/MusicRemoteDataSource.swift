@@ -22,7 +22,7 @@ final class MusicRemoteDataSource: MusicDataSource {
         }
             
         queryService.executeRequest(urlToExecute: url) { (data, error) in
-            if let unwrappedError = error {
+            guard error == nil else {
                 completionHandler(nil, CustomError.requestError)
                 return
             }

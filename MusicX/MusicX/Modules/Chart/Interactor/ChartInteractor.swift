@@ -14,11 +14,11 @@ class ChartInteractor : ChartInteractorInput {
     var repository: MusicDataSource!
     
     func fetch(contentType: MediaType, page: Int?) {
-        repository.getChart(type: contentType, page: page!) { (chart, error) in
+        repository.getChart(type: contentType, page: page!) { [weak self] (chart, error) in
             if error != nil {
-                self.output.didFetchWithFailure(error: error!)
+                self?.output.didFetchWithFailure(error: error!)
             } else if chart != nil{
-                self.output.didFetchWithSuccess(chart: chart!)
+                self?.output.didFetchWithSuccess(chart: chart!)
             }
         }
     }

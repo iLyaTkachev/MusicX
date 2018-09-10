@@ -56,7 +56,7 @@ class ImageService: BaseImageService {
                 let url = URL(string: withUrl)!
                 let webRequest = URLRequest(url: url)
                 
-                self.session.dataTask(with: webRequest) { (webData, urlResponse, apiError) in
+                self.session.dataTask(with: webRequest) { [weak self] (webData, urlResponse, apiError) in
                     
                     guard let data = webData else {
                         completionHandler(nil, apiError)
@@ -64,11 +64,16 @@ class ImageService: BaseImageService {
                         return
                     }
                     
-                    let image = UIImage(data: data)
-                    self.imageCache.setObject(image!, forKey: nsUrlForCache, cost: data.count)
+                    guard let image = UIImage(data: data) else {
+                        return
+                    }
+                    
+                    self?.imageCache.setObject(image, forKey: nsUrlForCache, cost: data.count)
                     completionHandler(image, nil)
-                    let fileUrl = self.cacheDirectoryPath.appending(Utils.getFileNameFromImageUrl(url: withUrl))
-                    self.fileManager.createFile(atPath: fileUrl, contents: data, attributes: nil)
+                    
+                    if let fileUrl = self?.cacheDirectoryPath.appending(Utils.getFileNameFromImageUrl(url: withUrl)) {
+                        self?.fileManager.createFile(atPath: fileUrl, contents: data, attributes: nil)
+                    }
                     }.resume()
             }
         }
