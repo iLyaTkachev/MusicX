@@ -41,5 +41,7 @@ class SearchCellBuilder : BaseCellBuilder {
         let track = download.track
         cell.trackNameLabel.text = track.name
         cell.artistNameLabel.text = track.artist.name
+        cell.duration.text = download.duration
+        cell.bitrate.text = download.bitrate
     }
 }

@@ -96,6 +96,10 @@ extension SearchViewController : TableViewDataSourceAndRowsCount {
         let cellData = SearchCellBuilder.SearchCellData(type: output.mediaType, media: media!)
         cellBuider.build(cell: cell, data: cellData)
         
+        if output.mediaType == .track, let trackCell = cell as? SearchTrackCell {
+            trackCell.delegate = self
+        }
+        
         return cell
     }
     
@@ -105,5 +109,23 @@ extension SearchViewController : TableViewDataSourceAndRowsCount {
     
     func cellClicked(index: Int) {
         print("Cell clicked")
+    }
+}
+
+extension SearchViewController : SearchTrackCellDelegate {
+    func pauseTapped(_ cell: SearchTrackCell) {
+        print("pause \(cell.trackNameLabel.text)")
+    }
+    
+    func resumeTapped(_ cell: SearchTrackCell) {
+        print("resume \(cell.trackNameLabel.text)")
+    }
+    
+    func cancelTapped(_ cell: SearchTrackCell) {
+        print("cancel \(cell.trackNameLabel.text)")
+    }
+    
+    func downloadTapped(_ cell: SearchTrackCell) {
+        print("download \(cell.trackNameLabel.text)")
     }
 }

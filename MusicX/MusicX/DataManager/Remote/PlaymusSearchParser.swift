@@ -23,13 +23,15 @@ class PlaymusSearchParser: BaseMediaResponseParser {
             
             try? doc.getElementsByClass("ListTrack__item").forEach({ (link) in
                 if let artistName = try? link.attr("data-artist"),
-                let artistId = try? link.attr("data-id-artist"),
+                    let artistId = try? link.attr("data-id-artist"),
                     let trackName = try? link.attr("data-name"),
                     let trackId = try? link.attr("data-id"),
-                    let downloadUrl = try? link.attr("data-link-mp3") {
+                    let downloadUrl = try? link.attr("data-link-mp3"),
+                    let duration = try? link.attr("data-duration"),
+                    let bitrate = try? link.attr("data-bitrate") {
                     let artist = Artist(name: artistName, id: artistId)
                     let track = Track(name: trackName, id: trackId, artist: artist)
-                    let download = Download(track: track, downloadUrl: downloadUrl)
+                    let download = Download(track: track, downloadUrl: downloadUrl, duration: duration, bitrate: bitrate)
                     result?.append(download)
                 }
             })
