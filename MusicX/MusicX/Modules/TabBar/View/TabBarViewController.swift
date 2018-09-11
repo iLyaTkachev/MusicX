@@ -29,7 +29,7 @@ class TabBarViewController: UITabBarController {
 
 //Mark: - TabBarViewInput
 
-extension TabBarViewController : TabBarViewInput {
+extension TabBarViewController: TabBarViewInput {
     func setupInitialState() {
         
     }

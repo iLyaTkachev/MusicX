@@ -17,7 +17,7 @@ final class MusicRemoteDataSource: MusicDataSource {
 
     func getChart(type: MediaType, page: Int, completionHandler: @escaping (ChartResponse?, CustomError?)->Void) {
         guard let url = requestBuilder.getChart(mediaType: type, page: page) else {
-            completionHandler(nil, CustomError.ApiError)
+            completionHandler(nil, CustomError.apiError)
             return
         }
             
@@ -39,7 +39,7 @@ final class MusicRemoteDataSource: MusicDataSource {
     
     func searchMedia(type: MediaType, name: String, page: Int, completionHandler: @escaping (SearchResponse?, CustomError?) -> Void) {
         guard let url = requestBuilder.search(type: type, name: name, page: page) else {
-            completionHandler(nil, CustomError.ApiError)
+            completionHandler(nil, CustomError.apiError)
             return
         }
         

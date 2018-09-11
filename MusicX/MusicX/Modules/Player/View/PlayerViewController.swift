@@ -23,7 +23,7 @@ class PlayerViewController: UIViewController {
 
 }
 
-extension PlayerViewController : PlayerViewInput {
+extension PlayerViewController: PlayerViewInput {
     func setupInitialState() {
         
     }

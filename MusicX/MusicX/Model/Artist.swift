@@ -2,7 +2,7 @@ import Foundation
 
 struct Artist: BaseMediaObject, Codable {
 
-    enum CodingKeys : String, CodingKey {
+    enum CodingKeys: String, CodingKey {
         case name
         case id = "mbid"
         case playcount

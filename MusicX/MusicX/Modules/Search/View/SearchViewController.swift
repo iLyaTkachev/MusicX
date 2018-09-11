@@ -51,7 +51,7 @@ class SearchViewController: UIViewController {
     }
 }
 
-extension SearchViewController : SearchViewInput {
+extension SearchViewController: SearchViewInput {
     func updateList() {
         DispatchQueue.main.async {
             self.tableVC.reloadData()
@@ -69,7 +69,7 @@ extension SearchViewController : SearchViewInput {
     }
 }
 
-extension SearchViewController : UISearchBarDelegate {
+extension SearchViewController: UISearchBarDelegate {
     @objc func dismissKeyboard() {
         searchBar.resignFirstResponder()
     }
@@ -89,7 +89,7 @@ extension SearchViewController : UISearchBarDelegate {
     }
 }
 
-extension SearchViewController : TableViewDataSourceAndRowsCount {
+extension SearchViewController: TableViewDataSourceAndRowsCount {
     func getCell(tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: output.cellIdentifier, for: indexPath)
         let media = output.getMediaObject(forIndex: indexPath.row)
@@ -112,7 +112,7 @@ extension SearchViewController : TableViewDataSourceAndRowsCount {
     }
 }
 
-extension SearchViewController : SearchTrackCellDelegate {
+extension SearchViewController: SearchTrackCellDelegate {
     func pauseTapped(_ cell: SearchTrackCell) {
         print("pause \(cell.trackNameLabel.text)")
     }
@@ -127,5 +127,6 @@ extension SearchViewController : SearchTrackCellDelegate {
     
     func downloadTapped(_ cell: SearchTrackCell) {
         print("download \(cell.trackNameLabel.text)")
+        
     }
 }

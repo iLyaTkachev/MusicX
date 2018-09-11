@@ -33,7 +33,7 @@ class TabBarPresenter {
 
 //Mark: - TabBarViewOutput
 
-extension TabBarPresenter : TabBarViewOutput {
+extension TabBarPresenter: TabBarViewOutput {
     func viewIsReady() {
         view.setupInitialState()
         insertViewControllers()
@@ -42,6 +42,6 @@ extension TabBarPresenter : TabBarViewOutput {
 
 //Mark: - TabBarInteractorOutput
 
-extension TabBarPresenter : TabBarInteractorOutput {
+extension TabBarPresenter: TabBarInteractorOutput {
     
 }

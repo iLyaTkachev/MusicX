@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol SearchTrackCellDelegate : class{
+protocol SearchTrackCellDelegate: class{
     func pauseTapped(_ cell: SearchTrackCell)
     func resumeTapped(_ cell: SearchTrackCell)
     func cancelTapped(_ cell: SearchTrackCell)

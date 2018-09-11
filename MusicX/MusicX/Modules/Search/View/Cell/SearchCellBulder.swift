@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SearchCellBuilder : BaseCellBuilder {
+class SearchCellBuilder: BaseCellBuilder {
     func build<T>(cell: UITableViewCell, data: T) {
         guard let cellData = data as? SearchCellData else {
             return

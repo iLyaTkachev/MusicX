@@ -23,7 +23,7 @@ class DownloadsViewController: UIViewController {
 
 }
 
-extension DownloadsViewController : DownloadsViewInput {
+extension DownloadsViewController: DownloadsViewInput {
     func setupInitialState() {
         
     }

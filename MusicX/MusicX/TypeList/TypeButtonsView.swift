@@ -16,7 +16,7 @@ protocol TypeButtonsViewInput {
     func setOutput(output: TypeButtonsViewOutput)
 }
 
-protocol TypeButtonsViewOutput : class {
+protocol TypeButtonsViewOutput: class {
     func typeSelected(type: MediaType)
 }
 
@@ -81,7 +81,7 @@ class TypeButtonsView: UIView {
     }
 }
 
-extension TypeButtonsView : TypeButtonsViewInput {
+extension TypeButtonsView: TypeButtonsViewInput {
     func setOutput(output: TypeButtonsViewOutput) {
         self.output = output
     }

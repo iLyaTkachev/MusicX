@@ -5,7 +5,7 @@ protocol BaseApiRequestBuilder {
     func search(type: MediaType, name: String, page: Int?) -> URL?
 }
 
-class ApiRequestBuilder : BaseApiRequestBuilder {
+class ApiRequestBuilder: BaseApiRequestBuilder {
     
     private let lastFmBuilder: LastFmBuilder
     private let playmusBuilder: PlaymusBuilder

@@ -8,22 +8,22 @@
 
 import Foundation
 
-protocol DownloadsViewInput : BaseViewInput {
+protocol DownloadsViewInput: BaseViewInput {
     
 }
 
-protocol DownloadsViewOutput : BaseViewOutput {
+protocol DownloadsViewOutput: BaseViewOutput {
     
 }
 
-protocol DownloadsInteractorInput : BaseInteractorInput {
+protocol DownloadsInteractorInput: BaseInteractorInput {
     
 }
 
-protocol DownloadsInteractorOutput : BaseInteractorOutput {
+protocol DownloadsInteractorOutput: BaseInteractorOutput {
     
 }
 
-protocol DownloadsRouterInput : BaseRouterInput {
+protocol DownloadsRouterInput: BaseRouterInput {
     
 }

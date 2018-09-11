@@ -8,25 +8,25 @@
 
 import Foundation
 
-protocol SettingsViewInput : BaseViewInput {
+protocol SettingsViewInput: BaseViewInput {
     func setImageCacheSize(value: Int)
 }
 
-protocol SettingsViewOutput : BaseViewOutput {
+protocol SettingsViewOutput: BaseViewOutput {
     func viewWillAppear()
     func clearImageCache()
 }
 
-protocol SettingsInteractorInput : BaseInteractorInput {
+protocol SettingsInteractorInput: BaseInteractorInput {
     func clearImageCache()
     func getImageCacheSize() -> Int
 }
 
-protocol SettingsInteractorOutput : BaseInteractorOutput {
+protocol SettingsInteractorOutput: BaseInteractorOutput {
 
 }
 
-protocol SettingsRouterInput : BaseRouterInput {
+protocol SettingsRouterInput: BaseRouterInput {
 
 }
 

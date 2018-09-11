@@ -1,6 +1,6 @@
 import Foundation
 
-struct Download : BaseMediaObject {
+struct Download: BaseMediaObject {
     var name: String
     var track: Track
     var downloadUrl: String

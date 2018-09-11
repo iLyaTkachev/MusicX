@@ -10,7 +10,7 @@ import Foundation
 
 struct Image: Codable {
     
-    enum CodingKeys : String, CodingKey {
+    enum CodingKeys: String, CodingKey {
         case url = "#text"
     }
     

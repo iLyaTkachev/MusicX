@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol SearchViewInput : BaseViewInput, ActivityIndicator {
+protocol SearchViewInput: BaseViewInput, ActivityIndicator {
     func updateList()
     func onError(message: String)
 }
@@ -22,15 +22,15 @@ protocol SearchViewOutput : BaseViewOutput {
     func cellClicked(index: Int)
 }
 
-protocol SearchInteractorInput : BaseInteractorInput {
+protocol SearchInteractorInput: BaseInteractorInput {
     func searchMedia(type: MediaType, name: String, page: Int)
 }
 
-protocol SearchInteractorOutput : BaseInteractorOutput {
+protocol SearchInteractorOutput: BaseInteractorOutput {
     func didFetchWithSuccess(response: SearchResponse)
     func didFetchWithFailure(error: CustomError)
 }
 
-protocol SearchRouterInput : BaseRouterInput {
+protocol SearchRouterInput: BaseRouterInput {
     
 }

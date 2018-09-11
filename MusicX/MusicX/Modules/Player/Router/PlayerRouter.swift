@@ -8,6 +8,6 @@
 
 import Foundation
 
-class PlayerRouter : PlayerRouterInput {
+class PlayerRouter: PlayerRouterInput {
     
 }

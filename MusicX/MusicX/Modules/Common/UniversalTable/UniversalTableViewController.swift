@@ -8,17 +8,17 @@
 
 import UIKit
 
-protocol TableViewDataSourceAndRowsCount : class {
+protocol TableViewDataSourceAndRowsCount: class {
     func getCell(tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     func getNumberOfRows(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     func cellClicked(index: Int)
 }
 
-protocol TableViewPagination : class {
+protocol TableViewPagination: class {
     func willDisplay(tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath)
 }
 
-protocol TableViewScrolling : class {
+protocol TableViewScrolling: class {
     func scrollDown()
     func scrollUp()
 }
@@ -86,7 +86,6 @@ extension UniversalTableViewController: UITableViewDelegate {
 
 extension UniversalTableViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        //let count = try? delegateAndDataSource.getNumberOfRows(tableView: tableView, numberOfRowsInSection: section)
         return delegateAndDataSource?.getNumberOfRows(tableView: tableView, numberOfRowsInSection: section) ?? 0
     }
 }

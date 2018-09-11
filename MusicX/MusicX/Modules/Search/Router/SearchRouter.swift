@@ -8,6 +8,6 @@
 
 import Foundation
 
-class SearchRouter : SearchRouterInput {
+class SearchRouter: SearchRouterInput {
     
 }

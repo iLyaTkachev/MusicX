@@ -15,13 +15,13 @@ class PlayerPresenter {
     var router: PlayerRouterInput!
 }
 
-extension PlayerPresenter : PlayerViewOutput {
+extension PlayerPresenter: PlayerViewOutput {
     
     func viewIsReady() {
         view.setupInitialState()
     }
 }
 
-extension PlayerPresenter : PlayerInteractorOutput {
+extension PlayerPresenter: PlayerInteractorOutput {
     
 }

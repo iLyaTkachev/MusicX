@@ -8,6 +8,6 @@
 
 import Foundation
 
-class DownloadsRouter : DownloadsRouterInput {
+class DownloadsRouter: DownloadsRouterInput {
     
 }

@@ -8,22 +8,22 @@
 
 import UIKit
 
-protocol TabBarViewInput : BaseViewInput {
+protocol TabBarViewInput: BaseViewInput {
     var viewControllers: [UIViewController]? { get set }
 }
 
-protocol TabBarViewOutput : BaseViewOutput {
+protocol TabBarViewOutput: BaseViewOutput {
 
 }
 
-protocol TabBarInteractorInput : BaseInteractorInput {
+protocol TabBarInteractorInput: BaseInteractorInput {
     
 }
 
-protocol TabBarInteractorOutput : BaseInteractorOutput {
+protocol TabBarInteractorOutput: BaseInteractorOutput {
 
 }
 
-protocol TabBarRouterInput : BaseRouterInput {
+protocol TabBarRouterInput: BaseRouterInput {
 
 }

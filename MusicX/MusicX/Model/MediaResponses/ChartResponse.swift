@@ -8,7 +8,7 @@
 
 import Foundation
 
-class ChartResponse : BaseMediaResponse {
+class ChartResponse: BaseMediaResponse {
     let type: MediaType
     let page: Int
     let items: [BaseMediaObject]

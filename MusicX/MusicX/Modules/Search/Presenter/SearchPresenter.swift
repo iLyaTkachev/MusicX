@@ -21,7 +21,7 @@ class SearchPresenter {
     private var searchName = ""
 }
 
-extension SearchPresenter : SearchInteractorOutput {
+extension SearchPresenter: SearchInteractorOutput {
     func didFetchWithSuccess(response: SearchResponse) {
         guard response.type == currentMediaType, response.searchName == self.searchName else {
             return
@@ -43,7 +43,7 @@ extension SearchPresenter : SearchInteractorOutput {
     
 }
 
-extension SearchPresenter : SearchViewOutput {
+extension SearchPresenter: SearchViewOutput {
     var mediaType: MediaType {
         return currentMediaType
     }

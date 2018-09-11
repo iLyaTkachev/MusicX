@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class ChartRouter : ChartRouterInput {
+class ChartRouter: ChartRouterInput {
     func playTrack(track: Track) {
         print("\(track.name)")
     }

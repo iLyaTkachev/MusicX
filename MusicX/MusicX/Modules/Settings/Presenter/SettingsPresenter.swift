@@ -14,11 +14,11 @@ class SettingsPresenter {
     var router: SettingsRouterInput!
 }
 
-extension SettingsPresenter : SettingsInteractorOutput {
+extension SettingsPresenter: SettingsInteractorOutput {
     
 }
 
-extension SettingsPresenter : SettingsViewOutput {
+extension SettingsPresenter: SettingsViewOutput {
     func clearImageCache() {
         interactor.clearImageCache()
     }

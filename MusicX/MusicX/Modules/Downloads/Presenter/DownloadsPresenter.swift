@@ -15,13 +15,13 @@ class DownloadsPresenter {
     var router: DownloadsRouterInput!
 }
 
-extension DownloadsPresenter : DownloadsViewOutput {
+extension DownloadsPresenter: DownloadsViewOutput {
     
     func viewIsReady() {
         view.setupInitialState()
     }
 }
 
-extension DownloadsPresenter : DownloadsInteractorOutput {
+extension DownloadsPresenter: DownloadsInteractorOutput {
     
 }

@@ -8,7 +8,7 @@
 
 import Foundation
 
-class PlayerInteractor : PlayerInteractorInput {
+class PlayerInteractor: PlayerInteractorInput {
     
     weak var output: PlayerInteractorOutput!
     var repository: MusicDataSource!

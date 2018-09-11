@@ -8,7 +8,7 @@
 
 import Foundation
 
-class ChartInteractor : ChartInteractorInput {
+class ChartInteractor: ChartInteractorInput {
     
     weak var output: ChartInteractorOutput!
     var repository: MusicDataSource!

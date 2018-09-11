@@ -65,7 +65,7 @@ class SettingsViewController: UIViewController {
     }
 }
 
-extension SettingsViewController : SettingsViewInput {
+extension SettingsViewController: SettingsViewInput {
     
     func setupInitialState() {
         

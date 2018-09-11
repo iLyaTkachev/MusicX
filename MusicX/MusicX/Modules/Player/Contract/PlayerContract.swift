@@ -8,22 +8,22 @@
 
 import Foundation
 
-protocol PlayerViewInput : BaseViewInput {
+protocol PlayerViewInput: BaseViewInput {
     
 }
 
-protocol PlayerViewOutput : BaseViewOutput {
+protocol PlayerViewOutput: BaseViewOutput {
     
 }
 
-protocol PlayerInteractorInput : BaseInteractorInput {
+protocol PlayerInteractorInput: BaseInteractorInput {
     
 }
 
-protocol PlayerInteractorOutput : BaseInteractorOutput {
+protocol PlayerInteractorOutput: BaseInteractorOutput {
     
 }
 
-protocol PlayerRouterInput : BaseRouterInput {
+protocol PlayerRouterInput: BaseRouterInput {
     
 }

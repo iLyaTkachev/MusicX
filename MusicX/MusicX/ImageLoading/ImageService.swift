@@ -37,10 +37,6 @@ class ImageService: BaseImageService {
             print("Problems with creating cache directory")
             return
         }
-        
-        //print("\(try! fileManager.contentsOfDirectory(atPath: cacheFolderPath).count)")
-        //print("\(countDirectorySize(fileManager: fileManager, path: URL(string: cacheFolderPath)!)/1024/1024)")
-        
     }
     
     func getImage(withUrl: String, completionHandler: @escaping (UIImage?, Error?)->Void) {
@@ -50,17 +46,22 @@ class ImageService: BaseImageService {
             
             if let cachedVersion = self.imageCache.object(forKey: nsUrlForCache) {
                 completionHandler(cachedVersion, nil)
-            } else if let cachedVersion = try? Data(contentsOf: URL(fileURLWithPath: self.cacheDirectoryPath.appending(Utils.getFileNameFromImageUrl(url: withUrl)))) {
-                completionHandler(UIImage(data: cachedVersion), nil)
+            } else if let cachedVersion = try? Data(contentsOf: URL(fileURLWithPath: self.cacheDirectoryPath.appending(Utils.getFileNameFromImageUrl(url: withUrl)))),
+                let image = UIImage(data: cachedVersion) {
+                completionHandler(image, nil)
+                self.imageCache.setObject(image, forKey: nsUrlForCache, cost: cachedVersion.count)
             } else {
-                let url = URL(string: withUrl)!
+                /*guard let url = URL(string: withUrl) else {
+                    completionHandler(nil, CustomError.requestError)
+                    return
+                }
+                
                 let webRequest = URLRequest(url: url)
                 
                 self.session.dataTask(with: webRequest) { [weak self] (webData, urlResponse, apiError) in
                     
                     guard let data = webData else {
                         completionHandler(nil, apiError)
-                        print(apiError!)
                         return
                     }
                     
@@ -75,6 +76,41 @@ class ImageService: BaseImageService {
                         self?.fileManager.createFile(atPath: fileUrl, contents: data, attributes: nil)
                     }
                     }.resume()
+            }*/
+            
+                guard let url = URL(string: withUrl) else {
+                    completionHandler(nil, CustomError.apiError)
+                    return
+                }
+                
+                self.session.downloadTask(with: url, completionHandler: { [weak self] (url, response, error) in
+                    guard error == nil else {
+                        completionHandler(nil, error)
+                        return
+                    }
+                    
+                    guard let temporaryURL = url,
+                        let tempData = try? Data(contentsOf: temporaryURL),
+                        let image = UIImage(data: tempData) else {
+                            completionHandler(nil, CustomError.requestError)
+                            return
+                    }
+                    
+                    self?.imageCache.setObject(image, forKey: nsUrlForCache, cost: tempData.count)
+                    completionHandler(image, nil)
+                    
+                    guard let fileUrl = self?.cacheDirectoryPath.appending(Utils.getFileNameFromImageUrl(url: withUrl)) else {
+                            print("Problems with creating of image file path")
+                            return
+                    }
+                    
+                    do {
+                        try self?.fileManager.moveItem(atPath: temporaryURL.relativePath, toPath: fileUrl)
+                    } catch let error {
+                        print(error)
+                    }
+                    
+                }).resume()
             }
         }
     }

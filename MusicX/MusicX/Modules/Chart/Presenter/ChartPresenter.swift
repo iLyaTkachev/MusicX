@@ -25,7 +25,7 @@ class ChartPresenter {
 
 //Mark: - ChartInteractorOutput
 
-extension ChartPresenter : ChartInteractorOutput {
+extension ChartPresenter: ChartInteractorOutput {
     func didFetchWithSuccess(chart: BaseMediaResponse) {
         isLoading = false
 
@@ -54,7 +54,7 @@ extension ChartPresenter : ChartInteractorOutput {
 
 //Mark: - ChartViewOutput
 
-extension ChartPresenter : ChartViewOutput {
+extension ChartPresenter: ChartViewOutput {
     func changeType(type: MediaType) {
         view.showActivityIndicator()
         

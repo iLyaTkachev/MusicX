@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ChartCellBuilder : BaseCellBuilder {
+class ChartCellBuilder: BaseCellBuilder {
     
     func build<T>(cell: UITableViewCell, data: T) {
         guard let cellData = data as? ChartCellData else {
@@ -55,7 +55,7 @@ class ChartCellBuilder : BaseCellBuilder {
         CoreX.shared.repository.getImage(withUrl: track.images != nil ? track.images![2].url : "") { (image, error) in
             DispatchQueue.main.async {
                 if error != nil {
-                    cell.artistImageView.image = UIImage(named: "user_male")
+                    cell.artistImageView.image = UIImage(named: "musical_notes")
                 } else if image != nil && cell.imageURL == track.images![2].url {
                     cell.artistImageView.image = image
                 }
@@ -75,7 +75,9 @@ class ChartCellBuilder : BaseCellBuilder {
         
         CoreX.shared.repository.getImage(withUrl: artist.images?[2].url != nil ? artist.images![2].url : "default") { (image, error) in
             DispatchQueue.main.async {
-                if image != nil && cell.imageURL == artist.images?[2].url {
+                if error != nil {
+                    cell.artistImage.image = UIImage(named: "user_male")
+                } else if image != nil && cell.imageURL == artist.images?[2].url {
                     cell.artistImage.image = image
                 }
                 

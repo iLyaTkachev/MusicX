@@ -2,7 +2,7 @@ import Foundation
 
 struct Track: BaseMediaObject, Codable {
     
-    enum CodingKeys : String, CodingKey {
+    enum CodingKeys: String, CodingKey {
         case name
         case playcount
         case listeners

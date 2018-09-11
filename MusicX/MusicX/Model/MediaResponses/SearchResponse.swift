@@ -8,7 +8,7 @@
 
 import Foundation
 
-class SearchResponse : ChartResponse {
+class SearchResponse: ChartResponse {
     let searchName: String
     
     init(type: MediaType, searchName: String, page: Int, items: [BaseMediaObject]) {

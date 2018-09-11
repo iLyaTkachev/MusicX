@@ -1,14 +1,14 @@
 import Foundation
 
 protocol BaseNetworkService {
-    func executeRequest(urlToExecute : URL, completionHandler: @escaping (Data?, Error?)->Void)
+    func executeRequest(urlToExecute: URL, completionHandler: @escaping (Data?, Error?)->Void)
 }
 
 class QueryService: BaseNetworkService {
     
     private let defaultSession = URLSession(configuration: .default)
     
-    func executeRequest(urlToExecute : URL, completionHandler: @escaping (Data?, Error?)->Void) {
+    func executeRequest(urlToExecute: URL, completionHandler: @escaping (Data?, Error?)->Void) {
         
         let webRequest = URLRequest(url: urlToExecute)
         

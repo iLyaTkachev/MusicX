@@ -72,7 +72,7 @@ class ChartViewController: UIViewController {
 
 //Mark: - ChartViewInput
 
-extension ChartViewController : ChartViewInput {
+extension ChartViewController: ChartViewInput {
     func setType(type: MediaType) {
         typeListView.setType(type: type)
     }
@@ -100,7 +100,7 @@ extension ChartViewController : ChartViewInput {
 
 //Mark: - UniversalTableViewOutput
 
-extension ChartViewController : TableViewDataSourceAndRowsCount, TableViewPagination, TableViewScrolling {
+extension ChartViewController: TableViewDataSourceAndRowsCount, TableViewPagination, TableViewScrolling {
     func cellClicked(index: Int) {
         output.cellClicked(index: index)
     }
@@ -143,7 +143,7 @@ extension ChartViewController : TableViewDataSourceAndRowsCount, TableViewPagina
 
 //Mark: - TypeButtonsViewOutput
 
-extension ChartViewController : TypeButtonsViewOutput {
+extension ChartViewController: TypeButtonsViewOutput {
     func typeSelected(type: MediaType) {
         self.output.changeType(type: type)
     }

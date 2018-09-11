@@ -8,13 +8,13 @@
 
 import UIKit
 
-protocol ChartViewInput : BaseViewInput, ActivityIndicator {
+protocol ChartViewInput: BaseViewInput, ActivityIndicator {
     func updateList()
     func onError(message: String)
     func setType(type: MediaType)
 }
 
-protocol ChartViewOutput : BaseViewOutput {
+protocol ChartViewOutput: BaseViewOutput {
     var mediaCount: Int { get }
     var mediaType: MediaType { get }
     var cellIdentifier: String { get }
@@ -24,16 +24,16 @@ protocol ChartViewOutput : BaseViewOutput {
     func changeType(type: MediaType)
 }
 
-protocol ChartInteractorInput : BaseInteractorInput {
+protocol ChartInteractorInput: BaseInteractorInput {
     func fetch(contentType: MediaType, page: Int?)
 }
 
-protocol ChartInteractorOutput : BaseInteractorOutput {
+protocol ChartInteractorOutput: BaseInteractorOutput {
     func didFetchWithSuccess(chart: BaseMediaResponse)
     func didFetchWithFailure(error: CustomError)
 }
 
-protocol ChartRouterInput : BaseRouterInput {
+protocol ChartRouterInput: BaseRouterInput {
     func presentArtistDetails(artist: Artist)
     func playTrack(track: Track)
 }

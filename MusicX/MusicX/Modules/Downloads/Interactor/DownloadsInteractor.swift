@@ -8,7 +8,7 @@
 
 import Foundation
 
-class DownloadsInteractor : DownloadsInteractorInput {
+class DownloadsInteractor: DownloadsInteractorInput {
     
     weak var output: DownloadsInteractorOutput!
     var repository: MusicDataSource!

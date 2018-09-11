@@ -43,7 +43,7 @@ private struct MediaWrapper: Codable {
     var artists: MediaList?
     var tags: MediaList?
     
-    enum CodingKeys : String, CodingKey {
+    enum CodingKeys: String, CodingKey {
         case tracks
         case artists
         case tags
@@ -56,7 +56,7 @@ private struct MediaWrapper: Codable {
         var tagList: [Tag]?
         var info: [String : String]?
         
-        enum CodingKeys : String, CodingKey {
+        enum CodingKeys: String, CodingKey {
             case info = "@attr"
             case trackList = "track"
             case artistList = "artist"
