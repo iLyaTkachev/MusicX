@@ -114,19 +114,21 @@ extension SearchViewController: TableViewDataSourceAndRowsCount {
 
 extension SearchViewController: SearchTrackCellDelegate {
     func pauseTapped(_ cell: SearchTrackCell) {
-        print("pause \(cell.trackNameLabel.text)")
+        //print("pause \(cell.trackNameLabel.text)")
     }
     
     func resumeTapped(_ cell: SearchTrackCell) {
-        print("resume \(cell.trackNameLabel.text)")
+        //print("resume \(cell.trackNameLabel.text)")
     }
     
     func cancelTapped(_ cell: SearchTrackCell) {
-        print("cancel \(cell.trackNameLabel.text)")
+        //print("cancel \(cell.trackNameLabel.text)")
     }
     
     func downloadTapped(_ cell: SearchTrackCell) {
-        print("download \(cell.trackNameLabel.text)")
-        
+        guard let index = tableVC.tableView.indexPath(for: cell)?.row else {
+            return
+        }
+        output.downloadTrackTapped(index: index)
     }
 }

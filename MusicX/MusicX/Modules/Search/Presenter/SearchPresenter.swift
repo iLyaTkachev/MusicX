@@ -7,6 +7,8 @@
 //
 
 import Foundation
+import CoreData
+import UIKit
 
 class SearchPresenter {
     weak var view: SearchViewInput!
@@ -44,6 +46,7 @@ extension SearchPresenter: SearchInteractorOutput {
 }
 
 extension SearchPresenter: SearchViewOutput {
+    
     var mediaType: MediaType {
         return currentMediaType
     }
@@ -82,5 +85,66 @@ extension SearchPresenter: SearchViewOutput {
     
     func viewIsReady() {
         view.setupInitialState()
+    }
+    
+    func downloadTrackTapped(index: Int) {
+        print("\(index) tapped")
+        
+        save(name: items[index].name)
+        fetch(name: "Tracks")
+    }
+    
+    func save(name: String) {
+        
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+                return
+        }
+        
+        let managedContext = appDelegate.persistentContainer.viewContext
+        
+        guard let entity = NSEntityDescription.entity(forEntityName: "Tracks", in: managedContext) else {
+            return
+        }
+        
+        let track = NSManagedObject(entity: entity, insertInto: managedContext)
+        
+        track.setValue(name, forKeyPath: "name")
+        
+        do {
+            try managedContext.save()
+        } catch let error as NSError {
+            print("Could not save. \(error), \(error.userInfo)")
+        }
+    }
+    
+    func fetch(name: String) {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+                return
+        }
+
+        let managedContext = appDelegate.persistentContainer.newBackgroundContext()
+        managedContext.perform {
+            
+        }
+
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: name)
+
+        do {
+            let array = try managedContext.fetch(fetchRequest)
+            array.forEach { (object) in
+                print("\(object.value(forKey: "name"))")
+            }
+            
+        } catch let error as NSError {
+            print("Could not fetch. \(error), \(error.userInfo)")
+        }
+    }
+    
+    func deleteAll() {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate {
+            return
+        }
+        
+        let managedContext = appDelegate.persistentContainer.newBackgroundContext()
     }
 }

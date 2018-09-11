@@ -20,6 +20,7 @@ protocol SearchViewOutput : BaseViewOutput {
     var cellIdentifier: String { get }
     func getMediaObject(forIndex: Int) -> BaseMediaObject?
     func cellClicked(index: Int)
+    func downloadTrackTapped(index: Int)
 }
 
 protocol SearchInteractorInput: BaseInteractorInput {
