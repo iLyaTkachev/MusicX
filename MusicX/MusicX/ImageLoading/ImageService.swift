@@ -51,33 +51,6 @@ class ImageService: BaseImageService {
                 completionHandler(image, nil)
                 self.imageCache.setObject(image, forKey: nsUrlForCache, cost: cachedVersion.count)
             } else {
-                /*guard let url = URL(string: withUrl) else {
-                    completionHandler(nil, CustomError.requestError)
-                    return
-                }
-                
-                let webRequest = URLRequest(url: url)
-                
-                self.session.dataTask(with: webRequest) { [weak self] (webData, urlResponse, apiError) in
-                    
-                    guard let data = webData else {
-                        completionHandler(nil, apiError)
-                        return
-                    }
-                    
-                    guard let image = UIImage(data: data) else {
-                        return
-                    }
-                    
-                    self?.imageCache.setObject(image, forKey: nsUrlForCache, cost: data.count)
-                    completionHandler(image, nil)
-                    
-                    if let fileUrl = self?.cacheDirectoryPath.appending(Utils.getFileNameFromImageUrl(url: withUrl)) {
-                        self?.fileManager.createFile(atPath: fileUrl, contents: data, attributes: nil)
-                    }
-                    }.resume()
-            }*/
-            
                 guard let url = URL(string: withUrl) else {
                     completionHandler(nil, CustomError.apiError)
                     return
@@ -100,8 +73,8 @@ class ImageService: BaseImageService {
                     completionHandler(image, nil)
                     
                     guard let fileUrl = self?.cacheDirectoryPath.appending(Utils.getFileNameFromImageUrl(url: withUrl)) else {
-                            print("Problems with creating of image file path")
-                            return
+                        print("Problems with creating of image file path")
+                        return
                     }
                     
                     do {
@@ -109,7 +82,6 @@ class ImageService: BaseImageService {
                     } catch let error {
                         print(error)
                     }
-                    
                 }).resume()
             }
         }
