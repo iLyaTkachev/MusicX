@@ -20,13 +20,13 @@ final class MusicRemoteDataSource: MusicDataSource {
             completionHandler(nil, CustomError.apiError)
             return
         }
-            
+        
         queryService.executeRequest(urlToExecute: url) { (data, error) in
             guard error == nil else {
                 completionHandler(nil, CustomError.requestError)
                 return
             }
-            
+
             guard let dict = data, let mediaArray = self.responseParser.parseMedia(type: type, data: dict) else {
                 completionHandler(nil, CustomError.mediaParsing)
                 return

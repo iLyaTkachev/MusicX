@@ -19,7 +19,7 @@ class QueryService: BaseNetworkService {
                 print(apiError!)
                 return
             }
-            
+
             completionHandler(unwrappedData, nil)
         }
         

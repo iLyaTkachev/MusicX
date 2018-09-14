@@ -124,24 +124,24 @@ extension SearchPresenter: SearchViewOutput {
 
         let managedContext = appDelegate.persistentContainer.newBackgroundContext()
         managedContext.perform {
+            let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: name)
             
-        }
-
-        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: name)
-
-        do {
-            let array = try managedContext.fetch(fetchRequest)
-            array.forEach { (object) in
-                print("\(object.value(forKey: "name"))")
+            do {
+                let array = try managedContext.fetch(fetchRequest)
+                array.forEach { (object) in
+                    print("\(object.value(forKey: "name"))")
+                }
+                
+            } catch let error as NSError {
+                print("Could not fetch. \(error), \(error.userInfo)")
             }
-            
-        } catch let error as NSError {
-            print("Could not fetch. \(error), \(error.userInfo)")
         }
+
+        
     }
     
     func deleteAll() {
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
             return
         }
         
