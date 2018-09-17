@@ -2,8 +2,10 @@ import UIKit
 
 class MusicLocalDataSource: MusicDataSource {
 
-    init() {
-        
+    private let coreDataManager: BaseCoreDataManager
+    
+    init(coreDataManager: BaseCoreDataManager) {
+        self.coreDataManager = coreDataManager
     }
 
     func getChart(type: MediaType, page: Int, completionHandler: @escaping (ChartResponse?, CustomError?)->Void) {

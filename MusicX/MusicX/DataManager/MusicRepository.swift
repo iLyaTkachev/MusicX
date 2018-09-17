@@ -8,9 +8,11 @@ final class MusicRepository: MusicDataSource {
     private let localDataSource: MusicDataSource
     private let imageService: BaseImageService
     
+    let dataModelName = "DataModel"
+    
     private init() {
         remoteDataSource = MusicRemoteDataSource(queryService: QueryService())
-        localDataSource = MusicLocalDataSource()
+        localDataSource = MusicLocalDataSource(coreDataManager: CoreDataManager(modelName: dataModelName))
         imageService = ImageService(memoryCapacity: Constants.memoryCapacityForImageCache, diskCapacity: Constants.diskCapacityForImageCache, percentOfClearing: Constants.percentOfImageCacheClearing)
     }
     
