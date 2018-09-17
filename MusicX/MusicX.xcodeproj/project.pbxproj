@@ -96,6 +96,8 @@
 		8C4B43C620FCCA9F0014C692 /* MusicXUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4B43C520FCCA9F0014C692 /* MusicXUITests.swift */; };
 		8C4B43D520FCCB000014C692 /* ApiConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4B43D420FCCB000014C692 /* ApiConstants.swift */; };
 		8C4B43D720FCCB1C0014C692 /* SecretConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4B43D620FCCB1C0014C692 /* SecretConstants.swift */; };
+		8C516006214F9C1700D3B0EF /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C516005214F9C1700D3B0EF /* CoreDataManager.swift */; };
+		8C516008214F9C4E00D3B0EF /* BaseCoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C516007214F9C4E00D3B0EF /* BaseCoreDataManager.swift */; };
 		8C62D5402124662D00A78FD0 /* TypeButtonsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8C62D53F2124662D00A78FD0 /* TypeButtonsView.xib */; };
 		8C62D5422124680B00A78FD0 /* TypeButtonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C62D5412124680B00A78FD0 /* TypeButtonsView.swift */; };
 		8C62D54721257D7700A78FD0 /* TestViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C62D54621257D7700A78FD0 /* TestViewController.storyboard */; };
@@ -230,6 +232,8 @@
 		8C4B43C720FCCA9F0014C692 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8C4B43D420FCCB000014C692 /* ApiConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiConstants.swift; sourceTree = "<group>"; };
 		8C4B43D620FCCB1C0014C692 /* SecretConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecretConstants.swift; sourceTree = "<group>"; };
+		8C516005214F9C1700D3B0EF /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		8C516007214F9C4E00D3B0EF /* BaseCoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCoreDataManager.swift; sourceTree = "<group>"; };
 		8C62D53F2124662D00A78FD0 /* TypeButtonsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TypeButtonsView.xib; sourceTree = "<group>"; };
 		8C62D5412124680B00A78FD0 /* TypeButtonsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeButtonsView.swift; sourceTree = "<group>"; };
 		8C62D54621257D7700A78FD0 /* TestViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TestViewController.storyboard; sourceTree = "<group>"; };
@@ -379,6 +383,8 @@
 		8C18E234210710A8005DAEE1 /* DB */ = {
 			isa = PBXGroup;
 			children = (
+				8C516005214F9C1700D3B0EF /* CoreDataManager.swift */,
+				8C516007214F9C4E00D3B0EF /* BaseCoreDataManager.swift */,
 			);
 			path = DB;
 			sourceTree = "<group>";
@@ -1267,6 +1273,7 @@
 				8C478D44212D7EFA00A9CB4D /* BaseCellBuilder.swift in Sources */,
 				8C4B43A320FCCA9E0014C692 /* AppDelegate.swift in Sources */,
 				8C1B821D2137F5D70036ED88 /* SearchPresenter.swift in Sources */,
+				8C516006214F9C1700D3B0EF /* CoreDataManager.swift in Sources */,
 				8C4B43AB20FCCA9E0014C692 /* MusicX.xcdatamodeld in Sources */,
 				8C4191F521132B09005D83FA /* ConfiguratorProtocol.swift in Sources */,
 				8C1B820B2136D8140036ED88 /* SettingsPresenter.swift in Sources */,
@@ -1275,6 +1282,7 @@
 				8C1B82212137F66A0036ED88 /* SearchAssembly.swift in Sources */,
 				8C4B43D520FCCB000014C692 /* ApiConstants.swift in Sources */,
 				8C4B43D720FCCB1C0014C692 /* SecretConstants.swift in Sources */,
+				8C516008214F9C4E00D3B0EF /* BaseCoreDataManager.swift in Sources */,
 				8C41927D211C44D9005D83FA /* BaseChartProtocol.swift in Sources */,
 				8C419262211980DF005D83FA /* TabBarViewController.swift in Sources */,
 				8C419273211B1932005D83FA /* MediaType.swift in Sources */,
