@@ -13,11 +13,22 @@ class CoreX {
     
     let repository: MusicDataSource
     
+    let dataModelName = "DataModel"
+    let coreDataManager: BaseCoreDataManager
+    
+    
     private init() {
-        repository = MusicRepository.shared
+        self.coreDataManager = CoreDataManager(modelName: dataModelName, completion: {
+            
+        })
+        self.repository = MusicRepository(coreDataManager: self.coreDataManager)
     }
     
     func isSignedIn() -> Bool {
         return true
+    }
+    
+    func saveContext() {
+        coreDataManager.saveChanges()
     }
 }

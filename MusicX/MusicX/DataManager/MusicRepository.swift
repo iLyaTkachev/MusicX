@@ -1,18 +1,14 @@
 import UIKit
 
 final class MusicRepository: MusicDataSource {
-
-    static let shared = MusicRepository()
     
     private let remoteDataSource: MusicDataSource
     private let localDataSource: MusicDataSource
     private let imageService: BaseImageService
     
-    let dataModelName = "DataModel"
-    
-    private init() {
+    init(coreDataManager: BaseCoreDataManager) {
         remoteDataSource = MusicRemoteDataSource(queryService: QueryService())
-        localDataSource = MusicLocalDataSource(coreDataManager: CoreDataManager(modelName: dataModelName))
+        localDataSource = MusicLocalDataSource(coreDataManager: coreDataManager)
         imageService = ImageService(memoryCapacity: Constants.memoryCapacityForImageCache, diskCapacity: Constants.diskCapacityForImageCache, percentOfClearing: Constants.percentOfImageCacheClearing)
     }
     

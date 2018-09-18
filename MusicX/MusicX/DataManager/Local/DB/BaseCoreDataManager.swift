@@ -9,7 +9,9 @@
 import Foundation
 
 protocol BaseCoreDataManager {
-    func fetch()
+    func select()
     func create()
     func update()
+    func delete()
+    func saveChanges()
 }

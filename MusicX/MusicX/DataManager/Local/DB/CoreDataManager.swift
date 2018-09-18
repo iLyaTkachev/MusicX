@@ -10,8 +10,9 @@ import CoreData
 import Foundation
 
 class CoreDataManager: BaseCoreDataManager {
-    
+
     private let modelName: String
+    private let completion: () -> Void
     
     private lazy var managedObjectModel: NSManagedObjectModel? = {
         
@@ -33,14 +34,65 @@ class CoreDataManager: BaseCoreDataManager {
         return documentsDirectoryURL.appendingPathComponent(storeName)
     }
     
-    private lazy var persistentStoreCoordinator: NSPersistentStoreCoordinator? = {
+    fileprivate lazy var persistentStoreCoordinator: NSPersistentStoreCoordinator? = {
         guard let managedObjectModel = self.managedObjectModel else {
             return nil
         }
         
-        let persistentStoreURL = self.persistentStoreURL
-        
         let persistentStoreCoordinator = NSPersistentStoreCoordinator(managedObjectModel: managedObjectModel)
+        
+        return persistentStoreCoordinator
+    }()
+    
+    private lazy var privateManagedObjectContext: NSManagedObjectContext = {
+        let managedObjectContext = NSManagedObjectContext(concurrencyType: .privateQueueConcurrencyType)
+        
+        managedObjectContext.persistentStoreCoordinator = self.persistentStoreCoordinator
+        
+        return managedObjectContext
+    }()
+    
+    private(set) lazy var mainManagedObjectContext: NSManagedObjectContext = {
+
+        let managedObjectContext = NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType)
+        
+        managedObjectContext.parent = self.privateManagedObjectContext
+        
+        return managedObjectContext
+    }()
+    
+    func privateChildManagedObjectContext() -> NSManagedObjectContext {
+
+        let managedObjectContext = NSManagedObjectContext(concurrencyType: .privateQueueConcurrencyType)
+
+        managedObjectContext.parent = mainManagedObjectContext
+        
+        return managedObjectContext
+    }
+    
+    init(modelName: String, completion: @escaping () -> Void) {
+        self.modelName = modelName
+        self.completion = completion
+        
+        setupCoreDataStack()
+    }
+    
+    fileprivate func setupCoreDataStack() {
+        
+        let _ = mainManagedObjectContext.persistentStoreCoordinator
+        
+        DispatchQueue.global().async {
+
+            self.addPersistentStore()
+            
+            DispatchQueue.main.async { self.completion() }
+        }
+    }
+    
+    private func addPersistentStore() {
+        guard let persistentStoreCoordinator = persistentStoreCoordinator else { fatalError("Unable to Initialize Persistent Store Coordinator") }
+        
+        let persistentStoreURL = self.persistentStoreURL
         
         do {
             let options = [ NSMigratePersistentStoresAutomaticallyOption : true, NSInferMappingModelAutomaticallyOption : true ]
@@ -52,23 +104,9 @@ class CoreDataManager: BaseCoreDataManager {
             print("Unable to Add Persistent Store")
             print("\(addPersistentStoreError.localizedDescription)")
         }
-        
-        return persistentStoreCoordinator
-    }()
-    
-    public private(set) lazy var managedObjectContext: NSManagedObjectContext = {
-        let managedObjectContext = NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType)
-        
-        managedObjectContext.persistentStoreCoordinator = self.persistentStoreCoordinator
-        
-        return managedObjectContext
-    }()
-    
-    init(modelName: String) {
-        self.modelName = modelName
     }
     
-    func fetch() {
+    func select() {
         
     }
     
@@ -78,5 +116,35 @@ class CoreDataManager: BaseCoreDataManager {
     
     func update() {
         
+    }
+    
+    func delete() {
+        
+    }
+    
+    public func saveChanges() {
+        mainManagedObjectContext.performAndWait({
+            do {
+                if self.mainManagedObjectContext.hasChanges {
+                    try self.mainManagedObjectContext.save()
+                }
+            } catch {
+                let saveError = error as NSError
+                print("Unable to Save Changes of Main Managed Object Context")
+                print("\(saveError), \(saveError.localizedDescription)")
+            }
+        })
+        
+        privateManagedObjectContext.perform({
+            do {
+                if self.privateManagedObjectContext.hasChanges {
+                    try self.privateManagedObjectContext.save()
+                }
+            } catch {
+                let saveError = error as NSError
+                print("Unable to Save Changes of Private Managed Object Context")
+                print("\(saveError), \(saveError.localizedDescription)")
+            }
+        })
     }
 }
