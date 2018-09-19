@@ -11,6 +11,11 @@ import UIKit
 protocol MusicDataSource {
     func getChart(type: MediaType, page: Int, completionHandler: @escaping (ChartResponse?, CustomError?)->Void)
     func searchMedia(type: MediaType, name: String, page: Int, completionHandler: @escaping (SearchResponse?, CustomError?)->Void)
+    func createPlaylist(name: String)
+    func getPlaylists(completionHandler: @escaping (PlaylistsResponse?, CustomError?)->Void)
+    func addTrackToPlaylist(track: Track, playlist: Playlist)
+    func deleteTrackFromPlaylist(track: Track, playlist: Playlist)
+    func downloadTrack(track: Track)
     func getImage(withUrl: String, completionHandler: @escaping (UIImage?, Error?)->Void)
     func getImageDirectorySize() -> Int
     func clearImageDirectory()

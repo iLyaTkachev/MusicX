@@ -98,6 +98,8 @@
 		8C516006214F9C1700D3B0EF /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C516005214F9C1700D3B0EF /* CoreDataManager.swift */; };
 		8C516008214F9C4E00D3B0EF /* BaseCoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C516007214F9C4E00D3B0EF /* BaseCoreDataManager.swift */; };
 		8C51600B214FA03F00D3B0EF /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8C516009214FA03F00D3B0EF /* DataModel.xcdatamodeld */; };
+		8C51600D2152454100D3B0EF /* PlaylistsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C51600C2152454100D3B0EF /* PlaylistsResponse.swift */; };
+		8C51600F21524A4E00D3B0EF /* Playlist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C51600E21524A4E00D3B0EF /* Playlist.swift */; };
 		8C62D5402124662D00A78FD0 /* TypeButtonsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8C62D53F2124662D00A78FD0 /* TypeButtonsView.xib */; };
 		8C62D5422124680B00A78FD0 /* TypeButtonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C62D5412124680B00A78FD0 /* TypeButtonsView.swift */; };
 		8C62D54721257D7700A78FD0 /* TestViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C62D54621257D7700A78FD0 /* TestViewController.storyboard */; };
@@ -234,6 +236,8 @@
 		8C516005214F9C1700D3B0EF /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		8C516007214F9C4E00D3B0EF /* BaseCoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCoreDataManager.swift; sourceTree = "<group>"; };
 		8C51600A214FA03F00D3B0EF /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
+		8C51600C2152454100D3B0EF /* PlaylistsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistsResponse.swift; sourceTree = "<group>"; };
+		8C51600E21524A4E00D3B0EF /* Playlist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Playlist.swift; sourceTree = "<group>"; };
 		8C62D53F2124662D00A78FD0 /* TypeButtonsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TypeButtonsView.xib; sourceTree = "<group>"; };
 		8C62D5412124680B00A78FD0 /* TypeButtonsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeButtonsView.swift; sourceTree = "<group>"; };
 		8C62D54621257D7700A78FD0 /* TestViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TestViewController.storyboard; sourceTree = "<group>"; };
@@ -329,6 +333,7 @@
 			children = (
 				8C41927A211C427E005D83FA /* ChartResponse.swift */,
 				8C10516421464F9D009A5555 /* SearchResponse.swift */,
+				8C51600C2152454100D3B0EF /* PlaylistsResponse.swift */,
 			);
 			path = MediaResponses;
 			sourceTree = "<group>";
@@ -346,6 +351,7 @@
 				8C41927E21219E52005D83FA /* Error.swift */,
 				8C1B81F82136A3F30036ED88 /* Tag.swift */,
 				8C1B824A21397B260036ED88 /* Image.swift */,
+				8C51600E21524A4E00D3B0EF /* Playlist.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1239,6 +1245,7 @@
 				8C419266211997E5005D83FA /* TabBarPresenter.swift in Sources */,
 				8C18E22F21071053005DAEE1 /* MusicRepository.swift in Sources */,
 				8CB665EF2110541E00CEF996 /* ChartViewController.swift in Sources */,
+				8C51600F21524A4E00D3B0EF /* Playlist.swift in Sources */,
 				8C10516521464F9E009A5555 /* SearchResponse.swift in Sources */,
 				8C51600B214FA03F00D3B0EF /* DataModel.xcdatamodeld in Sources */,
 				8C1B82472138172A0036ED88 /* DownloadsRouter.swift in Sources */,
@@ -1297,6 +1304,7 @@
 				8C1B81F62136A2440036ED88 /* ChartTagCell.swift in Sources */,
 				8C419277211C376D005D83FA /* MusicDataSourceProtocol.swift in Sources */,
 				8C1B824521380A020036ED88 /* DownloadsPresenter.swift in Sources */,
+				8C51600D2152454100D3B0EF /* PlaylistsResponse.swift in Sources */,
 				8C1B82412138092F0036ED88 /* DownloadsViewController.swift in Sources */,
 				8C419206211342A8005D83FA /* TabBarAssembly.swift in Sources */,
 				8C1B82012136D0FC0036ED88 /* SettingsContract.swift in Sources */,

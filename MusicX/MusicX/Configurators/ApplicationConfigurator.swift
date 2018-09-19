@@ -14,8 +14,6 @@ class ApplicationConfgurator: BaseConfigurator {
         
         if CoreX.shared.isSignedIn() {
             TabBarAssembly.create().present()
-            //let vc = Utils.getViewController(storyboardName: "TestViewController", vcId: "TestViewController") as! TestViewController
-            //AppDelegate.currentWindow.rootViewController = vc
         }
     }
 }

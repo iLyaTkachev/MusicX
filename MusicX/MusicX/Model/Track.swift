@@ -12,6 +12,7 @@ struct Track: BaseMediaObject, Codable {
     
     init(name: String, id: String, artist: Artist) {
         self.name = name
+        self.id = id
         self.artist = artist
     }
     

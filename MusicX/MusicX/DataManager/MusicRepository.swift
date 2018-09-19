@@ -20,6 +20,26 @@ final class MusicRepository: MusicDataSource {
         remoteDataSource.searchMedia(type: type, name: name, page: page, completionHandler: completionHandler)
     }
     
+    func createPlaylist(name: String) {
+        
+    }
+    
+    func getPlaylists(completionHandler: @escaping (PlaylistsResponse?, CustomError?) -> Void) {
+        
+    }
+    
+    func addTrackToPlaylist(track: Track, playlist: Playlist) {
+        
+    }
+    
+    func deleteTrackFromPlaylist(track: Track, playlist: Playlist) {
+        
+    }
+    
+    func downloadTrack(track: Track) {
+        localDataSource.downloadTrack(track: track)
+    }
+    
     func getImage(withUrl: String, completionHandler: @escaping (UIImage?, Error?) -> Void) {
         imageService.getImage(withUrl: withUrl, completionHandler: completionHandler)
     }

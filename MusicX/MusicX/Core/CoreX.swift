@@ -18,9 +18,8 @@ class CoreX {
     
     
     private init() {
-        self.coreDataManager = CoreDataManager(modelName: dataModelName, completion: {
-            
-        })
+
+        self.coreDataManager = CoreDataManager(modelName: dataModelName)
         self.repository = MusicRepository(coreDataManager: self.coreDataManager)
     }
     

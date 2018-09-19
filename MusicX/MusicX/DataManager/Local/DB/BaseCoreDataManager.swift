@@ -7,11 +7,9 @@
 //
 
 import Foundation
+import CoreData
 
 protocol BaseCoreDataManager {
-    func select()
-    func create()
-    func update()
-    func delete()
+    var managedObjectContext: NSManagedObjectContext { get }
     func saveChanges()
 }

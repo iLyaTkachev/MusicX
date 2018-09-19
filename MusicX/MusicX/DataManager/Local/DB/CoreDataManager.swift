@@ -10,9 +10,12 @@ import CoreData
 import Foundation
 
 class CoreDataManager: BaseCoreDataManager {
-
+    
     private let modelName: String
-    private let completion: () -> Void
+    
+    var managedObjectContext: NSManagedObjectContext {
+        return self.privateChildManagedObjectContext()
+    }
     
     private lazy var managedObjectModel: NSManagedObjectModel? = {
         
@@ -34,7 +37,7 @@ class CoreDataManager: BaseCoreDataManager {
         return documentsDirectoryURL.appendingPathComponent(storeName)
     }
     
-    fileprivate lazy var persistentStoreCoordinator: NSPersistentStoreCoordinator? = {
+    private lazy var persistentStoreCoordinator: NSPersistentStoreCoordinator? = {
         guard let managedObjectModel = self.managedObjectModel else {
             return nil
         }
@@ -46,6 +49,7 @@ class CoreDataManager: BaseCoreDataManager {
     
     private lazy var privateManagedObjectContext: NSManagedObjectContext = {
         let managedObjectContext = NSManagedObjectContext(concurrencyType: .privateQueueConcurrencyType)
+        managedObjectContext.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
         
         managedObjectContext.persistentStoreCoordinator = self.persistentStoreCoordinator
         
@@ -64,29 +68,20 @@ class CoreDataManager: BaseCoreDataManager {
     func privateChildManagedObjectContext() -> NSManagedObjectContext {
 
         let managedObjectContext = NSManagedObjectContext(concurrencyType: .privateQueueConcurrencyType)
-
+        managedObjectContext.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
+        
         managedObjectContext.parent = mainManagedObjectContext
         
         return managedObjectContext
     }
     
-    init(modelName: String, completion: @escaping () -> Void) {
+    init(modelName: String) {
         self.modelName = modelName
-        self.completion = completion
-        
         setupCoreDataStack()
     }
     
-    fileprivate func setupCoreDataStack() {
-        
-        let _ = mainManagedObjectContext.persistentStoreCoordinator
-        
-        DispatchQueue.global().async {
-
-            self.addPersistentStore()
-            
-            DispatchQueue.main.async { self.completion() }
-        }
+    private func setupCoreDataStack() {
+        self.addPersistentStore()
     }
     
     private func addPersistentStore() {
@@ -104,22 +99,6 @@ class CoreDataManager: BaseCoreDataManager {
             print("Unable to Add Persistent Store")
             print("\(addPersistentStoreError.localizedDescription)")
         }
-    }
-    
-    func select() {
-        
-    }
-    
-    func create() {
-        
-    }
-    
-    func update() {
-        
-    }
-    
-    func delete() {
-        
     }
     
     public func saveChanges() {
