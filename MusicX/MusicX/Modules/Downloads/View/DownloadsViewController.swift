@@ -15,18 +15,68 @@ class DownloadsViewController: UIViewController {
     
     var output: DownloadsViewOutput!
     
+    var cellBuider: BaseCellBuilder!
+    var tableVC: UniversalTableViewController!
+    
+    @IBOutlet weak var tableViewHolder: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.isNavigationBarHidden = true
         output.viewIsReady()
     }
-
+    
+    func setupTableView() {
+        cellBuider = SearchCellBuilder()
+        tableVC = UniversalTableViewController()
+        tableVC.delegateAndDataSource = self
+        
+        view.addSubview(tableVC.view)
+        
+        tableVC.registerCells(identifiers: [SearchTrackCell.identifier])
+        
+        tableVC.tableView.rowHeight = UITableViewAutomaticDimension
+        tableVC.tableView.estimatedRowHeight = 100
+        Utils.setConstraints(from: tableViewHolder, to: tableVC.view)
+    }
+    
 }
 
 extension DownloadsViewController: DownloadsViewInput {
-    func setupInitialState() {
-        
+    func updateList() {
+        DispatchQueue.main.async {
+            self.tableVC.reloadData()
+        }
     }
     
+    func onError(message: String) {
+        showAlert(title: "Error", message: message)
+    }
     
+    func setupInitialState() {
+        setupTableView()
+    }
+}
+
+extension DownloadsViewController: TableViewDataSourceAndRowsCount {
+    func getCell(tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: output.cellIdentifier, for: indexPath)
+        let media = output.getMediaObject(forIndex: indexPath.row)
+        let cellData = SearchCellBuilder.SearchCellData(type: .track, media: media!)
+        cellBuider.build(cell: cell, data: cellData)
+        
+        if let trackCell = cell as? SearchTrackCell {
+            trackCell.downloadButton.isHidden = true
+        }
+        
+        return cell
+    }
+    
+    func getNumberOfRows(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return output.mediaCount
+    }
+    
+    func cellClicked(index: Int) {
+        print("Cell clicked")
+    }
 }

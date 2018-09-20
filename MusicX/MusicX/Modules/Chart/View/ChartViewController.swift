@@ -33,6 +33,8 @@ class ChartViewController: UIViewController {
     }
     
     func setupTableView() {
+        cellBuider = ChartCellBuilder()
+        tableVC = UniversalTableViewController()
         tableVC.delegateAndDataSource = self
         tableVC.paginationDelegate = self
         tableVC.scrollingDelegate = self

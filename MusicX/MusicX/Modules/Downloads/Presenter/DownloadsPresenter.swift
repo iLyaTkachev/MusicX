@@ -13,9 +13,35 @@ class DownloadsPresenter {
     weak var view: DownloadsViewInput!
     var interactor: DownloadsInteractorInput!
     var router: DownloadsRouterInput!
+    
+    private var items: [BaseMediaObject] = []
 }
 
 extension DownloadsPresenter: DownloadsViewOutput {
+    var mediaCount: Int {
+        return items.count
+    }
+    
+    var cellIdentifier: String {
+        return SearchTrackCell.identifier
+    }
+    
+    func getMediaObject(forIndex: Int) -> BaseMediaObject? {
+        guard forIndex < items.count else {
+            return nil
+        }
+        
+        return items[forIndex]
+    }
+    
+    func cellClicked(index: Int) {
+        print("cell clicked")
+        
+    }
+    
+    func deleteTrack(index: Int) {
+        
+    }
     
     func viewIsReady() {
         view.setupInitialState()
@@ -23,5 +49,13 @@ extension DownloadsPresenter: DownloadsViewOutput {
 }
 
 extension DownloadsPresenter: DownloadsInteractorOutput {
+    func didFetchWithSuccess(response: [BaseMediaObject]) {
+        
+    }
+    
+    func didFetchWithFailure(error: CustomError) {
+        
+    }
+    
     
 }

@@ -2,7 +2,7 @@ import UIKit
 import CoreData
 
 class MusicLocalDataSource: MusicDataSource {
-    
+
     private let coreDataManager: BaseCoreDataManager
     
     init(coreDataManager: BaseCoreDataManager) {
@@ -17,11 +17,7 @@ class MusicLocalDataSource: MusicDataSource {
         
     }
     
-    func createPlaylist(name: String) {
-        
-    }
-    
-    func getPlaylists(completionHandler: @escaping (PlaylistsResponse?, CustomError?) -> Void) {
+    func getTracks() {
         let managedContext = coreDataManager.managedObjectContext
         managedContext.perform {
             let fetchRequest = NSFetchRequest<Tracks>(entityName: "Tracks")
@@ -41,11 +37,7 @@ class MusicLocalDataSource: MusicDataSource {
         }
     }
     
-    func addTrackToPlaylist(track: Track, playlist: Playlist) {
-        
-    }
-    
-    func deleteTrackFromPlaylist(track: Track, playlist: Playlist) {
+    func deleteTrack(download: Download) {
         
     }
     
@@ -75,9 +67,9 @@ class MusicLocalDataSource: MusicDataSource {
                 print("Could not save. \(error), \(error.userInfo)")
             }
             
-            self.getPlaylists(completionHandler: { (resp, error) in
+            /*self.getPlaylists(completionHandler: { (resp, error) in
                 
-            })
+            })*/
         }
     }
     

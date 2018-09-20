@@ -13,16 +13,30 @@
         <!--Playlists-->
         <scene sceneID="i5c-vg-AWL">
             <objects>
-                <viewController storyboardIdentifier="DownloadsViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Cxs-Eq-Qci" customClass="DownloadsViewController" customModule="MusicX" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DownloadsViewController" title="Playlists" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Cxs-Eq-Qci" customClass="DownloadsViewController" customModule="MusicX" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="H5I-ee-YGe">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="mbE-PG-3JN">
+                                <rect key="frame" x="0.0" y="20" width="375" height="598"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="mbE-PG-3JN" firstAttribute="top" secondItem="yP0-41-qyC" secondAttribute="top" id="eUX-cr-Xid"/>
+                            <constraint firstItem="mbE-PG-3JN" firstAttribute="leading" secondItem="yP0-41-qyC" secondAttribute="leading" id="fbI-l0-p6t"/>
+                            <constraint firstItem="yP0-41-qyC" firstAttribute="trailing" secondItem="mbE-PG-3JN" secondAttribute="trailing" id="k5L-qb-GfR"/>
+                            <constraint firstItem="yP0-41-qyC" firstAttribute="bottom" secondItem="mbE-PG-3JN" secondAttribute="bottom" id="rRm-b5-OHy"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="yP0-41-qyC"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Playlists" image="music_library" id="bnL-dB-Pjf"/>
-                    <nil key="simulatedTopBarMetrics"/>
+                    <tabBarItem key="tabBarItem" title="Downloads" image="music_library" id="bnL-dB-Pjf"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="tableViewHolder" destination="mbE-PG-3JN" id="Jhz-rc-Ffa"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6g5-Qh-ESJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -32,4 +46,5 @@
     <resources>
         <image name="music_library" width="30" height="30"/>
     </resources>
+    <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
 </document>

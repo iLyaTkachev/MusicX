@@ -9,19 +9,26 @@
 import Foundation
 
 protocol DownloadsViewInput: BaseViewInput {
-    
+    func updateList()
+    func onError(message: String)
 }
 
 protocol DownloadsViewOutput: BaseViewOutput {
-    
+    var mediaCount: Int { get }
+    var cellIdentifier: String { get }
+    func getMediaObject(forIndex: Int) -> BaseMediaObject?
+    func cellClicked(index: Int)
+    func deleteTrack(index: Int)
 }
 
 protocol DownloadsInteractorInput: BaseInteractorInput {
-    
+    func fetchTracks()
+    func deleteTrack(download: Download)
 }
 
 protocol DownloadsInteractorOutput: BaseInteractorOutput {
-    
+    func didFetchWithSuccess(response: [BaseMediaObject])
+    func didFetchWithFailure(error: CustomError)
 }
 
 protocol DownloadsRouterInput: BaseRouterInput {

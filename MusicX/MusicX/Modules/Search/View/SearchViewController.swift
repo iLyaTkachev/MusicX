@@ -39,6 +39,8 @@ class SearchViewController: UIViewController {
     }
     
     func setupTableView() {
+        cellBuider = SearchCellBuilder()
+        tableVC = UniversalTableViewController()
         tableVC.delegateAndDataSource = self
         
         view.addSubview(tableVC.view)

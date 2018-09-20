@@ -9,7 +9,15 @@
 import Foundation
 
 class DownloadsInteractor: DownloadsInteractorInput {
-    
+
     weak var output: DownloadsInteractorOutput!
     var repository: MusicDataSource!
+    
+    func fetchTracks() {
+        repository.getTracks()
+    }
+    
+    func deleteTrack(download: Download) {
+        
+    }
 }

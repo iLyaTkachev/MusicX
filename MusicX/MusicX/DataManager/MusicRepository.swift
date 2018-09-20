@@ -1,7 +1,7 @@
 import UIKit
 
 final class MusicRepository: MusicDataSource {
-    
+
     private let remoteDataSource: MusicDataSource
     private let localDataSource: MusicDataSource
     private let imageService: BaseImageService
@@ -20,19 +20,11 @@ final class MusicRepository: MusicDataSource {
         remoteDataSource.searchMedia(type: type, name: name, page: page, completionHandler: completionHandler)
     }
     
-    func createPlaylist(name: String) {
+    func getTracks() {
         
     }
     
-    func getPlaylists(completionHandler: @escaping (PlaylistsResponse?, CustomError?) -> Void) {
-        
-    }
-    
-    func addTrackToPlaylist(track: Track, playlist: Playlist) {
-        
-    }
-    
-    func deleteTrackFromPlaylist(track: Track, playlist: Playlist) {
+    func deleteTrack(download: Download) {
         
     }
     
