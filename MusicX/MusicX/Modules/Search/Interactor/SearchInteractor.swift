@@ -22,4 +22,8 @@ class SearchInteractor: SearchInteractorInput {
             }
         }
     }
+    
+    func downloadTrack(download: Download) {
+        repository.downloadTrack(download: download)
+    }
 }

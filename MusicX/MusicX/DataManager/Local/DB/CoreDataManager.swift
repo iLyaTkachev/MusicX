@@ -59,6 +59,7 @@ class CoreDataManager: BaseCoreDataManager {
     private(set) lazy var mainManagedObjectContext: NSManagedObjectContext = {
 
         let managedObjectContext = NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType)
+        managedObjectContext.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
         
         managedObjectContext.parent = self.privateManagedObjectContext
         

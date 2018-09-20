@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Downloads-->
+        <!--Playlists-->
         <scene sceneID="i5c-vg-AWL">
             <objects>
                 <viewController storyboardIdentifier="DownloadsViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Cxs-Eq-Qci" customClass="DownloadsViewController" customModule="MusicX" customModuleProvider="target" sceneMemberID="viewController">
@@ -20,7 +20,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="yP0-41-qyC"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Downloads" image="music_library" id="bnL-dB-Pjf"/>
+                    <tabBarItem key="tabBarItem" title="Playlists" image="music_library" id="bnL-dB-Pjf"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>

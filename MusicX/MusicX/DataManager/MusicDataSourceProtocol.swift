@@ -15,7 +15,7 @@ protocol MusicDataSource {
     func getPlaylists(completionHandler: @escaping (PlaylistsResponse?, CustomError?)->Void)
     func addTrackToPlaylist(track: Track, playlist: Playlist)
     func deleteTrackFromPlaylist(track: Track, playlist: Playlist)
-    func downloadTrack(track: Track)
+    func downloadTrack(download: Download)
     func getImage(withUrl: String, completionHandler: @escaping (UIImage?, Error?)->Void)
     func getImageDirectorySize() -> Int
     func clearImageDirectory()

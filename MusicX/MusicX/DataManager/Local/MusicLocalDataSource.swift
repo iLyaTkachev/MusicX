@@ -24,14 +24,16 @@ class MusicLocalDataSource: MusicDataSource {
     func getPlaylists(completionHandler: @escaping (PlaylistsResponse?, CustomError?) -> Void) {
         let managedContext = coreDataManager.managedObjectContext
         managedContext.perform {
-            let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Tracks")
+            let fetchRequest = NSFetchRequest<Tracks>(entityName: "Tracks")
             
+            print("Data requested")
             do {
                 let array = try managedContext.fetch(fetchRequest)
                 array.forEach { (object) in
-                    print("\(object.value(forKey: "name"))")
-                    print("\(object.value(forKey: "id"))")
+                    print("\(object.id)")
+                    print("\(object.name)")
                 }
+                
                 
             } catch let error as NSError {
                 print("Could not fetch. \(error), \(error.userInfo)")
@@ -47,21 +49,28 @@ class MusicLocalDataSource: MusicDataSource {
         
     }
     
-    func downloadTrack(track: Track) {
+    func downloadTrack(download: Download) {
         coreDataManager.managedObjectContext.perform {
             let managedContext = self.coreDataManager.managedObjectContext
+
+            let track = download.track
+            let artist = track.artist
+            let artistToSave = Artists(context: managedContext)
+            let trackToSave = Tracks(context: managedContext)
             
-            guard let entity = NSEntityDescription.entity(forEntityName: "Tracks", in: managedContext) else {
-                return
-            }
+            trackToSave.id = track.id
+            trackToSave.name = track.name
+            trackToSave.fileUrl = download.downloadUrl
+            trackToSave.duration = download.duration
+            trackToSave.bitrate = download.bitrate
             
-            let trackToSave = NSManagedObject(entity: entity, insertInto: managedContext)
-            
-            trackToSave.setValue(track.name, forKeyPath: "name")
-            trackToSave.setValue(track.id, forKeyPath: "id")
+            artistToSave.id = artist.id
+            artistToSave.name = artist.name
+            artistToSave.addToTracks(trackToSave)
             
             do {
                 try managedContext.save()
+                self.coreDataManager.saveChanges()
             } catch let error as NSError {
                 print("Could not save. \(error), \(error.userInfo)")
             }

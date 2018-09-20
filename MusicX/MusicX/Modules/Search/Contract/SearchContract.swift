@@ -25,6 +25,7 @@ protocol SearchViewOutput : BaseViewOutput {
 
 protocol SearchInteractorInput: BaseInteractorInput {
     func searchMedia(type: MediaType, name: String, page: Int)
+    func downloadTrack(download: Download)
 }
 
 protocol SearchInteractorOutput: BaseInteractorOutput {

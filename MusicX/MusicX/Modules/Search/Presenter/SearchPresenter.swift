@@ -88,12 +88,11 @@ extension SearchPresenter: SearchViewOutput {
     }
     
     func downloadTrackTapped(index: Int) {
-        print("\(index) tapped")
+        guard let download = items[index] as? Download else {
+            return
+        }
         
-        //save(name: items[index].name)
-        //fetch(name: "Tracks")
-        let download = items[index] as! Download
-        CoreX.shared.repository.downloadTrack(track: download.track)
+        interactor.downloadTrack(download: download)
     }
     
     func save(name: String) {

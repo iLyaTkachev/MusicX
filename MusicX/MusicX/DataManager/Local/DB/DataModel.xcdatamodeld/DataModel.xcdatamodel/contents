@@ -1,8 +1,32 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14135" systemVersion="17G65" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="Tracks" representedClassName="Tracks" syncable="YES" codeGenerationType="class">
+    <entity name="Artists" representedClassName="Artists" syncable="YES" codeGenerationType="class">
         <attribute name="id" attributeType="String" syncable="YES"/>
         <attribute name="name" attributeType="String" syncable="YES"/>
+        <relationship name="tracks" toMany="YES" deletionRule="Nullify" destinationEntity="Tracks" inverseName="artist" inverseEntity="Tracks" syncable="YES"/>
+        <uniquenessConstraints>
+            <uniquenessConstraint>
+                <constraint value="id"/>
+            </uniquenessConstraint>
+        </uniquenessConstraints>
+    </entity>
+    <entity name="Playlists" representedClassName="Playlists" syncable="YES" codeGenerationType="class">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="tracks" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Tracks" inverseName="playlists" inverseEntity="Tracks" syncable="YES"/>
+        <uniquenessConstraints>
+            <uniquenessConstraint>
+                <constraint value="name"/>
+            </uniquenessConstraint>
+        </uniquenessConstraints>
+    </entity>
+    <entity name="Tracks" representedClassName="Tracks" syncable="YES" codeGenerationType="class">
+        <attribute name="bitrate" attributeType="String" syncable="YES"/>
+        <attribute name="duration" attributeType="String" syncable="YES"/>
+        <attribute name="fileUrl" attributeType="String" syncable="YES"/>
+        <attribute name="id" attributeType="String" syncable="YES"/>
+        <attribute name="name" attributeType="String" syncable="YES"/>
+        <relationship name="artist" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Artists" inverseName="tracks" inverseEntity="Artists" syncable="YES"/>
+        <relationship name="playlists" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Playlists" inverseName="tracks" inverseEntity="Playlists" syncable="YES"/>
         <uniquenessConstraints>
             <uniquenessConstraint>
                 <constraint value="id"/>
@@ -10,6 +34,8 @@
         </uniquenessConstraints>
     </entity>
     <elements>
-        <element name="Tracks" positionX="-63" positionY="-18" width="128" height="75"/>
+        <element name="Tracks" positionX="-63" positionY="-18" width="128" height="150"/>
+        <element name="Artists" positionX="-54" positionY="9" width="128" height="90"/>
+        <element name="Playlists" positionX="-36" positionY="18" width="128" height="75"/>
     </elements>
 </model>

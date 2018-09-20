@@ -36,8 +36,8 @@ final class MusicRepository: MusicDataSource {
         
     }
     
-    func downloadTrack(track: Track) {
-        localDataSource.downloadTrack(track: track)
+    func downloadTrack(download: Download) {
+        localDataSource.downloadTrack(download: download)
     }
     
     func getImage(withUrl: String, completionHandler: @escaping (UIImage?, Error?) -> Void) {

@@ -75,7 +75,7 @@ final class MusicRemoteDataSource: MusicDataSource {
         
     }
     
-    func downloadTrack(track: Track) {
+    func downloadTrack(download: Download) {
         
     }
     
