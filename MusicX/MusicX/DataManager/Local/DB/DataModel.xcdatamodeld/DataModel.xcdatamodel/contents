@@ -10,8 +10,9 @@
             </uniquenessConstraint>
         </uniquenessConstraints>
     </entity>
+    <entity name="Downloads" representedClassName="Downloads" syncable="YES" codeGenerationType="class"/>
     <entity name="Playlists" representedClassName="Playlists" syncable="YES" codeGenerationType="class">
-        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" attributeType="String" syncable="YES"/>
         <relationship name="tracks" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Tracks" inverseName="playlists" inverseEntity="Tracks" syncable="YES"/>
         <uniquenessConstraints>
             <uniquenessConstraint>
@@ -37,5 +38,6 @@
         <element name="Artists" positionX="-54" positionY="9" width="128" height="90"/>
         <element name="Playlists" positionX="-36" positionY="18" width="128" height="75"/>
         <element name="Tracks" positionX="-63" positionY="-18" width="128" height="150"/>
+        <element name="Downloads" positionX="0" positionY="90" width="128" height="45"/>
     </elements>
 </model>

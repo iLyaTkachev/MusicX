@@ -10,10 +10,10 @@ import Foundation
 
 struct Playlist: BaseMediaObject {
     var name: String
-    var tracks: [Track]
+    var downloads: [Download]?
     
-    init(name: String, tracks: [Track]) {
+    init(name: String, downloads: [Download]?) {
         self.name = name
-        self.tracks = tracks
+        self.downloads = downloads
     }
 }

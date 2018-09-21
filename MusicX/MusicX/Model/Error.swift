@@ -12,6 +12,7 @@ enum CustomError: Error {
     case mediaParsing
     case requestError
     case apiError
+    case localDataError
     
     func errorDesctiption() -> String {
         switch self {
@@ -21,6 +22,8 @@ enum CustomError: Error {
             return "Problems during network request"
         case .apiError:
             return "Problems with server"
+        case .localDataError:
+            return "Problem during fetching data from storage"
         }
     }
 }

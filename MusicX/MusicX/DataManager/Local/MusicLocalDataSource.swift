@@ -21,27 +21,55 @@ class MusicLocalDataSource: MusicDataSource {
         let managedContext = coreDataManager.managedObjectContext
         managedContext.perform {
             let fetchRequest = NSFetchRequest<Playlists>(entityName: "Playlists")
-            
+            let predicate = NSPredicate(format: "name == %@", playlistName)
+            fetchRequest.predicate = predicate
             print("Data requested")
             do {
                 let array = try managedContext.fetch(fetchRequest)
-                array.forEach { (object) in
-                    print("\(object.name)")
-                    let items = object.tracks?.array as! [Tracks]
-                    
-                    items.forEach({ (track) in
-                        print("\(track.name)")
-                    })
-                    
-                    
-                    
+                if !array.isEmpty {
+                    let fromStorage = array[0]
+                    let playlist = self.playlistConverter(fromCoreData: fromStorage)
+
+                    completionHandler(playlist, nil)
                 }
-                
-                
             } catch let error as NSError {
                 print("Could not fetch. \(error), \(error.userInfo)")
+                completionHandler(nil, CustomError.localDataError)
             }
         }
+    }
+    
+    func playlistConverter(fromCoreData: Playlists) -> Playlist {
+        var downloads: [Download] = []
+        
+        if let tracksFromCoreData = fromCoreData.tracks?.array as? [Tracks], !tracksFromCoreData.isEmpty {
+            
+            tracksFromCoreData.forEach({ (item) in
+                let download = downloadConverter(fromCoreData: item)
+                downloads.append(download)
+            })
+        }
+        
+        let playlist = Playlist(name: fromCoreData.name, downloads: downloads)
+        
+        return playlist
+    }
+    
+    func artistConverter(fromCoreData: Artists) -> Artist {
+        let artist = Artist(name: fromCoreData.name, id: fromCoreData.id)
+    }
+    
+    func trackConverter(fromCoreData: Tracks) -> Track {
+        let track = Track(name: fromCoreData.name, id: fromCoreData.id, artist: artistConverter(fromCoreData: fromCoreData.artist))
+        
+        return track
+    }
+    
+    func downloadConverter(fromCoreData: Tracks) -> Download {
+        let track = trackConverter(fromCoreData: fromCoreData)
+        let download = Download(track: track, downloadUrl: fromCoreData.fileUrl, duration: fromCoreData.duration, bitrate: fromCoreData.bitrate)
+        
+        return download
     }
     
     func deleteTrack(download: Download, completionHandler: @escaping (CustomError?) -> Void) {
