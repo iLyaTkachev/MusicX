@@ -9,7 +9,7 @@
 import UIKit
 
 protocol ChartViewInput: BaseViewInput, ActivityIndicator {
-    func updateList()
+    func updateList(paths: [IndexPath]?)
     func onError(message: String)
     func setType(type: MediaType)
 }

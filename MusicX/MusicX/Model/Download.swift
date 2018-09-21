@@ -1,11 +1,12 @@
 import Foundation
 
-struct Download: BaseMediaObject {
+class Download: BaseMediaObject {
     var name: String
     var track: Track
     var downloadUrl: String
     var duration: String
     var bitrate: String
+    var downloaded = false
     
     init(track: Track, downloadUrl: String, duration: String, bitrate: String) {
         self.track = track
@@ -21,5 +22,4 @@ struct Download: BaseMediaObject {
     var resumeData: Data?
     
     var progress: Float = 0
-    
 }

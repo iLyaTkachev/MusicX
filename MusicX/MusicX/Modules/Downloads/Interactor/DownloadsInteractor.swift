@@ -14,7 +14,9 @@ class DownloadsInteractor: DownloadsInteractorInput {
     var repository: MusicDataSource!
     
     func fetchTracks() {
-        repository.getTracks()
+        repository.getPlaylist(playlistName: "Downloads") { (playlist, error) in
+            
+        }
     }
     
     func deleteTrack(download: Download) {

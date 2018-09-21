@@ -59,15 +59,15 @@ final class MusicRemoteDataSource: MusicDataSource {
         }
     }
     
-    func getTracks() {
+    func getPlaylist(playlistName: String, completionHandler: @escaping (Playlist?, CustomError?) -> Void) {
         
     }
     
-    func deleteTrack(download: Download) {
+    func deleteTrack(download: Download, completionHandler: @escaping (CustomError?) -> Void) {
         
     }
     
-    func downloadTrack(download: Download) {
+    func downloadTrack(download: Download, completionHandler: @escaping (CustomError?) -> Void) {
         
     }
     

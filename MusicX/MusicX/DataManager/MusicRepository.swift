@@ -20,16 +20,16 @@ final class MusicRepository: MusicDataSource {
         remoteDataSource.searchMedia(type: type, name: name, page: page, completionHandler: completionHandler)
     }
     
-    func getTracks() {
+    func getPlaylist(playlistName: String, completionHandler: @escaping (Playlist?, CustomError?) -> Void) {
+        localDataSource.getPlaylist(playlistName: playlistName, completionHandler: completionHandler)
+    }
+    
+    func deleteTrack(download: Download, completionHandler: @escaping (CustomError?) -> Void) {
         
     }
     
-    func deleteTrack(download: Download) {
-        
-    }
-    
-    func downloadTrack(download: Download) {
-        localDataSource.downloadTrack(download: download)
+    func downloadTrack(download: Download, completionHandler: @escaping (CustomError?) -> Void) {
+        localDataSource.downloadTrack(download: download, completionHandler: completionHandler)
     }
     
     func getImage(withUrl: String, completionHandler: @escaping (UIImage?, Error?) -> Void) {

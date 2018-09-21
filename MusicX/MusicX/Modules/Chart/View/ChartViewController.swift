@@ -83,10 +83,17 @@ extension ChartViewController: ChartViewInput {
         showAlert(title: "Error", message: message)
     }
     
-    func updateList() {
+    func updateList(paths: [IndexPath]?) {
+        
         DispatchQueue.main.async {
-            self.tableVC.reloadData()
-            
+            if let indexes = paths {
+                self.tableVC.tableView.beginUpdates()
+                self.tableVC.tableView.insertRows(at: indexes, with: .automatic)
+                self.tableVC.tableView.endUpdates()
+            } else {
+                self.tableVC.reloadData()
+            }
+
             if self.refreshControl.isRefreshing {
                 self.refreshControl.endRefreshing()
             }

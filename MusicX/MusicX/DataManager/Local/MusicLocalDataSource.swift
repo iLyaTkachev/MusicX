@@ -17,17 +17,24 @@ class MusicLocalDataSource: MusicDataSource {
         
     }
     
-    func getTracks() {
+    func getPlaylist(playlistName: String, completionHandler: @escaping (Playlist?, CustomError?) -> Void) {
         let managedContext = coreDataManager.managedObjectContext
         managedContext.perform {
-            let fetchRequest = NSFetchRequest<Tracks>(entityName: "Tracks")
+            let fetchRequest = NSFetchRequest<Playlists>(entityName: "Playlists")
             
             print("Data requested")
             do {
                 let array = try managedContext.fetch(fetchRequest)
                 array.forEach { (object) in
-                    print("\(object.id)")
                     print("\(object.name)")
+                    let items = object.tracks?.array as! [Tracks]
+                    
+                    items.forEach({ (track) in
+                        print("\(track.name)")
+                    })
+                    
+                    
+                    
                 }
                 
                 
@@ -37,18 +44,19 @@ class MusicLocalDataSource: MusicDataSource {
         }
     }
     
-    func deleteTrack(download: Download) {
+    func deleteTrack(download: Download, completionHandler: @escaping (CustomError?) -> Void) {
         
     }
     
-    func downloadTrack(download: Download) {
+    func downloadTrack(download: Download, completionHandler: @escaping (CustomError?) -> Void) {
         coreDataManager.managedObjectContext.perform {
             let managedContext = self.coreDataManager.managedObjectContext
-
+            
             let track = download.track
             let artist = track.artist
             let artistToSave = Artists(context: managedContext)
             let trackToSave = Tracks(context: managedContext)
+            let playlistToSave = Playlists(context: managedContext)
             
             trackToSave.id = track.id
             trackToSave.name = track.name
@@ -59,6 +67,8 @@ class MusicLocalDataSource: MusicDataSource {
             artistToSave.id = artist.id
             artistToSave.name = artist.name
             artistToSave.addToTracks(trackToSave)
+            playlistToSave.name = "Downloads"
+            playlistToSave.addToTracks(trackToSave)
             
             do {
                 try managedContext.save()
@@ -67,9 +77,9 @@ class MusicLocalDataSource: MusicDataSource {
                 print("Could not save. \(error), \(error.userInfo)")
             }
             
-            /*self.getPlaylists(completionHandler: { (resp, error) in
+            self.getPlaylist(playlistName: "Downloads", completionHandler: { (playlist, error) in
                 
-            })*/
+            })
         }
     }
     

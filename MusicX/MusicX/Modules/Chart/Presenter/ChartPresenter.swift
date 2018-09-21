@@ -28,16 +28,24 @@ class ChartPresenter {
 extension ChartPresenter: ChartInteractorOutput {
     func didFetchWithSuccess(chart: BaseMediaResponse) {
         isLoading = false
-
+        print("\(chart.page)")
         if chart.type == requestedMediaType, !chart.items.isEmpty {
             if chart.page == 1, currentPage > 1, !items.isEmpty {
                 items.removeAll()
-            }
+                currentMediaType = requestedMediaType
+                currentPage = chart.page
+                items += chart.items
+                view.updateList(paths: nil)
+            } else {
+            let rowsCount = items.count
+            let newRows = chart.items.count
             
+            let paths = (rowsCount..<rowsCount + newRows).map{IndexPath(row: $0, section: 0)}
             currentMediaType = requestedMediaType
             currentPage = chart.page
             items += chart.items
-            view.updateList()
+            view.updateList(paths: paths)
+            }
         }
         
         view.hideActivityIndicator()
@@ -48,7 +56,7 @@ extension ChartPresenter: ChartInteractorOutput {
         view.onError(message: error.errorDesctiption())
         view.hideActivityIndicator()
         view.setType(type: currentMediaType)
-        view.updateList()
+        view.updateList(paths: nil)
     }
 }
 
@@ -60,7 +68,7 @@ extension ChartPresenter: ChartViewOutput {
         
         DispatchQueue.main.async {
             self.items.removeAll()
-            self.view.updateList()
+            self.view.updateList(paths: nil)
         }
         
         currentMediaType = type

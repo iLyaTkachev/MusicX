@@ -24,6 +24,8 @@ class SearchInteractor: SearchInteractorInput {
     }
     
     func downloadTrack(download: Download) {
-        repository.downloadTrack(download: download)
+        repository.downloadTrack(download: download) { (error) in
+            
+        }
     }
 }
