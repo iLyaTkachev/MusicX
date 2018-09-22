@@ -100,6 +100,7 @@
 		8C51600B214FA03F00D3B0EF /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8C516009214FA03F00D3B0EF /* DataModel.xcdatamodeld */; };
 		8C51600D2152454100D3B0EF /* PlaylistsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C51600C2152454100D3B0EF /* PlaylistsResponse.swift */; };
 		8C51600F21524A4E00D3B0EF /* Playlist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C51600E21524A4E00D3B0EF /* Playlist.swift */; };
+		8C5160112156565300D3B0EF /* ManagedObjectParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5160102156565300D3B0EF /* ManagedObjectParser.swift */; };
 		8C62D5402124662D00A78FD0 /* TypeButtonsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8C62D53F2124662D00A78FD0 /* TypeButtonsView.xib */; };
 		8C62D5422124680B00A78FD0 /* TypeButtonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C62D5412124680B00A78FD0 /* TypeButtonsView.swift */; };
 		8C62D54721257D7700A78FD0 /* TestViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C62D54621257D7700A78FD0 /* TestViewController.storyboard */; };
@@ -238,6 +239,7 @@
 		8C51600A214FA03F00D3B0EF /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
 		8C51600C2152454100D3B0EF /* PlaylistsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistsResponse.swift; sourceTree = "<group>"; };
 		8C51600E21524A4E00D3B0EF /* Playlist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Playlist.swift; sourceTree = "<group>"; };
+		8C5160102156565300D3B0EF /* ManagedObjectParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagedObjectParser.swift; sourceTree = "<group>"; };
 		8C62D53F2124662D00A78FD0 /* TypeButtonsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TypeButtonsView.xib; sourceTree = "<group>"; };
 		8C62D5412124680B00A78FD0 /* TypeButtonsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeButtonsView.swift; sourceTree = "<group>"; };
 		8C62D54621257D7700A78FD0 /* TestViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TestViewController.storyboard; sourceTree = "<group>"; };
@@ -392,6 +394,7 @@
 				8C516005214F9C1700D3B0EF /* CoreDataManager.swift */,
 				8C516007214F9C4E00D3B0EF /* BaseCoreDataManager.swift */,
 				8C516009214FA03F00D3B0EF /* DataModel.xcdatamodeld */,
+				8C5160102156565300D3B0EF /* ManagedObjectParser.swift */,
 			);
 			path = DB;
 			sourceTree = "<group>";
@@ -1302,6 +1305,7 @@
 				8C18E22D21071024005DAEE1 /* Artist.swift in Sources */,
 				8C41920421134291005D83FA /* TabBarContract.swift in Sources */,
 				8C1B81F62136A2440036ED88 /* ChartTagCell.swift in Sources */,
+				8C5160112156565300D3B0EF /* ManagedObjectParser.swift in Sources */,
 				8C419277211C376D005D83FA /* MusicDataSourceProtocol.swift in Sources */,
 				8C1B824521380A020036ED88 /* DownloadsPresenter.swift in Sources */,
 				8C51600D2152454100D3B0EF /* PlaylistsResponse.swift in Sources */,

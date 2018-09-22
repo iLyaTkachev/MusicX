@@ -10,10 +10,21 @@
             </uniquenessConstraint>
         </uniquenessConstraints>
     </entity>
-    <entity name="Downloads" representedClassName="Downloads" syncable="YES" codeGenerationType="class"/>
+    <entity name="Downloads" representedClassName="Downloads" syncable="YES" codeGenerationType="class">
+        <attribute name="bitrate" attributeType="String" syncable="YES"/>
+        <attribute name="duration" attributeType="String" syncable="YES"/>
+        <attribute name="fileUrl" attributeType="String" syncable="YES"/>
+        <relationship name="playlists" toMany="YES" deletionRule="Nullify" destinationEntity="Playlists" inverseName="downloads" inverseEntity="Playlists" syncable="YES"/>
+        <relationship name="track" maxCount="1" deletionRule="Nullify" destinationEntity="Tracks" inverseName="download" inverseEntity="Tracks" syncable="YES"/>
+        <uniquenessConstraints>
+            <uniquenessConstraint>
+                <constraint value="fileUrl"/>
+            </uniquenessConstraint>
+        </uniquenessConstraints>
+    </entity>
     <entity name="Playlists" representedClassName="Playlists" syncable="YES" codeGenerationType="class">
         <attribute name="name" attributeType="String" syncable="YES"/>
-        <relationship name="tracks" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Tracks" inverseName="playlists" inverseEntity="Tracks" syncable="YES"/>
+        <relationship name="downloads" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Downloads" inverseName="playlists" inverseEntity="Downloads" syncable="YES"/>
         <uniquenessConstraints>
             <uniquenessConstraint>
                 <constraint value="name"/>
@@ -21,23 +32,15 @@
         </uniquenessConstraints>
     </entity>
     <entity name="Tracks" representedClassName="Tracks" syncable="YES" codeGenerationType="class">
-        <attribute name="bitrate" attributeType="String" syncable="YES"/>
-        <attribute name="duration" attributeType="String" syncable="YES"/>
-        <attribute name="fileUrl" attributeType="String" syncable="YES"/>
         <attribute name="id" attributeType="String" syncable="YES"/>
         <attribute name="name" attributeType="String" syncable="YES"/>
         <relationship name="artist" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Artists" inverseName="tracks" inverseEntity="Artists" syncable="YES"/>
-        <relationship name="playlists" toMany="YES" deletionRule="Nullify" destinationEntity="Playlists" inverseName="tracks" inverseEntity="Playlists" syncable="YES"/>
-        <uniquenessConstraints>
-            <uniquenessConstraint>
-                <constraint value="id"/>
-            </uniquenessConstraint>
-        </uniquenessConstraints>
+        <relationship name="download" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Downloads" inverseName="track" inverseEntity="Downloads" syncable="YES"/>
     </entity>
     <elements>
         <element name="Artists" positionX="-54" positionY="9" width="128" height="90"/>
         <element name="Playlists" positionX="-36" positionY="18" width="128" height="75"/>
-        <element name="Tracks" positionX="-63" positionY="-18" width="128" height="150"/>
-        <element name="Downloads" positionX="0" positionY="90" width="128" height="45"/>
+        <element name="Tracks" positionX="-63" positionY="-18" width="128" height="105"/>
+        <element name="Downloads" positionX="0" positionY="90" width="128" height="120"/>
     </elements>
 </model>
