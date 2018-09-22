@@ -31,10 +31,7 @@ class MusicLocalDataSource: MusicDataSource {
                 if !array.isEmpty {
                     let fromStorage = array[0]
                     let playlist = self?.managedObjectParser.playlistParser(managedObject: fromStorage)
-                    playlist?.downloads?.forEach({ (download) in
-                        print(download.name)
-                    })
-                    print("\(playlist?.downloads)")
+
                     completionHandler(playlist, nil)
                 }
             } catch let error as NSError {
@@ -79,10 +76,6 @@ class MusicLocalDataSource: MusicDataSource {
             } catch let error as NSError {
                 print("Could not save. \(error), \(error.userInfo)")
             }
-            
-            /*self?.getPlaylist(playlistName: "Downloads", completionHandler: { (playlist, error) in
-                
-            })*/
         }
     }
     

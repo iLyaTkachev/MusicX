@@ -14,8 +14,12 @@ class DownloadsInteractor: DownloadsInteractorInput {
     var repository: MusicDataSource!
     
     func fetchTracks() {
-        repository.getPlaylist(playlistName: "Downloads") { (playlist, error) in
-            
+        repository.getPlaylist(playlistName: "Downloads") { [weak self] (response, error) in
+            if error != nil {
+                self?.output.didFetchWithFailure(error: error!)
+            } else if response != nil{
+                self?.output.didFetchWithSuccess(response: response!.downloads!)
+            }
         }
     }
     

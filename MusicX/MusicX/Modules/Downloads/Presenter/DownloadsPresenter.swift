@@ -45,16 +45,22 @@ extension DownloadsPresenter: DownloadsViewOutput {
     
     func viewIsReady() {
         view.setupInitialState()
+        interactor.fetchTracks()
     }
 }
 
 extension DownloadsPresenter: DownloadsInteractorOutput {
     func didFetchWithSuccess(response: [BaseMediaObject]) {
+        items = response
+        view.updateList()
         
+        if items.isEmpty {
+            view.onError(message: "No results")
+        }
     }
     
     func didFetchWithFailure(error: CustomError) {
-        
+        view.onError(message: "Error")
     }
     
     
