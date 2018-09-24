@@ -23,6 +23,7 @@ class MusicLocalDataSource: MusicDataSource {
         let managedContext = coreDataManager.managedObjectContext
         managedContext.perform { [weak self] () in
             let fetchRequest = NSFetchRequest<Playlists>(entityName: "Playlists")
+            
             let predicate = NSPredicate(format: "name == %@", playlistName)
             fetchRequest.predicate = predicate
             print("Data requested")
@@ -45,19 +46,91 @@ class MusicLocalDataSource: MusicDataSource {
         
     }
     
-    func downloadTrack(download: Download, completionHandler: @escaping (CustomError?) -> Void) {
-        coreDataManager.managedObjectContext.perform { [weak self] () in
-            guard let managedContext = self?.coreDataManager.managedObjectContext else {
-                return
+    func showAllCoreData() {
+        let managedContext = coreDataManager.managedObjectContext
+        managedContext.perform { [weak self] () in
+            let playlistFetchRequest = NSFetchRequest<Playlists>(entityName: "Playlists")
+            let downloadsFetchRequest = NSFetchRequest<Downloads>(entityName: "Downloads")
+            let tracksFetchRequest = NSFetchRequest<Tracks>(entityName: "Tracks")
+            let artistsFetchRequest = NSFetchRequest<Artists>(entityName: "Artists")
+            
+            do {
+                let pArray = try managedContext.fetch(playlistFetchRequest)
+                let dArray = try managedContext.fetch(downloadsFetchRequest)
+                let tArray = try managedContext.fetch(tracksFetchRequest)
+                let aArray = try managedContext.fetch(artistsFetchRequest)
+                
+                pArray.forEach({ (item) in
+                    let playlist = self?.managedObjectParser.playlistParser(managedObject: item)
+                    print("\(playlist?.name)")
+                })
+            } catch let error as NSError {
+                print("Could not fetch. \(error), \(error.userInfo)")
             }
+            
+        }
+    }
+    
+    private func getPlaylist(name: String, managedContext: NSManagedObjectContext) -> Playlists? {
+        var result: Playlists?
+        
+        managedContext.performAndWait { [weak self] () in
+            
+            let fetchRequest = NSFetchRequest<Playlists>(entityName: "Playlists")
+            let predicate = NSPredicate(format: "name == %@", name)
+            fetchRequest.predicate = predicate
+            
+            guard let response = try? managedContext.fetch(fetchRequest),
+                !response.isEmpty else {
+                    result = nil
+                    return
+            }
+            
+            result = response[0]
+        }
+        
+        return result
+    }
+    
+    private func createPlaylist(name: String, managedContext: NSManagedObjectContext) -> Playlists? {
+        var result: Playlists?
+        
+        managedContext.performAndWait { [weak self] () in
+            
+            let playlistToSave = Playlists(context: managedContext)
+            playlistToSave.name = name
+            
+            do {
+                try managedContext.save()
+                self?.coreDataManager.saveChanges()
+                result = playlistToSave
+            } catch let error as NSError {
+                print("Could not save. \(error), \(error.userInfo)")
+            }
+        }
+        
+        return result
+    }
+    
+    func downloadTrack(download: Download, completionHandler: @escaping (CustomError?) -> Void) {
+        let managedContext = coreDataManager.managedObjectContext
+        managedContext.perform { [weak self] () in
             
             let track = download.track
             let artist = track.artist
             let artistToSave = Artists(context: managedContext)
             let trackToSave = Tracks(context: managedContext)
             let downloadToSave = Downloads(context: managedContext)
-            let playlistToSave = Playlists(context: managedContext)
             
+            var playlistCD = self?.getPlaylist(name: "Downloads", managedContext: managedContext)
+            
+            if playlistCD == nil {
+                playlistCD = Playlists(context: managedContext)
+                playlistCD?.name = "Downloads"
+                //playlistCD = self?.createPlaylist(name: "Downloads", managedContext: managedContext)
+            }
+            
+            if let playlistToSave = playlistCD {
             trackToSave.id = track.id
             trackToSave.name = track.name
             artistToSave.id = artist.id
@@ -67,8 +140,8 @@ class MusicLocalDataSource: MusicDataSource {
             downloadToSave.fileUrl = download.downloadUrl
             downloadToSave.duration = download.duration
             downloadToSave.bitrate = download.bitrate
-            playlistToSave.name = "Downloads"
-            downloadToSave.addToPlaylists(playlistToSave)
+            //playlistToSave.name = "Downloads"
+            playlistToSave.addToDownloads(downloadToSave)
             
             do {
                 try managedContext.save()
@@ -76,8 +149,12 @@ class MusicLocalDataSource: MusicDataSource {
             } catch let error as NSError {
                 print("Could not save. \(error), \(error.userInfo)")
             }
+            
+            print("Show all core data")
+            self?.showAllCoreData()
         }
     }
+}
     
     func getImage(withUrl: String, completionHandler: @escaping (UIImage?, Error?) -> Void) {
         

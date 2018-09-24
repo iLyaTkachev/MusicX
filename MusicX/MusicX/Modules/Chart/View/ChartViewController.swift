@@ -104,6 +104,7 @@ extension ChartViewController: ChartViewInput {
         setupTableView()
         setupRefreshControl()
         setupTypeList()
+        setupActivityIndicator()
     }
 }
 

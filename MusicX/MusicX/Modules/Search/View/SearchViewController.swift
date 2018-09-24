@@ -68,6 +68,7 @@ extension SearchViewController: SearchViewInput {
     func setupInitialState() {
         setupSearchBar()
         setupTableView()
+        setupActivityIndicator()
     }
 }
 

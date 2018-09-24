@@ -18,6 +18,10 @@ class DownloadsPresenter {
 }
 
 extension DownloadsPresenter: DownloadsViewOutput {
+    func reloadData() {
+        interactor.fetchTracks()
+    }
+    
     var mediaCount: Int {
         return items.count
     }
@@ -45,7 +49,7 @@ extension DownloadsPresenter: DownloadsViewOutput {
     
     func viewIsReady() {
         view.setupInitialState()
-        interactor.fetchTracks()
+        //interactor.fetchTracks()
     }
 }
 
@@ -53,6 +57,7 @@ extension DownloadsPresenter: DownloadsInteractorOutput {
     func didFetchWithSuccess(response: [BaseMediaObject]) {
         items = response
         view.updateList()
+        view.hideActivityIndicator()
         
         if items.isEmpty {
             view.onError(message: "No results")
@@ -60,7 +65,8 @@ extension DownloadsPresenter: DownloadsInteractorOutput {
     }
     
     func didFetchWithFailure(error: CustomError) {
-        view.onError(message: "Error")
+        view.hideActivityIndicator()
+        view.onError(message: error.errorDesctiption())
     }
     
     

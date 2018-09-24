@@ -15,7 +15,7 @@
         <attribute name="duration" attributeType="String" syncable="YES"/>
         <attribute name="fileUrl" attributeType="String" syncable="YES"/>
         <relationship name="playlists" toMany="YES" deletionRule="Nullify" destinationEntity="Playlists" inverseName="downloads" inverseEntity="Playlists" syncable="YES"/>
-        <relationship name="track" maxCount="1" deletionRule="Nullify" destinationEntity="Tracks" inverseName="download" inverseEntity="Tracks" syncable="YES"/>
+        <relationship name="track" maxCount="1" deletionRule="Nullify" destinationEntity="Tracks" syncable="YES"/>
         <uniquenessConstraints>
             <uniquenessConstraint>
                 <constraint value="fileUrl"/>
@@ -35,12 +35,16 @@
         <attribute name="id" attributeType="String" syncable="YES"/>
         <attribute name="name" attributeType="String" syncable="YES"/>
         <relationship name="artist" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Artists" inverseName="tracks" inverseEntity="Artists" syncable="YES"/>
-        <relationship name="download" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Downloads" inverseName="track" inverseEntity="Downloads" syncable="YES"/>
+        <uniquenessConstraints>
+            <uniquenessConstraint>
+                <constraint value="id"/>
+            </uniquenessConstraint>
+        </uniquenessConstraints>
     </entity>
     <elements>
         <element name="Artists" positionX="-54" positionY="9" width="128" height="90"/>
-        <element name="Playlists" positionX="-36" positionY="18" width="128" height="75"/>
-        <element name="Tracks" positionX="-63" positionY="-18" width="128" height="105"/>
         <element name="Downloads" positionX="0" positionY="90" width="128" height="120"/>
+        <element name="Playlists" positionX="-36" positionY="18" width="128" height="75"/>
+        <element name="Tracks" positionX="-63" positionY="-18" width="128" height="90"/>
     </elements>
 </model>

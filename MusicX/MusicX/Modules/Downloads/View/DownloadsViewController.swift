@@ -18,12 +18,18 @@ class DownloadsViewController: UIViewController {
     var cellBuider: BaseCellBuilder!
     var tableVC: UniversalTableViewController!
     
+    var activityIndicator = UIActivityIndicatorView()
+    
     @IBOutlet weak var tableViewHolder: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.isNavigationBarHidden = true
+        //self.navigationController?.isNavigationBarHidden = true
         output.viewIsReady()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        output.reloadData()
     }
     
     func setupTableView() {
@@ -32,6 +38,7 @@ class DownloadsViewController: UIViewController {
         tableVC.delegateAndDataSource = self
         
         view.addSubview(tableVC.view)
+        self.tableVC.view.isHidden = true
         
         tableVC.registerCells(identifiers: [SearchTrackCell.identifier])
         
@@ -44,8 +51,9 @@ class DownloadsViewController: UIViewController {
 
 extension DownloadsViewController: DownloadsViewInput {
     func updateList() {
-        DispatchQueue.main.async {
-            self.tableVC.reloadData()
+        DispatchQueue.main.async { [weak self] () in
+            self?.tableVC.view.isHidden = false
+            self?.tableVC.reloadData()
         }
     }
     
@@ -55,6 +63,7 @@ extension DownloadsViewController: DownloadsViewInput {
     
     func setupInitialState() {
         setupTableView()
+        setupActivityIndicator()
     }
 }
 

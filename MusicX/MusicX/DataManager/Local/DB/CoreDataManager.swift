@@ -69,7 +69,6 @@ class CoreDataManager: BaseCoreDataManager {
     func privateChildManagedObjectContext() -> NSManagedObjectContext {
 
         let managedObjectContext = NSManagedObjectContext(concurrencyType: .privateQueueConcurrencyType)
-        managedObjectContext.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
         
         managedObjectContext.parent = mainManagedObjectContext
         

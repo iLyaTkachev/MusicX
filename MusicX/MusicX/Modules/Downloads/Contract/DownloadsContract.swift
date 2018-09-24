@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol DownloadsViewInput: BaseViewInput {
+protocol DownloadsViewInput: BaseViewInput, ActivityIndicator {
     func updateList()
     func onError(message: String)
 }
@@ -19,6 +19,7 @@ protocol DownloadsViewOutput: BaseViewOutput {
     func getMediaObject(forIndex: Int) -> BaseMediaObject?
     func cellClicked(index: Int)
     func deleteTrack(index: Int)
+    func reloadData()
 }
 
 protocol DownloadsInteractorInput: BaseInteractorInput {

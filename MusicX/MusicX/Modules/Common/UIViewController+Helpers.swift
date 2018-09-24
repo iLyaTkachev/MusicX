@@ -33,12 +33,14 @@ protocol ActivityIndicator {
 
 extension ActivityIndicator where Self: UIViewController {
     
-    func showActivityIndicator() {
+    func setupActivityIndicator() {
         activityIndicator.center = view.center
         activityIndicator.hidesWhenStopped = true
         activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.gray
         view.addSubview(activityIndicator)
-        
+    }
+    
+    func showActivityIndicator() {
         DispatchQueue.main.async {
             self.activityIndicator.startAnimating()
         }
