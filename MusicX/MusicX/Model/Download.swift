@@ -3,15 +3,19 @@ import Foundation
 class Download: BaseMediaObject {
     var name: String
     var track: Track
-    var downloadUrl: String
+    var fileUrl: String
     var duration: String
     var bitrate: String
     var downloaded = false
     
+    lazy var downloadUrl: URL? = {
+        return URL(string: fileUrl) ?? nil
+    }()
+    
     init(track: Track, downloadUrl: String, duration: String, bitrate: String) {
         self.track = track
         self.name = track.name
-        self.downloadUrl = downloadUrl
+        self.fileUrl = downloadUrl
         self.duration = duration
         self.bitrate = bitrate
     }

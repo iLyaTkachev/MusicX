@@ -9,16 +9,21 @@ class DownloadService {
     
     func startDownload(download: Download) {
         
-        if let url = URL(string: download.downloadUrl) {
+        guard let url = download.downloadUrl else {
+            return
+        }
+
             download.task = downloadsSession.downloadTask(with: url)
             download.task!.resume()
             download.isDownloading = true
             activeDownloads[url] = download
-        }
     }
     
-    /*func pauseDownload(_ track: Track) {
-        guard let download = activeDownloads[track.previewURL] else { return }
+    func pauseDownload(download: Download) {
+        guard let url = download.downloadUrl, let download = activeDownloads[url] else {
+            return
+        }
+        
         if download.isDownloading {
             download.task?.cancel(byProducingResumeData: { data in
                 download.resumeData = data
@@ -27,21 +32,25 @@ class DownloadService {
         }
     }
     
-    func cancelDownload(_ track: Track) {
-        if let download = activeDownloads[track.previewURL] {
+    func cancelDownload(download: Download) {
+        if let url = download.downloadUrl, let download = activeDownloads[url] {
             download.task?.cancel()
-            activeDownloads[track.previewURL] = nil
+            activeDownloads[url] = nil
         }
     }
     
-    func resumeDownload(_ track: Track) {
-        guard let download = activeDownloads[track.previewURL] else { return }
+    func resumeDownload(download: Download) {
+        guard let url = download.downloadUrl, let download = activeDownloads[url] else {
+            return
+        }
+        
         if let resumeData = download.resumeData {
             download.task = downloadsSession.downloadTask(withResumeData: resumeData)
         } else {
-            download.task = downloadsSession.downloadTask(with: download.track.previewURL)
+            download.task = downloadsSession.downloadTask(with: url)
         }
+        
         download.task!.resume()
         download.isDownloading = true
-    }*/
+    }
 }

@@ -46,7 +46,7 @@ class MusicLocalDataSource: MusicDataSource {
         let managedContext = coreDataManager.managedObjectContext
         managedContext.perform { [weak self] in
             let fetchRequest = NSFetchRequest<Downloads>(entityName: "Downloads")
-            let predicate = NSPredicate(format: "fileUrl == %@", download.downloadUrl)
+            let predicate = NSPredicate(format: "fileUrl == %@", download.fileUrl)
             fetchRequest.predicate = predicate
             
             do {
@@ -91,7 +91,7 @@ class MusicLocalDataSource: MusicDataSource {
                 dArray.forEach({ (item) in
                     print("Downloads ------------------")
                     let download = self?.managedObjectParser.downloadParser(managedObject: item)
-                    print("\(download?.downloadUrl)")
+                    print("\(download?.fileUrl)")
                 })
                 
                 tArray.forEach({ (item) in
@@ -178,7 +178,7 @@ class MusicLocalDataSource: MusicDataSource {
             artistToSave.name = artist.name
             artistToSave.addToTracks(trackToSave)
             downloadToSave.track = trackToSave
-            downloadToSave.fileUrl = download.downloadUrl
+            downloadToSave.fileUrl = download.fileUrl
             downloadToSave.duration = download.duration
             downloadToSave.bitrate = download.bitrate
             //playlistToSave.name = "Downloads"
