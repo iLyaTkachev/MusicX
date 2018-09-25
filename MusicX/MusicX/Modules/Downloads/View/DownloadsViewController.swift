@@ -59,8 +59,7 @@ extension DownloadsViewController: DownloadsViewInput {
     }
     
     func deleteRow(atIndex: IndexPath) {
-        //Loading.dismiss(true)
-        
+
         DispatchQueue.main.async {
             Loading.success()
             
@@ -70,12 +69,7 @@ extension DownloadsViewController: DownloadsViewInput {
         }
     }
     
-    func onError(message: String) {
-        //Loading.dismiss(false)
-        DispatchQueue.main.async {
-            Loading.failure()
-        }
-        
+    func onError(message: String) {        
         showAlert(title: "Error", message: message)
     }
     

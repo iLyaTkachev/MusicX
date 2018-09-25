@@ -75,6 +75,10 @@ extension DownloadsPresenter: DownloadsInteractorOutput {
     func didDeleteWithSuccess() {
         items.remove(at: indexPathToDelete.row)
         view.deleteRow(atIndex: indexPathToDelete)
+        
+        if items.isEmpty {
+            view.showEmptyLabel()
+        }
     }
     
     func didDeleteWithFailure(error: CustomError) {
