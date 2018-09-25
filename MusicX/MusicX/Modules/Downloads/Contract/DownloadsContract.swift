@@ -10,7 +10,9 @@ import Foundation
 
 protocol DownloadsViewInput: BaseViewInput, ActivityIndicator {
     func updateList()
+    func deleteRow(atIndex: IndexPath)
     func onError(message: String)
+    func showEmptyLabel()
 }
 
 protocol DownloadsViewOutput: BaseViewOutput {
@@ -18,16 +20,18 @@ protocol DownloadsViewOutput: BaseViewOutput {
     var cellIdentifier: String { get }
     func getMediaObject(forIndex: Int) -> BaseMediaObject?
     func cellClicked(index: Int)
-    func deleteTrack(index: Int)
+    func deleteTrack(index: IndexPath)
     func reloadData()
 }
 
 protocol DownloadsInteractorInput: BaseInteractorInput {
-    func fetchTracks()
-    func deleteTrack(download: Download)
+    func fetchDownloads()
+    func deleteDownload(download: BaseMediaObject)
 }
 
 protocol DownloadsInteractorOutput: BaseInteractorOutput {
+    func didDeleteWithSuccess()
+    func didDeleteWithFailure(error: CustomError)
     func didFetchWithSuccess(response: [BaseMediaObject])
     func didFetchWithFailure(error: CustomError)
 }

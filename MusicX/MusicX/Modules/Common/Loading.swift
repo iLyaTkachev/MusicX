@@ -11,11 +11,11 @@ class Loading {
     }
     
     static func success() {
-        HUD.flash(.success, delay: 1)
+        HUD.flash(.success, delay: 0.1)
     }
     
     static func failure() {
-        HUD.flash(.error, delay: 1)
+        HUD.flash(.error, delay: 0.1)
     }
     
     static func dismiss(_ isSuccess: Bool) {

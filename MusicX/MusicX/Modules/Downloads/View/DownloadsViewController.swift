@@ -24,7 +24,6 @@ class DownloadsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //self.navigationController?.isNavigationBarHidden = true
         output.viewIsReady()
     }
     
@@ -36,6 +35,7 @@ class DownloadsViewController: UIViewController {
         cellBuider = SearchCellBuilder()
         tableVC = UniversalTableViewController()
         tableVC.delegateAndDataSource = self
+        tableVC.swipeActionsDelegate = self
         
         view.addSubview(tableVC.view)
         self.tableVC.view.isHidden = true
@@ -50,6 +50,7 @@ class DownloadsViewController: UIViewController {
 }
 
 extension DownloadsViewController: DownloadsViewInput {
+
     func updateList() {
         DispatchQueue.main.async { [weak self] () in
             self?.tableVC.view.isHidden = false
@@ -57,8 +58,31 @@ extension DownloadsViewController: DownloadsViewInput {
         }
     }
     
+    func deleteRow(atIndex: IndexPath) {
+        //Loading.dismiss(true)
+        
+        DispatchQueue.main.async {
+            Loading.success()
+            
+            self.tableVC.tableView.beginUpdates()
+            self.tableVC.tableView.deleteRows(at: [atIndex], with: .automatic)
+            self.tableVC.tableView.endUpdates()
+        }
+    }
+    
     func onError(message: String) {
+        //Loading.dismiss(false)
+        DispatchQueue.main.async {
+            Loading.failure()
+        }
+        
         showAlert(title: "Error", message: message)
+    }
+    
+    func showEmptyLabel() {
+        DispatchQueue.main.async {
+            self.tableVC.view.isHidden = true
+        }
     }
     
     func setupInitialState() {
@@ -87,5 +111,17 @@ extension DownloadsViewController: TableViewDataSourceAndRowsCount {
     
     func cellClicked(index: Int) {
         print("Cell clicked")
+    }
+}
+
+extension DownloadsViewController: TableViewSwipeActions {
+    func setRowActions() -> [UITableViewRowAction]? {
+        
+        let more = UITableViewRowAction(style: .default, title: "Delete") { [weak self] action, index in
+            //Loading.show()
+            self?.output.deleteTrack(index: index)
+        }
+    
+        return [more]
     }
 }

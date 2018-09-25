@@ -25,7 +25,7 @@ final class MusicRepository: MusicDataSource {
     }
     
     func deleteTrack(download: Download, completionHandler: @escaping (CustomError?) -> Void) {
-        
+        localDataSource.deleteTrack(download: download, completionHandler: completionHandler)
     }
     
     func downloadTrack(download: Download, completionHandler: @escaping (CustomError?) -> Void) {

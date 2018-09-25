@@ -23,6 +23,10 @@ protocol TableViewScrolling: class {
     func scrollUp()
 }
 
+protocol TableViewSwipeActions: class {
+    func setRowActions() -> [UITableViewRowAction]?
+}
+
 protocol UniversalTableViewInput {
     func reloadData()
     func registerCells(identifiers: [String])
@@ -35,6 +39,21 @@ class UniversalTableViewController: UIViewController {
     weak var delegateAndDataSource: TableViewDataSourceAndRowsCount?
     weak var paginationDelegate: TableViewPagination?
     weak var scrollingDelegate: TableViewScrolling?
+    weak var swipeActionsDelegate: TableViewSwipeActions? {
+        didSet {
+            rowActions = swipeActionsDelegate?.setRowActions()
+        }
+    }
+    
+    var rowActions: [UITableViewRowAction]? {
+        didSet {
+            if rowActions != nil {
+                editable = true
+            }
+        }
+    }
+    
+    var editable = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,6 +74,13 @@ class UniversalTableViewController: UIViewController {
         }
     }
 
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        return rowActions
+    }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return editable
+    }
 }
 
 extension UniversalTableViewController: UniversalTableViewInput {

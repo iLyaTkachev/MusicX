@@ -15,11 +15,13 @@ class DownloadsPresenter {
     var router: DownloadsRouterInput!
     
     private var items: [BaseMediaObject] = []
+    
+    var indexPathToDelete = IndexPath(row: 0, section: 0)
 }
 
 extension DownloadsPresenter: DownloadsViewOutput {
     func reloadData() {
-        interactor.fetchTracks()
+        interactor.fetchDownloads()
     }
     
     var mediaCount: Int {
@@ -43,24 +45,25 @@ extension DownloadsPresenter: DownloadsViewOutput {
         
     }
     
-    func deleteTrack(index: Int) {
-        
+    func deleteTrack(index: IndexPath) {
+        indexPathToDelete = index
+        interactor.deleteDownload(download: items[indexPathToDelete.row])
     }
     
     func viewIsReady() {
         view.setupInitialState()
-        //interactor.fetchTracks()
     }
 }
 
 extension DownloadsPresenter: DownloadsInteractorOutput {
+    
     func didFetchWithSuccess(response: [BaseMediaObject]) {
         items = response
         view.updateList()
         view.hideActivityIndicator()
         
         if items.isEmpty {
-            view.onError(message: "No results")
+            view.showEmptyLabel()
         }
     }
     
@@ -69,5 +72,12 @@ extension DownloadsPresenter: DownloadsInteractorOutput {
         view.onError(message: error.errorDesctiption())
     }
     
+    func didDeleteWithSuccess() {
+        items.remove(at: indexPathToDelete.row)
+        view.deleteRow(atIndex: indexPathToDelete)
+    }
     
+    func didDeleteWithFailure(error: CustomError) {
+        view.onError(message: error.errorDesctiption())
+    }
 }

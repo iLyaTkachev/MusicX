@@ -3,7 +3,7 @@
     <entity name="Artists" representedClassName="Artists" syncable="YES" codeGenerationType="class">
         <attribute name="id" attributeType="String" syncable="YES"/>
         <attribute name="name" attributeType="String" syncable="YES"/>
-        <relationship name="tracks" toMany="YES" deletionRule="Nullify" destinationEntity="Tracks" inverseName="artist" inverseEntity="Tracks" syncable="YES"/>
+        <relationship name="tracks" toMany="YES" deletionRule="Deny" destinationEntity="Tracks" inverseName="artist" inverseEntity="Tracks" syncable="YES"/>
         <uniquenessConstraints>
             <uniquenessConstraint>
                 <constraint value="id"/>
@@ -15,7 +15,7 @@
         <attribute name="duration" attributeType="String" syncable="YES"/>
         <attribute name="fileUrl" attributeType="String" syncable="YES"/>
         <relationship name="playlists" toMany="YES" deletionRule="Nullify" destinationEntity="Playlists" inverseName="downloads" inverseEntity="Playlists" syncable="YES"/>
-        <relationship name="track" maxCount="1" deletionRule="Nullify" destinationEntity="Tracks" syncable="YES"/>
+        <relationship name="track" maxCount="1" deletionRule="Cascade" destinationEntity="Tracks" syncable="YES"/>
         <uniquenessConstraints>
             <uniquenessConstraint>
                 <constraint value="fileUrl"/>

@@ -13,7 +13,7 @@ class DownloadsInteractor: DownloadsInteractorInput {
     weak var output: DownloadsInteractorOutput!
     var repository: MusicDataSource!
     
-    func fetchTracks() {
+    func fetchDownloads() {
         repository.getPlaylist(playlistName: "Downloads") { [weak self] (response, error) in
             if error != nil {
                 self?.output.didFetchWithFailure(error: error!)
@@ -23,7 +23,18 @@ class DownloadsInteractor: DownloadsInteractorInput {
         }
     }
     
-    func deleteTrack(download: Download) {
+    func deleteDownload(download: BaseMediaObject) {
+        guard let download = download as? Download else {
+            return
+        }
         
+        repository.deleteTrack(download: download) { [weak self] (error) in
+            guard let errorToShow = error else {
+                self?.output.didDeleteWithSuccess()
+                return
+            }
+            
+            self?.output.didDeleteWithFailure(error: errorToShow)
+        }
     }
 }

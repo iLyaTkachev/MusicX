@@ -43,7 +43,29 @@ class MusicLocalDataSource: MusicDataSource {
     }
     
     func deleteTrack(download: Download, completionHandler: @escaping (CustomError?) -> Void) {
-        
+        let managedContext = coreDataManager.managedObjectContext
+        managedContext.perform { [weak self] in
+            let fetchRequest = NSFetchRequest<Downloads>(entityName: "Downloads")
+            let predicate = NSPredicate(format: "fileUrl == %@", download.downloadUrl)
+            fetchRequest.predicate = predicate
+            
+            do {
+                let result = try managedContext.fetch(fetchRequest)
+                
+                if !result.isEmpty {
+                    managedContext.delete(result[0])
+                    try managedContext.save()
+                    self?.coreDataManager.saveChanges()
+                }
+            } catch let error as NSError {
+                print("Could not fetch. \(error), \(error.userInfo)")
+                completionHandler(CustomError.localDataError)
+                return
+            }
+            
+            completionHandler(nil)
+            self?.showAllCoreData()
+        }
     }
     
     func showAllCoreData() {
@@ -61,8 +83,27 @@ class MusicLocalDataSource: MusicDataSource {
                 let aArray = try managedContext.fetch(artistsFetchRequest)
                 
                 pArray.forEach({ (item) in
+                    print("Playlists ------------------")
                     let playlist = self?.managedObjectParser.playlistParser(managedObject: item)
                     print("\(playlist?.name)")
+                })
+                
+                dArray.forEach({ (item) in
+                    print("Downloads ------------------")
+                    let download = self?.managedObjectParser.downloadParser(managedObject: item)
+                    print("\(download?.downloadUrl)")
+                })
+                
+                tArray.forEach({ (item) in
+                    print("Tracks ------------------")
+                    let track = self?.managedObjectParser.trackParser(managedObject: item)
+                    print("\(track?.name)")
+                })
+                
+                aArray.forEach({ (item) in
+                    print("Artists ------------------")
+                    let artist = self?.managedObjectParser.artistParser(managedObject: item)
+                    print("\(artist?.name)")
                 })
             } catch let error as NSError {
                 print("Could not fetch. \(error), \(error.userInfo)")
@@ -149,8 +190,6 @@ class MusicLocalDataSource: MusicDataSource {
             } catch let error as NSError {
                 print("Could not save. \(error), \(error.userInfo)")
             }
-            
-            print("Show all core data")
             self?.showAllCoreData()
         }
     }
